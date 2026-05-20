@@ -727,14 +727,6 @@
     <input type="password" id="apiKey" placeholder="sk-ant-api03-..." oninput="checkApiKey()">
     <div class="api-status" id="apiStatus"></div>
   </div>
-  <script>
-    // API key embutida
-    document.addEventListener('DOMContentLoaded', () => {
-      const inp = document.getElementById('apiKey');
-      if (inp) inp.value = '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';
-      document.getElementById('apiStatus').className = 'api-status ok';
-    });
-  </script>
 
   <!-- Stats -->
   <div class="stats">
@@ -871,27 +863,44 @@ function generateCandidateCode(nome, seqNum) {
 }
 
 // ── DRAG & DROP ──────────────────────────────────────────────
-const dropzone = document.getElementById('dropzone');
-const fileInput = document.getElementById('fileInput');
+let dropzone, fileInput;
 
-// Prevent browser default for drag events on whole page
-document.addEventListener('dragover', e => e.preventDefault());
-document.addEventListener('drop', e => e.preventDefault());
+window.addEventListener('DOMContentLoaded', () => {
+  dropzone = document.getElementById('dropzone');
+  fileInput = document.getElementById('fileInput');
 
-// Dropzone specific handlers
-dropzone.addEventListener('dragenter', e => { e.preventDefault(); e.stopPropagation(); dropzone.classList.add('drag-over'); });
-dropzone.addEventListener('dragover',  e => { e.preventDefault(); e.stopPropagation(); dropzone.classList.add('drag-over'); });
-dropzone.addEventListener('dragleave', e => { e.stopPropagation(); dropzone.classList.remove('drag-over'); });
-dropzone.addEventListener('drop', e => {
-  e.preventDefault();
-  e.stopPropagation();
-  dropzone.classList.remove('drag-over');
-  const dropped = e.dataTransfer.files;
-  if (dropped && dropped.length > 0) addFiles([...dropped]);
-});
-fileInput.addEventListener('change', e => {
-  if (e.target.files && e.target.files.length > 0) addFiles([...e.target.files]);
-  e.target.value = ''; // reset so same files can be re-added
+  // Set embedded API key
+  fileInput.value = '';
+
+  // File input change
+  fileInput.addEventListener('change', function() {
+    const chosen = Array.from(this.files);
+    if (chosen.length > 0) {
+      addFiles(chosen);
+    }
+    this.value = '';
+  });
+
+  // Drag and drop
+  document.addEventListener('dragover', e => e.preventDefault());
+  document.addEventListener('drop', e => e.preventDefault());
+
+  dropzone.addEventListener('dragenter', e => { e.preventDefault(); e.stopPropagation(); dropzone.classList.add('drag-over'); });
+  dropzone.addEventListener('dragover',  e => { e.preventDefault(); e.stopPropagation(); dropzone.classList.add('drag-over'); });
+  dropzone.addEventListener('dragleave', e => { e.stopPropagation(); dropzone.classList.remove('drag-over'); });
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.classList.remove('drag-over');
+    const dropped = Array.from(e.dataTransfer.files);
+    if (dropped.length > 0) addFiles(dropped);
+  });
+
+  // Init API key
+  const inp = document.getElementById('apiKey');
+  if (inp) inp.value = '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';
+  const st = document.getElementById('apiStatus');
+  if (st) st.className = 'api-status ok';
 });
 
 function addFiles(newFiles) {
