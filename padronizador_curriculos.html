@@ -308,11 +308,19 @@ async function apiCall(payload) {
   const key = getKey();
   if (!key) throw new Error('Cole sua chave API no campo acima');
   const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method:'POST',
-    headers:{ 'Content-Type':'application/json', 'x-api-key':key, 'anthropic-version':'2023-06-01', 'anthropic-dangerous-direct-browser-access':'true' },
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': key,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
     body: JSON.stringify(payload)
   });
-  if (!r.ok) { const e=await r.json().catch(()=>({})); throw new Error(e.error?.message||'API Error '+r.status); }
+  if (!r.ok) {
+    const e = await r.json().catch(() => ({}));
+    throw new Error(e.error?.message || 'API Error ' + r.status);
+  }
   return r.json();
 }
 
@@ -328,7 +336,7 @@ Estrutura:
     content=[{type:'text',text:`Arquivo Word não pode ser lido diretamente. Retorne: {"nome":"Converter para PDF","titulo_profissional":"Por favor converta este arquivo Word para PDF e tente novamente","email":"","telefone":"","localizacao":"","resumo_profissional":"Arquivo Word não suportado diretamente. Converta para PDF.","experiencias":[],"formacao":[],"habilidades":[],"idiomas":[],"certificacoes":[]}`}];
   }
 
-  const data = await apiCall({model:'claude-sonnet-4-20250514',max_tokens:2000,system:sys,messages:[{role:'user',content}]});
+  const data = await apiCall({model:'claude-sonnet-4-6',max_tokens:2000,system:sys,messages:[{role:'user',content}]});
   const txt = data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
   return JSON.parse(txt);
 }
@@ -420,7 +428,7 @@ async function runAnalysis(){
 [{"codigo":"","score_total":85,"nivel":"alto","titulo_profissional":"","pontos_fortes":["",""],"pontos_fracos":[""],"justificativa":""}]
 nivel: "alto"(70-100), "medio"(45-69), "baixo"(0-44). Ordene do maior para o menor score.`;
 
-    const data=await apiCall({model:'claude-sonnet-4-20250514',max_tokens:3000,system:sys,messages:[{role:'user',content:`REQUISITOS:\n${reqs}\n\n===\n\nCURRÍCULOS:\n${summaries}`}]});
+    const data=await apiCall({model:'claude-sonnet-4-6',max_tokens:3000,system:sys,messages:[{role:'user',content:`REQUISITOS:\n${reqs}\n\n===\n\nCURRÍCULOS:\n${summaries}`}]});
     const txt=data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
     const ranking=JSON.parse(txt);
     window._ranking=ranking; window._reqs=reqs;
