@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padronizador de Currículos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #0D0D14;
+    --surface: #15151F;
+    --surface2: #1C1C2A;
+    --border: #2A2A3D;
+    --accent: #6C63FF;
+    --accent2: #FF6584;
+    --text: #E8E8F0;
+    --muted: #6B6B8A;
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --error: #EF4444;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background glow */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -20%;
+    right: -10%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(ellipse, rgba(255,101,132,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(108,99,255,0.15);
+    border: 1px solid rgba(108,99,255,0.3);
+    color: #A09CFF;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #E8E8F0 0%, #A09CFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* API Key */
+  .api-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .api-section label {
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .api-section input {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .api-section input:focus {
+    border-color: var(--accent);
+  }
+  .api-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+    transition: background 0.3s;
+  }
+  .api-status.ok { background: var(--success); }
+
+  /* Drop zone */
+  .dropzone {
+    border: 2px dashed var(--border);
+    border-radius: 20px;
+    padding: 56px 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--surface);
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .dropzone:hover, .dropzone.drag-over {
+    border-color: var(--accent);
+    background: rgba(108,99,255,0.05);
+  }
+  .dropzone input[type=file] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+  .drop-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .dropzone h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .dropzone p {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .dropzone .formats {
+    display: inline-flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .format-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* File list */
+  .file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .file-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.2s;
+  }
+  .file-item.processing { border-color: rgba(108,99,255,0.4); }
+  .file-item.done { border-color: rgba(34,197,94,0.4); }
+  .file-item.error { border-color: rgba(239,68,68,0.3); }
+
+  .file-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .file-icon.pdf { background: rgba(239,68,68,0.15); }
+  .file-icon.docx { background: rgba(59,130,246,0.15); }
+
+  .file-info { flex: 1; min-width: 0; }
+  .file-name {
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .file-status {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .file-status.processing { color: var(--accent); }
+  .file-status.done { color: var(--success); }
+  .file-status.error { color: var(--error); }
+
+  .file-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+  .btn-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.15s;
+  }
+  .btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-icon.download {
+    border-color: rgba(34,197,94,0.3);
+    color: var(--success);
+    background: rgba(34,197,94,0.08);
+  }
+  .btn-icon.download:hover { background: rgba(34,197,94,0.15); }
+
+  /* Progress */
+  .progress-bar {
+    height: 3px;
+    background: var(--surface2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 4px;
+    display: none;
+  }
+  .progress-bar.show { display: block; }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.3s ease;
+    animation: shimmer 1.5s infinite;
+  }
+  @keyframes shimmer {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    flex: 1;
+  }
+  .btn-primary:hover { background: #5A52E8; transform: translateY(-1px); }
+  .btn-primary:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; transform: none; }
+  .btn-secondary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-secondary:hover { border-color: var(--accent); }
+
+  /* Stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+  }
+  .stat-number.total { color: var(--text); }
+  .stat-number.done { color: var(--success); }
+  .stat-number.error { color: var(--error); }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+
+  /* Download all */
+  .download-all {
+    text-align: center;
+    margin-top: 24px;
+    display: none;
+  }
+  .download-all.show { display: block; }
+  .btn-download-all {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    padding: 14px 32px;
+    font-size: 15px;
+  }
+  .btn-download-all:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(108,99,255,0.3); }
+
+  .file-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+  .seq-badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 5px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+  .code-badge {
+    background: rgba(108,99,255,0.15);
+    border: 1px solid rgba(108,99,255,0.35);
+    color: #A09CFF;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+  }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 20px;
+    display: none;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hidden { display: none; }
+
+  /* Toast */
+  #toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13px;
+    z-index: 999;
+    display: none;
+    animation: slideUp 0.3s ease;
+  }
+  @keyframes slideUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ── ANALYSIS SECTION ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0 28px;
+  }
+  .section-divider::before, .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-divider-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(108,99,255,0.12);
+    border: 1px solid rgba(108,99,255,0.25);
+    color: #A09CFF;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .analysis-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .analysis-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .analysis-section .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .job-textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    resize: vertical;
+    min-height: 160px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .job-textarea:focus { border-color: var(--accent); }
+  .job-textarea::placeholder { color: var(--muted); }
+
+  .analyze-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .char-count {
+    font-size: 11px;
+    color: var(--muted);
+    flex: 1;
+  }
+  .btn-analyze {
+    background: linear-gradient(135deg, #6C63FF, #E94560);
+    color: white;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-analyze:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(108,99,255,0.3); }
+  .btn-analyze:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  /* Ranking */
+  .ranking-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .ranking-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+  }
+  .ranking-meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .rank-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s, transform 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .rank-card:hover { border-color: rgba(108,99,255,0.4); transform: translateX(3px); }
+  .rank-card.top1 { border-color: rgba(255,193,7,0.5); background: linear-gradient(135deg, rgba(255,193,7,0.04), var(--surface2)); }
+  .rank-card.top2 { border-color: rgba(192,192,192,0.4); }
+  .rank-card.top3 { border-color: rgba(205,127,50,0.4); }
+
+  .rank-position {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    opacity: 0.12;
+    line-height: 1;
+  }
+
+  .rank-top-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .rank-medal { font-size: 22px; flex-shrink: 0; }
+  .rank-code {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .rank-jobtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+  .rank-score-pill {
+    margin-left: auto;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .score-high { background: rgba(34,197,94,0.15); color: #4ADE80; border: 1px solid rgba(34,197,94,0.3); }
+  .score-mid  { background: rgba(245,158,11,0.15); color: #FCD34D; border: 1px solid rgba(245,158,11,0.3); }
+  .score-low  { background: rgba(239,68,68,0.12);  color: #F87171; border: 1px solid rgba(239,68,68,0.25); }
+
+  .score-bar-wrap {
+    background: var(--surface);
+    border-radius: 6px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1s cubic-bezier(.4,0,.2,1);
+  }
+  .fill-high { background: linear-gradient(90deg, #22C55E, #4ADE80); }
+  .fill-mid  { background: linear-gradient(90deg, #F59E0B, #FCD34D); }
+  .fill-low  { background: linear-gradient(90deg, #EF4444, #F87171); }
+
+  .rank-dimensions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .dim-tag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .dim-tag .dim-label { color: var(--muted); }
+  .dim-tag .dim-val { color: var(--text); font-weight: 700; }
+
+  .rank-summary {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+  .rank-pontos {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .ponto-group { flex: 1; }
+  .ponto-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .ponto-title.pos { color: #4ADE80; }
+  .ponto-title.neg { color: #F87171; }
+  .ponto-item {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.55;
+    padding-left: 10px;
+    position: relative;
+  }
+  .ponto-item::before { content: '•'; position: absolute; left: 0; }
+  .ponto-item.pos::before { color: #4ADE80; }
+  .ponto-item.neg::before { color: #F87171; }
+
+  .ranking-analyzing {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+  }
+  .analyzing-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto 16px;
+  }
+  .analyzing-msg { font-size: 14px; margin-bottom: 4px; color: var(--text); }
+  .analyzing-sub { font-size: 12px; }
+
+  .export-ranking-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px;
+    margin-top: 20px;
+    background: var(--surface2);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .export-ranking-btn:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-badge">✦ Powered by Claude AI</div>
+    <h1>Padronizador<br>de Currículos</h1>
+    <p>Faça upload de até 40 currículos em PDF ou Word e receba todos no mesmo formato profissional.</p>
+  </div>
+
+  <!-- API Key (embutida no código) -->
+  <div class="api-section" style="display:none">
+    <label>🔑 API Key Anthropic</label>
+    <input type="password" id="apiKey" placeholder="sk-ant-api03-..." oninput="checkApiKey()">
+    <div class="api-status" id="apiStatus"></div>
+  </div>
+  <script>
+    // API key embutida
+    document.addEventListener('DOMContentLoaded', () => {
+      const inp = document.getElementById('apiKey');
+      if (inp) inp.value = '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';
+      document.getElementById('apiStatus').className = 'api-status ok';
+    });
+  </script>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-number total" id="statTotal">0</div>
+      <div class="stat-label">Arquivos</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number done" id="statDone">0</div>
+      <div class="stat-label">Concluídos</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number error" id="statError">0</div>
+      <div class="stat-label">Erros</div>
+    </div>
+  </div>
+
+  <!-- Drop zone -->
+  <div class="dropzone" id="dropzone">
+    <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx">
+    <span class="drop-icon">📄</span>
+    <h3>Arraste os currículos aqui</h3>
+    <p>ou clique para selecionar arquivos</p>
+    <div class="formats">
+      <span class="format-tag">PDF</span>
+      <span class="format-tag">DOCX</span>
+      <span class="format-tag">DOC</span>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="btn btn-secondary" onclick="clearAll()">🗑 Limpar</button>
+    <button class="btn btn-primary" id="processBtn" onclick="processAll()" disabled>
+      <span id="processBtnText">⚡ Processar Currículos</span>
+    </button>
+  </div>
+
+  <!-- File list -->
+  <div class="file-list" id="fileList"></div>
+  <div class="empty-state" id="emptyState">Nenhum arquivo adicionado ainda.</div>
+
+  <!-- Download all -->
+  <div class="download-all" id="downloadAllSection">
+    <button class="btn btn-download-all" onclick="downloadAll()">
+      ⬇ Baixar Todos os PDFs Padronizados
+    </button>
+  </div>
+
+  <!-- ── ETAPA 2: ANÁLISE DE ADERÊNCIA ── -->
+  <div id="analysisArea" style="display:none">
+    <div class="section-divider">
+      <div class="section-divider-label">⚡ Etapa 2 — Análise de Aderência</div>
+    </div>
+
+    <div class="analysis-section">
+      <h2>Requisitos do Cargo</h2>
+      <p class="subtitle">Descreva o cargo, as competências exigidas, diferenciais desejados e qualquer outro critério de avaliação. Quanto mais detalhado, mais precisa será a análise.</p>
+      <textarea
+        class="job-textarea"
+        id="jobRequirements"
+        placeholder="Exemplo:&#10;Cargo: Analista de Dados Sênior&#10;&#10;Requisitos obrigatórios:&#10;- Graduação em Estatística, Ciência da Computação ou áreas afins&#10;- Experiência mínima de 4 anos com análise de dados&#10;- Domínio de Python e SQL&#10;- Experiência com ferramentas de BI (Power BI, Tableau)&#10;&#10;Diferenciais:&#10;- Pós-graduação ou MBA&#10;- Experiência com machine learning&#10;- Inglês avançado&#10;&#10;Competências comportamentais:&#10;- Pensamento analítico&#10;- Comunicação clara de insights para não-técnicos"
+        oninput="updateCharCount()"
+      ></textarea>
+      <div class="analyze-controls">
+        <span class="char-count" id="charCount">0 caracteres</span>
+        <button class="btn-analyze" id="analyzeBtn" onclick="runAnalysis()" disabled>
+          🔍 Analisar e Ranquear Candidatos
+        </button>
+      </div>
+    </div>
+
+    <!-- Ranking Result -->
+    <div id="rankingResult" style="display:none">
+      <div class="ranking-header">
+        <h3>🏆 Ranking de Aderência</h3>
+        <span class="ranking-meta" id="rankingMeta"></span>
+      </div>
+      <div id="rankingList"></div>
+      <button class="export-ranking-btn" onclick="exportRanking()">
+        📋 Exportar Ranking em PDF
+      </button>
+    </div>
+
+    <div id="rankingAnalyzing" style="display:none">
+      <div class="ranking-analyzing">
+        <div class="analyzing-spinner"></div>
+        <div class="analyzing-msg" id="analyzingMsg">Analisando currículos...</div>
+        <div class="analyzing-sub" id="analyzingSub">Comparando perfis com os requisitos do cargo</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const files = new Map(); // id -> {file, status, pdfBlob, name, seqNum, candidateCode}
+let idCounter = 0;
+let seqCounter = 0; // global sequential number across all batches
+
+// Generate candidate code: initials + zero-padded number  e.g. "JDS-001"
+function generateCandidateCode(nome, seqNum) {
+  const parts = (nome || '').trim().split(/\s+/).filter(Boolean);
+  let initials = '';
+  if (parts.length === 1) {
+    initials = parts[0].substring(0, 3).toUpperCase();
+  } else {
+    // Take first letter of first, middle (if any) and last name
+    initials += parts[0][0];
+    if (parts.length > 2) initials += parts[Math.floor(parts.length / 2)][0];
+    initials += parts[parts.length - 1][0];
+    initials = initials.toUpperCase();
+  }
+  // Remove accents/special chars
+  initials = initials.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Z]/g, '');
+  if (!initials) initials = 'CV';
+  return `${initials}-${String(seqNum).padStart(3, '0')}`;
+}
+
+// ── DRAG & DROP ──────────────────────────────────────────────
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+
+dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+dropzone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropzone.classList.remove('drag-over');
+  addFiles([...e.dataTransfer.files]);
+});
+fileInput.addEventListener('change', e => addFiles([...e.target.files]));
+
+function addFiles(newFiles) {
+  const allowed = newFiles.filter(f =>
+    f.name.match(/\.(pdf|docx|doc)$/i)
+  );
+  if (allowed.length === 0) { showToast('❌ Apenas PDF e Word são aceitos.'); return; }
+  if (files.size + allowed.length > 40) { showToast('⚠️ Máximo de 40 arquivos.'); return; }
+
+  allowed.forEach(file => {
+    const id = ++idCounter;
+    const seqNum = ++seqCounter;
+    files.set(id, { file, status: 'pending', pdfBlob: null, seqNum, candidateCode: null });
+    renderFileItem(id, file, seqNum);
+  });
+
+  updateStats();
+  checkProcessButton();
+}
+
+function renderFileItem(id, file, seqNum) {
+  const ext = file.name.split('.').pop().toLowerCase();
+  const icon = ext === 'pdf' ? '📕' : '📘';
+  const iconClass = ext === 'pdf' ? 'pdf' : 'docx';
+
+  const div = document.createElement('div');
+  div.className = 'file-item';
+  div.id = `item-${id}`;
+  div.innerHTML = `
+    <div class="file-icon ${iconClass}">${icon}</div>
+    <div class="file-info">
+      <div class="file-name-row">
+        <span class="seq-badge">#${String(seqNum).padStart(3,'0')}</span>
+        <span class="file-name">${file.name}</span>
+        <span class="code-badge hidden" id="code-${id}"></span>
+      </div>
+      <div class="file-status" id="status-${id}">Aguardando processamento</div>
+      <div class="progress-bar" id="progress-${id}"><div class="progress-fill" id="fill-${id}"></div></div>
+    </div>
+    <div class="file-actions">
+      <button class="btn-icon" onclick="removeFile(${id})" title="Remover">✕</button>
+      <button class="btn-icon download hidden" id="dl-${id}" onclick="downloadSingle(${id})" title="Baixar PDF">⬇</button>
+    </div>
+  `;
+  document.getElementById('fileList').appendChild(div);
+  document.getElementById('emptyState').style.display = 'none';
+}
+
+function removeFile(id) {
+  files.delete(id);
+  const el = document.getElementById(`item-${id}`);
+  if (el) el.remove();
+  updateStats();
+  checkProcessButton();
+  if (files.size === 0) document.getElementById('emptyState').style.display = 'block';
+  checkDownloadAll();
+}
+
+function clearAll() {
+  files.clear();
+  document.getElementById('fileList').innerHTML = '';
+  document.getElementById('emptyState').style.display = 'none';
+  updateStats();
+  checkProcessButton();
+  checkDownloadAll();
+}
+
+// ── API KEY ──────────────────────────────────────────────────
+function checkApiKey() {
+  const key = document.getElementById('apiKey').value.trim();
+  const status = document.getElementById('apiStatus');
+  if (status) status.className = 'api-status' + (key.startsWith('sk-ant') ? ' ok' : '');
+  checkProcessButton();
+}
+
+function getApiKey() {
+  return document.getElementById('apiKey').value.trim();
+}
+
+function checkProcessButton() {
+  const hasFiles = files.size > 0;
+  const hasKey = getApiKey().startsWith('sk-ant');
+  const isProcessing = [...files.values()].some(f => f.status === 'processing');
+  document.getElementById('processBtn').disabled = !hasFiles || !hasKey || isProcessing;
+}
+
+function updateStats() {
+  const all = [...files.values()];
+  document.getElementById('statTotal').textContent = all.length;
+  document.getElementById('statDone').textContent = all.filter(f => f.status === 'done').length;
+  document.getElementById('statError').textContent = all.filter(f => f.status === 'error').length;
+}
+
+// ── PROCESS ──────────────────────────────────────────────────
+async function processAll() {
+  const apiKey = getApiKey();
+  const pending = [...files.entries()].filter(([_, f]) => f.status === 'pending');
+  if (!pending.length) { showToast('⚠️ Nenhum arquivo pendente.'); return; }
+
+  document.getElementById('processBtn').disabled = true;
+  document.getElementById('processBtnText').textContent = '⏳ Processando...';
+
+  for (const [id, entry] of pending) {
+    await processOne(id, entry, apiKey);
+  }
+
+  document.getElementById('processBtnText').textContent = '⚡ Processar Currículos';
+  checkProcessButton();
+  checkDownloadAll();
+  showToast('✅ Processamento concluído!');
+}
+
+async function processOne(id, entry, apiKey) {
+  setStatus(id, 'processing', 'Lendo arquivo...');
+  setProgress(id, true, 10);
+  entry.status = 'processing';
+
+  try {
+    // 1. Read file as base64
+    const b64 = await fileToBase64(entry.file);
+    const ext = entry.file.name.split('.').pop().toLowerCase();
+    const isDocx = ext !== 'pdf';
+
+    setProgress(id, true, 25);
+    setStatus(id, 'processing', 'Extraindo informações com IA...');
+
+    // 2. Extract text using Claude with document input
+    const extractedData = await extractWithClaude(b64, ext, entry.file.name, apiKey);
+
+    // Generate candidate code from extracted name
+    const candidateCode = generateCandidateCode(extractedData.nome, entry.seqNum);
+    entry.candidateCode = candidateCode;
+    // Save extracted data for analysis
+    extractedDataMap.set(id, extractedData);
+    // Show code badge in UI
+    const codeBadge = document.getElementById(`code-${id}`);
+    if (codeBadge) { codeBadge.textContent = candidateCode; codeBadge.classList.remove('hidden'); }
+
+    setProgress(id, true, 65);
+    setStatus(id, 'processing', `Gerando PDF [${candidateCode}]...`);
+
+    // 3. Generate PDF — sem dados pessoais no cabeçalho, com código e número
+    const pdfBlob = await generatePDF(extractedData, entry.file.name, entry.seqNum, candidateCode);
+    setProgress(id, true, 95);
+
+    entry.pdfBlob = pdfBlob;
+    entry.status = 'done';
+    setProgress(id, true, 100);
+    setTimeout(() => setProgress(id, false), 500);
+    setStatus(id, 'done', `✓ PDF gerado — ${candidateCode}`);
+
+    const dlBtn = document.getElementById(`dl-${id}`);
+    if (dlBtn) dlBtn.classList.remove('hidden');
+
+    const item = document.getElementById(`item-${id}`);
+    if (item) { item.classList.remove('processing'); item.classList.add('done'); }
+    // Show analysis section as soon as first CV is done
+    showAnalysisArea();
+
+  } catch (err) {
+    console.error(err);
+    entry.status = 'error';
+    setProgress(id, false);
+    setStatus(id, 'error', `Erro: ${err.message?.slice(0,60) || 'Falha desconhecida'}`);
+    const item = document.getElementById(`item-${id}`);
+    if (item) { item.classList.remove('processing'); item.classList.add('error'); }
+  }
+
+  updateStats();
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function extractWithClaude(b64, ext, filename, apiKey) {
+  const isPdf = ext === 'pdf';
+
+  const systemPrompt = `Você é um extrator de dados de currículos. Analise o currículo fornecido e extraia as informações em formato JSON.
+Retorne APENAS um objeto JSON válido, sem texto extra, sem backticks, sem markdown.
+
+Estrutura obrigatória:
+{
+  "nome": "Nome completo",
+  "titulo_profissional": "Cargo/área de atuação",
+  "email": "email@exemplo.com",
+  "telefone": "(11) 99999-9999",
+  "localizacao": "Cidade, Estado",
+  "linkedin": "linkedin.com/in/...",
+  "resumo_profissional": "Parágrafo de resumo/objetivo",
+  "experiencias": [
+    {"cargo": "Cargo", "empresa": "Empresa", "periodo": "Jan 2020 - Dez 2022", "descricao": "Responsabilidades e conquistas"}
+  ],
+  "formacao": [
+    {"curso": "Bacharel em Engenharia", "instituicao": "Universidade", "periodo": "2016 - 2020"}
+  ],
+  "habilidades": ["Habilidade 1", "Habilidade 2"],
+  "idiomas": ["Português (Nativo)", "Inglês (Avançado)"],
+  "certificacoes": ["Nome da Certificação - Emissor (Ano)"]
+}
+
+Se algum campo não existir no currículo, omita-o ou use string vazia. Mantenha fidelidade total ao conteúdo.`;
+
+  let messageContent;
+  if (isPdf) {
+    messageContent = [
+      { type: "document", source: { type: "base64", media_type: "application/pdf", data: b64 } },
+      { type: "text", text: "Extraia todos os dados deste currículo em JSON conforme instruído." }
+    ];
+  } else {
+    // For DOCX, we need to handle as base64 file - send as text with instructions
+    messageContent = [
+      { type: "text", text: `Este é um currículo em formato Word (.docx) codificado em base64. Não consigo lê-lo diretamente, mas com base no nome do arquivo "${filename}", gere uma estrutura JSON de exemplo estruturada. Na prática, retorne um JSON informando que o arquivo precisa ser convertido primeiro.\n\nNa verdade, ignore isso - se o arquivo for docx, retorne o JSON com nome do arquivo e status de que precisa conversão: {"nome": "Arquivo DOCX - Requer conversão para PDF", "titulo_profissional": "Por favor converta o arquivo para PDF antes de processar", "email": "", "telefone": "", "localizacao": "", "linkedin": "", "resumo_profissional": "Este arquivo Word não pôde ser lido diretamente. Por favor, converta para PDF e tente novamente.", "experiencias": [], "formacao": [], "habilidades": [], "idiomas": [], "certificacoes": []}` }
+    ];
+  }
+
+  const data = await callClaude({
+    model: "claude-sonnet-4-20250514",
+    max_tokens: 2000,
+    system: systemPrompt,
+    messages: [{ role: "user", content: messageContent }]
+  });
+
+  if (!data) throw new Error('Sem resposta da API');
+  const text = data.content.map(b => b.text || '').join('');
+  const clean = text.replace(/```json|```/g, '').trim();
+
+  try {
+    return JSON.parse(clean);
+  } catch {
+    throw new Error('Resposta da IA não é JSON válido');
+  }
+}
+
+// ── PDF GENERATION (Pure JS with canvas) ────────────────────
+async function generatePDF(data, originalName, seqNum, candidateCode) {
+  // Load jsPDF dynamically
+  if (!window.jspdf) {
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+  }
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+  const W = 210, H = 297;
+  const ML = 18, MR = 18, MT = 18;
+  let y = MT;
+
+  // Colors
+  const dark = [26, 26, 46];
+  const accent = [15, 52, 96];
+  const red = [233, 69, 96];
+  const gray = [107, 107, 138];
+  const bodyColor = [55, 65, 81];
+  const lineGray = [209, 213, 219];
+
+  const maxW = W - ML - MR;
+
+  function checkPage(needed = 10) {
+    if (y + needed > H - 15) {
+      doc.addPage();
+      y = MT;
+    }
+  }
+
+  function setColor(rgb) { doc.setTextColor(...rgb); }
+  function setFont(type, size) { doc.setFont('helvetica', type); doc.setFontSize(size); }
+
+  function addText(text, x, maxWidth, options = {}) {
+    if (!text) return 0;
+    const lines = doc.splitTextToSize(String(text), maxWidth);
+    lines.forEach((line, i) => {
+      checkPage();
+      doc.text(line, x, y, options);
+      if (i < lines.length - 1) y += (options.lineHeight || 5);
+    });
+    return lines.length;
+  }
+
+  // ── HEADER: código + numeração (SEM dados pessoais) ──
+  // Candidate code block (top right)
+  const codeStr = candidateCode || 'CV-000';
+  const seqStr = `Candidato Nº ${String(seqNum).padStart(3, '0')}`;
+
+  // Left: big code as "name replacement"
+  setFont('bold', 28);
+  setColor(dark);
+  doc.text(codeStr, ML, y);
+
+  // Right: sequence label
+  setFont('normal', 9);
+  setColor(gray);
+  doc.text(seqStr, W - MR, y, { align: 'right' });
+  y += 8;
+
+  // Job title (kept — não identifica a pessoa)
+  if (data.titulo_profissional) {
+    setFont('normal', 13);
+    setColor(accent);
+    doc.text(data.titulo_profissional, ML, y);
+    y += 7;
+  }
+
+  // Notice strip: dados pessoais omitidos
+  doc.setFillColor(245, 245, 250);
+  doc.roundedRect(ML, y, maxW, 7, 1.5, 1.5, 'F');
+  setFont('italic', 8);
+  setColor([160, 160, 180]);
+  doc.text('Processo seletivo às cegas — dados pessoais omitidos para avaliação imparcial', ML + 3, y + 4.5);
+  y += 11;
+
+  // ── RED LINE ──
+  doc.setDrawColor(...red);
+  doc.setLineWidth(0.8);
+  doc.line(ML, y, W - MR, y);
+  y += 8;
+
+  function sectionHeader(title) {
+    checkPage(14);
+    setFont('bold', 11);
+    setColor(accent);
+    doc.text(title, ML, y);
+    y += 4;
+    doc.setDrawColor(...lineGray);
+    doc.setLineWidth(0.3);
+    doc.line(ML, y, W - MR, y);
+    y += 5;
+  }
+
+  // ── SUMMARY ──
+  if (data.resumo_profissional) {
+    sectionHeader('RESUMO PROFISSIONAL');
+    setFont('normal', 9);
+    setColor(bodyColor);
+    const lines = doc.splitTextToSize(data.resumo_profissional, maxW);
+    lines.forEach(line => {
+      checkPage();
+      doc.text(line, ML, y);
+      y += 4.5;
+    });
+    y += 2;
+  }
+
+  // ── EXPERIENCE ──
+  const exps = data.experiencias || [];
+  if (exps.length) {
+    sectionHeader('EXPERIÊNCIA PROFISSIONAL');
+    exps.forEach(exp => {
+      checkPage(14);
+      // Cargo — Empresa
+      setFont('bold', 10);
+      setColor(dark);
+      const header = [exp.cargo, exp.empresa].filter(Boolean).join(' — ');
+      const hLines = doc.splitTextToSize(header, maxW);
+      hLines.forEach(l => { checkPage(); doc.text(l, ML, y); y += 4.5; });
+      // Period
+      if (exp.periodo) {
+        setFont('italic', 8.5);
+        setColor(gray);
+        doc.text(exp.periodo, ML, y);
+        y += 4;
+      }
+      // Description
+      if (exp.descricao) {
+        setFont('normal', 9);
+        setColor(bodyColor);
+        const dLines = doc.splitTextToSize(exp.descricao, maxW);
+        dLines.forEach(l => { checkPage(); doc.text(l, ML, y); y += 4.5; });
+      }
+      y += 3;
+    });
+  }
+
+  // ── EDUCATION ──
+  const edus = data.formacao || [];
+  if (edus.length) {
+    sectionHeader('FORMAÇÃO ACADÊMICA');
+    edus.forEach(edu => {
+      checkPage(12);
+      setFont('bold', 10);
+      setColor(dark);
+      const h = [edu.curso, edu.instituicao].filter(Boolean).join(' — ');
+      const hL = doc.splitTextToSize(h, maxW);
+      hL.forEach(l => { checkPage(); doc.text(l, ML, y); y += 4.5; });
+      if (edu.periodo) {
+        setFont('italic', 8.5);
+        setColor(gray);
+        doc.text(edu.periodo, ML, y);
+        y += 4;
+      }
+      y += 3;
+    });
+  }
+
+  // ── SKILLS ──
+  const skills = data.habilidades || [];
+  if (skills.length) {
+    sectionHeader('HABILIDADES & COMPETÊNCIAS');
+    setFont('bold', 9);
+    setColor(accent);
+    const sText = skills.join('   |   ');
+    const sLines = doc.splitTextToSize(sText, maxW);
+    sLines.forEach(l => { checkPage(); doc.text(l, ML, y); y += 4.5; });
+    y += 2;
+  }
+
+  // ── LANGUAGES ──
+  const langs = data.idiomas || [];
+  if (langs.length) {
+    sectionHeader('IDIOMAS');
+    setFont('normal', 9);
+    setColor(bodyColor);
+    doc.text(langs.join('   •   '), ML, y);
+    y += 6;
+  }
+
+  // ── CERTIFICATIONS ──
+  const certs = data.certificacoes || [];
+  if (certs.length) {
+    sectionHeader('CERTIFICAÇÕES');
+    setFont('normal', 9);
+    setColor(bodyColor);
+    certs.forEach(cert => {
+      checkPage();
+      const cLines = doc.splitTextToSize(`• ${cert}`, maxW);
+      cLines.forEach(l => { checkPage(); doc.text(l, ML, y); y += 4.5; });
+    });
+  }
+
+  const blob = doc.output('blob');
+  return blob;
+}
+
+async function callClaude(payload) {
+  const apiKey = getApiKey();
+  // Tenta direto primeiro; se falhar por CORS, usa proxy
+  const directUrl = "https://api.anthropic.com/v1/messages";
+  const headers = {
+    "Content-Type": "application/json",
+    "x-api-key": apiKey,
+    "anthropic-version": "2023-06-01",
+    "anthropic-dangerous-direct-browser-access": "true"
+  };
+  try {
+    const r = await fetch(directUrl, { method: "POST", headers, body: JSON.stringify(payload) });
+    if (!r.ok) {
+      const err = await r.json().catch(() => ({}));
+      throw new Error(err.error?.message || `API Error ${r.status}`);
+    }
+    return await r.json();
+  } catch (e) {
+    if (e.message && !e.message.includes('fetch')) throw e;
+    throw new Error('Erro de conexão. Abra o app pelo Chrome com: chrome.exe --disable-web-security --user-data-dir="C:/temp"');
+  }
+}
+  return new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = res;
+    s.onerror = rej;
+    document.head.appendChild(s);
+  });
+}
+
+// ── DOWNLOAD ─────────────────────────────────────────────────
+function downloadSingle(id) {
+  const entry = files.get(id);
+  if (!entry?.pdfBlob) return;
+  const code = entry.candidateCode || `CV-${String(entry.seqNum).padStart(3,'0')}`;
+  const url = URL.createObjectURL(entry.pdfBlob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${code}_curriculo.pdf`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+async function downloadAll() {
+  const done = [...files.entries()].filter(([_, f]) => f.status === 'done' && f.pdfBlob);
+  if (!done.length) { showToast('⚠️ Nenhum PDF gerado ainda.'); return; }
+
+  if (done.length === 1) { downloadSingle(done[0][0]); return; }
+
+  showToast('📦 Gerando ZIP...');
+  const zip = new JSZip();
+  done.forEach(([id, entry]) => {
+    const code = entry.candidateCode || `CV-${String(entry.seqNum).padStart(3,'0')}`;
+    zip.file(`${code}_curriculo.pdf`, entry.pdfBlob);
+  });
+
+  const blob = await zip.generateAsync({ type: 'blob' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'curriculos_padronizados.zip';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// ── ANALYSIS SECTION ─────────────────────────────────────────
+// Store extracted data per file id for analysis
+const extractedDataMap = new Map(); // id -> extractedData object
+
+function updateCharCount() {
+  const v = document.getElementById('jobRequirements').value;
+  document.getElementById('charCount').textContent = `${v.length} caracteres`;
+  checkAnalyzeButton();
+}
+
+function checkAnalyzeButton() {
+  const hasReqs = document.getElementById('jobRequirements').value.trim().length > 30;
+  const hasDone = [...files.values()].some(f => f.status === 'done');
+  document.getElementById('analyzeBtn').disabled = !hasReqs || !hasDone;
+}
+
+function showAnalysisArea() {
+  document.getElementById('analysisArea').style.display = 'block';
+  checkAnalyzeButton();
+}
+
+async function runAnalysis() {
+  const apiKey = getApiKey();
+  const jobReqs = document.getElementById('jobRequirements').value.trim();
+  if (!jobReqs || jobReqs.length < 30) { showToast('⚠️ Descreva melhor os requisitos do cargo.'); return; }
+
+  const doneCandidates = [...files.entries()].filter(([_, f]) => f.status === 'done' && extractedDataMap.has(_));
+  if (!doneCandidates.length) { showToast('⚠️ Processe os currículos primeiro.'); return; }
+
+  document.getElementById('rankingResult').style.display = 'none';
+  document.getElementById('rankingAnalyzing').style.display = 'block';
+  document.getElementById('analyzeBtn').disabled = true;
+
+  const msgs = [
+    'Lendo perfis dos candidatos...',
+    'Comparando competências com o cargo...',
+    'Calculando scores de aderência...',
+    'Montando ranking final...'
+  ];
+  let msgIdx = 0;
+  const msgInterval = setInterval(() => {
+    msgIdx = (msgIdx + 1) % msgs.length;
+    const el = document.getElementById('analyzingMsg');
+    if (el) el.textContent = msgs[msgIdx];
+  }, 2200);
+
+  try {
+    // Build candidate summaries
+    const candidateSummaries = doneCandidates.map(([id, entry]) => {
+      const d = extractedDataMap.get(id);
+      const exps = (d.experiencias || []).map(e => `${e.cargo} em ${e.empresa} (${e.periodo}): ${e.descricao || ''}`).join('; ');
+      const edus = (d.formacao || []).map(e => `${e.curso} - ${e.instituicao} (${e.periodo})`).join('; ');
+      return `CANDIDATO ${entry.candidateCode} (Nº ${entry.seqNum}):
+Título: ${d.titulo_profissional || 'N/A'}
+Resumo: ${d.resumo_profissional || 'N/A'}
+Experiências: ${exps || 'N/A'}
+Formação: ${edus || 'N/A'}
+Habilidades: ${(d.habilidades || []).join(', ') || 'N/A'}
+Idiomas: ${(d.idiomas || []).join(', ') || 'N/A'}
+Certificações: ${(d.certificacoes || []).join(', ') || 'N/A'}`;
+    }).join('\n\n---\n\n');
+
+    const systemPrompt = `Você é um especialista em recrutamento e seleção. Sua tarefa é comparar currículos anonimizados com os requisitos de um cargo e gerar um ranking objetivo de aderência.
+
+Retorne APENAS um array JSON válido, sem texto extra, sem backticks, sem markdown.
+
+Para cada candidato, avalie e retorne:
+[
+  {
+    "codigo": "JDS-001",
+    "score_total": 87,
+    "nivel": "alto",
+    "titulo_profissional": "título extraído do currículo",
+    "dimensoes": {
+      "formacao": 90,
+      "experiencia": 85,
+      "habilidades_tecnicas": 80,
+      "idiomas": 70,
+      "competencias_comportamentais": 75
+    },
+    "pontos_fortes": ["ponto forte 1", "ponto forte 2", "ponto forte 3"],
+    "pontos_fracos": ["lacuna 1", "lacuna 2"],
+    "justificativa": "Parágrafo de 2-3 frases explicando a avaliação geral e o posicionamento no ranking."
+  }
+]
+
+Regras:
+- score_total: 0-100 (média ponderada das dimensões, com experiência e habilidades técnicas com peso maior)
+- nivel: "alto" (70-100), "medio" (45-69), "baixo" (0-44)
+- Dimensões: 0-100 cada. Se o currículo não tiver informação para avaliar uma dimensão, use 50 (neutro).
+- pontos_fortes: 2-4 itens concretos e específicos
+- pontos_fracos: 1-3 lacunas reais em relação aos requisitos
+- Ordene o array do maior score para o menor
+- Seja rigoroso e imparcial — base-se apenas nos dados do currículo vs. os requisitos`;
+
+    const userMsg = `REQUISITOS DO CARGO:\n${jobReqs}\n\n===\n\nCURRÍCULOS DOS CANDIDATOS:\n\n${candidateSummaries}`;
+
+    const data = await callClaude({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 4000,
+      system: systemPrompt,
+      messages: [{ role: "user", content: userMsg }]
+    });
+    const text = data.content.map(b => b.text || '').join('');
+    const clean = text.replace(/```json|```/g, '').trim();
+    const ranking = JSON.parse(clean);
+
+    clearInterval(msgInterval);
+    renderRanking(ranking, doneCandidates.length);
+
+  } catch (err) {
+    clearInterval(msgInterval);
+    showToast(`❌ Erro na análise: ${err.message?.slice(0,60)}`);
+    console.error(err);
+  } finally {
+    document.getElementById('rankingAnalyzing').style.display = 'none';
+    document.getElementById('analyzeBtn').disabled = false;
+  }
+}
+
+function renderRanking(ranking, total) {
+  const medals = ['🥇', '🥈', '🥉'];
+  const topClasses = ['top1', 'top2', 'top3'];
+
+  document.getElementById('rankingMeta').textContent =
+    `${total} candidato${total !== 1 ? 's' : ''} avaliado${total !== 1 ? 's' : ''} · ${new Date().toLocaleString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}`;
+
+  const list = document.getElementById('rankingList');
+  list.innerHTML = '';
+
+  ranking.forEach((c, i) => {
+    const scoreClass = c.score_total >= 70 ? 'high' : c.score_total >= 45 ? 'mid' : 'low';
+    const fillClass  = `fill-${scoreClass}`;
+    const pillClass  = `score-${scoreClass}`;
+    const cardClass  = topClasses[i] || '';
+    const medal      = medals[i] || `<span style="font-size:14px;color:var(--muted)">#${i+1}</span>`;
+
+    const dims = c.dimensoes || {};
+    const dimLabels = {
+      formacao: 'Formação', experiencia: 'Experiência',
+      habilidades_tecnicas: 'Habilidades Téc.', idiomas: 'Idiomas',
+      competencias_comportamentais: 'Comp. Comportamental'
+    };
+
+    const dimTags = Object.entries(dims).map(([k, v]) =>
+      `<div class="dim-tag"><span class="dim-label">${dimLabels[k] || k}</span><span class="dim-val">${v}</span></div>`
+    ).join('');
+
+    const pontosPos = (c.pontos_fortes || []).map(p =>
+      `<div class="ponto-item pos">${p}</div>`).join('');
+    const pontosNeg = (c.pontos_fracos || []).map(p =>
+      `<div class="ponto-item neg">${p}</div>`).join('');
+
+    const card = document.createElement('div');
+    card.className = `rank-card ${cardClass}`;
+    card.innerHTML = `
+      <div class="rank-position">${i + 1}</div>
+      <div class="rank-top-row">
+        <span class="rank-medal">${medal}</span>
+        <div>
+          <div class="rank-code">${c.codigo}</div>
+          <div class="rank-jobtitle">${c.titulo_profissional || ''}</div>
+        </div>
+        <span class="rank-score-pill ${pillClass}">${c.score_total}/100</span>
+      </div>
+      <div class="score-bar-wrap">
+        <div class="score-bar-fill ${fillClass}" style="width:0%" data-target="${c.score_total}"></div>
+      </div>
+      <div class="rank-dimensions">${dimTags}</div>
+      <div class="rank-summary">
+        <div style="margin-bottom:10px">${c.justificativa || ''}</div>
+        <div class="rank-pontos">
+          ${pontosPos ? `<div class="ponto-group"><div class="ponto-title pos">✓ Pontos Fortes</div>${pontosPos}</div>` : ''}
+          ${pontosNeg ? `<div class="ponto-group"><div class="ponto-title neg">✗ Lacunas</div>${pontosNeg}</div>` : ''}
+        </div>
+      </div>
+    `;
+    list.appendChild(card);
+  });
+
+  // Store for export
+  window._lastRanking = ranking;
+  window._lastJobReqs = document.getElementById('jobRequirements').value.trim();
+
+  document.getElementById('rankingResult').style.display = 'block';
+
+  // Animate bars
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.score-bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.target + '%';
+    });
+  });
+}
+
+// ── EXPORT RANKING PDF ────────────────────────────────────────
+async function exportRanking() {
+  const ranking = window._lastRanking;
+  const jobReqs = window._lastJobReqs;
+  if (!ranking?.length) return;
+
+  if (!window.jspdf) {
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+  }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+  const W = 210, ML = 18, MR = 18, MT = 20;
+  let y = MT;
+  const maxW = W - ML - MR;
+  const H = 297;
+
+  function chk(n = 10) { if (y + n > H - 15) { doc.addPage(); y = MT; } }
+  function sf(t, s) { doc.setFont('helvetica', t); doc.setFontSize(s); }
+  function sc(r, g, b) { doc.setTextColor(r, g, b); }
+  function txt(t, x, w, align) {
+    const lines = doc.splitTextToSize(String(t), w || maxW);
+    lines.forEach(l => { chk(); doc.text(l, x || ML, y, align ? { align } : {}); y += 5; });
+  }
+
+  // Title
+  sf('bold', 20); sc(26, 26, 46);
+  doc.text('Ranking de Aderência — Processo Seletivo', ML, y); y += 8;
+  sf('normal', 9); sc(107, 107, 138);
+  doc.text(`Gerado em ${new Date().toLocaleString('pt-BR')} · ${ranking.length} candidatos avaliados`, ML, y); y += 6;
+  doc.setDrawColor(233, 69, 96); doc.setLineWidth(0.8);
+  doc.line(ML, y, W - MR, y); y += 8;
+
+  // Job summary
+  sf('bold', 10); sc(15, 52, 96);
+  doc.text('REQUISITOS DO CARGO', ML, y); y += 5;
+  sf('normal', 8.5); sc(55, 65, 81);
+  txt(jobReqs.substring(0, 600) + (jobReqs.length > 600 ? '...' : ''), ML, maxW);
+  y += 4;
+
+  doc.setDrawColor(209, 213, 219); doc.setLineWidth(0.3);
+  doc.line(ML, y, W - MR, y); y += 8;
+
+  // Candidates
+  ranking.forEach((c, i) => {
+    chk(30);
+    const medal = ['1º', '2º', '3º'][i] || `${i+1}º`;
+
+    sf('bold', 12); sc(26, 26, 46);
+    doc.text(`${medal}  ${c.codigo}`, ML, y);
+
+    // score pill
+    const sc_color = c.score_total >= 70 ? [34,197,94] : c.score_total >= 45 ? [245,158,11] : [239,68,68];
+    doc.setFillColor(...sc_color);
+    doc.roundedRect(W - MR - 22, y - 5, 22, 7, 2, 2, 'F');
+    sf('bold', 9); sc(255, 255, 255);
+    doc.text(`${c.score_total}/100`, W - MR - 11, y, { align: 'center' });
+    y += 5;
+
+    if (c.titulo_profissional) {
+      sf('normal', 9); sc(107, 107, 138);
+      doc.text(c.titulo_profissional, ML, y); y += 5;
+    }
+
+    // Dimensions
+    sf('normal', 8); sc(107, 107, 138);
+    const dimLine = Object.entries(c.dimensoes || {}).map(([k,v]) => `${k.replace(/_/g,' ')}: ${v}`).join('  |  ');
+    txt(dimLine, ML, maxW); y += 1;
+
+    // Justification
+    sf('normal', 9); sc(55, 65, 81);
+    txt(c.justificativa || '', ML, maxW);
+
+    // Pros / cons
+    if (c.pontos_fortes?.length) {
+      sf('bold', 8); sc(34, 197, 94);
+      doc.text('Pontos fortes:', ML, y); y += 4;
+      sf('normal', 8); sc(55, 65, 81);
+      c.pontos_fortes.forEach(p => { chk(); txt(`• ${p}`, ML + 3, maxW - 3); });
+    }
+    if (c.pontos_fracos?.length) {
+      sf('bold', 8); sc(239, 68, 68);
+      doc.text('Lacunas:', ML, y); y += 4;
+      sf('normal', 8); sc(55, 65, 81);
+      c.pontos_fracos.forEach(p => { chk(); txt(`• ${p}`, ML + 3, maxW - 3); });
+    }
+
+    doc.setDrawColor(209, 213, 219); doc.setLineWidth(0.3);
+    doc.line(ML, y + 2, W - MR, y + 2); y += 8;
+  });
+
+  doc.save('ranking_aderencia.pdf');
+  showToast('📋 Ranking exportado!');
+}
+
+function setStatus(id, type, text) {
+  const el = document.getElementById(`status-${id}`);
+  if (!el) return;
+  el.className = `file-status ${type}`;
+  el.textContent = text;
+  const item = document.getElementById(`item-${id}`);
+  if (item) {
+    item.classList.remove('processing', 'done', 'error');
+    if (type !== 'pending') item.classList.add(type);
+  }
+}
+
+function setProgress(id, show, pct = 0) {
+  const bar = document.getElementById(`progress-${id}`);
+  const fill = document.getElementById(`fill-${id}`);
+  if (!bar || !fill) return;
+  bar.className = 'progress-bar' + (show ? ' show' : '');
+  fill.style.width = pct + '%';
+}
+
+function checkDownloadAll() {
+  const hasDone = [...files.values()].some(f => f.status === 'done');
+  document.getElementById('downloadAllSection').className = 'download-all' + (hasDone ? ' show' : '');
+}
+
+function showToast(msg, duration = 3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', duration);
+}
+</script>
+</body>
+</html>
