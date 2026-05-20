@@ -161,12 +161,7 @@
     background: rgba(108,99,255,0.05);
   }
   .dropzone input[type=file] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
+    display: none;
   }
   .drop-icon {
     font-size: 48px;
@@ -758,7 +753,7 @@
   </div>
 
   <!-- Drop zone -->
-  <div class="dropzone" id="dropzone">
+  <div class="dropzone" id="dropzone" onclick="fileInput.click()">
     <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx">
     <span class="drop-icon">📄</span>
     <h3>Arraste os currículos aqui</h3>
@@ -866,14 +861,25 @@ function generateCandidateCode(nome, seqNum) {
 const dropzone = document.getElementById('dropzone');
 const fileInput = document.getElementById('fileInput');
 
-dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag-over'); });
-dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+// Prevent browser default for drag events on whole page
+document.addEventListener('dragover', e => e.preventDefault());
+document.addEventListener('drop', e => e.preventDefault());
+
+// Dropzone specific handlers
+dropzone.addEventListener('dragenter', e => { e.preventDefault(); e.stopPropagation(); dropzone.classList.add('drag-over'); });
+dropzone.addEventListener('dragover',  e => { e.preventDefault(); e.stopPropagation(); dropzone.classList.add('drag-over'); });
+dropzone.addEventListener('dragleave', e => { e.stopPropagation(); dropzone.classList.remove('drag-over'); });
 dropzone.addEventListener('drop', e => {
   e.preventDefault();
+  e.stopPropagation();
   dropzone.classList.remove('drag-over');
-  addFiles([...e.dataTransfer.files]);
+  const dropped = e.dataTransfer.files;
+  if (dropped && dropped.length > 0) addFiles([...dropped]);
 });
-fileInput.addEventListener('change', e => addFiles([...e.target.files]));
+fileInput.addEventListener('change', e => {
+  if (e.target.files && e.target.files.length > 0) addFiles([...e.target.files]);
+  e.target.value = ''; // reset so same files can be re-added
+});
 
 function addFiles(newFiles) {
   const allowed = newFiles.filter(f =>
