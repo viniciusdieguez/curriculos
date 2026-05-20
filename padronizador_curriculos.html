@@ -428,34 +428,78 @@ async function downloadAll(){
 // ── ANALYSIS ──────────────────────────────────────────────────
 document.getElementById('jobReqs').addEventListener('input',checkAnalyze);
 
-async function runAnalysis(){
-  const reqs=document.getElementById('jobReqs').value.trim();
-  const candidates=[...files.entries()].filter(([id,f])=>f.status==='done'&&extractedData.has(id));
-  if(!candidates.length){toast('⚠️ Processe os currículos primeiro');return;}
-  document.getElementById('analyzeBtn').disabled=true;
-  document.getElementById('analyzeBtn').textContent='⏳ Analisando...';
-  document.getElementById('rankingBox').className='ranking-box';
+function safeParseJSON(txt) {
+  let clean = txt.replace(/```json|```/g,'').trim();
+  try { return JSON.parse(clean); } catch(e) {}
+  // Try to repair truncated JSON
+  clean = clean.replace(/,\s*$/, '');
+  const opens = (clean.match(/\[/g)||[]).length - (clean.match(/\]/g)||[]).length;
+  const openC = (clean.match(/\{/g)||[]).length - (clean.match(/\}/g)||[]).length;
+  for(let i=0;i<openC;i++) clean += '}';
+  for(let i=0;i<opens;i++) clean += ']';
+  try { return JSON.parse(clean); } catch(e2) { throw new Error('JSON inválido: '+e2.message); }
+}
 
-  const summaries=candidates.map(([id,e])=>{
-    const d=extractedData.get(id);
-    return `CANDIDATO ${e.code}:\nTítulo: ${d.titulo_profissional||'N/A'}\nResumo: ${d.resumo_profissional||'N/A'}\nExperiências: ${(d.experiencias||[]).map(x=>`${x.cargo} em ${x.empresa} (${x.periodo}): ${x.descricao||''}`).join('; ')||'N/A'}\nFormação: ${(d.formacao||[]).map(x=>`${x.curso} - ${x.instituicao}`).join('; ')||'N/A'}\nHabilidades: ${(d.habilidades||[]).join(', ')||'N/A'}\nIdiomas: ${(d.idiomas||[]).join(', ')||'N/A'}`;
+async function analyzeOneBatch(reqs, batchCandidates) {
+  const sys = `Você é especialista em recrutamento. Analise os currículos e retorne APENAS um array JSON, sem texto extra, sem backticks, sem markdown.
+Formato obrigatório:
+[{"codigo":"XX-001","score_total":85,"nivel":"alto","titulo_profissional":"Cargo","pontos_fortes":["ponto 1","ponto 2"],"pontos_fracos":["lacuna 1"],"justificativa":"Explicação em 2 frases."}]
+Regras: score_total 0-100. nivel: "alto"(70+), "medio"(45-69), "baixo"(0-44). Seja conciso.`;
+
+  const summaries = batchCandidates.map(([id,e]) => {
+    const d = extractedData.get(id);
+    const exp = (d.experiencias||[]).slice(0,3).map(x=>`${x.cargo||''} em ${x.empresa||''} (${x.periodo||''})`).join('; ') || 'N/A';
+    const edu = (d.formacao||[]).slice(0,2).map(x=>`${x.curso||''} - ${x.instituicao||''}`).join('; ') || 'N/A';
+    const ski = (d.habilidades||[]).slice(0,10).join(', ') || 'N/A';
+    return `CANDIDATO ${e.code}:\nTítulo: ${(d.titulo_profissional||'N/A').slice(0,80)}\nResumo: ${(d.resumo_profissional||'N/A').slice(0,200)}\nExp: ${exp.slice(0,300)}\nFormação: ${edu}\nHabilidades: ${ski}`;
   }).join('\n\n---\n\n');
 
-  try {
-    const sys=`Você é especialista em recrutamento. Compare os currículos com os requisitos e retorne APENAS um array JSON válido, sem backticks.
-[{"codigo":"","score_total":85,"nivel":"alto","titulo_profissional":"","pontos_fortes":["",""],"pontos_fracos":[""],"justificativa":""}]
-nivel: "alto"(70-100), "medio"(45-69), "baixo"(0-44). Ordene do maior para o menor score.`;
+  const data = await apiCall({
+    model: 'claude-sonnet-4-6',
+    max_tokens: 4000,
+    system: sys,
+    messages: [{ role: 'user', content: `REQUISITOS DO CARGO:\n${reqs}\n\n===\n\nCURRÍCULOS:\n${summaries}` }]
+  });
+  const txt = data.content.map(b=>b.text||'').join('');
+  return safeParseJSON(txt);
+}
 
-    const data=await apiCall({model:'claude-sonnet-4-6',max_tokens:3000,system:sys,messages:[{role:'user',content:`REQUISITOS:\n${reqs}\n\n===\n\nCURRÍCULOS:\n${summaries}`}]});
-    const txt=data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
-    const ranking=JSON.parse(txt);
-    window._ranking=ranking; window._reqs=reqs;
-    renderRanking(ranking);
+async function runAnalysis(){
+  const reqs = document.getElementById('jobReqs').value.trim();
+  const candidates = [...files.entries()].filter(([id,f])=>f.status==='done'&&extractedData.has(id));
+  if(!candidates.length){ toast('⚠️ Processe os currículos primeiro'); return; }
+
+  document.getElementById('analyzeBtn').disabled = true;
+  document.getElementById('analyzeBtn').textContent = '⏳ Analisando...';
+  document.getElementById('rankingBox').className = 'ranking-box';
+
+  try {
+    // Split into batches of 5
+    const BATCH = 5;
+    const batches = [];
+    for(let i=0; i<candidates.length; i+=BATCH) batches.push(candidates.slice(i,i+BATCH));
+
+    let allResults = [];
+    for(let i=0; i<batches.length; i++){
+      document.getElementById('analyzeBtn').textContent = `⏳ Analisando lote ${i+1}/${batches.length}...`;
+      const batchResult = await analyzeOneBatch(reqs, batches[i]);
+      allResults = allResults.concat(batchResult);
+    }
+
+    // Sort all results by score
+    allResults.sort((a,b) => b.score_total - a.score_total);
+
+    window._ranking = allResults;
+    window._reqs = reqs;
+    renderRanking(allResults);
+
   } catch(err) {
-    toast('❌ Erro: '+String(err.message).slice(0,60));
+    toast('❌ Erro: ' + String(err.message).slice(0,80));
+    console.error(err);
   }
-  document.getElementById('analyzeBtn').disabled=false;
-  document.getElementById('analyzeBtn').textContent='🔍 Analisar e Ranquear Candidatos';
+
+  document.getElementById('analyzeBtn').disabled = false;
+  document.getElementById('analyzeBtn').textContent = '🔍 Analisar e Ranquear Candidatos';
 }
 
 function renderRanking(ranking){
