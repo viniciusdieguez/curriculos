@@ -93,7 +93,7 @@ textarea:focus { border-color: #6C63FF; }
 <body>
 
 <h1>Padronizador de Currículos</h1>
-<p class="sub">Faça upload de até 40 currículos em PDF ou Word</p>
+<p class="sub">Faça upload de até 100 currículos em PDF ou Word</p>
 
 <!-- API KEY INPUT -->
 <div style="max-width:800px;margin:0 auto 16px;background:#15151F;border:1px solid #2A2A3D;border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:12px">
@@ -166,7 +166,7 @@ function handleFiles(fileList) {
   if (!fileList || fileList.length === 0) { toast('Nenhum arquivo selecionado'); return; }
   const arr = Array.from(fileList).filter(f => /\.(pdf|docx|doc)$/i.test(f.name));
   if (arr.length === 0) { toast('❌ Apenas PDF e Word são aceitos'); return; }
-  if (files.size + arr.length > 40) { toast('⚠️ Máximo 40 arquivos'); return; }
+  if (files.size + arr.length > 100) { toast('⚠️ Máximo 100 arquivos'); return; }
   arr.forEach(f => {
     const id = ++idCnt, seq = ++seqCnt;
     files.set(id, { file: f, status: 'pending', blob: null, seq, code: null });
@@ -336,9 +336,27 @@ Estrutura:
     content=[{type:'text',text:`Arquivo Word não pode ser lido diretamente. Retorne: {"nome":"Converter para PDF","titulo_profissional":"Por favor converta este arquivo Word para PDF e tente novamente","email":"","telefone":"","localizacao":"","resumo_profissional":"Arquivo Word não suportado diretamente. Converta para PDF.","experiencias":[],"formacao":[],"habilidades":[],"idiomas":[],"certificacoes":[]}`}];
   }
 
-  const data = await apiCall({model:'claude-sonnet-4-6',max_tokens:2000,system:sys,messages:[{role:'user',content}]});
+  const data = await apiCall({model:'claude-sonnet-4-6',max_tokens:4000,system:sys,messages:[{role:'user',content}]});
   const txt = data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
-  return JSON.parse(txt);
+  // Try to repair truncated JSON
+  let cleaned = txt;
+  try {
+    return JSON.parse(cleaned);
+  } catch(e) {
+    // Try to fix unterminated strings/arrays by closing open structures
+    cleaned = cleaned.replace(/,\s*$/, '');
+    // Count brackets and close any open ones
+    const opens = (cleaned.match(/\[/g)||[]).length - (cleaned.match(/\]/g)||[]).length;
+    const openCurly = (cleaned.match(/\{/g)||[]).length - (cleaned.match(/\}/g)||[]).length;
+    for(let i=0;i<openCurly;i++) cleaned += '}';
+    for(let i=0;i<opens;i++) cleaned += ']';
+    try {
+      return JSON.parse(cleaned);
+    } catch(e2) {
+      // Return minimal structure if all else fails
+      return {nome:'Erro ao processar',titulo_profissional:'Currículo muito extenso — tente converter para PDF menor',email:'',telefone:'',localizacao:'',resumo_profissional:'Não foi possível extrair os dados. O arquivo pode ser muito extenso.',experiencias:[],formacao:[],habilidades:[],idiomas:[],certificacoes:[]};
+    }
+  }
 }
 
 // ── PDF GENERATION ────────────────────────────────────────────
