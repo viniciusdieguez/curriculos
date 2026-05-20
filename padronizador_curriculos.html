@@ -753,12 +753,25 @@
   </div>
 
   <!-- Drop zone -->
-  <div class="dropzone" id="dropzone" onclick="fileInput.click()">
+  <div class="dropzone" id="dropzone">
     <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx">
     <span class="drop-icon">📄</span>
-    <h3>Arraste os currículos aqui</h3>
-    <p>ou clique para selecionar arquivos</p>
-    <div class="formats">
+    <h3>Clique no botão abaixo para selecionar</h3>
+    <p>ou arraste os arquivos para esta área</p>
+    <label for="fileInput" style="
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--accent);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    ">📂 Selecionar Arquivos PDF / Word</label>
+    <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx" style="display:none">
+    <div class="formats" style="margin-top:14px">
       <span class="format-tag">PDF</span>
       <span class="format-tag">DOCX</span>
       <span class="format-tag">DOC</span>
