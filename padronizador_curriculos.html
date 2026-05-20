@@ -318,11 +318,30 @@ function toBase64(file) {
 }
 
 function genCode(nome, seq) {
-  const parts = (nome||'').trim().split(/\s+/).filter(Boolean);
+  // Remove prepositions common in Brazilian names
+  const prepositions = new Set(['de','da','do','das','dos','e','di','du','van','von','del','el']);
+  const allParts = (nome||'').trim().split(/\s+/).filter(Boolean);
+  const parts = allParts.filter(p => !prepositions.has(p.toLowerCase()));
+
   let ini = '';
-  if (parts.length===1) ini=parts[0].substring(0,3);
-  else { ini+=parts[0][0]; if(parts.length>2) ini+=parts[Math.floor(parts.length/2)][0]; ini+=parts[parts.length-1][0]; }
-  ini = ini.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Z]/g,'') || 'CV';
+  if (parts.length === 0) {
+    ini = 'CV';
+  } else if (parts.length === 1) {
+    ini = parts[0].substring(0, 3);
+  } else if (parts.length === 2) {
+    ini = parts[0][0] + parts[1][0];
+    // Add second letter of last name if only 2 parts
+    if (parts[1].length > 1) ini += parts[1][1];
+  } else {
+    // First letter of first name + first letter of second name + first letter of last name
+    ini = parts[0][0] + parts[1][0] + parts[parts.length-1][0];
+  }
+
+  ini = ini.toUpperCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^A-Z]/g, '') || 'CV';
+
   return `${ini}-${String(seq).padStart(3,'0')} | ${todayFormatted()}`;
 }
 
