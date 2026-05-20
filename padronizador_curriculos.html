@@ -173,7 +173,7 @@ function handleFiles(fileList) {
     renderItem(id, f, seq);
   });
   updateStats();
-  checkProcess();
+  checkKey(); // always re-check key + process button together
   document.getElementById('fileInput').value = '';
 }
 
@@ -204,13 +204,16 @@ function removeFile(id) {
   files.delete(id); extractedData.delete(id);
   const el = document.getElementById('item-'+id);
   if (el) el.remove();
-  updateStats(); checkProcess(); checkDlAll(); checkAnalyze();
+  updateStats(); checkKey(); checkDlAll(); checkAnalyze();
 }
 
 function clearAll() {
   files.clear(); extractedData.clear();
+  idCnt = 0; seqCnt = 0;
   document.getElementById('fileList').innerHTML = '';
-  updateStats(); checkProcess(); checkDlAll(); checkAnalyze();
+  document.getElementById('rankingBox').className = 'ranking-box';
+  document.getElementById('analysisSection').className = 'analysis-box';
+  updateStats(); checkKey(); checkDlAll();
 }
 
 function updateStats() {
@@ -244,7 +247,7 @@ async function processAll() {
   const pending = [...files.entries()].filter(([_,f])=>f.status==='pending');
   document.getElementById('processBtn').disabled = true;
   for (const [id, entry] of pending) await processOne(id, entry);
-  checkProcess(); checkDlAll(); checkAnalyze();
+  checkKey(); checkDlAll(); checkAnalyze();
   toast('✅ Processamento concluído!');
 }
 
@@ -296,8 +299,8 @@ function genCode(nome, seq) {
 // ── API CALL ──────────────────────────────────────────────────
 function getKey(){ return document.getElementById('apiKeyInput').value.trim(); }
 function checkKey(){
-  const k=getKey();
-  document.getElementById('keyStatus').style.background=k.startsWith('sk-ant')?'#22C55E':'#2A2A3D';
+  const k = getKey();
+  document.getElementById('keyStatus').style.background = k.startsWith('sk-ant') ? '#22C55E' : '#EF4444';
   checkProcess();
 }
 
