@@ -437,19 +437,28 @@ async function genPDF(data, seq, code) {
 function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
 
 // ── DOWNLOAD ──────────────────────────────────────────────────
+function sanitizeFilename(code) {
+  // Remove invalid filename chars: | / \ : * ? " < >
+  return (code||'CV').replace(/[|\/\\:*?"<>]/g, '_').replace(/\s+/g,'_');
+}
+
 function dlSingle(id){
   const e=files.get(id); if(!e?.blob) return;
   const url=URL.createObjectURL(e.blob);
-  const a=document.createElement('a'); a.href=url; a.download=(e.code||'CV')+'.pdf'; a.click();
+  const a=document.createElement('a'); a.href=url; a.download=sanitizeFilename(e.code)+'.pdf'; a.click();
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 
 async function downloadAll(){
   const done=[...files.entries()].filter(([_,f])=>f.status==='done'&&f.blob);
+  if(!done.length){ toast('⚠️ Nenhum PDF gerado'); return; }
   if(done.length===1){dlSingle(done[0][0]);return;}
   toast('📦 Gerando ZIP...');
   const zip=new JSZip();
-  done.forEach(([id,e])=>zip.file((e.code||'CV')+'.pdf',e.blob));
+  done.forEach(([id,e])=>{
+    const fname = sanitizeFilename(e.code)+'.pdf';
+    zip.file(fname, e.blob);
+  });
   const blob=await zip.generateAsync({type:'blob'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a'); a.href=url; a.download='curriculos_padronizados.zip'; a.click();
