@@ -16,6 +16,34 @@ h1 { text-align: center; font-size: 32px; margin-bottom: 8px; color: #A09CFF; }
 .stat-n.t { color: #E8E8F0; } .stat-n.c { color: #22C55E; } .stat-n.e { color: #EF4444; }
 .stat-l { font-size: 11px; color: #6B6B8A; text-transform: uppercase; margin-top: 4px; }
 
+/* PROJECT PANEL */
+.project-panel { max-width: 800px; margin: 0 auto 16px; background: #15151F; border: 1px solid #2A2A3D; border-radius: 12px; padding: 18px 20px; }
+.project-panel-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.project-panel-header span { font-size: 18px; }
+.project-panel-header h3 { font-size: 14px; font-weight: bold; color: #E8E8F0; flex: 1; }
+.project-selector-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.project-select { flex: 1; min-width: 200px; background: #1C1C2A; border: 1px solid #2A2A3D; border-radius: 8px; padding: 10px 12px; color: #E8E8F0; font-size: 13px; font-family: Arial; outline: none; cursor: pointer; }
+.project-select:focus { border-color: #6C63FF; }
+.btn-new-project { background: #6C63FF22; border: 1px solid #6C63FF44; color: #A09CFF; padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap; font-family: Arial; }
+.btn-new-project:hover { background: #6C63FF33; }
+.btn-del-project { background: #EF444422; border: 1px solid #EF444444; color: #F87171; padding: 10px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; font-family: Arial; }
+.btn-del-project:hover { background: #EF444433; }
+.project-info-bar { margin-top: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
+.proj-stat { font-size: 11px; color: #6B6B8A; }
+.proj-stat strong { color: #A09CFF; }
+
+/* NEW PROJECT MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; align-items: center; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal { background: #15151F; border: 1px solid #2A2A3D; border-radius: 16px; padding: 28px; width: 420px; max-width: 90vw; }
+.modal h3 { font-size: 18px; margin-bottom: 6px; color: #E8E8F0; }
+.modal p { font-size: 12px; color: #6B6B8A; margin-bottom: 18px; }
+.modal input { width: 100%; background: #1C1C2A; border: 1px solid #2A2A3D; border-radius: 8px; padding: 12px 14px; color: #E8E8F0; font-size: 14px; font-family: Arial; outline: none; margin-bottom: 16px; }
+.modal input:focus { border-color: #6C63FF; }
+.modal-btns { display: flex; gap: 10px; justify-content: flex-end; }
+.btn-modal-cancel { background: #1C1C2A; border: 1px solid #2A2A3D; color: #6B6B8A; padding: 10px 20px; border-radius: 8px; font-size: 13px; cursor: pointer; font-family: Arial; }
+.btn-modal-ok { background: #6C63FF; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; font-family: Arial; }
+
 /* UPLOAD AREA */
 .upload-area { max-width: 800px; margin: 0 auto 16px; background: #15151F; border: 2px dashed #2A2A3D; border-radius: 12px; padding: 40px 20px; text-align: center; }
 .upload-area h3 { margin-bottom: 8px; font-size: 18px; }
@@ -34,6 +62,7 @@ h1 { text-align: center; font-size: 32px; margin-bottom: 8px; color: #A09CFF; }
 .file-item.done { border-color: #22C55E44; }
 .file-item.error { border-color: #EF444444; }
 .file-item.processing { border-color: #6C63FF44; }
+.file-item.duplicate { border-color: #F59E0B66; background: #F59E0B08; }
 .file-icon { font-size: 24px; }
 .file-info { flex: 1; }
 .file-name { font-size: 13px; font-weight: bold; }
@@ -41,8 +70,11 @@ h1 { text-align: center; font-size: 32px; margin-bottom: 8px; color: #A09CFF; }
 .file-status.done { color: #22C55E; }
 .file-status.error { color: #EF4444; }
 .file-status.processing { color: #A09CFF; }
+.file-status.duplicate { color: #F59E0B; }
 .badge { background: #1C1C2A; border: 1px solid #2A2A3D; color: #6B6B8A; font-size: 10px; font-weight: bold; padding: 2px 7px; border-radius: 5px; }
 .code-badge { background: #6C63FF22; border: 1px solid #6C63FF44; color: #A09CFF; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 5px; }
+.dup-badge { background: #F59E0B22; border: 1px solid #F59E0B44; color: #FCD34D; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 5px; }
+.proj-badge { background: #22C55E11; border: 1px solid #22C55E33; color: #4ADE80; font-size: 9px; padding: 2px 7px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; }
 .btn-dl { background: #22C55E22; border: 1px solid #22C55E44; color: #22C55E; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; display: none; }
 .btn-dl.show { display: block; }
 .btn-rm { background: #1C1C2A; border: 1px solid #2A2A3D; color: #6B6B8A; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; }
@@ -88,6 +120,10 @@ textarea:focus { border-color: #6C63FF; }
 .rank-cons { color: #F87171; font-size: 11px; margin-top: 4px; }
 
 #toast { position: fixed; bottom: 20px; right: 20px; background: #1C1C2A; border: 1px solid #2A2A3D; border-radius: 10px; padding: 12px 18px; font-size: 13px; display: none; z-index: 999; }
+
+/* no project warning */
+.no-project-warn { max-width: 800px; margin: 0 auto 16px; background: #F59E0B11; border: 1px solid #F59E0B44; border-radius: 10px; padding: 12px 16px; font-size: 13px; color: #FCD34D; display: none; }
+.no-project-warn.show { display: flex; align-items: center; gap: 10px; }
 </style>
 </head>
 <body>
@@ -100,11 +136,36 @@ textarea:focus { border-color: #6C63FF; }
   <span style="font-size:20px">🔑</span>
   <div style="flex:1">
     <div style="font-size:12px;color:#6B6B8A;margin-bottom:4px">Cole sua chave API da Anthropic</div>
-    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." 
+    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..."
       style="width:100%;background:#1C1C2A;border:1px solid #2A2A3D;border-radius:8px;padding:10px 12px;color:#E8E8F0;font-size:13px;font-family:Arial;outline:none"
       oninput="checkKey()">
   </div>
   <div id="keyStatus" style="width:10px;height:10px;border-radius:50%;background:#2A2A3D;flex-shrink:0"></div>
+</div>
+
+<!-- PROJECT PANEL -->
+<div class="project-panel">
+  <div class="project-panel-header">
+    <span>📁</span>
+    <h3>Projeto / Processo Seletivo</h3>
+    <button class="btn-new-project" onclick="openNewProjectModal()">+ Novo Projeto</button>
+  </div>
+  <div class="project-selector-row">
+    <select class="project-select" id="projectSelect" onchange="onProjectChange()">
+      <option value="">— Selecione ou crie um projeto —</option>
+    </select>
+    <button class="btn-del-project" id="delProjectBtn" onclick="deleteProject()" title="Excluir projeto" style="display:none">🗑</button>
+  </div>
+  <div class="project-info-bar" id="projectInfoBar" style="display:none">
+    <span class="proj-stat">Currículos processados: <strong id="projStatTotal">0</strong></span>
+    <span class="proj-stat">Próximo nº: <strong id="projStatNext">#001</strong></span>
+    <span class="proj-stat">Criado em: <strong id="projStatDate">—</strong></span>
+  </div>
+</div>
+
+<!-- NO PROJECT WARNING -->
+<div class="no-project-warn" id="noProjectWarn">
+  ⚠️ Selecione ou crie um projeto antes de processar os currículos.
 </div>
 
 <!-- STATS -->
@@ -153,34 +214,163 @@ textarea:focus { border-color: #6C63FF; }
 
 <div id="toast"></div>
 
+<!-- NEW PROJECT MODAL -->
+<div class="modal-overlay" id="newProjectModal">
+  <div class="modal">
+    <h3>📁 Novo Projeto</h3>
+    <p>Dê um nome ao projeto ou processo seletivo. Ex: "Engenheiros Empresa XXX — Maio/2026"</p>
+    <input type="text" id="newProjectName" placeholder="Nome do projeto..." maxlength="80"
+      onkeydown="if(event.key==='Enter') confirmNewProject()">
+    <div class="modal-btns">
+      <button class="btn-modal-cancel" onclick="closeNewProjectModal()">Cancelar</button>
+      <button class="btn-modal-ok" onclick="confirmNewProject()">Criar Projeto</button>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 
-const API_KEY = '';
+// ── STORAGE KEY ───────────────────────────────────────────────
+const PROJECTS_KEY = 'cv_projects_v1';   // { [id]: { id, name, createdAt, seq, processedHashes: [] } }
+
+// ── IN-MEMORY STATE ───────────────────────────────────────────
 const files = new Map();
 const extractedData = new Map();
 let idCnt = 0;
 
-// ── SEQUENTIAL COUNTER PER DAY ────────────────────────────────
-function todayKey() {
-  const d = new Date();
-  return `seq_${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+// ── PROJECT STORAGE HELPERS ───────────────────────────────────
+function loadProjects() {
+  try { return JSON.parse(localStorage.getItem(PROJECTS_KEY) || '{}'); }
+  catch(e) { return {}; }
 }
-function getTodaySeq() {
+function saveProjects(data) {
+  try { localStorage.setItem(PROJECTS_KEY, JSON.stringify(data)); } catch(e) {}
+}
+function getProject(id) {
+  return loadProjects()[id] || null;
+}
+function activeProjectId() {
+  const sel = document.getElementById('projectSelect');
+  return sel.value || null;
+}
+function activeProject() {
+  const id = activeProjectId();
+  return id ? getProject(id) : null;
+}
+
+// ── PROJECT SEQUENCE ───────────────────────────────────────────
+function nextProjectSeq(projectId) {
+  const projects = loadProjects();
+  if (!projects[projectId]) return 1;
+  projects[projectId].seq = (projects[projectId].seq || 0) + 1;
+  saveProjects(projects);
+  return projects[projectId].seq;
+}
+function peekNextSeq(projectId) {
+  const p = getProject(projectId);
+  return p ? (p.seq || 0) + 1 : 1;
+}
+
+// ── DUPLICATE DETECTION ────────────────────────────────────────
+async function hashFile(file) {
   try {
-    const key = todayKey();
-    const stored = sessionStorage.getItem(key);
-    return stored ? parseInt(stored) : 0;
-  } catch(e) { return 0; }
+    const buf = await file.arrayBuffer();
+    const hashBuf = await crypto.subtle.digest('SHA-256', buf);
+    const hashArr = Array.from(new Uint8Array(hashBuf));
+    return hashArr.map(b => b.toString(16).padStart(2,'0')).join('').slice(0, 16);
+  } catch(e) {
+    // Fallback: use name + size as pseudo-hash
+    return btoa(file.name + file.size).replace(/[^a-zA-Z0-9]/g,'').slice(0,16);
+  }
 }
-function nextSeq() {
-  try {
-    const key = todayKey();
-    const next = getTodaySeq() + 1;
-    sessionStorage.setItem(key, next);
-    return next;
-  } catch(e) { return ++idCnt; }
+
+function registerHash(projectId, hash, code) {
+  const projects = loadProjects();
+  if (!projects[projectId]) return;
+  if (!projects[projectId].processedHashes) projects[projectId].processedHashes = [];
+  // Store { hash, code, processedAt }
+  projects[projectId].processedHashes.push({ hash, code, processedAt: nowFormatted() });
+  saveProjects(projects);
 }
+
+function checkHashExists(projectId, hash) {
+  const p = getProject(projectId);
+  if (!p || !p.processedHashes) return null;
+  return p.processedHashes.find(h => h.hash === hash) || null;
+}
+
+// ── PROJECT UI ────────────────────────────────────────────────
+function renderProjectSelect() {
+  const projects = loadProjects();
+  const sel = document.getElementById('projectSelect');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">— Selecione ou crie um projeto —</option>';
+  Object.values(projects).sort((a,b)=>b.createdAt-a.createdAt).forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.id;
+    opt.textContent = p.name;
+    if (p.id === current) opt.selected = true;
+    sel.appendChild(opt);
+  });
+  onProjectChange();
+}
+
+function onProjectChange() {
+  const id = activeProjectId();
+  const delBtn = document.getElementById('delProjectBtn');
+  const infoBar = document.getElementById('projectInfoBar');
+  if (id) {
+    const p = getProject(id);
+    delBtn.style.display = 'block';
+    infoBar.style.display = 'flex';
+    document.getElementById('projStatTotal').textContent = (p.processedHashes||[]).length;
+    document.getElementById('projStatNext').textContent = '#' + String(peekNextSeq(id)).padStart(3,'0');
+    const d = new Date(p.createdAt);
+    document.getElementById('projStatDate').textContent =
+      `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+  } else {
+    delBtn.style.display = 'none';
+    infoBar.style.display = 'none';
+  }
+  document.getElementById('noProjectWarn').className = 'no-project-warn' + (!id && [...files.values()].length > 0 ? ' show' : '');
+  checkProcess();
+}
+
+function openNewProjectModal() {
+  document.getElementById('newProjectName').value = '';
+  document.getElementById('newProjectModal').classList.add('open');
+  setTimeout(() => document.getElementById('newProjectName').focus(), 80);
+}
+function closeNewProjectModal() {
+  document.getElementById('newProjectModal').classList.remove('open');
+}
+function confirmNewProject() {
+  const name = document.getElementById('newProjectName').value.trim();
+  if (!name) { toast('⚠️ Digite um nome para o projeto'); return; }
+  const projects = loadProjects();
+  const id = 'proj_' + Date.now();
+  projects[id] = { id, name, createdAt: Date.now(), seq: 0, processedHashes: [] };
+  saveProjects(projects);
+  closeNewProjectModal();
+  renderProjectSelect();
+  document.getElementById('projectSelect').value = id;
+  onProjectChange();
+  toast('✅ Projeto "' + name + '" criado!');
+}
+function deleteProject() {
+  const id = activeProjectId();
+  if (!id) return;
+  const p = getProject(id);
+  if (!confirm(`Excluir o projeto "${p.name}"?\n\nIsso apagará o histórico de currículos processados (${(p.processedHashes||[]).length} itens). Os PDFs já gerados não serão afetados.`)) return;
+  const projects = loadProjects();
+  delete projects[id];
+  saveProjects(projects);
+  renderProjectSelect();
+  toast('🗑 Projeto excluído.');
+}
+
+// ── DATE/TIME HELPERS ──────────────────────────────────────────
 function todayFormatted() {
   const d = new Date();
   return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
@@ -191,36 +381,56 @@ function nowFormatted() {
 }
 
 // ── HANDLE FILES ──────────────────────────────────────────────
-function handleFiles(fileList) {
+async function handleFiles(fileList) {
   if (!fileList || fileList.length === 0) { toast('Nenhum arquivo selecionado'); return; }
   const arr = Array.from(fileList).filter(f => /\.(pdf|docx|doc)$/i.test(f.name));
   if (arr.length === 0) { toast('❌ Apenas PDF e Word são aceitos'); return; }
   if (files.size + arr.length > 100) { toast('⚠️ Máximo 100 arquivos'); return; }
-  arr.forEach(f => {
-    const id = ++idCnt, seq = nextSeq();
-    files.set(id, { file: f, status: 'pending', blob: null, seq, code: null, processedAt: null });
-    renderItem(id, f, seq);
-  });
+
+  const projectId = activeProjectId();
+
+  for (const f of arr) {
+    const id = ++idCnt;
+    const hash = await hashFile(f);
+    // Check duplicate
+    let dupInfo = null;
+    if (projectId) {
+      dupInfo = checkHashExists(projectId, hash);
+    }
+    files.set(id, { file: f, status: 'pending', blob: null, seq: null, code: null, processedAt: null, hash, dupInfo });
+    renderItem(id, f, dupInfo);
+  }
   updateStats();
-  checkKey(); // always re-check key + process button together
+  checkKey();
+  checkNoProjectWarn();
   document.getElementById('fileInput').value = '';
 }
 
-function renderItem(id, file, seq) {
+function renderItem(id, file, dupInfo) {
   const ext = file.name.split('.').pop().toLowerCase();
   const icon = ext === 'pdf' ? '📕' : '📘';
   const el = document.createElement('div');
-  el.className = 'file-item';
+  el.className = 'file-item' + (dupInfo ? ' duplicate' : '');
   el.id = 'item-' + id;
+
+  const dupBadgeHTML = dupInfo
+    ? `<span class="dup-badge" title="Processado em ${dupInfo.processedAt} como ${dupInfo.code}">⚠ Duplicado</span>`
+    : '';
+  const statusTxt = dupInfo
+    ? `⚠ Já processado neste projeto em ${dupInfo.processedAt} (${dupInfo.code})`
+    : 'Aguardando';
+  const statusClass = dupInfo ? 'duplicate' : '';
+
   el.innerHTML = `
     <span class="file-icon">${icon}</span>
     <div class="file-info">
       <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-        <span class="badge">#${String(seq).padStart(3,'0')}</span>
+        <span class="badge" id="seqbadge-${id}">#???</span>
         <span class="file-name">${file.name}</span>
         <span class="code-badge" id="code-${id}" style="display:none"></span>
+        ${dupBadgeHTML}
       </div>
-      <div class="file-status" id="st-${id}">Aguardando</div>
+      <div class="file-status ${statusClass}" id="st-${id}">${statusTxt}</div>
       <div class="progress" id="prog-${id}"><div class="progress-fill" id="fill-${id}" style="width:0%"></div></div>
     </div>
     <button class="btn-dl" id="dl-${id}" onclick="dlSingle(${id})">⬇ PDF</button>
@@ -233,17 +443,16 @@ function removeFile(id) {
   files.delete(id); extractedData.delete(id);
   const el = document.getElementById('item-'+id);
   if (el) el.remove();
-  updateStats(); checkKey(); checkDlAll(); checkAnalyze();
+  updateStats(); checkKey(); checkDlAll(); checkAnalyze(); checkNoProjectWarn();
 }
 
 function clearAll() {
   files.clear(); extractedData.clear();
   idCnt = 0;
-  // Note: seqCnt NOT reset — persists for the day via sessionStorage
   document.getElementById('fileList').innerHTML = '';
   document.getElementById('rankingBox').className = 'ranking-box';
   document.getElementById('analysisSection').className = 'analysis-box';
-  updateStats(); checkKey(); checkDlAll();
+  updateStats(); checkKey(); checkDlAll(); checkNoProjectWarn();
 }
 
 function updateStats() {
@@ -253,11 +462,18 @@ function updateStats() {
   document.getElementById('sError').textContent = all.filter(f=>f.status==='error').length;
 }
 
+function checkNoProjectWarn() {
+  const hasFiles = files.size > 0;
+  const hasProject = !!activeProjectId();
+  document.getElementById('noProjectWarn').className = 'no-project-warn' + (hasFiles && !hasProject ? ' show' : '');
+}
+
 function checkProcess() {
   const hasPending = [...files.values()].some(f=>f.status==='pending');
   const isProc = [...files.values()].some(f=>f.status==='processing');
   const hasKey = getKey().startsWith('sk-ant');
-  document.getElementById('processBtn').disabled = !hasPending || isProc || !hasKey;
+  const hasProject = !!activeProjectId();
+  document.getElementById('processBtn').disabled = !hasPending || isProc || !hasKey || !hasProject;
 }
 
 function checkDlAll() {
@@ -274,14 +490,27 @@ function checkAnalyze() {
 
 // ── PROCESS ──────────────────────────────────────────────────
 async function processAll() {
+  const projectId = activeProjectId();
+  if (!projectId) { toast('⚠️ Selecione um projeto primeiro'); return; }
+
   const pending = [...files.entries()].filter(([_,f])=>f.status==='pending');
   document.getElementById('processBtn').disabled = true;
-  for (const [id, entry] of pending) await processOne(id, entry);
+
+  for (const [id, entry] of pending) {
+    // Assign seq number at processing time (not at upload)
+    entry.seq = nextProjectSeq(projectId);
+    const seqBadge = document.getElementById('seqbadge-'+id);
+    if (seqBadge) seqBadge.textContent = '#' + String(entry.seq).padStart(3,'0');
+    await processOne(id, entry, projectId);
+  }
+
+  // Refresh project info bar
+  onProjectChange();
   checkKey(); checkDlAll(); checkAnalyze();
   toast('✅ Processamento concluído!');
 }
 
-async function processOne(id, entry) {
+async function processOne(id, entry, projectId) {
   setStatus(id, 'processing', 'Lendo arquivo...'); setProgress(id, true, 15);
   entry.status = 'processing';
   try {
@@ -290,23 +519,52 @@ async function processOne(id, entry) {
     setStatus(id, 'processing', 'Extraindo dados com IA...'); setProgress(id, true, 35);
     const data = await extractCV(b64, ext, entry.file.name);
     extractedData.set(id, data);
+
+    // Get active project name for the code
+    const proj = getProject(projectId);
     const code = genCode(data.nome, entry.seq);
     entry.code = code;
     const codeEl = document.getElementById('code-'+id);
     if (codeEl) { codeEl.textContent = code; codeEl.style.display = 'inline'; }
+
+    // Show project badge in item
+    const badgeRow = document.querySelector(`#item-${id} .file-name`);
+    if (badgeRow && proj) {
+      const existingProjBadge = document.querySelector(`#item-${id} .proj-badge`);
+      if (!existingProjBadge) {
+        const pb = document.createElement('span');
+        pb.className = 'proj-badge';
+        pb.title = proj.name;
+        pb.textContent = '📁 ' + proj.name;
+        badgeRow.parentNode.insertBefore(pb, badgeRow.nextSibling);
+      }
+    }
+
     setStatus(id, 'processing', 'Gerando PDF...'); setProgress(id, true, 70);
-    const blob = await genPDF(data, entry.seq, code);
+    const blob = await genPDF(data, entry.seq, code, proj ? proj.name : '');
     entry.blob = blob; entry.status = 'done'; entry.processedAt = nowFormatted();
+
+    // Register hash to detect future duplicates
+    registerHash(projectId, entry.hash, code);
+
     setProgress(id, true, 100); setTimeout(()=>setProgress(id,false),500);
     setStatus(id, 'done', `✓ ${entry.code} — ${entry.processedAt}`);
     const dlBtn = document.getElementById('dl-'+id);
     if (dlBtn) dlBtn.classList.add('show');
     const item = document.getElementById('item-'+id);
-    if (item) { item.classList.remove('processing'); item.classList.add('done'); }
+    if (item) { item.classList.remove('processing','duplicate'); item.classList.add('done'); }
   } catch(err) {
     entry.status = 'error';
     setProgress(id, false);
     setStatus(id, 'error', 'Erro: '+String(err.message||err).slice(0,80));
+    // Rollback seq if we can (best-effort: decrement project seq)
+    try {
+      const projects = loadProjects();
+      if (projects[projectId] && projects[projectId].seq > 0) {
+        projects[projectId].seq--;
+        saveProjects(projects);
+      }
+    } catch(e2) {}
     const item = document.getElementById('item-'+id);
     if (item) { item.classList.remove('processing'); item.classList.add('error'); }
   }
@@ -318,7 +576,6 @@ function toBase64(file) {
 }
 
 function genCode(nome, seq) {
-  // Remove prepositions common in Brazilian names
   const prepositions = new Set(['de','da','do','das','dos','e','di','du','van','von','del','el']);
   const allParts = (nome||'').trim().split(/\s+/).filter(Boolean);
   const parts = allParts.filter(p => !prepositions.has(p.toLowerCase()));
@@ -330,10 +587,8 @@ function genCode(nome, seq) {
     ini = parts[0].substring(0, 3);
   } else if (parts.length === 2) {
     ini = parts[0][0] + parts[1][0];
-    // Add second letter of last name if only 2 parts
     if (parts[1].length > 1) ini += parts[1][1];
   } else {
-    // First letter of first name + first letter of second name + first letter of last name
     ini = parts[0][0] + parts[1][0] + parts[parts.length-1][0];
   }
 
@@ -387,14 +642,11 @@ Estrutura:
 
   const data = await apiCall({model:'claude-sonnet-4-6',max_tokens:4000,system:sys,messages:[{role:'user',content}]});
   const txt = data.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
-  // Try to repair truncated JSON
   let cleaned = txt;
   try {
     return JSON.parse(cleaned);
   } catch(e) {
-    // Try to fix unterminated strings/arrays by closing open structures
     cleaned = cleaned.replace(/,\s*$/, '');
-    // Count brackets and close any open ones
     const opens = (cleaned.match(/\[/g)||[]).length - (cleaned.match(/\]/g)||[]).length;
     const openCurly = (cleaned.match(/\{/g)||[]).length - (cleaned.match(/\}/g)||[]).length;
     for(let i=0;i<openCurly;i++) cleaned += '}';
@@ -402,14 +654,13 @@ Estrutura:
     try {
       return JSON.parse(cleaned);
     } catch(e2) {
-      // Return minimal structure if all else fails
       return {nome:'Erro ao processar',titulo_profissional:'Currículo muito extenso — tente converter para PDF menor',email:'',telefone:'',localizacao:'',resumo_profissional:'Não foi possível extrair os dados. O arquivo pode ser muito extenso.',experiencias:[],formacao:[],habilidades:[],idiomas:[],certificacoes:[]};
     }
   }
 }
 
 // ── PDF GENERATION ────────────────────────────────────────────
-async function genPDF(data, seq, code) {
+async function genPDF(data, seq, code, projectName) {
   if (!window.jspdf) await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
   const {jsPDF}=window.jspdf;
   const doc=new jsPDF({unit:'mm',format:'a4'});
@@ -426,6 +677,14 @@ async function genPDF(data, seq, code) {
   sf('bold',26);sc(26,26,46);doc.text(code,ML,y);
   sf('normal',9);sc(107,107,138);doc.text('Candidato Nº '+String(seq).padStart(3,'0'),W-MR,y,{align:'right'});y+=5;
   sf('normal',8);sc(160,160,180);doc.text('Processado em: '+nowFormatted(),W-MR,y,{align:'right'});y+=5;
+
+  // Project label on PDF
+  if (projectName) {
+    sf('bold',8);sc(100,100,160);
+    const projLabel = '📁 Projeto: ' + projectName;
+    doc.text(projLabel, ML, y); y+=5;
+  }
+
   if(data.titulo_profissional){sf('normal',12);sc(15,52,96);ln(data.titulo_profissional,ML,maxW);y+=1;}
   doc.setFillColor(245,245,250);doc.roundedRect(ML,y,maxW,7,1.5,1.5,'F');
   sf('italic',8);sc(160,160,180);doc.text('Processo seletivo às cegas — dados pessoais omitidos',ML+3,y+4.5);y+=11;
@@ -457,7 +716,6 @@ function loadScript(src){return new Promise((res,rej)=>{const s=document.createE
 
 // ── DOWNLOAD ──────────────────────────────────────────────────
 function sanitizeFilename(code) {
-  // Remove invalid filename chars: | / \ : * ? " < >
   return (code||'CV').replace(/[|\/\\:*?"<>]/g, '_').replace(/\s+/g,'_');
 }
 
@@ -490,7 +748,6 @@ document.getElementById('jobReqs').addEventListener('input',checkAnalyze);
 function safeParseJSON(txt) {
   let clean = txt.replace(/```json|```/g,'').trim();
   try { return JSON.parse(clean); } catch(e) {}
-  // Try to repair truncated JSON
   clean = clean.replace(/,\s*$/, '');
   const opens = (clean.match(/\[/g)||[]).length - (clean.match(/\]/g)||[]).length;
   const openC = (clean.match(/\{/g)||[]).length - (clean.match(/\}/g)||[]).length;
@@ -533,7 +790,6 @@ async function runAnalysis(){
   document.getElementById('rankingBox').className = 'ranking-box';
 
   try {
-    // Split into batches of 5
     const BATCH = 10;
     const batches = [];
     for(let i=0; i<candidates.length; i+=BATCH) batches.push(candidates.slice(i,i+BATCH));
@@ -545,9 +801,7 @@ async function runAnalysis(){
       allResults = allResults.concat(batchResult);
     }
 
-    // Sort all results by score
     allResults.sort((a,b) => b.score_total - a.score_total);
-
     window._ranking = allResults;
     window._reqs = reqs;
     renderRanking(allResults);
@@ -600,6 +854,11 @@ async function exportRankingPDF(){
   function ln(txt,x,w){const ls=doc.splitTextToSize(String(txt||''),w||maxW);ls.forEach(l=>{chk();doc.text(l,x||ML,y);y+=5;});}
 
   sf('bold',18);sc(26,26,46);doc.text('Ranking de Aderência',ML,y);y+=8;
+  // Add project name to PDF header
+  const proj = activeProject();
+  if (proj) {
+    sf('normal',10);sc(100,100,160);doc.text('Projeto: '+proj.name, ML, y);y+=6;
+  }
   sf('normal',9);sc(107,107,138);doc.text(`Gerado em: ${nowFormatted()} · ${ranking.length} candidatos avaliados`,ML,y);y+=6;
   doc.setDrawColor(233,69,96);doc.setLineWidth(0.8);doc.line(ML,y,W-ML,y);y+=8;
 
@@ -620,7 +879,7 @@ async function exportRankingPDF(){
   toast('📋 Ranking exportado!');
 }
 
-// ── UI ────────────────────────────────────────────────────────
+// ── UI HELPERS ────────────────────────────────────────────────
 function setStatus(id,type,txt){
   const el=document.getElementById('st-'+id);
   if(el){el.className='file-status '+type;el.textContent=txt;}
@@ -638,6 +897,9 @@ function toast(msg,d=3000){
   t.textContent=msg;t.style.display='block';
   setTimeout(()=>t.style.display='none',d);
 }
+
+// ── INIT ──────────────────────────────────────────────────────
+renderProjectSelect();
 </script>
 </body>
 </html>
