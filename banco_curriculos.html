@@ -833,11 +833,13 @@ function renderFileFila() {
     const icon = item.file.name.endsWith('.pdf') ? '📄' : '📝';
     const size = (item.file.size/1024).toFixed(0) + ' KB';
     const statusMap = { pending:'⏳ Aguardando', processing:'⚙️ Processando...', done:'✅ Importado', error:'❌ Erro' };
+    const erroDetail = item.status==='error'&&item.erroMsg ? `<div style="font-size:0.72rem;color:var(--danger);margin-top:3px;">${item.erroMsg}</div>` : '';
     return `<div class="file-item" id="file-item-${i}">
       <div class="file-icon">${icon}</div>
       <div style="flex:1;">
         <div class="file-name">${item.file.name}</div>
         <div class="file-size">${size}</div>
+        ${erroDetail}
       </div>
       <div class="file-status ${item.status}">${statusMap[item.status]}</div>
     </div>`;
@@ -879,6 +881,7 @@ async function processarTodos() {
     } catch(e) {
       console.error(e);
       item.status = 'error';
+      item.erroMsg = e.message;
     }
     done++;
     const pct = Math.round((done/pendentes.length)*100);
@@ -969,28 +972,34 @@ Preencha apenas os campos presentes no currículo. Arrays vazios se não houver 
     }];
   }
 
+  const API_HEADERS = {
+    'Content-Type': 'application/json',
+    'x-api-key': key,
+    'anthropic-version': '2023-06-01',
+    'anthropic-dangerous-direct-browser-access': 'true'
+  };
+
   const resp = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
+    headers: API_HEADERS,
     body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 2000, system: SYSTEM, messages })
   });
 
   if (!resp.ok) {
-    const err = await resp.json();
-    throw new Error(err?.error?.message || 'API error');
+    let errMsg = `HTTP ${resp.status}`;
+    try { const err = await resp.json(); errMsg = err?.error?.message || errMsg; } catch{}
+    throw new Error(errMsg);
   }
 
   const data = await resp.json();
   const txt = data.content?.find(b=>b.type==='text')?.text || '';
-  // Limpar markdown fences se houver
   const clean = txt.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();
   try {
     return JSON.parse(clean);
   } catch(e) {
-    // Tentar extrair JSON com regex
     const match = clean.match(/\{[\s\S]+\}/);
     if (match) return JSON.parse(match[0]);
-    throw new Error('JSON inválido na resposta');
+    throw new Error('JSON inválido na resposta da API');
   }
 }
 
@@ -1052,7 +1061,12 @@ Ordene do mais aderente para o menos. ${top>0?`Inclua no máximo ${top} candidat
   try {
     const resp = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': key,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6', max_tokens: 4000,
         messages: [{ role: 'user', content: PROMPT }]
