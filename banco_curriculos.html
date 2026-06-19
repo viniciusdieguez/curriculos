@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banco de Currículos — RH Intelligence</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3350;
+    --accent: #4f6ef7;
+    --accent2: #7c3aed;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --text: #e8eaf6;
+    --text2: #8b91b5;
+    --text3: #545878;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+    --font: 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 58px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .topbar-logo { font-weight: 800; font-size: 1.05rem; color: var(--text); letter-spacing: -0.3px; }
+  .topbar-logo span { color: var(--accent); }
+  .topbar-nav { display: flex; gap: 4px; margin-left: 12px; }
+  .nav-btn {
+    background: none; border: none; color: var(--text2); cursor: pointer;
+    padding: 6px 14px; border-radius: var(--radius-sm); font-size: 0.875rem;
+    font-family: var(--font); font-weight: 500; transition: all .15s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav-btn:hover { background: var(--surface2); color: var(--text); }
+  .nav-btn.active { background: var(--accent); color: #fff; }
+  .topbar-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+  .api-input {
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+    border-radius: var(--radius-sm); padding: 6px 12px; font-size: 0.8rem;
+    font-family: var(--font); width: 270px; outline: none;
+    transition: border-color .15s;
+  }
+  .api-input:focus { border-color: var(--accent); }
+  .badge-count {
+    background: var(--accent); color: #fff; border-radius: 20px;
+    padding: 1px 7px; font-size: 0.72rem; font-weight: 700;
+  }
+
+  /* ── MAIN ── */
+  .main { padding: 28px 28px 60px; max-width: 1400px; margin: 0 auto; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── SECTION TITLE ── */
+  .section-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+  .section-sub { color: var(--text2); font-size: 0.875rem; margin-bottom: 24px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+  }
+  .card-title { font-size: 0.8rem; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 10px; }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 18px; border-radius: var(--radius-sm); border: none;
+    font-family: var(--font); font-size: 0.875rem; font-weight: 600;
+    cursor: pointer; transition: all .15s; white-space: nowrap;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #3d5be0; }
+  .btn-primary:disabled { opacity: .4; cursor: not-allowed; }
+  .btn-secondary { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-danger { background: var(--danger); color: #fff; }
+  .btn-danger:hover { background: #dc2626; }
+  .btn-success { background: var(--success); color: #fff; }
+  .btn-sm { padding: 5px 11px; font-size: 0.78rem; }
+  .btn-icon { padding: 7px; }
+
+  /* ── FILTERS BAR ── */
+  .filters-bar {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    margin-bottom: 20px;
+  }
+  .filter-group { display: flex; flex-direction: column; gap: 3px; }
+  .filter-label { font-size: 0.72rem; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
+  .filter-input, .filter-select {
+    background: var(--surface); border: 1px solid var(--border); color: var(--text);
+    border-radius: var(--radius-sm); padding: 7px 12px; font-family: var(--font);
+    font-size: 0.82rem; outline: none; min-width: 140px; transition: border-color .15s;
+  }
+  .filter-input:focus, .filter-select:focus { border-color: var(--accent); }
+  .filter-select option { background: var(--surface2); }
+  .filter-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .filter-tag {
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text2);
+    border-radius: 20px; padding: 4px 12px; font-size: 0.78rem; cursor: pointer;
+    transition: all .15s; user-select: none;
+  }
+  .filter-tag.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* ── CANDIDATE GRID ── */
+  .cand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .cand-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px; cursor: pointer;
+    transition: all .15s; position: relative; overflow: hidden;
+  }
+  .cand-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0); transform-origin: left; transition: transform .2s;
+  }
+  .cand-card:hover { border-color: var(--accent); }
+  .cand-card:hover::before { transform: scaleX(1); }
+  .cand-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .cand-role { color: var(--accent); font-size: 0.82rem; font-weight: 600; margin-bottom: 10px; }
+  .cand-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .cand-pill {
+    background: var(--surface2); border-radius: 20px; padding: 3px 10px;
+    font-size: 0.72rem; color: var(--text2); display: flex; align-items: center; gap: 4px;
+  }
+  .cand-pill.highlight { background: rgba(79,110,247,0.15); color: var(--accent); }
+  .cand-skills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .skill-tag {
+    background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.25);
+    color: #a78bfa; border-radius: 4px; padding: 2px 8px; font-size: 0.7rem;
+  }
+  .cand-card-footer { display: flex; justify-content: flex-end; margin-top: 12px; gap: 6px; }
+  .empty-state {
+    grid-column: 1/-1; text-align: center; padding: 60px 20px;
+    color: var(--text3);
+  }
+  .empty-icon { font-size: 3rem; margin-bottom: 12px; }
+  .empty-title { font-size: 1.1rem; color: var(--text2); margin-bottom: 8px; }
+
+  /* ── TABLE VIEW ── */
+  .view-toggle { display: flex; gap: 4px; margin-left: auto; }
+  .view-btn {
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text2);
+    padding: 6px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9rem;
+    transition: all .15s;
+  }
+  .view-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  thead { background: var(--surface2); }
+  th { padding: 10px 14px; text-align: left; font-weight: 600; color: var(--text2); white-space: nowrap; }
+  td { padding: 10px 14px; border-top: 1px solid var(--border); vertical-align: middle; }
+  tr:hover td { background: rgba(79,110,247,0.04); }
+  td.name-cell { font-weight: 600; cursor: pointer; color: var(--accent); }
+  td.name-cell:hover { text-decoration: underline; }
+
+  /* ── IMPORT PAGE ── */
+  .dropzone {
+    border: 2px dashed var(--border); border-radius: var(--radius);
+    padding: 48px 24px; text-align: center; cursor: pointer;
+    transition: all .2s; background: var(--surface);
+  }
+  .dropzone.dragover { border-color: var(--accent); background: rgba(79,110,247,0.07); }
+  .dropzone-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .dropzone-text { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .dropzone-sub { color: var(--text2); font-size: 0.82rem; }
+  #file-input { display: none; }
+  .file-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+  .file-item {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .file-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .file-name { flex: 1; font-size: 0.85rem; font-weight: 500; }
+  .file-size { color: var(--text2); font-size: 0.75rem; }
+  .file-status { font-size: 0.78rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+  .file-status.pending { background: var(--surface2); color: var(--text2); }
+  .file-status.processing { background: rgba(245,158,11,0.15); color: var(--warning); }
+  .file-status.done { background: rgba(16,185,129,0.15); color: var(--success); }
+  .file-status.error { background: rgba(239,68,68,0.15); color: var(--danger); }
+  .progress-bar-wrap { height: 4px; background: var(--surface2); border-radius: 2px; margin-top: 12px; }
+  .progress-bar { height: 100%; background: linear-gradient(90deg,var(--accent),var(--accent2)); border-radius: 2px; transition: width .3s; }
+  .import-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 200;
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 40px 16px; overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    width: 100%; max-width: 760px; position: relative; animation: modalIn .2s ease;
+  }
+  @keyframes modalIn { from { opacity:0; transform: translateY(-16px); } to { opacity:1; transform: translateY(0); } }
+  .modal-header { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .modal-title { font-size: 1.1rem; font-weight: 700; }
+  .modal-close { background: none; border: none; color: var(--text2); cursor: pointer; font-size: 1.2rem; padding: 4px; border-radius: 4px; transition: color .15s; }
+  .modal-close:hover { color: var(--text); }
+  .modal-body { padding: 24px; }
+  .modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 10px; justify-content: flex-end; }
+
+  /* ── DETAIL SECTIONS ── */
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .detail-section { margin-bottom: 20px; }
+  .detail-section h4 {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: .8px;
+    color: var(--text3); font-weight: 700; margin-bottom: 10px;
+    padding-bottom: 6px; border-bottom: 1px solid var(--border);
+  }
+  .detail-row { display: flex; gap: 8px; margin-bottom: 6px; font-size: 0.85rem; }
+  .detail-label { color: var(--text2); min-width: 110px; flex-shrink: 0; }
+  .detail-value { color: var(--text); }
+  .exp-item { background: var(--surface2); border-radius: var(--radius-sm); padding: 12px; margin-bottom: 8px; }
+  .exp-company { font-weight: 700; font-size: 0.88rem; }
+  .exp-role { color: var(--accent); font-size: 0.82rem; margin-bottom: 4px; }
+  .exp-period { color: var(--text2); font-size: 0.75rem; margin-bottom: 6px; }
+  .exp-desc { color: var(--text2); font-size: 0.8rem; line-height: 1.5; }
+  .tags-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 3px 10px; font-size: 0.78rem; color: var(--text2); }
+  .tag.lang { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); color: #34d399; }
+  .tag.soft { background: rgba(79,110,247,0.1); border-color: rgba(79,110,247,0.3); color: #818cf8; }
+
+  /* ── MATCHING PAGE ── */
+  .match-layout { display: grid; grid-template-columns: 380px 1fr; gap: 20px; }
+  .match-input-area textarea {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text); border-radius: var(--radius-sm); padding: 14px;
+    font-family: var(--font); font-size: 0.85rem; resize: vertical; outline: none;
+    transition: border-color .15s; min-height: 220px; line-height: 1.6;
+  }
+  .match-input-area textarea:focus { border-color: var(--accent); }
+  .match-input-area label { display: block; font-size: 0.78rem; color: var(--text2); font-weight: 600; margin-bottom: 6px; }
+  .ranking-list { display: flex; flex-direction: column; gap: 12px; }
+  .rank-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px; display: flex; gap: 14px;
+    cursor: pointer; transition: border-color .15s;
+  }
+  .rank-card:hover { border-color: var(--accent); }
+  .rank-pos {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--surface2);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1rem; flex-shrink: 0;
+  }
+  .rank-pos.top1 { background: linear-gradient(135deg,#f59e0b,#ef4444); color: #fff; }
+  .rank-pos.top2 { background: linear-gradient(135deg,#94a3b8,#64748b); color: #fff; }
+  .rank-pos.top3 { background: linear-gradient(135deg,#92400e,#78350f); color: #e5d0a8; }
+  .rank-info { flex: 1; }
+  .rank-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
+  .rank-role { color: var(--text2); font-size: 0.8rem; margin-bottom: 8px; }
+  .rank-justificativa { font-size: 0.82rem; color: var(--text2); line-height: 1.5; }
+  .score-bar-wrap { margin-top: 8px; display: flex; align-items: center; gap: 10px; }
+  .score-bar { flex: 1; height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 3px; transition: width .5s; }
+  .score-num { font-weight: 700; font-size: 0.85rem; min-width: 36px; text-align: right; }
+  .pontos-detail { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .ponto-item {
+    font-size: 0.72rem; padding: 3px 8px; border-radius: 4px;
+  }
+  .ponto-item.pos { background: rgba(16,185,129,0.1); color: #34d399; }
+  .ponto-item.neg { background: rgba(239,68,68,0.1); color: #f87171; }
+  .match-placeholder { text-align: center; padding: 60px 20px; color: var(--text3); }
+
+  /* ── STATS ── */
+  .stats-row { display: flex; gap: 14px; margin-bottom: 24px; }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px; flex: 1;
+  }
+  .stat-val { font-size: 1.8rem; font-weight: 800; color: var(--text); line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: var(--text2); margin-top: 4px; }
+
+  /* ── LOADING ── */
+  .spinner {
+    width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.2);
+    border-top-color: #fff; border-radius: 50%; animation: spin .6s linear infinite; display: inline-block;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-msg { color: var(--text2); font-size: 0.82rem; margin-top: 6px; }
+
+  /* ── TOAST ── */
+  #toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+  .toast {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 12px 18px; font-size: 0.85rem; min-width: 260px;
+    animation: toastIn .2s ease; box-shadow: var(--shadow);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .toast.success { border-left: 3px solid var(--success); }
+  .toast.error { border-left: 3px solid var(--danger); }
+  .toast.info { border-left: 3px solid var(--accent); }
+  @keyframes toastIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width: 768px) {
+    .match-layout { grid-template-columns: 1fr; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .stats-row { flex-wrap: wrap; }
+    .stat-card { min-width: 140px; }
+  }
+
+  /* ── EDIT FORM ── */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-field { display: flex; flex-direction: column; gap: 4px; }
+  .form-field.full { grid-column: 1/-1; }
+  .form-label { font-size: 0.75rem; color: var(--text2); font-weight: 600; }
+  .form-input, .form-textarea {
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+    border-radius: var(--radius-sm); padding: 8px 12px; font-family: var(--font);
+    font-size: 0.85rem; outline: none; transition: border-color .15s;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+  .form-textarea { min-height: 80px; resize: vertical; line-height: 1.5; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo">RH <span>Intelligence</span></div>
+  <nav class="topbar-nav">
+    <button class="nav-btn active" onclick="showPage('banco')" id="nav-banco">
+      🗃️ Banco de Currículos <span class="badge-count" id="badge-total">0</span>
+    </button>
+    <button class="nav-btn" onclick="showPage('importar')" id="nav-importar">
+      📂 Importar
+    </button>
+    <button class="nav-btn" onclick="showPage('matching')" id="nav-matching">
+      🎯 Matching de Vagas
+    </button>
+  </nav>
+  <div class="topbar-right">
+    <input type="password" class="api-input" id="api-key" placeholder="🔑 Cole sua chave API Anthropic" />
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- ═══════════════════════════════════════════
+       PÁGINA: BANCO DE CURRÍCULOS
+  ═══════════════════════════════════════════ -->
+  <div class="page active" id="page-banco">
+    <div class="section-title">Banco de Currículos</div>
+    <div class="section-sub" id="banco-sub">Visualize, filtre e gerencie todos os candidatos cadastrados.</div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-val" id="stat-total">0</div>
+        <div class="stat-label">Total de candidatos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="stat-cidades">0</div>
+        <div class="stat-label">Cidades diferentes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="stat-idiomas">0</div>
+        <div class="stat-label">Idiomas mapeados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="stat-formacoes">0</div>
+        <div class="stat-label">Formações distintas</div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+      <div class="filter-group">
+        <div class="filter-label">Busca livre</div>
+        <input type="text" class="filter-input" id="f-search" placeholder="Nome, cargo, empresa..." oninput="renderBanco()">
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Cidade</div>
+        <select class="filter-select" id="f-cidade" onchange="renderBanco()">
+          <option value="">Todas</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Formação</div>
+        <select class="filter-select" id="f-formacao" onchange="renderBanco()">
+          <option value="">Todas</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Idioma</div>
+        <select class="filter-select" id="f-idioma" onchange="renderBanco()">
+          <option value="">Todos</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Software / Ferramenta</div>
+        <input type="text" class="filter-input" id="f-software" placeholder="Ex: SAP, AutoCAD..." oninput="renderBanco()">
+      </div>
+      <div style="margin-left:auto;display:flex;align-items:flex-end;gap:6px;margin-top:16px;">
+        <button class="btn btn-secondary btn-sm" onclick="clearFilters()">Limpar filtros</button>
+        <div class="view-toggle">
+          <button class="view-btn active" id="vb-cards" onclick="setView('cards')" title="Cards">⊞</button>
+          <button class="view-btn" id="vb-table" onclick="setView('table')" title="Tabela">☰</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div id="banco-result">
+      <div class="cand-grid" id="cand-grid"></div>
+      <div class="table-wrap" id="cand-table" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PÁGINA: IMPORTAR
+  ═══════════════════════════════════════════ -->
+  <div class="page" id="page-importar">
+    <div class="section-title">Importar Currículos</div>
+    <div class="section-sub">Faça upload de arquivos PDF ou Word. A IA extrai e estrutura automaticamente as informações.</div>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('file-input').click()">
+      <div class="dropzone-icon">📂</div>
+      <div class="dropzone-text">Arraste arquivos aqui ou clique para selecionar</div>
+      <div class="dropzone-sub">PDF (.pdf) ou Word (.doc, .docx) — múltiplos arquivos</div>
+    </div>
+    <input type="file" id="file-input" multiple accept=".pdf,.doc,.docx" onchange="handleFiles(this.files)">
+
+    <div id="file-list" class="file-list"></div>
+
+    <div class="import-actions" id="import-actions" style="display:none;">
+      <button class="btn btn-primary" id="btn-process" onclick="processarTodos()">
+        ⚡ Processar Currículos
+      </button>
+      <button class="btn btn-secondary" onclick="limparFila()">🗑 Limpar fila</button>
+      <div style="margin-left:auto;align-self:center;">
+        <span id="import-progress-text" style="font-size:0.82rem;color:var(--text2);"></span>
+      </div>
+    </div>
+    <div class="progress-bar-wrap" id="import-progress-wrap" style="display:none;margin-top:8px;">
+      <div class="progress-bar" id="import-progress-bar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PÁGINA: MATCHING DE VAGAS
+  ═══════════════════════════════════════════ -->
+  <div class="page" id="page-matching">
+    <div class="section-title">Matching de Vagas</div>
+    <div class="section-sub">Descreva os requisitos da vaga e a IA rankeia os candidatos mais aderentes do banco.</div>
+
+    <div class="match-layout">
+      <div>
+        <div class="card">
+          <div class="card-title">Requisitos da Vaga</div>
+          <div class="match-input-area">
+            <label>Título da vaga</label>
+            <input type="text" class="filter-input" id="vaga-titulo" placeholder="Ex: Engenheiro de Manutenção Ferroviária" style="width:100%;margin-bottom:12px;">
+            <label>Descrição completa dos requisitos</label>
+            <textarea id="vaga-req" placeholder="Cole aqui a descrição da vaga, requisitos técnicos, formação exigida, idiomas, experiências necessárias, diferenciais..."></textarea>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
+            <button class="btn btn-primary" id="btn-match" onclick="executarMatching()" style="flex:1;">
+              🎯 Analisar e Ranquear
+            </button>
+            <div class="filter-group" style="flex:1;">
+              <div class="filter-label">Top N candidatos</div>
+              <select class="filter-select" id="match-top" style="width:100%;">
+                <option value="5">Top 5</option>
+                <option value="10" selected>Top 10</option>
+                <option value="20">Top 20</option>
+                <option value="0">Todos</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <div class="card-title">Candidatos no banco</div>
+          <div style="font-size:1.8rem;font-weight:800;" id="match-banco-count">0</div>
+          <div style="font-size:0.78rem;color:var(--text2);margin-top:2px;">disponíveis para análise</div>
+        </div>
+      </div>
+
+      <div>
+        <div id="ranking-container">
+          <div class="match-placeholder">
+            <div style="font-size:2.5rem;margin-bottom:12px;">🎯</div>
+            <div style="font-size:1rem;color:var(--text2);margin-bottom:6px;">Pronto para analisar</div>
+            <div style="font-size:0.82rem;">Preencha os requisitos da vaga e clique em "Analisar e Ranquear"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- MODAL DETALHE CANDIDATO -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title">Candidato</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <button class="btn btn-danger btn-sm" id="btn-delete-modal">🗑 Excluir</button>
+      <button class="btn btn-secondary btn-sm" onclick="closeModal()">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast-container"></div>
+
+<script>
+// ═══════════════════════════════════════════
+// STORAGE & STATE
+// ═══════════════════════════════════════════
+const STORAGE_KEY = 'rh_banco_curriculos_v1';
+let db = [];
+let fileFila = [];
+let currentView = 'cards';
+let currentDetailId = null;
+
+function loadDB() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    db = raw ? JSON.parse(raw) : [];
+  } catch(e) { db = []; }
+}
+function saveDB() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+}
+function getApiKey() {
+  return document.getElementById('api-key').value.trim();
+}
+
+// ═══════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.getElementById('nav-' + page).classList.add('active');
+  if (page === 'banco') { populateFilters(); renderBanco(); }
+  if (page === 'matching') { document.getElementById('match-banco-count').textContent = db.length; }
+}
+
+// ═══════════════════════════════════════════
+// BANCO / FILTROS
+// ═══════════════════════════════════════════
+function populateFilters() {
+  const cidades = [...new Set(db.map(c => c.dados_pessoais?.cidade).filter(Boolean))].sort();
+  const formacoes = [...new Set(db.flatMap(c => (c.formacao||[]).map(f => f.curso)).filter(Boolean))].sort();
+  const idiomas = [...new Set(db.flatMap(c => (c.idiomas||[]).map(i => i.idioma)).filter(Boolean))].sort();
+
+  const populate = (id, items) => {
+    const sel = document.getElementById(id);
+    const cur = sel.value;
+    sel.innerHTML = `<option value="">Todos</option>` + items.map(v => `<option value="${v}"${v===cur?' selected':''}>${v}</option>`).join('');
+  };
+  populate('f-cidade', cidades);
+  populate('f-formacao', formacoes);
+  populate('f-idioma', idiomas);
+
+  // stats
+  document.getElementById('stat-total').textContent = db.length;
+  document.getElementById('stat-cidades').textContent = cidades.length;
+  document.getElementById('stat-idiomas').textContent = idiomas.length;
+  document.getElementById('stat-formacoes').textContent = formacoes.length;
+  document.getElementById('badge-total').textContent = db.length;
+  document.getElementById('banco-sub').textContent =
+    db.length === 0 ? 'Nenhum candidato cadastrado. Importe currículos na aba Importar.' :
+    `${db.length} candidato${db.length!==1?'s':''} cadastrado${db.length!==1?'s':''}.`;
+}
+
+function getFiltered() {
+  const search = document.getElementById('f-search').value.toLowerCase();
+  const cidade = document.getElementById('f-cidade').value;
+  const formacao = document.getElementById('f-formacao').value;
+  const idioma = document.getElementById('f-idioma').value;
+  const software = document.getElementById('f-software').value.toLowerCase();
+
+  return db.filter(c => {
+    const dp = c.dados_pessoais || {};
+    const texto = [dp.nome, dp.email, dp.telefone, c.cargo_buscado,
+      ...(c.experiencia||[]).map(e=>e.empresa+' '+e.cargo),
+      ...(c.competencias||[]),
+      c.resumo
+    ].join(' ').toLowerCase();
+
+    if (search && !texto.includes(search)) return false;
+    if (cidade && dp.cidade !== cidade) return false;
+    if (formacao && !(c.formacao||[]).some(f => f.curso === formacao)) return false;
+    if (idioma && !(c.idiomas||[]).some(i => i.idioma === idioma)) return false;
+    if (software && !(c.softwares||[]).some(s => s.nome?.toLowerCase().includes(software))) return false;
+    return true;
+  });
+}
+
+function clearFilters() {
+  document.getElementById('f-search').value = '';
+  document.getElementById('f-cidade').value = '';
+  document.getElementById('f-formacao').value = '';
+  document.getElementById('f-idioma').value = '';
+  document.getElementById('f-software').value = '';
+  renderBanco();
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('vb-cards').classList.toggle('active', v==='cards');
+  document.getElementById('vb-table').classList.toggle('active', v==='table');
+  document.getElementById('cand-grid').style.display = v==='cards'?'grid':'none';
+  document.getElementById('cand-table').style.display = v==='table'?'block':'none';
+  renderBanco();
+}
+
+function renderBanco() {
+  const filtered = getFiltered();
+  if (currentView === 'cards') renderCards(filtered);
+  else renderTable(filtered);
+}
+
+function scoreColor(s) {
+  if (!s) return 'var(--text2)';
+  if (s >= 80) return 'var(--success)';
+  if (s >= 50) return 'var(--warning)';
+  return 'var(--danger)';
+}
+
+function renderCards(list) {
+  const grid = document.getElementById('cand-grid');
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="empty-state">
+      <div class="empty-icon">🔍</div>
+      <div class="empty-title">${db.length===0?'Banco vazio':'Nenhum resultado'}</div>
+      <div style="font-size:0.82rem;">${db.length===0?'Importe currículos na aba Importar.':'Tente outros filtros.'}</div>
+    </div>`;
+    return;
+  }
+  grid.innerHTML = list.map(c => {
+    const dp = c.dados_pessoais || {};
+    const softs = (c.softwares||[]).slice(0,4).map(s=>s.nome).filter(Boolean);
+    const langs = (c.idiomas||[]).slice(0,2).map(i=>`${i.idioma} (${i.nivel||''})`).filter(Boolean);
+    const exp = c.experiencia?.length || 0;
+    const ult = c.experiencia?.[0];
+    return `<div class="cand-card" onclick="openDetail('${c.id}')">
+      <div class="cand-name">${dp.nome||'Candidato'}</div>
+      <div class="cand-role">${ult?ult.cargo:c.cargo_buscado||'—'}</div>
+      <div class="cand-meta">
+        ${dp.cidade?`<span class="cand-pill">📍 ${dp.cidade}</span>`:''}
+        ${exp?`<span class="cand-pill">💼 ${exp} exp.`+` </span>`:''}
+        ${langs.map(l=>`<span class="cand-pill highlight">🌐 ${l}</span>`).join('')}
+      </div>
+      ${softs.length?`<div class="cand-skills">${softs.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>`:''}
+      <div class="cand-card-footer">
+        <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();deletarCandidato('${c.id}')">🗑</button>
+        <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();openDetail('${c.id}')">Ver perfil</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderTable(list) {
+  const wrap = document.getElementById('cand-table');
+  if (list.length === 0) {
+    wrap.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-title">Nenhum resultado</div></div>`;
+    return;
+  }
+  wrap.innerHTML = `<table>
+    <thead><tr>
+      <th>Nome</th><th>Último Cargo</th><th>Última Empresa</th>
+      <th>Formação</th><th>Cidade</th><th>Idiomas</th><th>Softwares</th><th></th>
+    </tr></thead>
+    <tbody>
+    ${list.map(c=>{
+      const dp = c.dados_pessoais||{};
+      const ult = c.experiencia?.[0]||{};
+      const form = c.formacao?.[0]||{};
+      const langs = (c.idiomas||[]).map(i=>i.idioma).join(', ');
+      const softs = (c.softwares||[]).slice(0,3).map(s=>s.nome).join(', ');
+      return `<tr>
+        <td class="name-cell" onclick="openDetail('${c.id}')">${dp.nome||'—'}</td>
+        <td>${ult.cargo||'—'}</td><td>${ult.empresa||'—'}</td>
+        <td>${form.curso||'—'}</td><td>${dp.cidade||'—'}</td>
+        <td>${langs||'—'}</td><td>${softs||'—'}</td>
+        <td><button class="btn btn-danger btn-sm" onclick="deletarCandidato('${c.id}')">🗑</button></td>
+      </tr>`;
+    }).join('')}
+    </tbody>
+  </table>`;
+}
+
+// ═══════════════════════════════════════════
+// MODAL DETALHE
+// ═══════════════════════════════════════════
+function openDetail(id) {
+  const c = db.find(x=>x.id===id);
+  if (!c) return;
+  currentDetailId = id;
+  const dp = c.dados_pessoais||{};
+  document.getElementById('modal-title').textContent = dp.nome||'Candidato';
+  document.getElementById('btn-delete-modal').onclick = () => { deletarCandidato(id); closeModal(); };
+
+  const langs = (c.idiomas||[]).map(i=>`<span class="tag lang">${i.idioma}${i.nivel?' — '+i.nivel:''}</span>`).join('');
+  const softs = (c.softwares||[]).map(s=>`<span class="tag soft">${s.nome}${s.nivel?' ('+s.nivel+')':''}</span>`).join('');
+  const comps = (c.competencias||[]).map(x=>`<span class="tag">${x}</span>`).join('');
+  const cursos = (c.cursos||[]).map(x=>`<span class="tag">${x.nome||x}</span>`).join('');
+
+  const exps = (c.experiencia||[]).map(e=>`<div class="exp-item">
+    <div class="exp-company">${e.empresa||'—'}</div>
+    <div class="exp-role">${e.cargo||''}</div>
+    <div class="exp-period">${[e.inicio,e.fim].filter(Boolean).join(' → ')||''}</div>
+    ${e.descricao?`<div class="exp-desc">${e.descricao}</div>`:''}
+  </div>`).join('');
+
+  const forms = (c.formacao||[]).map(f=>`<div class="detail-row">
+    <span class="detail-label">${f.grau||'Graduação'}</span>
+    <span class="detail-value">${f.curso||'—'}${f.instituicao?' — '+f.instituicao:''}${f.ano_conclusao?' ('+f.ano_conclusao+')':''}</span>
+  </div>`).join('');
+
+  document.getElementById('modal-body').innerHTML = `
+    ${c.resumo?`<div class="card" style="margin-bottom:16px;background:rgba(79,110,247,0.06);border-color:rgba(79,110,247,0.2);">
+      <div class="card-title">📋 Resumo do Perfil</div>
+      <div style="font-size:0.85rem;line-height:1.6;color:var(--text2);">${c.resumo}</div>
+    </div>`:''}
+
+    <div class="detail-grid" style="margin-bottom:16px;">
+      <div class="detail-section">
+        <h4>Dados Pessoais</h4>
+        ${dp.nome?`<div class="detail-row"><span class="detail-label">Nome</span><span class="detail-value">${dp.nome}</span></div>`:''}
+        ${dp.email?`<div class="detail-row"><span class="detail-label">E-mail</span><span class="detail-value">${dp.email}</span></div>`:''}
+        ${dp.telefone?`<div class="detail-row"><span class="detail-label">Telefone</span><span class="detail-value">${dp.telefone}</span></div>`:''}
+        ${dp.cidade?`<div class="detail-row"><span class="detail-label">Cidade</span><span class="detail-value">${dp.cidade}</span></div>`:''}
+        ${dp.linkedin?`<div class="detail-row"><span class="detail-label">LinkedIn</span><span class="detail-value">${dp.linkedin}</span></div>`:''}
+        ${c.cargo_buscado?`<div class="detail-row"><span class="detail-label">Cargo buscado</span><span class="detail-value">${c.cargo_buscado}</span></div>`:''}
+      </div>
+      <div class="detail-section">
+        <h4>Formação Acadêmica</h4>
+        ${forms||'<span style="color:var(--text3);font-size:0.82rem;">Não informado</span>'}
+      </div>
+    </div>
+
+    ${c.experiencia?.length?`<div class="detail-section">
+      <h4>Experiência Profissional</h4>
+      ${exps}
+    </div>`:''}
+
+    <div class="detail-grid">
+      ${c.idiomas?.length?`<div class="detail-section">
+        <h4>Idiomas</h4>
+        <div class="tags-list">${langs}</div>
+      </div>`:''}
+      ${c.softwares?.length?`<div class="detail-section">
+        <h4>Softwares & Ferramentas</h4>
+        <div class="tags-list">${softs}</div>
+      </div>`:''}
+      ${c.cursos?.length?`<div class="detail-section">
+        <h4>Cursos Complementares</h4>
+        <div class="tags-list">${cursos}</div>
+      </div>`:''}
+      ${c.competencias?.length?`<div class="detail-section">
+        <h4>Competências</h4>
+        <div class="tags-list">${comps}</div>
+      </div>`:''}
+    </div>
+  `;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+}
+
+function deletarCandidato(id) {
+  if (!confirm('Excluir este candidato do banco?')) return;
+  db = db.filter(c=>c.id!==id);
+  saveDB();
+  populateFilters();
+  renderBanco();
+  toast('Candidato removido.', 'info');
+}
+
+// ═══════════════════════════════════════════
+// IMPORTAR
+// ═══════════════════════════════════════════
+const dropzone = document.getElementById('dropzone');
+dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragover'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+dropzone.addEventListener('drop', e => {
+  e.preventDefault(); dropzone.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+});
+
+function handleFiles(files) {
+  const allowed = [...files].filter(f => /\.(pdf|doc|docx)$/i.test(f.name));
+  if (allowed.length === 0) { toast('Formatos aceitos: PDF, DOC, DOCX', 'error'); return; }
+  allowed.forEach(f => {
+    if (!fileFila.find(x=>x.file.name===f.name&&x.file.size===f.size)) {
+      fileFila.push({ file: f, status: 'pending', id: Date.now()+Math.random() });
+    }
+  });
+  renderFileFila();
+  document.getElementById('import-actions').style.display = 'flex';
+}
+
+function renderFileFila() {
+  const list = document.getElementById('file-list');
+  if (fileFila.length === 0) { list.innerHTML = ''; return; }
+  list.innerHTML = fileFila.map((item,i) => {
+    const icon = item.file.name.endsWith('.pdf') ? '📄' : '📝';
+    const size = (item.file.size/1024).toFixed(0) + ' KB';
+    const statusMap = { pending:'⏳ Aguardando', processing:'⚙️ Processando...', done:'✅ Importado', error:'❌ Erro' };
+    return `<div class="file-item" id="file-item-${i}">
+      <div class="file-icon">${icon}</div>
+      <div style="flex:1;">
+        <div class="file-name">${item.file.name}</div>
+        <div class="file-size">${size}</div>
+      </div>
+      <div class="file-status ${item.status}">${statusMap[item.status]}</div>
+    </div>`;
+  }).join('');
+}
+
+function limparFila() {
+  fileFila = [];
+  renderFileFila();
+  document.getElementById('import-actions').style.display = 'none';
+  document.getElementById('import-progress-wrap').style.display = 'none';
+}
+
+async function processarTodos() {
+  const key = getApiKey();
+  if (!key) { toast('Informe sua chave API Anthropic.', 'error'); return; }
+  const pendentes = fileFila.filter(x=>x.status==='pending');
+  if (pendentes.length === 0) { toast('Nenhum arquivo pendente.', 'info'); return; }
+
+  document.getElementById('btn-process').disabled = true;
+  document.getElementById('import-progress-wrap').style.display = 'block';
+
+  let done = 0;
+  for (const item of pendentes) {
+    item.status = 'processing';
+    renderFileFila();
+    try {
+      const candidato = await extrairCurriculo(item.file, key);
+      if (candidato) {
+        candidato.id = 'c_' + Date.now() + '_' + Math.random().toString(36).substr(2,5);
+        candidato.importado_em = new Date().toISOString();
+        candidato.arquivo = item.file.name;
+        db.push(candidato);
+        saveDB();
+        item.status = 'done';
+      } else {
+        item.status = 'error';
+      }
+    } catch(e) {
+      console.error(e);
+      item.status = 'error';
+    }
+    done++;
+    const pct = Math.round((done/pendentes.length)*100);
+    document.getElementById('import-progress-bar').style.width = pct + '%';
+    document.getElementById('import-progress-text').textContent = `${done}/${pendentes.length} processados`;
+    renderFileFila();
+  }
+
+  document.getElementById('btn-process').disabled = false;
+  document.getElementById('badge-total').textContent = db.length;
+  toast(`Importação concluída! ${db.filter(x=>!x.erro).length} candidato(s) adicionado(s).`, 'success');
+}
+
+async function fileToBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result.split(',')[1]);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
+
+async function fileToText(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = rej;
+    r.readAsText(file, 'utf-8');
+  });
+}
+
+async function extrairCurriculo(file, key) {
+  const isPdf = file.name.toLowerCase().endsWith('.pdf');
+  const isDocx = /\.(docx|doc)$/i.test(file.name);
+
+  const SYSTEM = `Você é um extrator especializado de currículos em português. 
+Analise o currículo e retorne SOMENTE um JSON válido com esta estrutura exata (sem markdown, sem texto extra):
+{
+  "dados_pessoais": {
+    "nome": "",
+    "email": "",
+    "telefone": "",
+    "cidade": "",
+    "linkedin": ""
+  },
+  "cargo_buscado": "",
+  "resumo": "Resumo profissional de 2-3 frases gerado por você",
+  "formacao": [
+    {"grau": "Graduação|Pós|MBA|Técnico|Mestrado|Doutorado", "curso": "", "instituicao": "", "ano_conclusao": ""}
+  ],
+  "idiomas": [
+    {"idioma": "", "nivel": "Básico|Intermediário|Avançado|Fluente|Nativo"}
+  ],
+  "experiencia": [
+    {"empresa": "", "cargo": "", "inicio": "", "fim": "", "descricao": ""}
+  ],
+  "cursos": [
+    {"nome": "", "instituicao": "", "ano": ""}
+  ],
+  "softwares": [
+    {"nome": "", "nivel": ""}
+  ],
+  "competencias": [""]
+}
+Preencha apenas os campos presentes no currículo. Arrays vazios se não houver dados.`;
+
+  let messages;
+
+  if (isPdf) {
+    const b64 = await fileToBase64(file);
+    messages = [{
+      role: 'user',
+      content: [
+        { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: b64 } },
+        { type: 'text', text: 'Extraia as informações deste currículo e retorne o JSON conforme instruído.' }
+      ]
+    }];
+  } else {
+    // Para DOCX: tentar ler como texto (funciona para .doc antigo às vezes)
+    // Alternativa: enviar como base64 com media_type genérico
+    const b64 = await fileToBase64(file);
+    messages = [{
+      role: 'user',
+      content: [
+        { type: 'document', source: { type: 'base64', media_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', data: b64 } },
+        { type: 'text', text: 'Extraia as informações deste currículo Word e retorne o JSON conforme instruído.' }
+      ]
+    }];
+  }
+
+  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
+    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 2000, system: SYSTEM, messages })
+  });
+
+  if (!resp.ok) {
+    const err = await resp.json();
+    throw new Error(err?.error?.message || 'API error');
+  }
+
+  const data = await resp.json();
+  const txt = data.content?.find(b=>b.type==='text')?.text || '';
+  // Limpar markdown fences se houver
+  const clean = txt.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();
+  try {
+    return JSON.parse(clean);
+  } catch(e) {
+    // Tentar extrair JSON com regex
+    const match = clean.match(/\{[\s\S]+\}/);
+    if (match) return JSON.parse(match[0]);
+    throw new Error('JSON inválido na resposta');
+  }
+}
+
+// ═══════════════════════════════════════════
+// MATCHING DE VAGAS
+// ═══════════════════════════════════════════
+async function executarMatching() {
+  const key = getApiKey();
+  if (!key) { toast('Informe sua chave API.', 'error'); return; }
+  const req = document.getElementById('vaga-req').value.trim();
+  const titulo = document.getElementById('vaga-titulo').value.trim();
+  if (!req) { toast('Descreva os requisitos da vaga.', 'error'); return; }
+  if (db.length === 0) { toast('Banco de currículos vazio. Importe currículos primeiro.', 'error'); return; }
+
+  const top = parseInt(document.getElementById('match-top').value) || 0;
+  const btn = document.getElementById('btn-match');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Analisando...';
+
+  const container = document.getElementById('ranking-container');
+  container.innerHTML = `<div class="match-placeholder"><div class="spinner" style="width:32px;height:32px;border-width:3px;"></div><div style="margin-top:16px;color:var(--text2);">Analisando ${db.length} candidato(s)...</div></div>`;
+
+  // Resumo compacto do banco para caber no contexto
+  const resumoBanco = db.map(c => {
+    const dp = c.dados_pessoais||{};
+    const exps = (c.experiencia||[]).map(e=>`${e.cargo} na ${e.empresa} (${e.inicio||''}${e.fim?'-'+e.fim:''})`).join('; ');
+    const forms = (c.formacao||[]).map(f=>`${f.grau||''} ${f.curso||''} ${f.instituicao||''}`).join('; ');
+    const langs = (c.idiomas||[]).map(i=>`${i.idioma} ${i.nivel||''}`).join(', ');
+    const softs = (c.softwares||[]).map(s=>s.nome).join(', ');
+    const cursos = (c.cursos||[]).map(x=>x.nome||x).join(', ');
+    const comps = (c.competencias||[]).join(', ');
+    return `ID:${c.id}|Nome:${dp.nome||'?'}|Cidade:${dp.cidade||''}|Cargo buscado:${c.cargo_buscado||''}|Experiências:${exps}|Formação:${forms}|Idiomas:${langs}|Softwares:${softs}|Cursos:${cursos}|Competências:${comps}|Resumo:${c.resumo||''}`;
+  }).join('\n\n');
+
+  const PROMPT = `Você é especialista em recrutamento e seleção.
+
+VAGA: ${titulo}
+REQUISITOS:
+${req}
+
+CANDIDATOS NO BANCO:
+${resumoBanco}
+
+Analise cada candidato e retorne SOMENTE um JSON válido (sem markdown):
+{
+  "ranking": [
+    {
+      "id": "ID do candidato",
+      "score": 0-100,
+      "pontos_positivos": ["ponto 1", "ponto 2"],
+      "pontos_negativos": ["lacuna 1"],
+      "justificativa": "Justificativa em 1-2 frases"
+    }
+  ]
+}
+
+Ordene do mais aderente para o menos. ${top>0?`Inclua no máximo ${top} candidatos com score >= 30.`:'Inclua todos os candidatos com score >= 30.'} Seja preciso e específico.`;
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6', max_tokens: 4000,
+        messages: [{ role: 'user', content: PROMPT }]
+      })
+    });
+    const data = await resp.json();
+    const txt = data.content?.find(b=>b.type==='text')?.text||'';
+    const clean = txt.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();
+    let result;
+    try { result = JSON.parse(clean); }
+    catch { const m = clean.match(/\{[\s\S]+\}/); result = JSON.parse(m[0]); }
+
+    renderRanking(result.ranking || [], titulo);
+  } catch(e) {
+    container.innerHTML = `<div class="match-placeholder"><div style="color:var(--danger);font-size:1.5rem;">❌</div><div style="margin-top:8px;color:var(--text2);">Erro: ${e.message}</div></div>`;
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '🎯 Analisar e Ranquear';
+}
+
+function renderRanking(ranking, titulo) {
+  const container = document.getElementById('ranking-container');
+  if (ranking.length === 0) {
+    container.innerHTML = `<div class="match-placeholder"><div style="font-size:2rem;">🤔</div><div style="margin-top:8px;color:var(--text2);">Nenhum candidato com aderência suficiente encontrada.</div></div>`;
+    return;
+  }
+
+  const posClasses = ['top1','top2','top3'];
+  container.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <div>
+        <div style="font-weight:700;font-size:1rem;">${titulo||'Ranking de Aderência'}</div>
+        <div style="font-size:0.8rem;color:var(--text2);">${ranking.length} candidato(s) analisado(s)</div>
+      </div>
+      <button class="btn btn-secondary btn-sm" onclick="exportarRankingCSV(${JSON.stringify(ranking).replace(/'/g,"&#39;")})">📊 Exportar CSV</button>
+    </div>
+    <div class="ranking-list">
+    ${ranking.map((r,i) => {
+      const c = db.find(x=>x.id===r.id);
+      const nome = c?.dados_pessoais?.nome || r.id;
+      const cargo = c?.experiencia?.[0]?.cargo || c?.cargo_buscado || '';
+      const score = r.score || 0;
+      const cor = score>=80?'#10b981':score>=60?'#f59e0b':score>=40?'#f97316':'#ef4444';
+      const pos = posClasses[i]||'';
+      const positivos = (r.pontos_positivos||[]).map(p=>`<span class="ponto-item pos">✓ ${p}</span>`).join('');
+      const negativos = (r.pontos_negativos||[]).map(p=>`<span class="ponto-item neg">✗ ${p}</span>`).join('');
+      return `<div class="rank-card" onclick="openDetail('${r.id}')">
+        <div class="rank-pos ${pos}">${i+1}</div>
+        <div class="rank-info">
+          <div class="rank-name">${nome}</div>
+          <div class="rank-role">${cargo}</div>
+          <div class="rank-justificativa">${r.justificativa||''}</div>
+          <div class="pontos-detail">${positivos}${negativos}</div>
+          <div class="score-bar-wrap">
+            <div class="score-bar"><div class="score-fill" style="width:${score}%;background:${cor};"></div></div>
+            <div class="score-num" style="color:${cor};">${score}%</div>
+          </div>
+        </div>
+      </div>`;
+    }).join('')}
+    </div>`;
+}
+
+function exportarRankingCSV(ranking) {
+  const titulo = document.getElementById('vaga-titulo').value || 'vaga';
+  let csv = 'Posição,Nome,Score,Pontos Positivos,Pontos Negativos,Justificativa\n';
+  ranking.forEach((r,i) => {
+    const c = db.find(x=>x.id===r.id);
+    const nome = c?.dados_pessoais?.nome||r.id;
+    const pos = (r.pontos_positivos||[]).join(' | ');
+    const neg = (r.pontos_negativos||[]).join(' | ');
+    csv += `${i+1},"${nome}",${r.score},"${pos}","${neg}","${r.justificativa||''}"\n`;
+  });
+  const blob = new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download=`ranking_${titulo.replace(/\s+/g,'_')}.csv`; a.click();
+  URL.revokeObjectURL(url);
+  toast('CSV exportado!','success');
+}
+
+// ═══════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════
+function toast(msg, type='info') {
+  const tc = document.getElementById('toast-container');
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  const icon = {success:'✅',error:'❌',info:'ℹ️'}[type]||'';
+  el.textContent = icon + ' ' + msg;
+  tc.appendChild(el);
+  setTimeout(() => el.remove(), 4000);
+}
+
+// ═══════════════════════════════════════════
+// API KEY PERSISTENCE
+// ═══════════════════════════════════════════
+const apiInput = document.getElementById('api-key');
+apiInput.value = localStorage.getItem('rh_api_key')||'';
+apiInput.addEventListener('input', () => localStorage.setItem('rh_api_key', apiInput.value));
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+loadDB();
+populateFilters();
+renderBanco();
+</script>
+</body>
+</html>
