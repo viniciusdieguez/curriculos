@@ -913,40 +913,36 @@ async function fileToText(file) {
   });
 }
 
+// Extrai texto de DOCX usando mammoth via CDN (carregado sob demanda)
+async function loadMammoth() {
+  if (window.mammoth) return window.mammoth;
+  return new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js';
+    s.onload = () => res(window.mammoth);
+    s.onerror = () => rej(new Error('Falha ao carregar mammoth.js'));
+    document.head.appendChild(s);
+  });
+}
+
 async function extrairCurriculo(file, key) {
-  const isPdf = file.name.toLowerCase().endsWith('.pdf');
+  const isPdf = /\.pdf$/i.test(file.name);
   const isDocx = /\.(docx|doc)$/i.test(file.name);
 
-  const SYSTEM = `Você é um extrator especializado de currículos em português. 
-Analise o currículo e retorne SOMENTE um JSON válido com esta estrutura exata (sem markdown, sem texto extra):
+  const SYSTEM = `Você é um extrator especializado de currículos em português.
+Analise o currículo e retorne SOMENTE um JSON válido com esta estrutura exata (sem markdown, sem texto extra, sem comentários):
 {
-  "dados_pessoais": {
-    "nome": "",
-    "email": "",
-    "telefone": "",
-    "cidade": "",
-    "linkedin": ""
-  },
+  "dados_pessoais": {"nome":"","email":"","telefone":"","cidade":"","linkedin":""},
   "cargo_buscado": "",
   "resumo": "Resumo profissional de 2-3 frases gerado por você",
-  "formacao": [
-    {"grau": "Graduação|Pós|MBA|Técnico|Mestrado|Doutorado", "curso": "", "instituicao": "", "ano_conclusao": ""}
-  ],
-  "idiomas": [
-    {"idioma": "", "nivel": "Básico|Intermediário|Avançado|Fluente|Nativo"}
-  ],
-  "experiencia": [
-    {"empresa": "", "cargo": "", "inicio": "", "fim": "", "descricao": ""}
-  ],
-  "cursos": [
-    {"nome": "", "instituicao": "", "ano": ""}
-  ],
-  "softwares": [
-    {"nome": "", "nivel": ""}
-  ],
+  "formacao": [{"grau":"Graduação|Pós|MBA|Técnico|Mestrado|Doutorado","curso":"","instituicao":"","ano_conclusao":""}],
+  "idiomas": [{"idioma":"","nivel":"Básico|Intermediário|Avançado|Fluente|Nativo"}],
+  "experiencia": [{"empresa":"","cargo":"","inicio":"","fim":"","descricao":""}],
+  "cursos": [{"nome":"","instituicao":"","ano":""}],
+  "softwares": [{"nome":"","nivel":""}],
   "competencias": [""]
 }
-Preencha apenas os campos presentes no currículo. Arrays vazios se não houver dados.`;
+IMPORTANTE: Retorne APENAS o JSON. Sem texto antes ou depois. Sem quebras de linha extras dentro de strings. Arrays vazios se não houver dados.`;
 
   let messages;
 
@@ -956,19 +952,24 @@ Preencha apenas os campos presentes no currículo. Arrays vazios se não houver 
       role: 'user',
       content: [
         { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: b64 } },
-        { type: 'text', text: 'Extraia as informações deste currículo e retorne o JSON conforme instruído.' }
+        { type: 'text', text: 'Extraia as informações deste currículo PDF e retorne SOMENTE o JSON conforme instruído.' }
       ]
     }];
   } else {
-    // Para DOCX: tentar ler como texto (funciona para .doc antigo às vezes)
-    // Alternativa: enviar como base64 com media_type genérico
-    const b64 = await fileToBase64(file);
+    // DOCX/DOC: extrair texto no browser via mammoth, enviar como texto puro
+    let textoDocx = '';
+    try {
+      const mammoth = await loadMammoth();
+      const arrayBuffer = await file.arrayBuffer();
+      const result = await mammoth.extractRawText({ arrayBuffer });
+      textoDocx = result.value;
+    } catch(e) {
+      throw new Error('Falha ao ler arquivo Word: ' + e.message);
+    }
+    if (!textoDocx.trim()) throw new Error('Arquivo Word vazio ou ilegível');
     messages = [{
       role: 'user',
-      content: [
-        { type: 'document', source: { type: 'base64', media_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', data: b64 } },
-        { type: 'text', text: 'Extraia as informações deste currículo Word e retorne o JSON conforme instruído.' }
-      ]
+      content: `Extraia as informações deste currículo Word e retorne SOMENTE o JSON conforme instruído.\n\nCONTEÚDO DO CURRÍCULO:\n${textoDocx.substring(0, 12000)}`
     }];
   }
 
@@ -982,7 +983,7 @@ Preencha apenas os campos presentes no currículo. Arrays vazios se não houver 
   const resp = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: API_HEADERS,
-    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 2000, system: SYSTEM, messages })
+    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 3000, system: SYSTEM, messages })
   });
 
   if (!resp.ok) {
@@ -993,13 +994,17 @@ Preencha apenas os campos presentes no currículo. Arrays vazios se não houver 
 
   const data = await resp.json();
   const txt = data.content?.find(b=>b.type==='text')?.text || '';
-  const clean = txt.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();
+  // Limpar qualquer fence markdown
+  const clean = txt.replace(/^```json\s*/,'').replace(/^```\s*/,'').replace(/\s*```$/,'').trim();
   try {
     return JSON.parse(clean);
   } catch(e) {
-    const match = clean.match(/\{[\s\S]+\}/);
-    if (match) return JSON.parse(match[0]);
-    throw new Error('JSON inválido na resposta da API');
+    // Tentar extrair o JSON mesmo com lixo ao redor
+    const match = clean.match(/\{[\s\S]*\}/);
+    if (match) {
+      try { return JSON.parse(match[0]); } catch{}
+    }
+    throw new Error('Resposta da IA não retornou JSON válido. Tente novamente.');
   }
 }
 
