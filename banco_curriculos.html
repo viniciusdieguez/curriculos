@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banco de Currículos — RH Intelligence v3</title>
+<title>Banco de Currículos — RH Intelligence v4</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -1005,17 +1005,51 @@ IMPORTANTE: Retorne APENAS o JSON. Sem texto antes ou depois. Sem quebras de lin
       ]
     }];
   } else {
-    // DOCX/DOC: extrair texto no browser via mammoth, enviar como texto puro
+    // DOCX/DOC: tentar mammoth primeiro; se falhar (ex: .doc legado), extrair texto bruto do binário
     let textoDocx = '';
+    const isDocLegado = /\.doc$/i.test(file.name); // .doc sem x = Word 97-2003
+
+    // Tentativa 1: mammoth (funciona bem com .docx; às vezes com .doc)
     try {
       const mammoth = await loadMammoth();
       const arrayBuffer = await file.arrayBuffer();
       const result = await mammoth.extractRawText({ arrayBuffer });
-      textoDocx = result.value;
+      textoDocx = result.value || '';
     } catch(e) {
-      throw new Error('Falha ao ler arquivo Word: ' + e.message);
+      // mammoth falhou — ok, tentaremos o fallback abaixo
+      textoDocx = '';
     }
-    if (!textoDocx.trim()) throw new Error('Arquivo Word vazio ou ilegível');
+
+    // Tentativa 2 (fallback para .doc legado): extrair strings legíveis do binário
+    if (!textoDocx.trim()) {
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        const bytes = new Uint8Array(arrayBuffer);
+        // Decodifica como latin-1 e extrai sequências de caracteres legíveis (≥4 chars)
+        let raw = '';
+        for (let i = 0; i < bytes.length; i++) {
+          const b = bytes[i];
+          if ((b >= 32 && b <= 126) || b === 10 || b === 13) {
+            raw += String.fromCharCode(b);
+          } else if (raw.length > 0 && raw[raw.length-1] !== ' ') {
+            raw += ' ';
+          }
+        }
+        // Filtrar sequências curtas (ruído) e juntar linhas
+        textoDocx = raw.split(/\s+/)
+          .filter(w => w.length >= 2)
+          .join(' ')
+          .replace(/\s{3,}/g, '\n')
+          .substring(0, 12000);
+      } catch(e2) {
+        throw new Error('Arquivo .doc ilegível. Converta para .docx ou PDF e tente novamente.');
+      }
+    }
+
+    if (!textoDocx.trim()) {
+      throw new Error('Arquivo Word vazio ou ilegível. Tente converter para PDF.');
+    }
+
     messages = [{
       role: 'user',
       content: `Extraia as informações deste currículo Word e retorne SOMENTE o JSON conforme instruído.\n\nCONTEÚDO DO CURRÍCULO:\n${textoDocx.substring(0, 12000)}`
