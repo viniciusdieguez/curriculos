@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banco de Currículos — RH Intelligence</title>
+<title>Banco de Currículos — RH Intelligence v3</title>
 <style>
   :root {
     --bg: #0f1117;
@@ -565,6 +565,7 @@ function showPage(page) {
   document.getElementById('nav-' + page).classList.add('active');
   if (page === 'banco') { populateFilters(); renderBanco(); }
   if (page === 'matching') { document.getElementById('match-banco-count').textContent = db.length; }
+  if (page === 'importar') { loadMammoth().catch(()=>{}); } // pré-carrega mammoth
 }
 
 // ═══════════════════════════════════════════
@@ -817,11 +818,20 @@ dropzone.addEventListener('drop', e => {
 function handleFiles(files) {
   const allowed = [...files].filter(f => /\.(pdf|doc|docx)$/i.test(f.name));
   if (allowed.length === 0) { toast('Formatos aceitos: PDF, DOC, DOCX', 'error'); return; }
+  let duplicados = 0;
   allowed.forEach(f => {
-    if (!fileFila.find(x=>x.file.name===f.name&&x.file.size===f.size)) {
+    // Já está na fila atual?
+    if (fileFila.find(x=>x.file.name===f.name&&x.file.size===f.size)) return;
+    // Já foi importado no banco?
+    const jaImportado = db.find(c => c.arquivo === f.name);
+    if (jaImportado) {
+      fileFila.push({ file: f, status: 'duplicate', id: Date.now()+Math.random() });
+      duplicados++;
+    } else {
       fileFila.push({ file: f, status: 'pending', id: Date.now()+Math.random() });
     }
   });
+  if (duplicados > 0) toast(`${duplicados} arquivo(s) já importados anteriormente foram marcados como duplicados.`, 'info');
   renderFileFila();
   document.getElementById('import-actions').style.display = 'flex';
 }
@@ -830,18 +840,29 @@ function renderFileFila() {
   const list = document.getElementById('file-list');
   if (fileFila.length === 0) { list.innerHTML = ''; return; }
   list.innerHTML = fileFila.map((item,i) => {
-    const icon = item.file.name.endsWith('.pdf') ? '📄' : '📝';
+    const icon = /\.pdf$/i.test(item.file.name) ? '📄' : '📝';
     const size = (item.file.size/1024).toFixed(0) + ' KB';
-    const statusMap = { pending:'⏳ Aguardando', processing:'⚙️ Processando...', done:'✅ Importado', error:'❌ Erro' };
-    const erroDetail = item.status==='error'&&item.erroMsg ? `<div style="font-size:0.72rem;color:var(--danger);margin-top:3px;">${item.erroMsg}</div>` : '';
-    return `<div class="file-item" id="file-item-${i}">
+    const statusMap = {
+      pending: '⏳ Aguardando',
+      processing: '⚙️ Processando...',
+      done: '✅ Importado',
+      error: '❌ Erro',
+      duplicate: '🔁 Já importado'
+    };
+    const erroDetail = item.status==='error'&&item.erroMsg
+      ? `<div style="font-size:0.72rem;color:var(--danger);margin-top:3px;">${item.erroMsg}</div>` : '';
+    const dupDetail = item.status==='duplicate'
+      ? `<div style="font-size:0.72rem;color:var(--warning);margin-top:3px;">Este arquivo já existe no banco. Será ignorado no processamento.</div>` : '';
+    return `<div class="file-item" id="file-item-${i}" style="${item.status==='duplicate'?'opacity:0.5':''}">
       <div class="file-icon">${icon}</div>
       <div style="flex:1;">
         <div class="file-name">${item.file.name}</div>
         <div class="file-size">${size}</div>
-        ${erroDetail}
+        ${erroDetail}${dupDetail}
       </div>
-      <div class="file-status ${item.status}">${statusMap[item.status]}</div>
+      <div class="file-status ${item.status}" style="${item.status==='duplicate'?'background:rgba(245,158,11,0.12);color:var(--warning)':''}">
+        ${statusMap[item.status]||item.status}
+      </div>
     </div>`;
   }).join('');
 }
@@ -856,8 +877,7 @@ function limparFila() {
 async function processarTodos() {
   const key = getApiKey();
   if (!key) { toast('Informe sua chave API Anthropic.', 'error'); return; }
-  const pendentes = fileFila.filter(x=>x.status==='pending');
-  if (pendentes.length === 0) { toast('Nenhum arquivo pendente.', 'info'); return; }
+  const pendentes = fileFila.filter(x=>x.status==='pending');  if (pendentes.length === 0) { toast('Nenhum arquivo pendente.', 'info'); return; }
 
   document.getElementById('btn-process').disabled = true;
   document.getElementById('import-progress-wrap').style.display = 'block';
@@ -917,10 +937,21 @@ async function fileToText(file) {
 async function loadMammoth() {
   if (window.mammoth) return window.mammoth;
   return new Promise((res, rej) => {
+    // Tenta CDN principal
     const s = document.createElement('script');
     s.src = 'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js';
-    s.onload = () => res(window.mammoth);
-    s.onerror = () => rej(new Error('Falha ao carregar mammoth.js'));
+    s.onload = () => {
+      if (window.mammoth) res(window.mammoth);
+      else rej(new Error('mammoth não carregou'));
+    };
+    s.onerror = () => {
+      // Fallback: CDN alternativo
+      const s2 = document.createElement('script');
+      s2.src = 'https://unpkg.com/mammoth@1.6.0/mammoth.browser.min.js';
+      s2.onload = () => window.mammoth ? res(window.mammoth) : rej(new Error('mammoth indisponível'));
+      s2.onerror = () => rej(new Error('Não foi possível carregar mammoth.js'));
+      document.head.appendChild(s2);
+    };
     document.head.appendChild(s);
   });
 }
