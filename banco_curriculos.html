@@ -935,14 +935,32 @@ Analise o currículo e retorne SOMENTE um JSON válido com esta estrutura exata 
   "dados_pessoais": {"nome":"","email":"","telefone":"","cidade":"","linkedin":""},
   "cargo_buscado": "",
   "resumo": "Resumo profissional de 2-3 frases gerado por você",
-  "formacao": [{"grau":"Graduação|Pós|MBA|Técnico|Mestrado|Doutorado","curso":"","instituicao":"","ano_conclusao":""}],
+  "formacao": [{"grau":"Graduação|Pós-graduação|MBA|Especialização|Técnico|Mestrado|Doutorado|Tecnólogo","curso":"","instituicao":"","ano_conclusao":""}],
   "idiomas": [{"idioma":"","nivel":"Básico|Intermediário|Avançado|Fluente|Nativo"}],
   "experiencia": [{"empresa":"","cargo":"","inicio":"","fim":"","descricao":""}],
-  "cursos": [{"nome":"","instituicao":"","ano":""}],
+  "cursos": [{"nome":"","instituicao":"","carga_horaria":"","ano":""}],
   "softwares": [{"nome":"","nivel":""}],
   "competencias": [""]
 }
-IMPORTANTE: Retorne APENAS o JSON. Sem texto antes ou depois. Sem quebras de linha extras dentro de strings. Arrays vazios se não houver dados.`;
+
+REGRAS CRÍTICAS DE CLASSIFICAÇÃO:
+
+FORMAÇÃO ACADÊMICA ("formacao") — inclua APENAS:
+- Graduação (Bacharelado, Licenciatura, Tecnólogo)
+- Pós-graduação, Especialização, MBA
+- Mestrado, Doutorado
+- Curso Técnico de nível médio (SENAI, SENAC, escola técnica, ETE, ETEC, CEFET)
+- Exemplos: "Engenharia Mecânica", "Administração de Empresas", "Técnico em Eletrônica", "MBA em Gestão"
+
+CURSOS COMPLEMENTARES ("cursos") — inclua APENAS:
+- Cursos de curta duração, workshops, treinamentos, capacitações
+- Certificações técnicas (NR-10, NR-35, CIPA, Six Sigma, ITIL, etc.)
+- Cursos livres, extensão, qualificação profissional
+- Cursos de idiomas isolados (se não listados em idiomas)
+- Exemplos: "Excel Avançado", "AutoCAD", "NR-35 Trabalho em Altura", "Lean Manufacturing"
+
+NÃO misture as categorias. Se tiver dúvida, prefira "cursos" para formações curtas sem diploma acadêmico.
+IMPORTANTE: Retorne APENAS o JSON. Sem texto antes ou depois. Sem quebras de linha dentro de strings de texto. Arrays vazios [] se não houver dados.`;
 
   let messages;
 
@@ -952,7 +970,7 @@ IMPORTANTE: Retorne APENAS o JSON. Sem texto antes ou depois. Sem quebras de lin
       role: 'user',
       content: [
         { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: b64 } },
-        { type: 'text', text: 'Extraia as informações deste currículo PDF e retorne SOMENTE o JSON conforme instruído.' }
+        { type: 'text', text: 'Extraia as informações deste currículo PDF e retorne SOMENTE o JSON conforme instruído. IMPORTANTE: mantenha as descrições de experiência resumidas (máximo 2 frases cada) para caber no JSON sem truncar.' }
       ]
     }];
   } else {
@@ -983,7 +1001,7 @@ IMPORTANTE: Retorne APENAS o JSON. Sem texto antes ou depois. Sem quebras de lin
   const resp = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: API_HEADERS,
-    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 3000, system: SYSTEM, messages })
+    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 4000, system: SYSTEM, messages })
   });
 
   if (!resp.ok) {
