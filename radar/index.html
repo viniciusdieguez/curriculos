@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar de demanda · Terceirização</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#eef1f4;--card:#fff;--ink:#17202a;--mut:#5d6b7a;--line:#d6dce3;--acc:#0b6e6e;--accbg:#d9eeee}
+@media (prefers-color-scheme:dark){:root{--bg:#10161d;--card:#18212b;--ink:#e8edf2;--mut:#93a1b0;--line:#2a3643;--acc:#4fc3c3;--accbg:#173a3d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Barlow,system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:28px;margin:0 0 4px;font-weight:700}
+.sub{color:var(--mut);margin:0 0 20px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+input,select{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+input{flex:1 1 200px}
+.row{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:1fr 150px auto;gap:6px 16px;align-items:start}
+.nome{font-weight:600;font-size:18px}
+.meta{color:var(--mut);font-size:14px}
+.bar{height:8px;background:var(--accbg);border-radius:4px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--acc)}
+.pts{font-weight:700;color:var(--acc);font-size:20px}
+.news{grid-column:1/-1;margin:4px 0 0;padding:0;list-style:none;font-size:14px}
+.news li{padding:3px 0;border-top:1px solid var(--line)}
+.news a{color:var(--ink)}
+.news span{color:var(--mut);margin-right:8px}
+.btn{font:inherit;font-size:14px;font-weight:600;color:var(--acc);border:1px solid var(--acc);border-radius:6px;padding:7px 12px;text-decoration:none;white-space:nowrap}
+.btn:hover,.btn:focus-visible{background:var(--accbg);outline:none}
+.tag{font-size:12px;font-weight:600;color:var(--acc);background:var(--accbg);border-radius:4px;padding:1px 6px;margin-right:8px}details{grid-column:1/-1;font-size:14px}summary{cursor:pointer;color:var(--acc);font-weight:600}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.fontes{font-size:13px;color:var(--mut);margin:-12px 0 16px}.vazio{padding:24px;text-align:center;color:var(--mut)}
+@media(max-width:640px){.row{grid-template-columns:1fr}.btn{justify-self:start}}
+</style>
+</head>
+<body>
+<main>
+<h1>Radar de demanda por terceirização</h1>
+<p class="sub" id="sub">Carregando…</p>
+<p class="fontes" id="fontes"></p>
+<div class="ctl">
+<input id="q" type="search" placeholder="Buscar empresa" aria-label="Buscar empresa">
+<select id="seg" aria-label="Segmento"><option value="">Todos os segmentos</option></select>
+<select id="uf" aria-label="Estado"><option value="">Todos os estados</option></select>
+<select id="ord" aria-label="Ordenar"><option value="score">Maior pontuação</option><option value="func">Mais funcionários</option></select>
+</div>
+<div id="lista"></div>
+</main>
+<script>
+let dados=[];
+const $=id=>document.getElementById(id);
+function opcoes(el,chave){[...new Set(dados.map(d=>d[chave]))].sort().forEach(v=>{const o=document.createElement("option");o.value=o.textContent=v;el.appendChild(o)})}
+function desenhar(){
+  const q=$("q").value.toLowerCase(),seg=$("seg").value,uf=$("uf").value;
+  let l=dados.filter(d=>(!q||d.empresa.toLowerCase().includes(q))&&(!seg||d.segmento===seg)&&(!uf||d.estado===uf));
+  l.sort((a,b)=>$("ord").value==="func"?b.funcionarios-a.funcionarios:b.score-a.score);
+  const max=Math.max(1,...dados.map(d=>d.score)),box=$("lista");box.textContent="";
+  if(!l.length){box.innerHTML='<div class="vazio">Nenhuma empresa com esses filtros.</div>';return}
+  l.forEach(d=>{
+    const r=document.createElement("div");r.className="row";
+    const a=document.createElement("div");
+    a.innerHTML='<div class="nome"></div><div class="meta"></div>';
+    a.children[0].textContent=d.empresa;
+    a.children[1].textContent=d.segmento+" — "+d.cidade+"/"+d.estado+" — "+Number(d.funcionarios).toLocaleString("pt-BR")+" funcionários";
+    const p=document.createElement("div");
+    p.innerHTML='<span class="pts"></span> pontos<div class="bar"><i></i></div>';
+    p.querySelector(".pts").textContent=d.score;p.querySelector("i").style.width=(d.score/max*100)+"%";
+    const b=document.createElement("a");b.className="btn";b.target="_blank";b.rel="noopener";
+    b.href="https://www.linkedin.com/search/results/people/?keywords="+encodeURIComponent("recursos humanos "+d.busca);
+    b.textContent="Buscar RH no LinkedIn";
+    r.append(a,p,b);
+    if(d.sinais.length){
+      const u=document.createElement("ul");u.className="news";
+      d.sinais.forEach(n=>{const li=document.createElement("li");const g=document.createElement("span");g.className="tag";g.textContent=n.fonte;
+        const s=document.createElement("span");s.textContent=n.data?n.data.split("-").reverse().join("/"):"";
+        const k=document.createElement(n.link?"a":"span");if(n.link){k.href=n.link;k.target="_blank";k.rel="noopener"}k.textContent=n.texto;li.append(g,s,k);u.appendChild(li)});
+      r.appendChild(u);
+    }
+    const e=encodeURIComponent,q=d.busca,g=x=>"https://www.google.com/search?q="+e(x);
+    const L=[["Vagas de gestão de terceiros","https://www.linkedin.com/jobs/search/?keywords="+e("gestão de terceiros "+q)],
+      ["Posts sobre mão de obra","https://www.linkedin.com/search/results/content/?keywords="+e("fornecedor mão de obra "+q)],
+      ["Acordos coletivos (Mediador)","https://mediador.trabalho.gov.br/"],
+      ["Processos no TST",g('site:tst.jus.br "'+q+'" terceirização "responsabilidade subsidiária"')],
+      ["Licenças ambientais",g('"'+q+'" licença ambiental ampliação nova unidade')],
+      ["Avaliações de funcionários",g('site:glassdoor.com.br "'+q+'" terceirizados')],
+      ["Cadastro de fornecedores",g('"'+q+'" cadastro de fornecedores serviços terceirizados')]];
+    const dt=document.createElement("details");dt.innerHTML="<summary>Consultas manuais</summary><div class='links'></div>";
+    L.forEach(([t,u])=>{const a=document.createElement("a");a.className="btn";a.href=u;a.target="_blank";a.rel="noopener";a.textContent=t;dt.lastChild.appendChild(a)});
+    r.appendChild(dt);
+    box.appendChild(r);
+  });
+}
+fetch("data.json").then(r=>r.json()).then(j=>{
+  dados=j.empresas;
+  $("sub").textContent=j.atualizado_em?"Atualizado em "+new Date(j.atualizado_em).toLocaleString("pt-BR")+". Os pontos somam sinais de notícias, CVM e BNDES.":"Ainda sem coleta. Rode o workflow “Atualizar radar” no GitHub para preencher as notícias.";
+  $("fontes").textContent=j.fontes?"Fontes: "+Object.entries(j.fontes).map(([k,v])=>k+" — "+v).join("; "):"";
+  opcoes($("seg"),"segmento");opcoes($("uf"),"estado");
+  ["q","seg","uf","ord"].forEach(i=>$(i).addEventListener("input",desenhar));desenhar();
+}).catch(()=>{$("sub").textContent="Não foi possível carregar data.json."});
+</script>
+</body>
+</html>
