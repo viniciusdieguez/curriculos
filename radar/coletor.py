@@ -29,7 +29,7 @@ def baixar(url, t=180):
     return urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 radar-vdm"}), timeout=t).read()
 def sinal(fonte, texto, link, data, pontos): return {"fonte": fonte, "texto": texto, "link": link, "data": data, "pontos": pontos}
 def data_iso(s):
-    for f in ("%Y-%m-%d", "%d/%m/%Y", "%Y-%m-%d %H:%M:%S"):
+    for f in ("%Y-%m-%d", "%d/%m/%Y", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%S"):
         try: return datetime.strptime(s.strip()[:19], f).replace(tzinfo=timezone.utc)
         except Exception: pass
 
@@ -72,21 +72,33 @@ def cvm_fatos(zbytes, empresas, dias=90):
     return res
 
 # 3) CVM: terceirizados declarados no Formulário de Referência
+def fre_zip(ano):
+    for a in (ano, ano - 1):
+        try: return baixar(f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FRE/DADOS/fre_cia_aberta_{a}.zip")
+        except Exception: pass
+    raise ValueError("zip do Formulário de Referência indisponível")
+
 def cvm_terceirizados(zbytes, empresas):
-    z = zipfile.ZipFile(io.BytesIO(zbytes)); docs = {}; arqs = []; cols = []
+    z = zipfile.ZipFile(io.BytesIO(zbytes)); docs = {}; diag = []
+    base = {"CNPJ_Companhia", "Data_Referencia", "Versao", "ID_Documento", "Nome_Companhia"}
     for n in z.namelist():
         if "empregado" not in n.lower() or not n.lower().endswith(".csv"): continue
-        arqs.append(n)
         rd = csv.DictReader(io.TextIOWrapper(z.open(n), encoding="latin-1"), delimiter=";")
+        diag.append(n.replace("fre_cia_aberta_", "").rsplit("_", 1)[0] + str([c for c in (rd.fieldnames or []) if c not in base][:5]))
         for r in rd:
-            if not cols: cols = list(r.keys())
-            col = [c for c in r if "TERCEIR" in c.upper()]
-            den = next((r[c] for c in r if c.upper().startswith("DENOM")), "")
-            if not col or not den: continue
-            try: v = sum(int(float((r[c] or "0").replace(",", "."))) for c in col)
-            except ValueError: continue
-            k = (den, int(r.get("ID_Documento") or 0)); docs[k] = docs.get(k, 0) + v
-    if not docs: raise ValueError(f"sem dados de terceirizados; arquivos={arqs[:3] or z.namelist()[:6]}; colunas={cols[:10]}")
+            den = r.get("Nome_Companhia") or ""
+            ct = [c for c in r if c and "TERCEIR" in c.upper()]
+            if ct: vals = [r[c] for c in ct]
+            elif any("TERCEIR" in (v or "").upper() for v in r.values()):
+                vals = [r[c] for c in r if c and c.upper().startswith(("QUANT", "QTD", "NUM"))]
+            else: continue
+            soma = 0
+            for v in vals:
+                try: soma += int(float((v or "").replace(",", ".")))
+                except ValueError: pass
+            if den and soma:
+                k = (den, int(r.get("ID_Documento") or 0)); docs[k] = docs.get(k, 0) + soma
+    if not docs: raise ValueError("sem dados de terceirizados; arquivos: " + "; ".join(diag))
     res = {}
     for e in empresas:
         c = [(i, v, d) for (d, i), v in docs.items() if casa(d, termos(e)) and v > 0]
@@ -97,15 +109,19 @@ def cvm_terceirizados(zbytes, empresas):
 # 4) BNDES: financiamentos contratados nos últimos 12 meses (dados abertos)
 def bndes(empresas, meses=12):
     pk = json.loads(baixar("https://dadosabertos.bndes.gov.br/api/3/action/package_show?id=operacoes-financiamento", 60))
-    lim = HOJE - timedelta(days=30 * meses); res = {}
+    lim = HOJE - timedelta(days=30 * meses); res = {}; cols = []; com_data = recentes = 0
     for rs in pk["result"]["resources"]:
         if "csv" not in (rs.get("format", "") + rs.get("url", "")).lower(): continue
         try:
             resp = urllib.request.urlopen(urllib.request.Request(rs["url"], headers={"User-Agent": "Mozilla/5.0 radar-vdm"}), timeout=120)
             for r in csv.DictReader(io.TextIOWrapper(resp, encoding="utf-8-sig", errors="replace")):
-                r = {k.lower(): v for k, v in r.items() if k}
+                r = {norm(k).lower().replace(" ", "_"): v for k, v in r.items() if k}
+                if not cols: cols = list(r)[:14]
                 d = data_iso(r.get("data_da_contratacao") or r.get("data_contratacao") or "")
-                if not d or d < lim: continue
+                if not d: continue
+                com_data += 1
+                if d < lim: continue
+                recentes += 1
                 cli = r.get("cliente") or r.get("nome_cliente") or ""
                 for e in empresas:
                     if casa(cli, termos(e)):
@@ -113,6 +129,8 @@ def bndes(empresas, meses=12):
                         res.setdefault(e["empresa"], []).append(sinal("BNDES", f"Financiamento contratado: {proj}", None, d.date().isoformat(), 3))
         except Exception as ex:
             AVISOS["BNDES"] = "download interrompido, dados parciais"; print("BNDES parcial:", ex)
+    if not com_data: raise ValueError(f"nenhuma data legível; colunas={cols}")
+    AVISOS.setdefault("BNDES", f"{recentes} contratos dos últimos {meses} meses lidos")
     return {k: unicos(v) for k, v in res.items()}
 
 def main():
@@ -123,7 +141,7 @@ def main():
             r = f(); n = sum(len(v) for v in r.values()); status[nome] = f"ok ({n} sinais)" + (" — " + AVISOS[nome] if nome in AVISOS else "")
             for k, v in r.items(): sin[k] += v
         except Exception as ex:
-            status[nome] = f"erro: {str(ex)[:300]}"; print(nome, "falhou:", ex)
+            status[nome] = f"erro: {str(ex)[:1200]}"; print(nome, "falhou:", ex)
     def f_not():
         r = {}
         for e in emp:
@@ -133,7 +151,7 @@ def main():
     ano = HOJE.year
     rodar("Notícias", f_not)
     rodar("CVM fatos relevantes", lambda: cvm_fatos(baixar(f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_{ano}.zip"), emp))
-    rodar("CVM terceirizados", lambda: cvm_terceirizados(baixar(f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FRE/DADOS/fre_cia_aberta_{ano-1}.zip"), emp))
+    rodar("CVM terceirizados", lambda: cvm_terceirizados(fre_zip(ano), emp))
     rodar("BNDES", lambda: bndes(emp))
     saida = []
     for e in emp:
