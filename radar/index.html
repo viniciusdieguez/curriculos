@@ -28,7 +28,7 @@ input{flex:1 1 200px}
 .news span{color:var(--mut);margin-right:8px}
 .btn{font:inherit;font-size:14px;font-weight:600;color:var(--acc);border:1px solid var(--acc);border-radius:6px;padding:7px 12px;text-decoration:none;white-space:nowrap}
 .btn:hover,.btn:focus-visible{background:var(--accbg);outline:none}
-.tag{font-size:12px;font-weight:600;color:var(--acc);background:var(--accbg);border-radius:4px;padding:1px 6px;margin-right:8px}details{grid-column:1/-1;font-size:14px}summary{cursor:pointer;color:var(--acc);font-weight:600}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.fontes{font-size:13px;color:var(--mut);margin:-12px 0 16px}.vazio{padding:24px;text-align:center;color:var(--mut)}
+.tag{font-size:12px;font-weight:600;color:var(--acc);background:var(--accbg);border-radius:4px;padding:1px 6px;margin-right:8px}details{grid-column:1/-1;font-size:14px}summary{cursor:pointer;color:var(--acc);font-weight:600}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.fontes{font-size:13px;color:var(--mut);margin:-12px 0 16px}button.btn{background:none;cursor:pointer}.acoes{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}.acoes .fontes{margin:0}.vazio{padding:24px;text-align:center;color:var(--mut)}
 @media(max-width:640px){.row{grid-template-columns:1fr}.btn{justify-self:start}}
 </style>
 </head>
@@ -37,6 +37,7 @@ input{flex:1 1 200px}
 <h1>Radar de demanda por terceirização</h1>
 <p class="sub" id="sub">Carregando…</p>
 <p class="fontes" id="fontes"></p>
+<div class="acoes"><button class="btn" id="rec">Recarregar dados</button><button class="btn" id="col">Rodar nova coleta</button><button class="btn" id="tk" hidden>Remover token</button><span class="fontes" id="msg"></span></div>
 <div class="ctl">
 <input id="q" type="search" placeholder="Buscar empresa" aria-label="Buscar empresa">
 <select id="seg" aria-label="Segmento"><option value="">Todos os segmentos</option></select>
@@ -89,13 +90,27 @@ function desenhar(){
     box.appendChild(r);
   });
 }
-fetch("data.json").then(r=>r.json()).then(j=>{
-  dados=j.empresas;
-  $("sub").textContent=j.atualizado_em?"Atualizado em "+new Date(j.atualizado_em).toLocaleString("pt-BR")+". Os pontos somam sinais de notícias, CVM e BNDES.":"Ainda sem coleta. Rode o workflow “Atualizar radar” no GitHub para preencher as notícias.";
+const REPO="viniciusdieguez/curriculos",WF="radar.yml";let ultima=null;
+function carregar(){return fetch("data.json?t="+Date.now()).then(r=>r.json()).then(j=>{
+  dados=j.empresas;ultima=j.atualizado_em;
+  $("sub").textContent=j.atualizado_em?"Atualizado em "+new Date(j.atualizado_em).toLocaleString("pt-BR")+". Os pontos somam sinais de notícias, CVM e BNDES.":"Ainda sem coleta. Clique em “Rodar nova coleta”.";
   $("fontes").textContent=j.fontes?"Fontes: "+Object.entries(j.fontes).map(([k,v])=>k+" — "+v).join("; "):"";
-  opcoes($("seg"),"segmento");opcoes($("uf"),"estado");
-  ["q","seg","uf","ord"].forEach(i=>$(i).addEventListener("input",desenhar));desenhar();
-}).catch(()=>{$("sub").textContent="Não foi possível carregar data.json."});
+  [["seg","segmento","Todos os segmentos"],["uf","estado","Todos os estados"]].forEach(([id,ch,rot])=>{const el=$(id),v=el.value;el.innerHTML="";const o=document.createElement("option");o.value="";o.textContent=rot;el.appendChild(o);opcoes(el,ch);el.value=v});
+  desenhar();return j})}
+function tk(){$("tk").hidden=!localStorage.getItem("gh_token")}
+async function coletar(){
+  let t=localStorage.getItem("gh_token");
+  if(!t){t=prompt("Cole o token do GitHub (permissão só de Actions, só neste repositório). Ele fica guardado apenas neste navegador.");if(!t)return;localStorage.setItem("gh_token",t.trim());tk()}
+  $("msg").textContent="Pedindo a coleta…";
+  let r;try{r=await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/${WF}/dispatches`,{method:"POST",headers:{Authorization:"Bearer "+localStorage.getItem("gh_token"),Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"},body:JSON.stringify({ref:"main"})})}catch(e){$("msg").textContent="Sem conexão com o GitHub.";return}
+  if(r.status!==204){if([401,403,404].includes(r.status)){localStorage.removeItem("gh_token");tk()}$("msg").textContent="Não foi possível iniciar ("+r.status+"). Confira o token e tente de novo.";return}
+  const antes=ultima;let n=0;$("msg").textContent="Coleta iniciada. Leva alguns minutos…";
+  const iv=setInterval(async()=>{n++;try{const j=await carregar();if(j.atualizado_em!==antes){clearInterval(iv);$("msg").textContent="Dados atualizados.";return}}catch(e){}
+    if(n>24){clearInterval(iv);$("msg").textContent="A coleta ainda não terminou. Use “Recarregar dados” daqui a pouco."}},30000)}
+["q","seg","uf","ord"].forEach(i=>$(i).addEventListener("input",desenhar));
+$("rec").onclick=()=>{$("msg").textContent="";carregar().catch(()=>{$("msg").textContent="Não foi possível carregar data.json."})};
+$("col").onclick=coletar;$("tk").onclick=()=>{localStorage.removeItem("gh_token");tk();$("msg").textContent="Token removido deste navegador."};
+tk();carregar().catch(()=>{$("sub").textContent="Não foi possível carregar data.json."});
 </script>
 </body>
 </html>
