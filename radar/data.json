@@ -1,65 +1,12 @@
 {
- "atualizado_em": "2026-11-10T18:44:21.105697+00:00",
+ "atualizado_em": "2026-11-10T19:02:45.096015+00:00",
  "fontes": {
-  "Notícias": "ok (408 sinais)",
+  "Notícias": "ok (381 sinais)",
   "CVM fatos relevantes": "ok (18 sinais)",
-  "CVM terceirizados": "ok (0 sinais)",
-  "BNDES": "erro: IncompleteRead(38125089 bytes read, 1170208821 more expected)"
+  "CVM terceirizados": "erro: sem dados de terceirizados; arquivos=['fre_cia_aberta_empregado_local_declaracao_genero_2025.csv', 'fre_cia_aberta_empregado_local_declaracao_raca_2025.csv', 'fre_cia_aberta_empregado_local_faixa_etaria_2025.csv']; colunas=['CNPJ_Companhia', 'Data_Referencia', 'Versao', 'ID_Documento', 'Nome_Companh",
+  "BNDES": "ok (0 sinais)"
  },
  "empresas": [
-  {
-   "empresa": "Eurofarma",
-   "segmento": "Farmacêutico",
-   "cidade": "Itapevi",
-   "estado": "SP",
-   "funcionarios": "9887",
-   "busca": "Eurofarma",
-   "score": 38,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES aprova R$285 mi para investimento da Eurofarma em SP - UOL Economia",
-     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOYk9RZEJva1hINVhhczUtQVpJaE1XQm1BaVBoT3p5clFEYXhyRmF3clZIdDJ5SlVHcUdmc2swRHBhdEpSVkctdU9SWnFscndnRzhSUXBxRFVoQS1JdW40bFM3bHBwdFI4NERYZzI4ZTFvQXZkellIaVExZlJIcW1Bck54UnlkRWZiWXV4WkNfN1Q5dDdaMHRJTHowRlVMOVR4RDhJN0xjZnNmZUdkTTh5WDdrRHlsZnlx?oc=5",
-     "data": "2026-11-04",
-     "pontos": 5
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES aprova R$285 mi para investimento da Eurofarma em SP - TradingView",
-     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5FZ3ZRLWVVaVhQemNHdkJHNXZWQnhfZldMUTk3Rzc2bzlYNllqRy1WRC1WUTFrWkR4VjlpdHRkZTBBWXZmWnVjMjE2UmY5WmFFdW9ZQlZZWnd1NUhScjlSM205a0NmVDdLZ25rMUxmN09sMEtDRmxWRA?oc=5",
-     "data": "2026-11-04",
-     "pontos": 5
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES aprova R$285 mi para investimento da Eurofarma em SP - BOL",
-     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQU3QybkZheDdCTXFIdF9Jb0diMWt2QUlHNGlVdGJ6WWNqNzNPZWMyZ0Rhd2J2WGVxTjhycGNOYTk2QTBaZ3p3emYxVEQxYmFLV2hCZ1FPT3RMc2c5UjZ1WWdZUVc5Q3BpM0tibDNHUkVkMl9scy1yUTdSRnJkUVdlakJ2MUJJUWxoNHRaYnc4Q2l5amVMVURIUVJ4a2JmSF9sWjdlYzU5eHE2UHVuUTNTZnJB0gGyAUFVX3lxTFBTdDJuRmF4N0JNcUh0X0lvR2Ixa3ZBSUc0aVV0YnpZY2o3M09lYzJnRGF3YnZYZXFOOHJwY05hOTZBMFpnend6ZjFURDFiYUtXaEJnUU9PdExzZzlSNnVZZ1lRVzlDcGkzS2JsM0dSRWQyX2xzLXJRN1JGcmRRV2VqQnYxQklRbGg0dFpidzhDaXlqZUxVREhRUnhrYmZIX2xaN2VjNTl4cTZQdW5RM1NmckE?oc=5",
-     "data": "2026-11-04",
-     "pontos": 5
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES aprova financiamento de R$ 285 milhões para Eurofarma - Valor Econômico",
-     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPREhCYXZQcFNxWEU1V2drM29qVGtPRDB4dTJDSFQtNFlFSGF2WTlPRUQ2MEo0RWhXTVRqWGViWU11YUhaSlZFak8xYUp2bFN1ak1VYWhIUzZHRHdXNGtqZmt0LVZnTUU5S0dnZjd4UzZJU2NaUjQ0S1FtbGlTaHpLMUp3TkhzMFJ4cjRpQmQ3bGVuQ3F2YmpwVzF1VEZSWWxGczZMcHZVYWJ5S3NEbE1TNk83TXhDYmPSAcYBQVVfeXFMUGV6dHQ1S2ppaVFIQ2N2MW1oaWtUN1lGSGYtLXhuZEw3T0pydEFxXzJjaWlaY0xoV0luVUhyTW10VTlwRnJTQ19va0RRdkNmN3FSWGd4Z1pLVkQ3ODcwS0M3UnBtclNFRko2amN0UEppc3JpS3FYUklKeF82akU2UTlVdWNyS3hpU09mVmtFaFVLYThmOVRQS2ZqbmZkbEtqWnh5R2hDeWZvRkdrTUZWbHJOUmpDSEdkYWx6SGduakg0NVZWLUl3?oc=5",
-     "data": "2026-11-04",
-     "pontos": 5
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES aprova R$285 mi para investimento da Eurofarma em SP - UOL Economia",
-     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOYk9RZEJva1hINVhhczUtQVpJaE1XQm1BaVBoT3p5clFEYXhyRmF3clZIdDJ5SlVHcUdmc2swRHBhdEpSVkctdU9SWnFscndnRzhSUXBxRFVoQS1JdW40bFM3bHBwdFI4NERYZzI4ZTFvQXZkellIaVExZlJIcW1Bck54UnlkRWZiWXV4WkNfN1Q5dDdaMHRJTHowRlVMOVR4RDhJN0xjZnNmZUdkTTh5WDdrRHlsZnlx?oc=5",
-     "data": "2026-11-04",
-     "pontos": 5
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES aprova R$285 mi para investimento da Eurofarma em SP - TradingView",
-     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5FZ3ZRLWVVaVhQemNHdkJHNXZWQnhfZldMUTk3Rzc2bzlYNllqRy1WRC1WUTFrWkR4VjlpdHRkZTBBWXZmWnVjMjE2UmY5WmFFdW9ZQlZZWnd1NUhScjlSM205a0NmVDdLZ25rMUxmN09sMEtDRmxWRA?oc=5",
-     "data": "2026-11-04",
-     "pontos": 5
-    }
-   ]
-  },
   {
    "empresa": "Solar Coca-Cola",
    "segmento": "Bebidas",
@@ -191,15 +138,15 @@
     },
     {
      "fonte": "Notícias",
-     "texto": "Concurso Suzano 2026: 30 vagas para professor e diretor de escola; inscrições até 25/11 - PEBSP",
-     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV3hJbU5XTFVPNklkOTYxM21NZ2VuNmN4elFnUE56X0l5c2kwVWpFbnB1elpUcXlVZW5TTi00QWdsb21vLXNfOXdPMENXTkkzN05UajVLRklrcEhhV0ZxZzZMdWJJZmZGaW05SjZpY01STXIzd1N1RXRxQlZqOHZVMGk5MTdoc19hY3RrQzZjV2pFSVhXVUIxc01WMkpmVy1DVTAzQVFXZU13NzBP?oc=5",
+     "texto": "Suzano oferece 53 oportunidades de emprego; veja como ter acesso às vagas - Serra Noticiário",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxONVJTVGppX1NZSFhnaUt3UjhhT3BqODcwZkRTU3VIVzNleUtpX2t2Y2x0X3oxVDRhTms5bGw1dnZJYWVHNy1TcDF6aDlseDI2U2xpcndjME5jV2xUT19LWnhTdlJrb0w0N2pRZUpRVnpSTURWR3BLS2h5QWhQODNDeV9LcGp1UV93YkdyTkhpS0NaRzdfb0NHS0Y2VWpvUkFYSF9RaGhKdw?oc=5",
      "data": "2026-11-10",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Suzano oferece 53 oportunidades de emprego; veja como ter acesso às vagas - Serra Noticiário",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxONVJTVGppX1NZSFhnaUt3UjhhT3BqODcwZkRTU3VIVzNleUtpX2t2Y2x0X3oxVDRhTms5bGw1dnZJYWVHNy1TcDF6aDlseDI2U2xpcndjME5jV2xUT19LWnhTdlJrb0w0N2pRZUpRVnpSTURWR3BLS2h5QWhQODNDeV9LcGp1UV93YkdyTkhpS0NaRzdfb0NHS0Y2VWpvUkFYSF9RaGhKdw?oc=5",
+     "texto": "Concurso Suzano 2026: 30 vagas para professor e diretor de escola; inscrições até 25/11 - PEBSP",
+     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV3hJbU5XTFVPNklkOTYxM21NZ2VuNmN4elFnUE56X0l5c2kwVWpFbnB1elpUcXlVZW5TTi00QWdsb21vLXNfOXdPMENXTkkzN05UajVLRklrcEhhV0ZxZzZMdWJJZmZGaW05SjZpY01STXIzd1N1RXRxQlZqOHZVMGk5MTdoc19hY3RrQzZjV2pFSVhXVUIxc01WMkpmVy1DVTAzQVFXZU13NzBP?oc=5",
      "data": "2026-11-10",
      "pontos": 3
     },
@@ -220,54 +167,54 @@
    ]
   },
   {
-   "empresa": "Klabin",
-   "segmento": "Papel e celulose",
-   "cidade": "São Paulo",
+   "empresa": "Eurofarma",
+   "segmento": "Farmacêutico",
+   "cidade": "Itapevi",
    "estado": "SP",
-   "funcionarios": "16753",
-   "busca": "Klabin",
+   "funcionarios": "9887",
+   "busca": "Eurofarma",
    "score": 28,
    "sinais": [
     {
      "fonte": "Notícias",
-     "texto": "Klabin contrata financiamento de US$ 150 milhões com agência canadense - CNN Brasil",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNVzRrMU1IMmVWMENiU2Q4VTFpQTluV3ZOZGhYX191bjVVUVNxOU1teHpEQjYyR19kSzd1ajhNd0lPMFJBZC1uYjNYUEhTVEJPcEpTWjgxUjJObDlKUE1UVzNfTUtPdGo5YVkxZmcwbzkybW9FQ2ZGUkRhejFadFdVSGJnSG5pNG9mOXd2LURzZXpqM1BoN2VCeFVydUFSOGxOSFItS29GMA?oc=5",
-     "data": "2026-11-09",
+     "texto": "BNDES aprova R$285 mi para investimento da Eurofarma em SP - UOL Economia",
+     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOYk9RZEJva1hINVhhczUtQVpJaE1XQm1BaVBoT3p5clFEYXhyRmF3clZIdDJ5SlVHcUdmc2swRHBhdEpSVkctdU9SWnFscndnRzhSUXBxRFVoQS1JdW40bFM3bHBwdFI4NERYZzI4ZTFvQXZkellIaVExZlJIcW1Bck54UnlkRWZiWXV4WkNfN1Q5dDdaMHRJTHowRlVMOVR4RDhJN0xjZnNmZUdkTTh5WDdrRHlsZnlx?oc=5",
+     "data": "2026-11-04",
      "pontos": 5
     },
     {
      "fonte": "Notícias",
-     "texto": "Klabin contrata financiamento de US$ 150 milhões com agência canadense - CNN Brasil",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNVzRrMU1IMmVWMENiU2Q4VTFpQTluV3ZOZGhYX191bjVVUVNxOU1teHpEQjYyR19kSzd1ajhNd0lPMFJBZC1uYjNYUEhTVEJPcEpTWjgxUjJObDlKUE1UVzNfTUtPdGo5YVkxZmcwbzkybW9FQ2ZGUkRhejFadFdVSGJnSG5pNG9mOXd2LURzZXpqM1BoN2VCeFVydUFSOGxOSFItS29GMA?oc=5",
-     "data": "2026-11-09",
+     "texto": "BNDES aprova financiamento de R$ 285 milhões para Eurofarma - Valor Econômico",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPREhCYXZQcFNxWEU1V2drM29qVGtPRDB4dTJDSFQtNFlFSGF2WTlPRUQ2MEo0RWhXTVRqWGViWU11YUhaSlZFak8xYUp2bFN1ak1VYWhIUzZHRHdXNGtqZmt0LVZnTUU5S0dnZjd4UzZJU2NaUjQ0S1FtbGlTaHpLMUp3TkhzMFJ4cjRpQmQ3bGVuQ3F2YmpwVzF1VEZSWWxGczZMcHZVYWJ5S3NEbE1TNk83TXhDYmPSAcYBQVVfeXFMUGV6dHQ1S2ppaVFIQ2N2MW1oaWtUN1lGSGYtLXhuZEw3T0pydEFxXzJjaWlaY0xoV0luVUhyTW10VTlwRnJTQ19va0RRdkNmN3FSWGd4Z1pLVkQ3ODcwS0M3UnBtclNFRko2amN0UEppc3JpS3FYUklKeF82akU2UTlVdWNyS3hpU09mVmtFaFVLYThmOVRQS2ZqbmZkbEtqWnh5R2hDeWZvRkdrTUZWbHJOUmpDSEdkYWx6SGduakg0NVZWLUl3?oc=5",
+     "data": "2026-11-04",
      "pontos": 5
     },
     {
      "fonte": "Notícias",
-     "texto": "Klabin contrata financiamento de US$150 mi com Export Development Canada - TradingView",
-     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1aSU5ldUlqdmpESktocGpabHhWRkp6MUNlM2JhVWxQTUg1N0dsNkRtX1lUX2Y5WGZNUGFCQkpoM0c3bGFVNnEwVkpJd1RjdGdVM2NBeEFqOXRMMXRQOWR5a2FXUHFDc0Ezd25SQWdZV3RjSkNYWGRJ?oc=5",
+     "texto": "BNDES aprova R$ 285 mi para Eurofarma desenvolver novos medicamentos - Guia da Farmácia",
+     "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVFVSb2hMQzRkRUN0czREQ1RvS3dQcjhFWGh1bE84RG8zYTlETUIzbURzdDZPRzJCWGhULXEwbk43OHA3THBTR2NhQlN2N1ZXaG9uTWctMHl2UE1sT01wLTRRN1Z3WjNkR1dfUE96RU9GSnlKaktfZVg1MmJYM2lJc1p1eUp0d0xadHhBNHROd3pCamRlZnNKUFJ4SmVVQWM?oc=5",
      "data": "2026-11-09",
-     "pontos": 5
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Klabin (KLBN11): Anuncia contratação da Deloitte para auditoria a partir de 2027 - Acionista.com.br",
-     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPUlhyZFk5bm4xeHlHeVl4MUpGdFRIRmFZUm9ER3c0Vlg2TUR5cldEb1VmbHJ5UEtNSmdVMzhCYTk1NUJGeWM3TkdEajlVeVZWU195by1uYzJrTktnSktTcjZqRDc3YXlDR3dwVU9HZ3kxR0ZXSjB6UmZtS3RWVWFwU1Q3RDJlYnJrcjZ4ZFhVTk81a1RmQW5oZkwyb1NZQVB3eFZjMHdB?oc=5",
-     "data": "2026-10-29",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Klabin abre vagas de emprego sem exigir experiência; veja como se inscrever - ACidade ON",
-     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQWnRUX1FvVHk2N2Z3cjkxa2w5c3JjYVlIVHEyMmg3SHA4V3QzLUZDdmd4dm92UHhPZHFyODVrUDBDVjNwQ3FjVjI0Rks3WFpheUpwUkdyVWFJckxaVDNiT3l5NFhFTjlHdHNING5URUhfNE1NMGxpd1JiRXYteUtDVHVsZ0kxUmc3dElvbE9PQjlaY3JBMk1YTVUwTmI3OWpZTnZlejBEUGJMLW03d0FCV256eGp1ek45VnF30gHAAUFVX3lxTE1mcmVOTGpZc3ExcXN5YWxBTUVLWENjcXdCeHBlUEFoekNxWUltYmRhdnh3Z1BPWEk4ODZ5aEVrWlhZRlNzdzdjZE5Wdk9LQV8xczNyOHIzdmgzc1pkUjhfb0R5MGJrVDBINEk3QTR5QW9mb2YxamV2TVl0Zl85UldtMDlWZmRTOEtfOEdlb1lUc09ZUVg4OEQwbWEwV3BvSVM2T241RnNuLWhEOGVEMWRQaFBrZkQ2S0YxNEhGNW5kMg?oc=5",
-     "data": "2026-10-22",
+     "texto": "BNDES libera R$ 285 milhões para Eurofarma desenvolver antibiótico contra microrganismos resistentes, pesquisar medicamentos que podem substituir opioides e avançar em tratamentos para Alzheimer e depressão no Brasil - CPG Click Petróleo e Gás",
+     "link": "https://news.google.com/rss/articles/CBMixwJBVV95cUxPc0JkSkRlUnhzaFhyWXBha3M4WVp0N05hU0g3N2c3Ym93OGVvSHNBQ1BrU3N0RDhQenZZbXJ2YTBTT2dKREx2TkY0Um5lRFI4SzZIOExfaTlmczNwa1o1ZDlKUzJmQnJ2N0dyRnVGLUh0Z0l4c0Y5VnBQZGhtRnRVVHdVcG9ZbDl4blA3c3NNamQ2dWJiMHJKczQ1TnFOZkJua2VwajBvaE9wMm9XdXZJNGdZQ1h0Sk9SN0VpVHg4TDhwU0lVMVNyUUVuRmRTajFid1ZSYmFkZVIxUUlnbVdVbVU3Z1JqNExidnhSUlJCY1RoQUR2SlNGdnBsczBTaEJJOUx6LWlmQUxueTlPSUdIVWMyNm1ESFVmOEhsTUp3aWxxaEhRYjFodXBuX1dhT2pIbjI0c2lnUjNtQTBoQ0hzODgwY2x2QTA?oc=5",
+     "data": "2026-11-07",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Klabin abre vagas para PcD e reabilitados pelo INSS em três unidades - Portal Celulose",
-     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNeUlYWC11R0pNNl9WalVOMGJGOUFDOW5nMTBkSXNfdmpIUTRlcVpya2piR2ZodkpBeFh1V2VGZDhFcVc0UmFlV29QaEQyb3h3YTFzd1FlYmMwWWVPWENiZmtKRW54WHNpN042VmVpRTJsV3JQakRfQjdrVTA5ak5nMjNPTktUeFdxd0RkTG54X1RGQzItTUJuZkF3ajNoRlVW?oc=5",
-     "data": "2026-10-19",
+     "texto": "Eurofarma recebe R$ 285 milhões do BNDES para desenvolver novos medicamentos - Folha de Alphaville",
+     "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQNzFlYjRyMWF6RUl2YkRPNFVZcmxEVUJOS3pRVV9lYWVPbVdraGl1dFlSQXpldUgxSk5MdlpWMlB1UG1jRnpXZHkwZWNjaFhUcm43cTNsRUZaVU95cWhKd21PcXAtWVBPNW0tcnBZM0RrYVgyUDdFUzloWV9tU0tCXzUwdlI2a0xySHZYaXc0RkVZRF9NSkYzUnJwV1VFcW9sX2VmbktFZUtkUDVjMkhtNkdWdVY0eDZmWFd5WWIxazFVWEQ5N1d4QXpUS2E?oc=5",
+     "data": "2026-11-06",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "BNDES libera R$ 285 milhões para inovação na Eurofarma - Panorama Farmacêutico",
+     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPa3ZuTEZZdFpRUU1PckZhSTlNUmliMkNuNkZ0OXBtS2xwS3R1cXVQT2xFTWM2VllkN2U0TVNsN2QyZUUwSGstU2Y2bm5yS09qeVJOTUhZY18zd3RBM3pUbmFrQ2VOZllPUWtOV2ctTlBveEFjVmRjMFhPc1FrdUdkTjdpdVlBWEdCT0twV3dSblRRT1du?oc=5",
+     "data": "2026-11-05",
      "pontos": 3
     }
    ]
@@ -379,6 +326,59 @@
    ]
   },
   {
+   "empresa": "Klabin",
+   "segmento": "Papel e celulose",
+   "cidade": "São Paulo",
+   "estado": "SP",
+   "funcionarios": "16753",
+   "busca": "Klabin",
+   "score": 25,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "Klabin contrata financiamento de US$ 150 milhões com agência canadense - CNN Brasil",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNVzRrMU1IMmVWMENiU2Q4VTFpQTluV3ZOZGhYX191bjVVUVNxOU1teHpEQjYyR19kSzd1ajhNd0lPMFJBZC1uYjNYUEhTVEJPcEpTWjgxUjJObDlKUE1UVzNfTUtPdGo5YVkxZmcwbzkybW9FQ2ZGUkRhejFadFdVSGJnSG5pNG9mOXd2LURzZXpqM1BoN2VCeFVydUFSOGxOSFItS29GMA?oc=5",
+     "data": "2026-11-09",
+     "pontos": 5
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Klabin contrata financiamento de US$150 mi com Export Development Canada - TradingView",
+     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1aSU5ldUlqdmpESktocGpabHhWRkp6MUNlM2JhVWxQTUg1N0dsNkRtX1lUX2Y5WGZNUGFCQkpoM0c3bGFVNnEwVkpJd1RjdGdVM2NBeEFqOXRMMXRQOWR5a2FXUHFDc0Ezd25SQWdZV3RjSkNYWGRJ?oc=5",
+     "data": "2026-11-09",
+     "pontos": 5
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Klabin (KLBN11): Anuncia contratação da Deloitte para auditoria a partir de 2027 - Acionista.com.br",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPUlhyZFk5bm4xeHlHeVl4MUpGdFRIRmFZUm9ER3c0Vlg2TUR5cldEb1VmbHJ5UEtNSmdVMzhCYTk1NUJGeWM3TkdEajlVeVZWU195by1uYzJrTktnSktTcjZqRDc3YXlDR3dwVU9HZ3kxR0ZXSjB6UmZtS3RWVWFwU1Q3RDJlYnJrcjZ4ZFhVTk81a1RmQW5oZkwyb1NZQVB3eFZjMHdB?oc=5",
+     "data": "2026-10-29",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Klabin abre vagas de emprego sem exigir experiência; veja como se inscrever - ACidade ON",
+     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQWnRUX1FvVHk2N2Z3cjkxa2w5c3JjYVlIVHEyMmg3SHA4V3QzLUZDdmd4dm92UHhPZHFyODVrUDBDVjNwQ3FjVjI0Rks3WFpheUpwUkdyVWFJckxaVDNiT3l5NFhFTjlHdHNING5URUhfNE1NMGxpd1JiRXYteUtDVHVsZ0kxUmc3dElvbE9PQjlaY3JBMk1YTVUwTmI3OWpZTnZlejBEUGJMLW03d0FCV256eGp1ek45VnF30gHAAUFVX3lxTE1mcmVOTGpZc3ExcXN5YWxBTUVLWENjcXdCeHBlUEFoekNxWUltYmRhdnh3Z1BPWEk4ODZ5aEVrWlhZRlNzdzdjZE5Wdk9LQV8xczNyOHIzdmgzc1pkUjhfb0R5MGJrVDBINEk3QTR5QW9mb2YxamV2TVl0Zl85UldtMDlWZmRTOEtfOEdlb1lUc09ZUVg4OEQwbWEwV3BvSVM2T241RnNuLWhEOGVEMWRQaFBrZkQ2S0YxNEhGNW5kMg?oc=5",
+     "data": "2026-10-22",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Klabin abre vagas para PcD e reabilitados pelo INSS em três unidades - Portal Celulose",
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNeUlYWC11R0pNNl9WalVOMGJGOUFDOW5nMTBkSXNfdmpIUTRlcVpya2piR2ZodkpBeFh1V2VGZDhFcVc0UmFlV29QaEQyb3h3YTFzd1FlYmMwWWVPWENiZmtKRW54WHNpN042VmVpRTJsV3JQakRfQjdrVTA5ak5nMjNPTktUeFdxd0RkTG54X1RGQzItTUJuZkF3ajNoRlVW?oc=5",
+     "data": "2026-10-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Klabin (KLBN11) cria SPE de madeira no Paraná com aporte de R$ 1,2 bilhão de investidor - melhorinvestimento.net",
+     "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1rbWZQVzdlQWJDNXRucDEzcS1kbmdxQjZWVEZBZG4tV2RCYmtBT19iUGxkV2NyUGk4NzFEdE4tTXZrenFnN25EdGctQk1TTFU2TW1rWXlNM29FemRRUW45WXlJTnRqMTdZdTlkbnY4aW1sbHBPQnlWSmtIMEE?oc=5",
+     "data": "2026-11-09",
+     "pontos": 2
+    }
+   ]
+  },
+  {
    "empresa": "Petrobras",
    "segmento": "Petróleo e gás",
    "cidade": "Rio de Janeiro",
@@ -417,16 +417,16 @@
     },
     {
      "fonte": "Notícias",
-     "texto": "Petrobras abre chamada de propostas para contratação de biometano - JM Online",
-     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOOVVtZnJjWkNyLTBzNm9UbjYzVnNORHpvbENtWjloQlM4YzNZczA1WEdPaEcwdGVjeTNsakczbHozbVVyT2FDSk5yUDVqcWtVa2lMS19GZUVCbDk1bFBZeFBxWm40cnJOMENwT1EyWU1KN0JKZ3Q3cUhtejhYSVRvUGdicjMwdzV0d1FrTmpZQkNyRmtwc0c4NVNCMmFtU0tjY1gydVluN05KM0hZSFlPbUo0TF9JUjNxMWfSAZADQVVfeXFMUDd5TTUwOXhOV2RScDdIZWhBbWl0SjRjQ3FFbFVKZ0RiY21Rc3FaZ0E4TnNkRzFZTnJVZXFsd1puUDFNV2lIa1g5b01jU1RxZ1ZxRjktMXdVY3J5ZC1maEd1OUdMc1luNVdVRFpWNi1QOERHcWh6cWFneG9KVk9TeVVvOUtEQ2ZHWThIdmh2clBIUWlfNjVwV3RPWXBVTUdsbDFiMkdtdXlVWDFEZUtsQ3JDazRMWWpOdm9XcnBCVnAtbmhaNU11MzZCS05PX1plTGdjUnJtVklVM2FXUWRuVGZXVzdTVVVXRUkta1hMZXZYWTFEQnlVVXZkYnZmYVM1YkdCSHE1Wmt5Q3l4NnU0QTdHbkU2RllJZ25iemwzWDVHX2ZURm43ZDlfWXJqXzVlbzNQa2d5SlJRa1h6eTFMejRZLVlPM2lzNUtqSUZNdVAzRURhTDE1c1dtTFlPU3U1dlo3X05sU2ZRTVdVZDlEUV9STl9qd0htUUdxV2ZBa3RYSnpQaDRGeWN1TmU4TEVkWA?oc=5",
-     "data": "2026-11-07",
+     "texto": "Raquel Lyra alinha expansão da Refinaria Abreu e Lima com a Petrobras e busca investidores em SP - Jamildo",
+     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQczJvZkp6TzRwalR0YVVVLVVhQWJZWUJOUzJWM1FHaE1VeDJnS1otejRWR3hKbDJhZ3M5ajZfSGlFbDFFdElfNDJXZTJNa2dObEVDalRPMndFdnlWaFdPaXFtNkVwQkVCMXpESW9pTjFpOUVVZ1NpQ013WXpVOWw2U21yNFZuaU5iRTgzWGFtOXF5WWpkLUNSZ2pUcGFvWDc1OF84dDlzMWdjaXRnZWFveWhRUHZDajlWdW0xSTNRUjhZWFdaYjI4bnNB0gHPAUFVX3lxTE5SbWxyVWpoWFpWeThReEVUMzN0RWVqRFc3TDVDMkFPamhNRmQxZmlOVnd3c2RKSjc4SHF5VXN6UHVtbWNwZEZfSXJqVlNsdzd2czl0MDBYbUg5M1Jtamd3RGVaR1Y0VG9WQzY0RGwxMTVrcmtMNHkzcDFDMFc4SUdjd3VwOTNSX3kxNlByS2E4YUd4aGVJTjg0RXRaVFNwcEVpSk5lMHBzZXg1TkZsSnllXzVoeTFKVzdLSmQ4Rm9OV2dVV0toOGxSbGQ2SmZFRQ?oc=5",
+     "data": "2026-11-06",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Raquel Lyra alinha expansão da Refinaria Abreu e Lima com a Petrobras e busca investidores em SP - Jamildo",
-     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQczJvZkp6TzRwalR0YVVVLVVhQWJZWUJOUzJWM1FHaE1VeDJnS1otejRWR3hKbDJhZ3M5ajZfSGlFbDFFdElfNDJXZTJNa2dObEVDalRPMndFdnlWaFdPaXFtNkVwQkVCMXpESW9pTjFpOUVVZ1NpQ013WXpVOWw2U21yNFZuaU5iRTgzWGFtOXF5WWpkLUNSZ2pUcGFvWDc1OF84dDlzMWdjaXRnZWFveWhRUHZDajlWdW0xSTNRUjhZWFdaYjI4bnNB0gHPAUFVX3lxTE5SbWxyVWpoWFpWeThReEVUMzN0RWVqRFc3TDVDMkFPamhNRmQxZmlOVnd3c2RKSjc4SHF5VXN6UHVtbWNwZEZfSXJqVlNsdzd2czl0MDBYbUg5M1Jtamd3RGVaR1Y0VG9WQzY0RGwxMTVrcmtMNHkzcDFDMFc4SUdjd3VwOTNSX3kxNlByS2E4YUd4aGVJTjg0RXRaVFNwcEVpSk5lMHBzZXg1TkZsSnllXzVoeTFKVzdLSmQ4Rm9OV2dVV0toOGxSbGQ2SmZFRQ?oc=5",
-     "data": "2026-11-06",
+     "texto": "Petrobras lança Programa de Estágio 2026 com 150 vagas em 12 estados - Agência Petrobras de Notícias",
+     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNMl9walFkZUcwdVlON181MkozM2RDZ053bkZmNkphZE1QVjFBTzROcmJlWUJKY3NCd0NQR09lcXpaS2hjVGszeTFHZFRhc05xNzNPbjE0MFBjLWhjcEdqemZqVnRGRU9Ndm8xTXhJRzFxVXZNUmt4NDV5ZTZkTUhPWU9aRzZqQkdPaFd4aWFoUHRjbmc5blNjVnExRXF0QmhRTUItWG1ycGxqNkkwX2R3U2RVTTlLa0ZPUEVzWmFJb0dSXzQ4Rmc?oc=5",
+     "data": "2026-11-05",
      "pontos": 3
     }
    ]
@@ -601,15 +601,15 @@
    "sinais": [
     {
      "fonte": "Notícias",
-     "texto": "Últimos dias: estações recebem currículos para oportunidades nas obras de expansão da Linha 4-Amarela - Motiva Trilhos",
-     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbTV0WU9icGFXTG8wckRFWWtVWndCbHRMeFFuRkd5RE5ZUnRidHltdVRSUVh2ZW9INWY5dl9rMUNPSlFLcklTODlVc0pFZzNOMEpwZUJNUkRITnRPOHB2ZkRoSHhhUkhFTFdRV1dXUkFrdDFsLW5FaDdtWUhkcE43b0lqcno3eDhjVHp0MGR4UWFQSmI3U2wtdy1qUjVWRlA2b3NkdXdTeTc5UjRSYl9kSW8tOVRfa1hZOTJ5TVhEbDlaR2lpMWtn?oc=5",
+     "texto": "Motiva oferece mais de 300 vagas para trabalhar nas linhas 4-Amarela, 5-Lilás, 8-Diamante e 9-Esmeralda em SP; veja como se inscrever - G1",
+     "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxPcWFWd3ZlRXBUZE5qVGhQc3FWVkVsUUJpOHlkMTl4YmozcU5TQmN2UDByVGp0ZWJ3QTRoV3VPWEc5OGVVMU12TkR1VDZUbVlrZGRJaTZsa3pwMWk1dkpuenBfX19sQV9EWnpzbjZFSkt5V2drSWZmbGdKVjRuZlJoejVSLXBQdHN0UXdnLWtDYTRtbF80OFBpcWlhVUdTamE2bnRfQlU3WjdMemg0dVRFR3lzUHkzZHVIMTBfZ2c1ZkljV1d3V3kwRmFRSW1GR3FCeWJxVmdmTXNWbllaNS1OUFhsbHdRc2d3dm5KckdpdEJoSFJFNDJNM0Jzdl9OaVVSVDRVeXYwcU1EV0l1bkc0TS1QNk9iNWJG0gGnAkFVX3lxTE1wcklVaHRLVUxHcXNub1JNQTNCT2hoU2VvU0Y2UENUblBkdGI3ZUdReDRXZGdlT2xPcllwOVhHRkJySGRRN0NsSWNKTGQwV09idldoNXNUZnUtY19ZVUZHV3dOV1EzMEdCc2o1Wk1SLS1XVEZSbDN6ajRPd1BzYUtVY3lOazhKSVVuVDVXNG9FNk8xcG50MzN2eElrOE10c0ZtNnp1bE9wNWc3RGVWaWtSWU5wSmxkSi1iYlY0Qm9JVEJvOUxsTUx6NTVrOVEwUWtXVWxZSVVKWk5SaVg2YTVnN2ExV1ZuZ1V0VHhwMGVFUzBEYTJvNHVwZnNhU1FpRXdkYTN4R0o2alVlYTNYTDU4eVNOOTNSeUpQVVhsbVRfN3RNNFN1Vmc?oc=5",
      "data": "2026-11-09",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Motiva oferece mais de 300 vagas para trabalhar nas linhas 4-Amarela, 5-Lilás, 8-Diamante e 9-Esmeralda em SP; veja como se inscrever - G1",
-     "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxPcWFWd3ZlRXBUZE5qVGhQc3FWVkVsUUJpOHlkMTl4YmozcU5TQmN2UDByVGp0ZWJ3QTRoV3VPWEc5OGVVMU12TkR1VDZUbVlrZGRJaTZsa3pwMWk1dkpuenBfX19sQV9EWnpzbjZFSkt5V2drSWZmbGdKVjRuZlJoejVSLXBQdHN0UXdnLWtDYTRtbF80OFBpcWlhVUdTamE2bnRfQlU3WjdMemg0dVRFR3lzUHkzZHVIMTBfZ2c1ZkljV1d3V3kwRmFRSW1GR3FCeWJxVmdmTXNWbllaNS1OUFhsbHdRc2d3dm5KckdpdEJoSFJFNDJNM0Jzdl9OaVVSVDRVeXYwcU1EV0l1bkc0TS1QNk9iNWJG0gGnAkFVX3lxTE1wcklVaHRLVUxHcXNub1JNQTNCT2hoU2VvU0Y2UENUblBkdGI3ZUdReDRXZGdlT2xPcllwOVhHRkJySGRRN0NsSWNKTGQwV09idldoNXNUZnUtY19ZVUZHV3dOV1EzMEdCc2o1Wk1SLS1XVEZSbDN6ajRPd1BzYUtVY3lOazhKSVVuVDVXNG9FNk8xcG50MzN2eElrOE10c0ZtNnp1bE9wNWc3RGVWaWtSWU5wSmxkSi1iYlY0Qm9JVEJvOUxsTUx6NTVrOVEwUWtXVWxZSVVKWk5SaVg2YTVnN2ExV1ZuZ1V0VHhwMGVFUzBEYTJvNHVwZnNhU1FpRXdkYTN4R0o2alVlYTNYTDU4eVNOOTNSeUpQVVhsbVRfN3RNNFN1Vmc?oc=5",
+     "texto": "Últimos dias: estações recebem currículos para oportunidades nas obras de expansão da Linha 4-Amarela - Motiva Trilhos",
+     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbTV0WU9icGFXTG8wckRFWWtVWndCbHRMeFFuRkd5RE5ZUnRidHltdVRSUVh2ZW9INWY5dl9rMUNPSlFLcklTODlVc0pFZzNOMEpwZUJNUkRITnRPOHB2ZkRoSHhhUkhFTFdRV1dXUkFrdDFsLW5FaDdtWUhkcE43b0lqcno3eDhjVHp0MGR4UWFQSmI3U2wtdy1qUjVWRlA2b3NkdXdTeTc5UjRSYl9kSW8tOVRfa1hZOTJ5TVhEbDlaR2lpMWtn?oc=5",
      "data": "2026-11-09",
      "pontos": 3
     },
@@ -650,7 +650,7 @@
    "estado": "SP",
    "funcionarios": "80420",
    "busca": "Ambev",
-   "score": 22,
+   "score": 21,
    "sinais": [
     {
      "fonte": "Notícias",
@@ -664,13 +664,6 @@
      "texto": "Fábrica de PG é estratégica para expansão dos negócios da Ambev - aRede",
      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNSTdtZmFNd2NWUjg0dnRSaXZiY1RqQ2VFYlU0N0JTUlRhWHNZNFlkcG1qUnA1YzZGSEE3Z3hpQWpaN19XaDlHU2drLWFZR3BRSHFiVkM4NlNHV0h0REdFYl9FamNVeTZ1Y25Ta3phdWRoZ1dvVmxqTGpyQnBlQm5YUG1RaDYydWJacWVjdzhrVFo0WHNacTk4T1dUVXVtbkJTZjR0WFc2S1hMd3lMX3hPQVhn?oc=5",
      "data": "2026-10-30",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Ambev, Votorantim, Hering e outras grandes empresas estarão em feira com mais de 3 mil vagas de emprego em Cuiabá; evento gratuito será em 29 de outubro e já abriu cadastro online - CPG Click Petróleo e Gás",
-     "link": "https://news.google.com/rss/articles/CBMivAJBVV95cUxOWEd2TTdTbXR6Zm1RcTlhUGtWTzBQV3VuS1MtOVROQXRKVDVfOFFvRkNCLVJUVUxaQzBHaXZGbVd0MlJCMnBJZlJSX0hLX1JCMlhGWklWUFpqYnBVWGpOdmNuU0NDM3d6UXdVMGJhb19OWGlSQXNTNHFzQjlnMml0LUowWFBnTk5CcHkwNFNPWHc0NHN3X2pTR2x2bmo4dEVsRUtyODBEU1JsaHBpTlc4aE1VMEJlckphbW91eFhxQVNvRlRsOFNHN2FvY29nWXdvZld1LV9wVDE0V1lNWE93THJNbkthRzR1TWdoSVJqdE5Bbi1FSmVlbEEzM0dUS2ZISE54YjIteWZsUnp5b2JHQ3JpdEN1VG1mZ2YtekY1TEZxN25xRXk2bDRrS0VfS3ZNSmNWWUZ0Q1JyZjdZ?oc=5",
-     "data": "2026-10-23",
      "pontos": 3
     },
     {
@@ -693,6 +686,13 @@
      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNUGtLOEFiQ3Fxc3Y4TVluTHpMLV9WUi1pTWJNR2FITW9sMUJOeGRWZHdkdGlaeXhlaEhRMDNQS3lfcElEcHBZdmpia1Rfcldfb0dBV0xGb0NPMDNXZ2g2dklWcVpjSEItbFh4N3g0cFo3cHdzZHZveUtSVk1TM01Cd2NUT1F0cFR2Y3RhQjh6bVZVYXhkNk9EUlEyQUxkMUFWUnJzNmZtcmE5N0FFc21QTFViS2xvRWpUM3pZZTVXanJ1a3lhWnhsanQ5cDE?oc=5",
      "data": "2026-10-14",
      "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Jean Jereissati da Ambev apresenta cronograma de investimentos e projeções de mercado - Brasil Inovador",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOeUhFLVlwRG5KYVBBVXk2X2dzdmRtekRyRzZWTjdLNk53RjNlNWw0ODNDR0FQNXNIZTVXbkxlMjNXSWx0SGdKQ083ZG1ENXJQS194N19QRXFrbTdWVS1zLVg0ZVFYU0lPNUZiNTJjcmkwR25hN2dZQ1ljQ0pSV3ZZSEM4ajBDVTA2ZDJnSmpRRXVWSklnUGQzTW5ERUFZN0l5MXE0VHpnS19uMXJqR1VFVU9xamEwYjA?oc=5",
+     "data": "2026-11-09",
+     "pontos": 2
     }
    ]
   },
@@ -728,13 +728,6 @@
     },
     {
      "fonte": "Notícias",
-     "texto": "CSN Cimentos: entenda a reestruturação e a venda por R$ 12,7 bilhões - Game Overdrive",
-     "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9LUjlYNVAzaU10TXBsaV90ck5heC1zaUxSYlBMUG5tRWVxdkVZYkJBa2Vtd3dMVjdnZm5WWUJYWDdySTFhVldCWktwY0J3MkZzZUZ0NjhuaTBxMFFTOVZOMXhQRml3dUpvdXdNbE9uOEJ5TW1WZWRqYnl3?oc=5",
-     "data": "2026-11-10",
-     "pontos": 2
-    },
-    {
-     "fonte": "Notícias",
      "texto": "Reestruturação da CSN Cimentos: Uma Nova Visão do Mercado - boca.com.br",
      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBOTnE0OTFfYmNycVItZ0I0TmRheXVlMzJFOEJKdm9zSlNtVTZlTTZaZlc5bmhBTHVWRTZrR1l3cTI3NHBaOUhQSEJrTmpyV2dpUDJOY0otVTZVSUdxazV5bk02RTZDcjFlVVpN?oc=5",
      "data": "2026-11-10",
@@ -746,59 +739,13 @@
      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNelJKVE1TVUlYWnQ2RmRfZHc0ZFhMTDZWTi1xZU15LTNJM0ZBS2R5QmJhMW4xNnpOMEVBRVZpc1VTN3JQaTBFWmJjemRlbk9ZcC1fQWdSTnRMREhVOGdScEtXeDZycWR4YUFTTmc4aENWcHJ1cFVCTFh0cGJvZ0hBSW94UnFtdW5uRnBHd3NVNlZJd3NVX2ZaTWU1UVFFZ1RHM2ZRYmV5bkFYVEZ6RTM0S3BjT1hWMFYyUmNwVkRZQ1JFWE14aF84OTBVU2hSOHFrZjZkUU45OTFmQUc1?oc=5",
      "data": "2026-11-09",
      "pontos": 2
-    }
-   ]
-  },
-  {
-   "empresa": "Usiminas",
-   "segmento": "Siderurgia",
-   "cidade": "Belo Horizonte",
-   "estado": "MG",
-   "funcionarios": "15139",
-   "busca": "Usiminas",
-   "score": 20,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "Usiminas abre mais de 300 vagas para jovem aprendiz; veja oportunidades em Ipatinga - G1",
-     "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQV3o3cm1rMjdBdzl5NVZMZXd0YW4wSGVBWkVXZDQ3YXJpSVFMQ1F6M21uN2lsdHBRMFlhS0pwRVlMa0RPUExHMnRMdlpXMmR0bTlLdk94Ym9QYXd0czlGV2dPQnd2OXRFM1B2cVFvSmJ1UE1OZDBjSzNfVm55X2MzWEdzYnpYamJQMlVRcng2dnYtNDg0OE1EY3dzLUlRVlBBUkNYTnl4YnpqYzVHNE5tQUpHN2pIa3BVb2w5UFNKYUJ4ZWVfR1hoZndJeGpTOGxxbDFNWWxyc9IB5gFBVV95cUxQX1Y0V0FCUlhPUlk1R1FWLVd5emZYNjdydG80Q1Q4ekYyOW84RmZ4SUcyWW9QdHZjeGlrZU1WN1hYZjdFT0xWZ05EaVZNSUZwNEF1TlA0dVpQSlpNZFc0U1hLQ0hjUFBwMHVIZk9YUmJQSlhONE84Sm5rYmFFa2pJR0wtZ21jR3NZcXRQdlVldVVNSzR0RXRNVUhySm1Pei1TMTFtTHJZVW5lUTFxZFZtVFd0NC1CNE4zRWFNcE1rSlhUNnktdmFuV01oRlZoWDd2Mzh5Q1N5OGlYd3JYRkZNNWl5LXZMUQ?oc=5",
-     "data": "2026-10-30",
-     "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Usiminas abre mais de 300 vagas para Jovem Aprendiz em MG e SP; saiba como se inscrever - Rádio Itatiaia",
-     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWGZXRG5ZSFlSUDJ1V0VQN3RxdDdidTRZSjBma0ZDRWRVREJpS0pKQ0QybE5yd2wtYlFzd3Q4ZlduNFQtc3FmbDRZb0lfUVRac2NWQzgzWGluYlVJdUtLNDF2eFNxZFV2amh2YlFPNUlnTTJJR2pxb3BzMXZHQld0a2FxZVBZamFyUy1PN3hfUmlxRGtIcnZkb2pnd2dmektnNjNVN0lFRjh0RFo2TkJQMmd6RWpiQ180X1c4Z2x5TVZ6YkVqdXVOMU5FN2JMYmdC?oc=5",
-     "data": "2026-10-29",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Usiminas abre processo seletivo 2027 para preencher 300 vagas - JC Concursos",
-     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYXd1ckkxblV1MmRYNFZoWXBxN1V0SGZEZXoyWHdVbnh4WWhWVWYwMl82MGR4MWJRU2JzWFpVclJ5bVY1Z21FcmRiQ3ZOekJqVkIwb0ZVeGNycUJtQVJLNmRrRldFeWFfSGZqazBmelJrS0daU3ZYMHgzMnN0MTJvVjEtM2lObW00UTZDT18wb1dFQ1czZFB1SldiYlBmTHV4SmVYLWV5blMzU1nSAbABQVVfeXFMTlFnZFR6MFhCcm9HNU5rbU1VVElFQzhQQ1VjajJEaE5qNE1rT3pfLVRMUDExQzJ1MDFKc0VaOFRWZUliOUJOUW9UOG1scWl6V2pyNWt0MXJhUkhDcnRaYUs1Q0JBd0R6R2pWMnc3MnZwMDZJWS1Vd2F0aWYtSkRzTkRySlZsWm1uYmplbEgtRFJUZnZySHVnY0Q3dWFXc0FkNUcyYjdhRlJZellxRWhJcDk?oc=5",
-     "data": "2026-10-28",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Usiminas abre mais de 300 vagas para o Programa Jovem Aprendiz 2027 - vox97.com.br",
-     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNMVAtQzBUWm53Nm9iRVE0cUt6Tmw2NGxTV21hZXhmWlp3ekdyRlNLTmRpOS1pSUoyQnB2VTdKckh4S1hxaE1INlUtQXhGSkV4ZzR5MUk1NGRveVJnYS1vbXQ1c2YwdHRfZXoxUEpFeWNyZ2RDZ1VaQkl5dDZlZHhaNkxsOThjX05veHJ6VFJLSGd5X0JObHpfRDFKQmh3NEJFNHVEOQ?oc=5",
-     "data": "2026-10-28",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Usiminas abre mais de 300 vagas para Jovem Aprendiz 2027 em Minas Gerais e São Paulo - Plox",
-     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1sanBHNFVCaGdzbTRndlZleGtpQ1RfcXo2amYtQ0N0c3BXc0RxWFpEX0h0b1pWY3V0VW5ZRVVSWTBxTnNDWXMtNko4aFZaZl82N180dTNjRUVNRWNRRHFvR2lkWGVqR18yRUlfcWhwRGNaR2g5aGRDSnhmWldlQQ?oc=5",
-     "data": "2026-10-27",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Usiminas abre mais de 300 vagas para Jovem Aprendiz 2027 em Minas Gerais e São Paulo - Plox",
-     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1sanBHNFVCaGdzbTRndlZleGtpQ1RfcXo2amYtQ0N0c3BXc0RxWFpEX0h0b1pWY3V0VW5ZRVVSWTBxTnNDWXMtNko4aFZaZl82N180dTNjRUVNRWNRRHFvR2lkWGVqR18yRUlfcWhwRGNaR2g5aGRDSnhmWldlQQ?oc=5",
-     "data": "2026-10-27",
-     "pontos": 3
+     "texto": "Mônica Scaramuzzo: Análise: Venda dá fôlego, mas reestruturação da CSN tem de continuar - UOL Economia",
+     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPMVFjNl9MeVM2MUVSTENYSGw3NmJLOXVoX2RieXdxNVhDTjgxY3ZxYWFuNjlpTUwxdmV1WVRPUGV1UEk1X3RaRU9DRFFfdk1ldXpSNG5XNVVLcUxRM2tBaUxSRjdXMnJqTGV1R09IdjlCNWF4X200NGlzZDdTUjZoaFJkQkpVWmNRZU5JQ3I4RVdfWC1JLUVjQk5JZG5GTzM0UUEtaXVzYlJkWnFHTmlqeG1JUlRHREh6c0xwOU9JcFo2RmZJSTNZSnJycmZ0Qmpk?oc=5",
+     "data": "2026-11-09",
+     "pontos": 2
     }
    ]
   },
@@ -944,6 +891,59 @@
      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQS092RW1nNU1QYV9Cdmt2c1pqR0dpWDNsX1Brako5MlNxN0RxWk9aSWJQWU9KSHRMX2wxUktpYnlOM0dnbE5vTEZRQ2dIalVGeUZzTzRJNTEtc1FTa3E1Z1F1Y0VkX0xmams0LXBwdHhyY0M2d1Z0OVprcG5tcHNENkd6OEVCYzBYaVhaUEFHYTZvZEhDLXRUSllZRU96dWI5MU50RWFPai1zWTJ6R0hVUE95Um9PdnZGdm43ck1sN0lGQVpCYmxWaWRwV3pZUzdCMjVPY2duYkZDYU9R?oc=5",
      "data": "2026-10-14",
      "pontos": 3
+    }
+   ]
+  },
+  {
+   "empresa": "Usiminas",
+   "segmento": "Siderurgia",
+   "cidade": "Belo Horizonte",
+   "estado": "MG",
+   "funcionarios": "15139",
+   "busca": "Usiminas",
+   "score": 17,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "Usiminas abre mais de 300 vagas para jovem aprendiz; veja oportunidades em Ipatinga - G1",
+     "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQV3o3cm1rMjdBdzl5NVZMZXd0YW4wSGVBWkVXZDQ3YXJpSVFMQ1F6M21uN2lsdHBRMFlhS0pwRVlMa0RPUExHMnRMdlpXMmR0bTlLdk94Ym9QYXd0czlGV2dPQnd2OXRFM1B2cVFvSmJ1UE1OZDBjSzNfVm55X2MzWEdzYnpYamJQMlVRcng2dnYtNDg0OE1EY3dzLUlRVlBBUkNYTnl4YnpqYzVHNE5tQUpHN2pIa3BVb2w5UFNKYUJ4ZWVfR1hoZndJeGpTOGxxbDFNWWxyc9IB5gFBVV95cUxQX1Y0V0FCUlhPUlk1R1FWLVd5emZYNjdydG80Q1Q4ekYyOW84RmZ4SUcyWW9QdHZjeGlrZU1WN1hYZjdFT0xWZ05EaVZNSUZwNEF1TlA0dVpQSlpNZFc0U1hLQ0hjUFBwMHVIZk9YUmJQSlhONE84Sm5rYmFFa2pJR0wtZ21jR3NZcXRQdlVldVVNSzR0RXRNVUhySm1Pei1TMTFtTHJZVW5lUTFxZFZtVFd0NC1CNE4zRWFNcE1rSlhUNnktdmFuV01oRlZoWDd2Mzh5Q1N5OGlYd3JYRkZNNWl5LXZMUQ?oc=5",
+     "data": "2026-10-30",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Usiminas abre mais de 300 vagas para Jovem Aprendiz em MG e SP; saiba como se inscrever - Rádio Itatiaia",
+     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWGZXRG5ZSFlSUDJ1V0VQN3RxdDdidTRZSjBma0ZDRWRVREJpS0pKQ0QybE5yd2wtYlFzd3Q4ZlduNFQtc3FmbDRZb0lfUVRac2NWQzgzWGluYlVJdUtLNDF2eFNxZFV2amh2YlFPNUlnTTJJR2pxb3BzMXZHQld0a2FxZVBZamFyUy1PN3hfUmlxRGtIcnZkb2pnd2dmektnNjNVN0lFRjh0RFo2TkJQMmd6RWpiQ180X1c4Z2x5TVZ6YkVqdXVOMU5FN2JMYmdC?oc=5",
+     "data": "2026-10-29",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Usiminas abre processo seletivo 2027 para preencher 300 vagas - JC Concursos",
+     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYXd1ckkxblV1MmRYNFZoWXBxN1V0SGZEZXoyWHdVbnh4WWhWVWYwMl82MGR4MWJRU2JzWFpVclJ5bVY1Z21FcmRiQ3ZOekJqVkIwb0ZVeGNycUJtQVJLNmRrRldFeWFfSGZqazBmelJrS0daU3ZYMHgzMnN0MTJvVjEtM2lObW00UTZDT18wb1dFQ1czZFB1SldiYlBmTHV4SmVYLWV5blMzU1nSAbABQVVfeXFMTlFnZFR6MFhCcm9HNU5rbU1VVElFQzhQQ1VjajJEaE5qNE1rT3pfLVRMUDExQzJ1MDFKc0VaOFRWZUliOUJOUW9UOG1scWl6V2pyNWt0MXJhUkhDcnRaYUs1Q0JBd0R6R2pWMnc3MnZwMDZJWS1Vd2F0aWYtSkRzTkRySlZsWm1uYmplbEgtRFJUZnZySHVnY0Q3dWFXc0FkNUcyYjdhRlJZellxRWhJcDk?oc=5",
+     "data": "2026-10-28",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Usiminas abre mais de 300 vagas para o Programa Jovem Aprendiz 2027 - vox97.com.br",
+     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNMVAtQzBUWm53Nm9iRVE0cUt6Tmw2NGxTV21hZXhmWlp3ekdyRlNLTmRpOS1pSUoyQnB2VTdKckh4S1hxaE1INlUtQXhGSkV4ZzR5MUk1NGRveVJnYS1vbXQ1c2YwdHRfZXoxUEpFeWNyZ2RDZ1VaQkl5dDZlZHhaNkxsOThjX05veHJ6VFJLSGd5X0JObHpfRDFKQmh3NEJFNHVEOQ?oc=5",
+     "data": "2026-10-28",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Usiminas abre mais de 300 vagas para Jovem Aprendiz 2027 em Minas Gerais e São Paulo - Plox",
+     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1sanBHNFVCaGdzbTRndlZleGtpQ1RfcXo2amYtQ0N0c3BXc0RxWFpEX0h0b1pWY3V0VW5ZRVVSWTBxTnNDWXMtNko4aFZaZl82N180dTNjRUVNRWNRRHFvR2lkWGVqR18yRUlfcWhwRGNaR2g5aGRDSnhmWldlQQ?oc=5",
+     "data": "2026-10-27",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Usiminas planeja investimentos de R$ 3,5 bilhões - Valor Econômico",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOa1VLQl9YbC1JcTgtTUZBdU4zdWNpWUVsc1NJNWFET2h3NDl3NDdwY2FQcXozTjBYM2tLYUlGUXdjRDVMOGJsZmttcnUyWjFVcDBEYlVCRFVMcUltTllncEIxSW5XZVlxTzl5ZVRVRFJhbjBoSUE0SXYtWTI0ekZKRU5leV9OSjBoRERqcWhnOTNoWnNWWVFXbndPcm00cXpBaFc3anBB0gG0AUFVX3lxTFB2NEo5a3BOcU1VRUctM2l1TjFFbkJDc0xxb2s0RzU0RU92cUJRZDNTRngwQ1ozNnpVYlVWRHhDUWgyNHl4R0dpUXZRb1FveXU2U29KM01zb3B4ZlBSTjRndnNwNEhHdHplMXdJNGplSVB1MkJESVFDbm5TQnRZQ2VLbzJESDFDUU93RXFzZERjR0Zkajg4eWZoaDFqaGQxM3pMeXhCellMZWEwV2xoTkFpaE5NaQ?oc=5",
+     "data": "2026-10-30",
+     "pontos": 2
     }
    ]
   },
@@ -1296,31 +1296,6 @@
    ]
   },
   {
-   "empresa": "3 Corações",
-   "segmento": "Alimentos (café)",
-   "cidade": "Eusébio",
-   "estado": "CE",
-   "funcionarios": "11619",
-   "busca": "3 Corações",
-   "score": 4,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo chinês investirá R$ 110 milhões em 3 Corações - PocosCom",
-     "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBMTlB1VjYxMVFJbkJyUFFmc0RRQVRhUERHWkFTd3ZBQS1yQUZkUmpQakV2cjZwRm84cWUyajd5Nzd4VHF2c2dNLWJWWG11SzVFWW5KMWVqV3FjZkd3WVB3VVRhNGpfcW9TRXI1Ukl3b3l6VmlwMjNlZGhub20?oc=5",
-     "data": "2026-11-06",
-     "pontos": 2
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo chinês investirá R$ 110 milhões em 3 Corações - Últimas Notícias",
-     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNVjNzSDg1N25icVBGSWIxb1M2UTZQTzJGSzBLZXBPakd4cVQwMkp1RnQzb1VENkc0WkI5UzVXRm1IRVJ5SkIya1ZfeDgzM3d0VEt4eFhaNXVpdUFvcnVCbDJlMUtFbnNxbWVFNnFPRVJxU1dMUFEtVXVDVWV2LWxIQUk5dmhha2tQQXhVaVBqcEhmb2JF?oc=5",
-     "data": "2026-11-06",
-     "pontos": 2
-    }
-   ]
-  },
-  {
    "empresa": "Grupo Moura",
    "segmento": "Baterias",
    "cidade": "Belo Jardim",
@@ -1334,6 +1309,24 @@
      "texto": "Grupo Moura investirá R$ 200 milhões em fábrica de baterias em Pernambuco para disputar mercado nacional - Portal NE9",
      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE03eEFma3M4R1A4Unlub3ZoVVlaRFBZanBFbFhJNzNFcF9lU0RJVnVfSE1SMXV2UWVjUmlacU5yREw3RDlPNGxndlZYNC1peWdieUFMVndQaWlQRTJURW1Zd0JyQk9zejl2VWhFZWhJbFBtaExBU3VUeXF2RHY?oc=5",
      "data": "2026-11-10",
+     "pontos": 2
+    }
+   ]
+  },
+  {
+   "empresa": "3 Corações",
+   "segmento": "Alimentos (café)",
+   "cidade": "Eusébio",
+   "estado": "CE",
+   "funcionarios": "11619",
+   "busca": "3 Corações",
+   "score": 2,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo chinês investirá R$ 110 milhões em 3 Corações - PocosCom",
+     "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBMTlB1VjYxMVFJbkJyUFFmc0RRQVRhUERHWkFTd3ZBQS1yQUZkUmpQakV2cjZwRm84cWUyajd5Nzd4VHF2c2dNLWJWWG11SzVFWW5KMWVqV3FjZkd3WVB3VVRhNGpfcW9TRXI1Ukl3b3l6VmlwMjNlZGhub20?oc=5",
+     "data": "2026-11-06",
      "pontos": 2
     }
    ]
