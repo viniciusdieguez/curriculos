@@ -33,6 +33,14 @@ def data_iso(s):
         try: return datetime.strptime(s.strip()[:19], f).replace(tzinfo=timezone.utc)
         except Exception: pass
 
+AVISOS = {}
+def unicos(sinais):
+    vistos, out = set(), []
+    for s in sinais:
+        k = norm(s["texto"].rsplit(" - ", 1)[0])
+        if k not in vistos: vistos.add(k); out.append(s)
+    return out
+
 # 1) Notícias (Google News RSS)
 def noticias_parse(xml, termo, dias=30):
     lim = HOJE - timedelta(days=dias); out = []
@@ -49,7 +57,7 @@ def noticias(termo):
     for q in (Q1, Q2):
         u = "https://news.google.com/rss/search?q=" + urllib.parse.quote(f'"{termo}" {q} when:30d') + "&hl=pt-BR&gl=BR&ceid=BR:pt-419"
         out += noticias_parse(baixar(u, 30).decode("utf-8"), termo); time.sleep(1.5)
-    return out
+    return unicos(out)
 
 # 2) CVM: fatos relevantes e comunicados (dados abertos IPE)
 def cvm_fatos(zbytes, empresas, dias=90):
@@ -65,17 +73,20 @@ def cvm_fatos(zbytes, empresas, dias=90):
 
 # 3) CVM: terceirizados declarados no Formulário de Referência
 def cvm_terceirizados(zbytes, empresas):
-    z = zipfile.ZipFile(io.BytesIO(zbytes)); docs = {}
+    z = zipfile.ZipFile(io.BytesIO(zbytes)); docs = {}; arqs = []; cols = []
     for n in z.namelist():
         if "empregado" not in n.lower() or not n.lower().endswith(".csv"): continue
+        arqs.append(n)
         rd = csv.DictReader(io.TextIOWrapper(z.open(n), encoding="latin-1"), delimiter=";")
         for r in rd:
+            if not cols: cols = list(r.keys())
             col = [c for c in r if "TERCEIR" in c.upper()]
             den = next((r[c] for c in r if c.upper().startswith("DENOM")), "")
             if not col or not den: continue
             try: v = sum(int(float((r[c] or "0").replace(",", "."))) for c in col)
             except ValueError: continue
             k = (den, int(r.get("ID_Documento") or 0)); docs[k] = docs.get(k, 0) + v
+    if not docs: raise ValueError(f"sem dados de terceirizados; arquivos={arqs[:3] or z.namelist()[:6]}; colunas={cols[:10]}")
     res = {}
     for e in empresas:
         c = [(i, v, d) for (d, i), v in docs.items() if casa(d, termos(e)) and v > 0]
@@ -89,26 +100,30 @@ def bndes(empresas, meses=12):
     lim = HOJE - timedelta(days=30 * meses); res = {}
     for rs in pk["result"]["resources"]:
         if "csv" not in (rs.get("format", "") + rs.get("url", "")).lower(): continue
-        rd = csv.DictReader(io.TextIOWrapper(io.BytesIO(baixar(rs["url"], 600)), encoding="utf-8-sig"))
-        for r in rd:
-            r = {k.lower(): v for k, v in r.items()}
-            cli = r.get("cliente") or r.get("nome_cliente") or ""; d = data_iso(r.get("data_da_contratacao") or r.get("data_contratacao") or "")
-            if not d or d < lim: continue
-            for e in empresas:
-                if casa(cli, termos(e)):
-                    proj = (r.get("descricao_projeto") or r.get("projeto") or "financiamento").strip()[:100]
-                    res.setdefault(e["empresa"], []).append(sinal("BNDES", f"Financiamento contratado: {proj}", None, d.date().isoformat(), 3))
-    return res
+        try:
+            resp = urllib.request.urlopen(urllib.request.Request(rs["url"], headers={"User-Agent": "Mozilla/5.0 radar-vdm"}), timeout=120)
+            for r in csv.DictReader(io.TextIOWrapper(resp, encoding="utf-8-sig", errors="replace")):
+                r = {k.lower(): v for k, v in r.items() if k}
+                d = data_iso(r.get("data_da_contratacao") or r.get("data_contratacao") or "")
+                if not d or d < lim: continue
+                cli = r.get("cliente") or r.get("nome_cliente") or ""
+                for e in empresas:
+                    if casa(cli, termos(e)):
+                        proj = (r.get("descricao_projeto") or r.get("projeto") or "financiamento").strip()[:100]
+                        res.setdefault(e["empresa"], []).append(sinal("BNDES", f"Financiamento contratado: {proj}", None, d.date().isoformat(), 3))
+        except Exception as ex:
+            AVISOS["BNDES"] = "download interrompido, dados parciais"; print("BNDES parcial:", ex)
+    return {k: unicos(v) for k, v in res.items()}
 
 def main():
     emp = list(csv.DictReader(open(AQUI / "empresas.csv", encoding="utf-8")))
     sin = {e["empresa"]: [] for e in emp}; status = {}
     def rodar(nome, f):
         try:
-            r = f(); n = sum(len(v) for v in r.values()); status[nome] = f"ok ({n} sinais)"
+            r = f(); n = sum(len(v) for v in r.values()); status[nome] = f"ok ({n} sinais)" + (" — " + AVISOS[nome] if nome in AVISOS else "")
             for k, v in r.items(): sin[k] += v
         except Exception as ex:
-            status[nome] = f"erro: {str(ex)[:80]}"; print(nome, "falhou:", ex)
+            status[nome] = f"erro: {str(ex)[:300]}"; print(nome, "falhou:", ex)
     def f_not():
         r = {}
         for e in emp:
