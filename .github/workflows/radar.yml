@@ -1,7 +1,7 @@
 name: Atualizar radar
 on:
   schedule:
-    - cron: "0 9 * * *"
+    - cron: "0 9 * * *"   # todo dia, 6h no horário de Brasília
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,3 +19,8 @@ jobs:
           git add radar/data.json
           git diff --cached --quiet || git commit -m "Atualiza radar"
           git push
+      - run: python radar/enviar_email.py
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_DESTINO: ${{ secrets.EMAIL_DESTINO }}
