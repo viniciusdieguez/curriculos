@@ -1,10 +1,10 @@
 {
- "atualizado_em": "2026-11-10T16:52:20.133052+00:00",
+ "atualizado_em": "2026-11-10T18:44:21.105697+00:00",
  "fontes": {
-  "Notícias": "ok (407 sinais)",
+  "Notícias": "ok (408 sinais)",
   "CVM fatos relevantes": "ok (18 sinais)",
   "CVM terceirizados": "ok (0 sinais)",
-  "BNDES": "erro: IncompleteRead(1082474022 bytes read, 125859888 more expected)"
+  "BNDES": "erro: IncompleteRead(38125089 bytes read, 1170208821 more expected)"
  },
  "empresas": [
   {
@@ -304,6 +304,13 @@
     },
     {
      "fonte": "Notícias",
+     "texto": "Cetesb abre concurso público com 107 vagas; Vale do Paraíba tem oportunidade - MEON",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPUlp3NkNaWEE2bmJZeGRQbWh6eGgxUE83SVI0X3JwRkV5MURBV3QxSW9WUEdNNGNSa0JJR0xCWVhTN3RCVEdZeFctT3NKQ0FPYTJhUVhrOGJwNTROaWV5ckw5SmFXb2NQb2pGM1JvUmpzdEVZTU5jamFYek5ld1doM0tXVFFNdmNmaExuMFdCWS12ZEx5UUNvMjlFYzZFSmdpMG9rSElxbmtFU2h4Yzg4bTliUmdVQTJPQmtIdXI0WUN3M3Za?oc=5",
+     "data": "2026-11-10",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
      "texto": "Justiça suspende regras de expansão para vale-refeição e alimentação - Nova Era News",
      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQb3pLR3RzMExrNEpzS29zSzFLSDc2d1RzclZOSGdZTkJnRzRvSk9QdndIWm9RZVBDRHI4ejVvZUt4MDU5WUxRYjRHc1F6ejZ5TVBvN1Fud01wamxYOXZhVmRrVzVlUnhIYnNNNlhkcmdZd1BxZTRLRGxaZVJFcXJXSi1KVDRVYmpwa0h1OU9IM2dnOGMzejZpYWloSGQ?oc=5",
      "data": "2026-11-10",
@@ -314,13 +321,6 @@
      "texto": "É HOJE!!! Construtora Vale Verde realiza plantão de vagas de emprego em Itabira nesta terça-feira, 10 de novembro; veja as vagas e local - Itabira Online",
      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNdkpnSkFhalhqTk85ZVUyd0dqcGhoVFFXZ2lZOFZjdk5DUE1vdUhHTGtrNWFVTVJ6ZUZmaU5VdXNHNjYwUThKMWtUYXpLYzlITlpNT05CcnduVUROQkc5Z2prN3kyRTlpTjNDNlBWNGVFc2l0UjV1TG1VVHNOVGl2QnU5VURjTE9vRWxHWkRQbHRQX0pQYWRlSGtaM0xVTjdxV1hSbXNwYy1jbWQxMUpWSzVmbmZqMWRBQ2hHSHRESzBxNUJSN2RDSHJ1aUxfLWp3SzFUSDBBWFRQcTUtOFIwdTczd3oxcDBUcUNuRmFtWjVDRFl0dzlYc0YyUFdGZ3hLMUE?oc=5",
      "data": "2026-11-10",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Vale abre vagas de estágio no Pará com bolsa de R$ 1.800 - DOL",
-     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQLVBtT1NHbUZLWmprUUFVZ1p4NnFpUDhfLXkzbTZKbHNROUk3aWtMYV9iZ09TSy1qaGl3cXJ1NktwZmRIa1JrX083ZUpyTUdieW0xMGZjbmZ2bzE0UzNQaTlsYWVORFo0ckVaYXJpOXpYQXhPWmY5Z3RDRzRDN3dkbkl4SENDa3BublNSRjhTMkVUdVpxUWJEZHlHd19mMmc1WE04dWJVT09fUdIBsgFBVV95cUxQMTJpdHNWeVFkLWNLbTVuenRpTnAwME1Id0FsUHlSUnJOWjBOSFcxa1JDRE9ubGs3UHlnUUt3UGp2UUt2VnkxWnoxT2Z5TXBhNS1NdUE3M2dFMFlJRkVFT0ZJWnBzU2VYU1RjU2NNeDhwR2dlWUpXS2VvLXg3ck1VSGFFZzdoSTVWYk5GSFNMRzJMNmxKbV9XMnZwenZBS2FHQmEtRG1vd3BRNXBXM0NiTU1n?oc=5",
-     "data": "2026-11-09",
      "pontos": 3
     }
    ]
@@ -449,6 +449,13 @@
     },
     {
      "fonte": "Notícias",
+     "texto": "Embraer minimiza disputa por engenheiros com Boeing e aposta em expansão internacional - CBN São José dos Campos e Vale",
+     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPcnNmeVlyMjg0S1FxU1NlaldDeFdiTzBRdE41THJycUNyblNnZndrUHJDN241R0hJbElyN1EwTWQyQUpMdGc3T1otR0h0VmZHRlNybEtaeTJiUERLbUY5OFJiQUpxemlWOEtWeGpnT0hWTmE0aERyNUZMVnRXRm91NWFldzhDeGFROTZta3R1WWwzeWRvbDhnMVU1MFVtTS1RX0NrYnN0bTMxdGFOZmVuSDdjdWY?oc=5",
+     "data": "2026-11-10",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
      "texto": "Embraer estrutura expansão na Índia com linhas de montagem de E-Jets e oferta militar do C-390 - Brasil Inovador",
      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQUVdhaUZIV0lzNDVlM0dmQUpJS1JJZTctSXc3UEY3WmFGS3NtS2pfRXFHOFFuLS1ac09pSWZkYTlfZ0tuUXBXaG5LbXlRNWhscXlldmoxM0NQTGR1Nm5pU2dUcUZtOE9NLWI0RlhRbG9XYUxzNjZ1X2lIRzlqY3hMbHN6WVF2ZWlmbDJlUllpc2hUUXFEWkVhWFd3WGdnUFNWMmhYQzMzZElueHY3S0RzNjV3YnZoVV9rQ1NpYWtkOVhncDQ?oc=5",
      "data": "2026-11-10",
@@ -474,13 +481,6 @@
      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNSW9OMG9rNDFFMHNQMkFTb1JmZjB4U2NLcElobEVjR1pBZGxiWUNUakNGbF9KRFNRdEFnWnFCTlRLcGN3bUpSUldIeEZfZk1MTUJaV2JJMlo2RHdJZXM4S3U0aVhxeXlaWnJpOF9KODUtSm5MdkFDcGJqdzRMYmxSdFZONDg4SDI2QUJudFF0OHJ6NHdqalNiNW05U1puZWNBSzV2aFRMbmVqZGNscDZTOTNwQThVTlVyUW5SUdIBvAFBVV95cUxNSW9OMG9rNDFFMHNQMkFTb1JmZjB4U2NLcElobEVjR1pBZGxiWUNUakNGbF9KRFNRdEFnWnFCTlRLcGN3bUpSUldIeEZfZk1MTUJaV2JJMlo2RHdJZXM4S3U0aVhxeXlaWnJpOF9KODUtSm5MdkFDcGJqdzRMYmxSdFZONDg4SDI2QUJudFF0OHJ6NHdqalNiNW05U1puZWNBSzV2aFRMbmVqZGNscDZTOTNwQThVTlVyUW5SUQ?oc=5",
      "data": "2026-10-30",
      "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Atech, da Embraer, mira expansão internacional para dobrar de tamanho até 2030 - Revista LIDE",
-     "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPUk9oZGhCdlZrVHVrTFByb2ZqYURUNzRhOFQta3c5YnRfU0ozOXR1Snd1OXN3WXpEaHByeVNQcUlEUUJOT2NxbDlVZ2pLdkJNbXhmUTFVNFZZYnhTVzJTQnNWdGlfaFZ1WGZDTk5lWW9vb1Q5NndONmlDUlQ1QnRMNDVSUDhqZzV3RUhSTl9ZRm9qUDBQTWZfLXlnUXFFS1pHMkRIZFJTR3N4VUxJWkpteGZNenJOV3JBWm9JOFp4WTlZRFFiNXlBQ2FjUmZfZFhvUkt2OGUzZVI?oc=5",
-     "data": "2026-10-29",
-     "pontos": 3
     }
    ]
   },
@@ -493,6 +493,13 @@
    "busca": "Raízen",
    "score": 24,
    "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "Estágio na Raízen: seleção reúne mais de 70 vagas na área de combustíveis - Portal do Agronegócio",
+     "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOdDExVnZVaWhNQ00wS3V4V0lKdGp5OTVkcFE1QUItNWVGQmxkVFRHZDEwVlJiZkY4SW42Uk9VTnAyVHdLMFRXM2hOWlhpYVNqeEQtWXN3aTUxZzg4eVgtMEFCdGwxMDVIMXE3ay0xSFg4dFlvLXNpcnJSczJkUG5ocWJSbXFkQ3JRQlo1WkN4U3pFcnNXRlpCYVAwVGVTNldrZ0lDa2pFZkxleHZEWWh5VFUwWjJfa1QzczRJQU5BNHBxc2FiVlBwOHJOV2hYbkF6ZlRaN2lWT081SGVRb2c?oc=5",
+     "data": "2026-11-10",
+     "pontos": 3
+    },
     {
      "fonte": "Notícias",
      "texto": "Raízen abre 13 vagas em Araraquara e Ibaté, incluindo caldeireiro - Araraquara Agora",
@@ -526,13 +533,6 @@
      "texto": "Raízen oferta mais de 340 vagas em novo processo seletivo para Jovem Aprendiz - MEON",
      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxObFRvN0JXX1hfVjhlV2wxTDdsUlU0SUVYaVYzMXNuSW5qal9welNRMWN3QTZmY3pTWUVKLTdndHlLd2tWNXBxZ0FpRUtZQURfcTZYQjQtUEx5emQyUVZxZFdPWi1kMnI1emNPa0w4OVFFOEV3TWVqclBaT1JEUFVZQnJNd3dzcXFkWU95b3RLZW1DN3B3YVhkQUxoMXBhRVB0VGJ3NXZiNjRLLVBUSktsdGQwdEYzOUpP?oc=5",
      "data": "2026-11-04",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Raízen abre inscrições com mais de 340 vagas para jovens - Portal ABC do ABC",
-     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE0yN25XbWU5QlM5N0J2MGpQNzIxQm16NVZvY1piWW51TEpPQTdWa2R0b1V5OEpTOWFfZDdRdnRxZjkyS00wY0doWk50SEQwaXMzSVpJdXk1NVFJVlRlNThhWWdfMUNrMldGUk1VVEMxQVB5amRlT2pXZg?oc=5",
-     "data": "2026-11-03",
      "pontos": 3
     }
    ]
@@ -1321,6 +1321,24 @@
    ]
   },
   {
+   "empresa": "Grupo Moura",
+   "segmento": "Baterias",
+   "cidade": "Belo Jardim",
+   "estado": "PE",
+   "funcionarios": "5393",
+   "busca": "Grupo Moura",
+   "score": 2,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo Moura investirá R$ 200 milhões em fábrica de baterias em Pernambuco para disputar mercado nacional - Portal NE9",
+     "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE03eEFma3M4R1A4Unlub3ZoVVlaRFBZanBFbFhJNzNFcF9lU0RJVnVfSE1SMXV2UWVjUmlacU5yREw3RDlPNGxndlZYNC1peWdieUFMVndQaWlQRTJURW1Zd0JyQk9zejl2VWhFZWhJbFBtaExBU3VUeXF2RHY?oc=5",
+     "data": "2026-11-10",
+     "pontos": 2
+    }
+   ]
+  },
+  {
    "empresa": "Natura",
    "segmento": "Cosméticos",
    "cidade": "São Paulo",
@@ -1437,16 +1455,6 @@
    "estado": "SP",
    "funcionarios": "5247",
    "busca": "CBA",
-   "score": 0,
-   "sinais": []
-  },
-  {
-   "empresa": "Grupo Moura",
-   "segmento": "Baterias",
-   "cidade": "Belo Jardim",
-   "estado": "PE",
-   "funcionarios": "5393",
-   "busca": "Grupo Moura",
    "score": 0,
    "sinais": []
   },
