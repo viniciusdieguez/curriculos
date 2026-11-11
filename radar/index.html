@@ -4,99 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Radar de demanda · Terceirização</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
-:root{--bg:#eef1f4;--card:#fff;--ink:#17202a;--mut:#5d6b7a;--line:#d6dce3;--acc:#0b6e6e;--accbg:#d9eeee}
-@media (prefers-color-scheme:dark){:root{--bg:#10161d;--card:#18212b;--ink:#e8edf2;--mut:#93a1b0;--line:#2a3643;--acc:#4fc3c3;--accbg:#173a3d}}
+:root{--navy:#0b2559;--navy2:#123a86;--gold:#f5b335;--green:#19b36b;--blue:#1f5fd6;--bg:#eef2f8;--ink:#14213d;--mut:#5b6b82;--line:#dfe6f0}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Barlow,system-ui,sans-serif}
-main{max-width:980px;margin:0 auto;padding:24px 16px 64px}
-h1{font-size:28px;margin:0 0 4px;font-weight:700}
-.sub{color:var(--mut);margin:0 0 20px}
-.ctl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-input,select{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.hero{background:linear-gradient(120deg,var(--navy) 35%,var(--navy2));color:#fff;padding:36px 0 84px}
+.brand{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.1;margin:8px 0 10px;font-weight:800}
+h1 span{color:var(--gold)}
+.lead{margin:0;max-width:560px;color:#d6e0f5}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:-56px}
+.kpi{background:#fff;border-radius:12px;padding:16px 14px 0;box-shadow:0 2px 10px #0b255922;overflow:hidden;text-align:center}
+.kpi b{display:block;font-size:26px;font-weight:800;line-height:1.1}
+.kpi small{display:block;color:var(--mut);font-size:12px;margin:4px 0 12px}
+.kpi i{display:block;height:5px;margin:0 -14px}
+.sec{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin:34px 0 14px}
+.sec:before{content:"";width:6px;height:22px;background:var(--green);border-radius:2px}
+.dest{background:var(--navy);border-radius:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));color:#fff}
+.dest div{padding:20px 22px;border-left:1px solid #ffffff30}
+.dest div:first-child{border-left:0}
+.dest .n{font-size:34px;font-weight:800;color:var(--gold);line-height:1}
+.dest .n small{font-size:14px;color:#cfe0ff;font-weight:600}
+.dest strong{display:block;margin-top:6px;font-size:17px}
+.dest span{font-size:13px;color:#b8c8ea}
+.acoes{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0 4px}
+.msg{font-size:13px;color:var(--mut)}
+.btn{font:inherit;font-size:13px;font-weight:600;color:var(--blue);background:#fff;border:1px solid var(--blue);border-radius:8px;padding:7px 13px;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover,.btn:focus-visible{background:var(--blue);color:#fff;outline:none}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+input,select{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
 input{flex:1 1 200px}
-.row{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:1fr 150px auto;gap:6px 16px;align-items:start}
-.nome{font-weight:600;font-size:18px}
-.meta{color:var(--mut);font-size:14px}
-.bar{height:8px;background:var(--accbg);border-radius:4px;overflow:hidden;margin-top:8px}
-.bar i{display:block;height:100%;background:var(--acc)}
-.pts{font-weight:700;color:var(--acc);font-size:20px}
-.news{grid-column:1/-1;margin:4px 0 0;padding:0;list-style:none;font-size:14px}
-.news li{padding:3px 0;border-top:1px solid var(--line)}
+.row{background:#fff;border-radius:12px;border-top:4px solid var(--blue);padding:16px 18px;margin-bottom:12px;box-shadow:0 1px 6px #0b255914;display:grid;grid-template-columns:1fr 150px auto;gap:6px 18px;align-items:start;break-inside:avoid}
+.row.hot{border-top-color:var(--green)}.row.warm{border-top-color:var(--gold)}
+.nome{font-weight:700;font-size:18px}
+.meta{color:var(--mut);font-size:13px}
+.pts{font-size:24px;font-weight:800;color:var(--navy)}.pts small{font-size:12px;color:var(--mut);font-weight:600}
+.bar{height:7px;background:#e3eaf6;border-radius:4px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--green)}
+.news{grid-column:1/-1;margin:6px 0 0;padding:0;list-style:none;font-size:13.5px}
+.news li{padding:5px 0;border-top:1px solid var(--line)}
 .news a{color:var(--ink)}
-.news span{color:var(--mut);margin-right:8px}
-.btn{font:inherit;font-size:14px;font-weight:600;color:var(--acc);border:1px solid var(--acc);border-radius:6px;padding:7px 12px;text-decoration:none;white-space:nowrap}
-.btn:hover,.btn:focus-visible{background:var(--accbg);outline:none}
-.tag{font-size:12px;font-weight:600;color:var(--acc);background:var(--accbg);border-radius:4px;padding:1px 6px;margin-right:8px}details{grid-column:1/-1;font-size:14px}summary{cursor:pointer;color:var(--acc);font-weight:600}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.fontes{font-size:13px;color:var(--mut);margin:-12px 0 16px}button.btn{background:none;cursor:pointer}.acoes{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}.acoes .fontes{margin:0}.vazio{padding:24px;text-align:center;color:var(--mut)}
+.tag{display:inline-block;font-size:11px;font-weight:700;color:#fff;border-radius:5px;padding:1px 7px;margin-right:8px}
+.dt{color:var(--mut);margin-right:8px;font-size:12.5px}
+details{grid-column:1/-1;font-size:13px}
+summary{cursor:pointer;color:var(--blue);font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.fontes{background:var(--navy);color:#fff;border-radius:14px;padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 22px}
+.f b{display:block;font-size:14px}.f b:before{content:"✓ ";color:var(--green)}.f.er b:before{content:"✕ ";color:#ff7d7d}
+.f span{font-size:12px;color:#b8c8ea;word-break:break-word}
+.vazio{padding:24px;text-align:center;color:var(--mut)}
+footer{background:var(--navy);color:#fff;margin-top:40px;padding:18px 0;font-size:13px}
+footer b{color:var(--gold)}
 @media(max-width:640px){.row{grid-template-columns:1fr}.btn{justify-self:start}}
+@media print{.acoes,.ctl,details,.row .btn{display:none}.hero{padding-bottom:70px}}
 </style>
 </head>
 <body>
-<main>
-<h1>Radar de demanda por terceirização</h1>
-<p class="sub" id="sub">Carregando…</p>
-<p class="fontes" id="fontes"></p>
-<div class="acoes"><button class="btn" id="rec">Recarregar dados</button><button class="btn" id="col">Rodar nova coleta</button><button class="btn" id="tk" hidden>Remover token</button><span class="fontes" id="msg"></span></div>
+<header class="hero"><div class="wrap">
+<div class="brand">VDM · Radar de oportunidades</div>
+<h1>Radar de demanda<br><span>por terceirização</span></h1>
+<p class="lead">Sinais públicos de empresas que podem precisar de equipes terceirizadas, atualizados todos os dias.</p>
+</div></header>
+<main class="wrap">
+<div class="kpis" id="kpis"></div>
+<div class="acoes"><button class="btn" id="rec">Recarregar dados</button><button class="btn" id="col">Rodar nova coleta</button><button class="btn" id="tk" hidden>Remover token</button><button class="btn" onclick="print()">Imprimir / salvar PDF</button><span class="msg" id="msg"></span></div>
+<div id="destS"><h2 class="sec">Destaques do dia</h2><div class="dest" id="dest"></div></div>
+<h2 class="sec">Ranking de empresas</h2>
 <div class="ctl">
 <input id="q" type="search" placeholder="Buscar empresa" aria-label="Buscar empresa">
-<select id="seg" aria-label="Segmento"><option value="">Todos os segmentos</option></select>
-<select id="uf" aria-label="Estado"><option value="">Todos os estados</option></select>
+<select id="seg" aria-label="Segmento"></select>
+<select id="uf" aria-label="Estado"></select>
 <select id="ord" aria-label="Ordenar"><option value="score">Maior pontuação</option><option value="func">Mais funcionários</option></select>
 </div>
 <div id="lista"></div>
+<h2 class="sec">Fontes de dados</h2>
+<div class="fontes" id="fontes"></div>
 </main>
+<footer><div class="wrap"><b>Terceirização com economia, agilidade e segurança.</b> · Dados públicos: notícias, CVM, BNDES, diários oficiais, vagas e alertas. <span id="sub"></span></div></footer>
 <script>
-let dados=[];
-const $=id=>document.getElementById(id);
-function opcoes(el,chave){[...new Set(dados.map(d=>d[chave]))].sort().forEach(v=>{const o=document.createElement("option");o.value=o.textContent=v;el.appendChild(o)})}
+const $=id=>document.getElementById(id),E=encodeURIComponent;
+const COR={"Notícias":"#1f5fd6","CVM":"#19a15f","BNDES":"#c98a10","Diário municipal":"#7a4fd1","Alerta Google":"#0e8fa0","Vagas":"#d6453d"};
+let dados=[],fontes={},ultima=null;
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function kpis(j){
+  const top=[...dados].sort((a,b)=>b.score-a.score)[0]||{score:0,empresa:"—"};
+  const ok=Object.values(fontes).filter(v=>v.startsWith("ok")).length,n=Object.keys(fontes).length;
+  const L=[[dados.length,"empresas monitoradas","var(--navy)","var(--green)"],
+   [dados.filter(d=>d.score>0).length,"com sinais de demanda","var(--green)","var(--blue)"],
+   [dados.reduce((s,d)=>s+d.sinais.length,0),"sinais em destaque","var(--blue)","var(--gold)"],
+   [top.score+" pts","maior pontuação: "+top.empresa,"var(--navy)","var(--green)"],
+   [n?ok+"/"+n:"—","fontes funcionando","var(--green)","var(--blue)"],
+   [j.atualizado_em?new Date(j.atualizado_em).toLocaleDateString("pt-BR"):"—","última coleta","var(--blue)","var(--gold)"]];
+  const b=$("kpis");b.textContent="";
+  L.forEach(([v,t,c,k])=>{const d=el("div","kpi");const x=el("b",null,v);x.style.color=c;const i=el("i");i.style.background=k;d.append(x,el("small",null,t),i);b.appendChild(d)});
+}
+function destaques(){
+  const t=[...dados].sort((a,b)=>b.score-a.score).filter(d=>d.score>0).slice(0,3);
+  $("destS").hidden=!t.length;const b=$("dest");b.textContent="";
+  t.forEach(d=>{const c=el("div");const n=el("div","n",d.score);n.appendChild(el("small",null," pontos"));
+    c.append(n,el("strong",null,d.empresa),el("span",null,d.segmento+" · "+d.cidade+"/"+d.estado));b.appendChild(c)});
+}
+function painelFontes(){
+  const b=$("fontes");b.textContent="";
+  const e=Object.entries(fontes);if(!e.length){b.appendChild(el("span","f","Sem coleta ainda."));return}
+  e.forEach(([k,v])=>{const d=el("div","f"+(v.startsWith("ok")?"":" er"));d.append(el("b",null,k),el("span",null,v.replace(/^ok /,"").replace(/^erro: /,"")));b.appendChild(d)});
+}
+function opcoes(id,ch,rot){const s=$(id),v=s.value;s.textContent="";s.appendChild(new Option(rot,""));[...new Set(dados.map(d=>d[ch]))].sort().forEach(x=>s.appendChild(new Option(x,x)));s.value=v}
 function desenhar(){
   const q=$("q").value.toLowerCase(),seg=$("seg").value,uf=$("uf").value;
-  let l=dados.filter(d=>(!q||d.empresa.toLowerCase().includes(q))&&(!seg||d.segmento===seg)&&(!uf||d.estado===uf));
+  const l=dados.filter(d=>(!q||d.empresa.toLowerCase().includes(q))&&(!seg||d.segmento===seg)&&(!uf||d.estado===uf));
   l.sort((a,b)=>$("ord").value==="func"?b.funcionarios-a.funcionarios:b.score-a.score);
   const max=Math.max(1,...dados.map(d=>d.score)),box=$("lista");box.textContent="";
-  if(!l.length){box.innerHTML='<div class="vazio">Nenhuma empresa com esses filtros.</div>';return}
+  if(!l.length){box.appendChild(el("div","vazio","Nenhuma empresa com esses filtros."));return}
   l.forEach(d=>{
-    const r=document.createElement("div");r.className="row";
-    const a=document.createElement("div");
-    a.innerHTML='<div class="nome"></div><div class="meta"></div>';
-    a.children[0].textContent=d.empresa;
-    a.children[1].textContent=d.segmento+" — "+d.cidade+"/"+d.estado+" — "+Number(d.funcionarios).toLocaleString("pt-BR")+" funcionários";
-    const p=document.createElement("div");
-    p.innerHTML='<span class="pts"></span> pontos<div class="bar"><i></i></div>';
-    p.querySelector(".pts").textContent=d.score;p.querySelector("i").style.width=(d.score/max*100)+"%";
-    const b=document.createElement("a");b.className="btn";b.target="_blank";b.rel="noopener";
-    b.href="https://www.linkedin.com/search/results/people/?keywords="+encodeURIComponent("recursos humanos "+d.busca);
-    b.textContent="Buscar RH no LinkedIn";
+    const r=el("div","row"+(d.score>=max*.6&&d.score>0?" hot":d.score>0?" warm":""));
+    const a=el("div");a.append(el("div","nome",d.empresa),el("div","meta",d.segmento+" · "+d.cidade+"/"+d.estado+" · "+Number(d.funcionarios).toLocaleString("pt-BR")+" funcionários"));
+    const p=el("div");const pt=el("span","pts",d.score);pt.appendChild(el("small",null," pontos"));const br=el("div","bar");const bi=el("i");bi.style.width=(d.score/max*100)+"%";br.appendChild(bi);p.append(pt,br);
+    const b=el("a","btn","Buscar RH no LinkedIn");b.target="_blank";b.rel="noopener";b.href="https://www.linkedin.com/search/results/people/?keywords="+E("recursos humanos "+d.busca);
     r.append(a,p,b);
-    if(d.sinais.length){
-      const u=document.createElement("ul");u.className="news";
-      d.sinais.forEach(n=>{const li=document.createElement("li");const g=document.createElement("span");g.className="tag";g.textContent=n.fonte;
-        const s=document.createElement("span");s.textContent=n.data?n.data.split("-").reverse().join("/"):"";
-        const k=document.createElement(n.link?"a":"span");if(n.link){k.href=n.link;k.target="_blank";k.rel="noopener"}k.textContent=n.texto;li.append(g,s,k);u.appendChild(li)});
-      r.appendChild(u);
-    }
-    const e=encodeURIComponent,q=d.busca,g=x=>"https://www.google.com/search?q="+e(x);
-    const L=[["Vagas de gestão de terceiros","https://www.linkedin.com/jobs/search/?keywords="+e("gestão de terceiros "+q)],
-      ["Posts sobre mão de obra","https://www.linkedin.com/search/results/content/?keywords="+e("fornecedor mão de obra "+q)],
-      ["Acordos coletivos (Mediador)","https://mediador.trabalho.gov.br/"],
-      ["Processos no TST",g('site:tst.jus.br "'+q+'" terceirização "responsabilidade subsidiária"')],
-      ["Licenças ambientais",g('"'+q+'" licença ambiental ampliação nova unidade')],
-      ["Avaliações de funcionários",g('site:glassdoor.com.br "'+q+'" terceirizados')],
-      ["Cadastro de fornecedores",g('"'+q+'" cadastro de fornecedores serviços terceirizados')]];
-    const dt=document.createElement("details");dt.innerHTML="<summary>Consultas manuais</summary><div class='links'></div>";
-    L.forEach(([t,u])=>{const a=document.createElement("a");a.className="btn";a.href=u;a.target="_blank";a.rel="noopener";a.textContent=t;dt.lastChild.appendChild(a)});
-    r.appendChild(dt);
-    box.appendChild(r);
-  });
+    if(d.sinais.length){const u=el("ul","news");
+      d.sinais.forEach(n=>{const li=el("li");const g=el("span","tag",n.fonte);g.style.background=COR[n.fonte]||"#5b6b82";
+        const k=el(n.link?"a":"span",null,n.texto);if(n.link){k.href=n.link;k.target="_blank";k.rel="noopener"}
+        li.append(g,el("span","dt",n.data?n.data.split("-").reverse().join("/"):""),k);u.appendChild(li)});r.appendChild(u)}
+    const q2=d.busca,g=x=>"https://www.google.com/search?q="+E(x);
+    const L=[["Vagas de gestão de terceiros","https://www.linkedin.com/jobs/search/?keywords="+E("gestão de terceiros "+q2)],
+     ["Posts sobre mão de obra","https://www.linkedin.com/search/results/content/?keywords="+E("fornecedor mão de obra "+q2)],
+     ["Acordos coletivos (Mediador)","https://mediador.trabalho.gov.br/"],
+     ["Processos no TST",g('site:tst.jus.br "'+q2+'" terceirização "responsabilidade subsidiária"')],
+     ["Licenças ambientais",g('"'+q2+'" licença ambiental ampliação nova unidade')],
+     ["Avaliações de funcionários",g('site:glassdoor.com.br "'+q2+'" terceirizados')],
+     ["Cadastro de fornecedores",g('"'+q2+'" cadastro de fornecedores serviços terceirizados')]];
+    const dt=el("details");dt.appendChild(el("summary",null,"Consultas manuais"));const lk=el("div","links");
+    L.forEach(([t,u])=>{const a2=el("a","btn",t);a2.href=u;a2.target="_blank";a2.rel="noopener";lk.appendChild(a2)});dt.appendChild(lk);r.appendChild(dt);
+    box.appendChild(r)});
 }
-const REPO="viniciusdieguez/curriculos",WF="radar.yml";let ultima=null;
 function carregar(){return fetch("data.json?t="+Date.now()).then(r=>r.json()).then(j=>{
-  dados=j.empresas;ultima=j.atualizado_em;
-  $("sub").textContent=j.atualizado_em?"Atualizado em "+new Date(j.atualizado_em).toLocaleString("pt-BR")+". Os pontos somam sinais de notícias, CVM e BNDES.":"Ainda sem coleta. Clique em “Rodar nova coleta”.";
-  $("fontes").textContent=j.fontes?"Fontes: "+Object.entries(j.fontes).map(([k,v])=>k+" — "+v).join("; "):"";
-  [["seg","segmento","Todos os segmentos"],["uf","estado","Todos os estados"]].forEach(([id,ch,rot])=>{const el=$(id),v=el.value;el.innerHTML="";const o=document.createElement("option");o.value="";o.textContent=rot;el.appendChild(o);opcoes(el,ch);el.value=v});
-  desenhar();return j})}
+  dados=j.empresas;ultima=j.atualizado_em;fontes=j.fontes||{};
+  $("sub").textContent=j.atualizado_em?"Atualizado em "+new Date(j.atualizado_em).toLocaleString("pt-BR")+".":"Ainda sem coleta.";
+  kpis(j);destaques();painelFontes();opcoes("seg","segmento","Todos os segmentos");opcoes("uf","estado","Todos os estados");desenhar();return j})}
+const REPO="viniciusdieguez/curriculos",WF="radar.yml";
 function tk(){$("tk").hidden=!localStorage.getItem("gh_token")}
 async function coletar(){
   let t=localStorage.getItem("gh_token");
@@ -106,7 +154,7 @@ async function coletar(){
   if(r.status!==204){if([401,403,404].includes(r.status)){localStorage.removeItem("gh_token");tk()}$("msg").textContent="Não foi possível iniciar ("+r.status+"). Confira o token e tente de novo.";return}
   const antes=ultima;let n=0;$("msg").textContent="Coleta iniciada. Leva alguns minutos…";
   const iv=setInterval(async()=>{n++;try{const j=await carregar();if(j.atualizado_em!==antes){clearInterval(iv);$("msg").textContent="Dados atualizados.";return}}catch(e){}
-    if(n>24){clearInterval(iv);$("msg").textContent="A coleta ainda não terminou. Use “Recarregar dados” daqui a pouco."}},30000)}
+    if(n>36){clearInterval(iv);$("msg").textContent="A coleta ainda não terminou. Use “Recarregar dados” daqui a pouco."}},30000)}
 ["q","seg","uf","ord"].forEach(i=>$(i).addEventListener("input",desenhar));
 $("rec").onclick=()=>{$("msg").textContent="";carregar().catch(()=>{$("msg").textContent="Não foi possível carregar data.json."})};
 $("col").onclick=coletar;$("tk").onclick=()=>{localStorage.removeItem("gh_token");tk();$("msg").textContent="Token removido deste navegador."};
