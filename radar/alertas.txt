@@ -1,0 +1,6 @@
+# Cole aqui, um por linha, os endereços RSS dos seus Alertas do Google.
+# Linhas que começam com # são ignoradas. Exemplo de linha válida:
+# https://www.google.com/alerts/feeds/12345678901234567890/09876543210987654321
+https://www.google.com/alerts/feeds/13897922122295969437/10622710408594619317
+https://www.google.com/alerts/feeds/13897922122295969437/17505506148867269901
+https://www.google.com/alerts/feeds/13897922122295969437/18139798248585719517
