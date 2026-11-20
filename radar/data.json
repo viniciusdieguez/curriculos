@@ -1,15 +1,149 @@
 {
- "atualizado_em": "2026-11-19T18:02:49.326414+00:00",
+ "atualizado_em": "2026-11-20T17:38:13.417091+00:00",
  "fontes": {
-  "Notícias": "ok (426 sinais)",
+  "Notícias": "ok (422 sinais)",
   "CVM fatos relevantes": "ok (17 sinais)",
   "CVM terceirizados": "erro: sem dados de terceirizados; arquivos: empregado_local_declaracao_genero['Local', 'Quantidade_Feminino', 'Quantidade_Masculino', 'Quantidade_Nao_Binario', 'Quantidade_Outros']; empregado_local_declaracao_raca['Local', 'Quantidade_Amarelo', 'Quantidade_Branco', 'Quantidade_Preto', 'Quantidade_Pardo']; empregado_local_faixa_etaria['Local', 'Quantidade_Ate30Anos', 'Quantidade_30a50Anos', 'Quantidade_Acima50Anos']; empregado_PCD['Codigo_Posicao', 'Posicao', 'Quantidade_PCD', 'Quantidade_Nao_PCD', 'Quantidade_Sem_Resposta']; empregado_posicao_declaracao_genero['Posicao', 'Quantidade_Feminino', 'Quantidade_Masculino', 'Quantidade_Nao_Binario', 'Quantidade_Outros']; empregado_posicao_declaracao_raca['Posicao', 'Quantidade_Amarelo', 'Quantidade_Branco', 'Quantidade_Preto', 'Quantidade_Pardo']; empregado_posicao_faixa_etaria['Posicao', 'Quantidade_Ate30Anos', 'Quantidade_30a50Anos', 'Quantidade_Acima50Anos']; empregado_posicao_local['Posicao', 'Quantidade_Norte', 'Quantidade_Nordeste', 'Quantidade_Centro_Oeste', 'Quantidade_Sudeste']",
-  "BNDES": "erro: nenhuma data legível; colunas=['cliente_cpf_cnpj_uf_municipio_municipio_codigo_data_da_contratacao_valor_da_operacao_em_reais_valor_desembolsado_reais_fonte_de_recurso_desembolsos_custo_financeiro_juros_prazo_carencia_meses_prazo_amortizacao_meses_modalidade_de_apoio_forma_de_apoio_produto_instrumento_financeiro_inovacao_area_operacional_setor_cnae_subsetor_cnae_agrupado_subsetor_cnae_codigo_subsetor_cnae_nome_setor_bndes_subsetor_bndes_porte_do_cliente_natureza_do_cliente_instituicao_financeira_credenciada_cnpj_do_agente_financeiro_situacao_da_operacao']",
+  "BNDES": "erro: <urlopen error [Errno 111] Connection refused>",
   "Querido Diário": "erro: nenhuma consulta respondeu",
-  "Alertas Google": "ok (75 sinais) — 8 alertas, 86 itens lidos",
+  "Alertas Google": "ok (87 sinais) — 8 alertas, 90 itens lidos",
   "Vagas por cargo": "erro: a Gupy não devolveu vagas HTTP Error 404: Not Found"
  },
  "empresas": [
+  {
+   "empresa": "JBS",
+   "segmento": "Alimentos (carnes)",
+   "cidade": "São Paulo",
+   "estado": "SP",
+   "funcionarios": "90255",
+   "busca": "JBS",
+   "score": 36,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "JBS anuncia centenas de vagas de emprego em fábricas da Seara em Santa Catarina, com contratação imediata, oportunidades sem experiência e benefícios como plano de saúde e participação nos resultados - CPG Click Petróleo e Gás",
+     "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQQ3lxYjI0Tmp4ZFhsNlEyZWhxMFVwSGY3eGZqZVAyNEIyb2ZmaFZfQjJCN1A3dnpVY1RJVjJrVWVoOEFTNjRkem8wcngwemhGRzdPbkQ2SjRmekc3dFhNNHBvT2pyMGc1OXAwNFF5UzNhTDBVQkxGU3F6MG9uV1VfNVh0ZWdDOWJoemlDelV0cDU4M0Q5RjRLUml4X1RzRkdrSmRpQmt6LVZnZTRTcUV1NWpIUDRvTmZYbFkwQV94NXlvcTBsalBtMlMxYkJybUx3N094NVFDV0VjdndlcmxqNlZMY2x6LWdJMnlpOEVZbzRXYURhM0xVU3R3?oc=5",
+     "data": "2026-11-13",
+     "pontos": 6
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "JBS abre 70 vagas de emprego sem exigir experiência; contratação é imediata - JTV Online",
+     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9kMExaanlNTEtjRS1CWWIyeHJoblo2TlJGYWRmeGc5N3BTX2NlZFBCc3N1NXJDX3lzS21zaDEwNjJxbjJUYmtlZnI1Z2xKWkhBWmRrVlptR0wtcWxMdmNfcl9jR3ViWFQ2dkhlLW5HRQ?oc=5",
+     "data": "2026-11-04",
+     "pontos": 6
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "JBS abre 410 vagas de emprego em SC com contratação imediata - Economia SC",
+     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOR3NDZzVWZ1RtZ0N1OS0temhNU2w3aEVGanYzOVcwRERyWTZKTGx6NkV6eWdiS1JYZDNlVExGVHR3OGRrQXZCd0RuTzNId2E4cXJ0TUZpS2o0bmUxdVdkWWtELXdNS2dINFN2SC1PRTdfYjdpcUlDTkZjekdQZ2p3RzRUNUJoQ1d4Y2gwd1JLUS1BbnI0NDRjdnZrbw?oc=5",
+     "data": "2026-11-02",
+     "pontos": 6
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Vagas de emprego em Jundiaí: Carrefour, JBS e outras empresas contratam nesta quarta-feira (28) - Tribuna de Jundiaí",
+     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPNUJ4eFNHUDJPV3ZQME1JcEtJeF9PSFZQZEJoRUo4SVRoMTVlN0FQb3AyT3YtVmd4MmNudW9XVlZubFA5YjFOM0phTnYxams1UXRHLVhjd2NxMFJ5bE9TTVZJZG5pVGtYRUVmYktOTHVrMllRMTN5RkVzZjJnMkxJN2cyNjZjc1Q2U3Vr?oc=5",
+     "data": "2026-10-28",
+     "pontos": 6
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "JBS consolida expansão no Oriente Médio com novo hub de proteínas em Omã",
+     "link": "https://www.plantaobrasil.net/noticias/164572-jbs-consolida-expansao-no-oriente-medio-com-novo-hub-de-proteinas-em-oma",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "JBS consolida expansão no Oriente Médio com novo hub de proteínas em Omã - Plantão Brasil",
+     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQcEhNd3AxTXhYeWZ2Z1NBc3AxUGRHOWJLZjBxUFgtd282ZG1qSE5yaEx0d2c5M2hxYzhMNl9JXzIzRmNBZ1hEckhpeXo1VUNBWHhzNkdxZUpYY0l0QmxBVF84TzZlSmxfVVpGZVZLWWRmVm92RE1RYXZZbWZVbzdUQUJfSk9lZHc4RUpXQzM1Sk9QVkRNUkMyQldWZEdWMDV2M2RtTENERHFBT1M2WU81dmNrN3hnb3RGS3c?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Flora volta às origens e inicia novo ciclo de expansão sob o guarda-chuva da JBS - Money Report",
+     "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPNEtUZ2FzaWRtS2NIYlBERGQwN3VvSG9UZnpETFpKRWFPTFp5TjBDTUlidEVpbnRsaXNfRVNPZGRJUDFiSXNSXzhTb0h0cUJwb3dHd3FDYlhXUDgtWF9rajdja00xbERyNEFqNVl6a2pNUGhHNG5NNFktclR5NUVUU0J4NEtISno0WUhVZm5iZ0ZyWFFkTU11S1B3WFBpaUtzajVneW53U3ZfTjBoRjFfRTN3S1NXR0dHd2NNaUFn?oc=5",
+     "data": "2026-11-14",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Mais de 30 pessoas se candidataram a vagas para a JBS Friboi em parceria com a Prefeitura neste mês - Prefeitura de Barretos",
+     "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxObURpcVc0aXlpX050X1lCX0l0NVdwRlB0NnRvTEk1RnlFNnRJMkx4anA1M19qTXhZM2ZaaFowWXFLN3hDWFRnX1VKaDdaclA4dGxGZVVETXc4NkcyT3dzc2hpMEY4c1BYX3FHdHZKNVBjbTR4Wmo0djBaUXVnYWV6RmxMR0wwUmNsTXZoM3dCa0VkdE5nM3ppZU9MZzUtd1haTjBDaWRaektDNmUtbWV5LVdtTmRrb3YzeG9tQkJKUFFBSkc1RHZsekFUUS1ib2FfX0F3ZGpyQkhyYTJ5?oc=5",
+     "data": "2026-11-11",
+     "pontos": 3
+    }
+   ]
+  },
+  {
+   "empresa": "Vale",
+   "segmento": "Mineração",
+   "cidade": "Rio de Janeiro",
+   "estado": "RJ",
+   "funcionarios": "72581",
+   "busca": "Vale",
+   "score": 36,
+   "sinais": [
+    {
+     "fonte": "Alerta Google",
+     "texto": "OPTAR SERVIÇOS TERCEIRIZADOS contratando Porteiro - Contagem (Contagem)",
+     "link": "https://www.glassdoor.com.br/job-listing/jv?jl=1010330990347",
+     "data": "2026-11-19",
+     "pontos": 7
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "OPTAR SERVIÇOS TERCEIRIZADOS contratando Auxiliar de Produção - PCD (Contagem)",
+     "link": "https://www.glassdoor.com.br/job-listing/jv?jl=1010330852124",
+     "data": "2026-11-19",
+     "pontos": 7
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Betel Temporarios E Terceirizados contratando Assistente de Loja I (São Paulo, São ... - Glassdoor",
+     "link": "https://www.glassdoor.com.br/job-listing/assistente-de-loja-i-betel-temporarios-e-terceirizados-JV_IC2479061_KO0,20_KE21,54.htm?jl=1010329188217",
+     "data": "2026-11-19",
+     "pontos": 7
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Casa Lemham é reconhecida como Destaque em Expansão no Troféu Polo Vale Decor 2026 - Sala da Notícia",
+     "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNWVdGU1h0MHUtSzFIbW9melp1anBXU3JObXlzczQwSDJQNzJIQmVmV0U0bjZ1bGZzcFZWZVNyNUVCUHFQUFQ5R0lwd2N0aDcyNi0teHBWX0xJNkc2VUlHUFNvTmpJTmV3MFh2TG0wemRkYXZta0wyM2FiM3VOZmVtUTMtcTdualpVZGlQZ3kybzZoVFJLZEVpS0c1Z2VrZGdRaGluUWlrbDBPV0tmVXFzWFFwSDJUcUtHV0lyc0oyVVNMOGZwS0dKLWJMZHY?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Edital do concurso de professores de SP sai com 301 vagas no Vale e Litoral Norte e salário de até R$ 5.565 - MEON",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQMmgtRDdhVTVTWE5PZnctS1RaWjVjd3pBcXBNVGZEZDBaZGxscFY4YWFSSTh6UU1TUG13dFVzRUxOUUFyRnYxYWVhdl9oOWp2XzczSDRSVVltaWN4ZHh3NVdndHR1YjZFRlhaZURTelQ0bHJwY0ZZQm5WcGJJRnNQNjFxQXpzUXFsMnVTb3RNY2NBb185Ry1vaXVoa18zUlVXTHA0Zm5hdDBXc0U5RlhYMHYzVDJkYUpGWFROSHBwSDhRb1Bn?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "IBGE abre 26 vagas de recenseadores que atuarão no 12º Censo Agropecuário, Florestal e Aquícola no Vale do Aço - Portal Diário do Aço",
+     "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxObXYybE9LUjYzS1F0YXpDN1oydDdnbGhYVHMwc1dpUUJ2NWNvWEgwTDZCa09UbXJzM0FRSWd0TkpVcjF6WS12SktDWmY4eERRTE5IRmJDRWg1STdLNFRNcFVwLUFkOVBDSGc2WTBianFCZGdJc0RLdTQ0MndpaXd5WW5wRHhtZTNoYmE5QzAzUWZldEJIWkt4RTQ0VU44eDZGd0N5WWVJOWJqNVdLb3NlbDdJbEl6di0tUWJST003YVBjdDE0dERwSkp1TVcyRUE2d0hZZFFTNld3azdBQnIyX3l4MlBMZ1pGV0RuMDkwVGRPdw?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Obras da BR-040, Vale e CSN chamam para vagas de emprego no Sine de Lafaiete - Correio da Cidade",
+     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPT0tQMkxEMTR4QVF3UWdBZGhNWHJpNHNoQjZWR3U2cHB0M2R0TDZqYnkwZ1VPSUk4T1RHODY4MGpjSy1DdU9mWE5VSy12RHJoR1Y2MzgzMVhvcEgtUUFNSDZBcnRuOEpxdkJJaVlpUnBlUXpKS3NSWHM3azR4cDJfZTVOSHQ2SlhDUzRRSnFSenZJVUJCWTZKY1AwUkxmY2NGdVJ0d1FCelM4QUJ0TGtoU09XQklraGFNNzlwMjlqcnFGdWVrZDVUbW5R?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Obras da BR-040, Vale e CSN chamam para vagas de emprego no Sine de Lafaiete",
+     "link": "https://www.jornalcorreiodacidade.com.br/noticias/51847-obras-da-br040-vale-e-csn-chamam-para-vagas-de-emprego-no-sine-de-lafaiete",
+     "data": "2026-11-19",
+     "pontos": 3
+    }
+   ]
+  },
   {
    "empresa": "WEG",
    "segmento": "Máquinas e equipamentos elétricos",
@@ -17,20 +151,13 @@
    "estado": "SC",
    "funcionarios": "27710",
    "busca": "WEG",
-   "score": 38,
+   "score": 35,
    "sinais": [
     {
      "fonte": "Notícias",
      "texto": "WEG investe US$ 250 milhões em nova fábrica em Hidalgo, no México, aposta em geradores e transformadores para data centers e projeta 2 mil empregos diretos e 4 mil indiretos para a multinacional de Jaraguá do Sul - CPG Click Petróleo e Gás",
      "link": "https://news.google.com/rss/articles/CBMivgJBVV95cUxONkdpUmxOOWhEYjlKS041SWxBcGhkSWw5bW9tOFNzTTVJRXh2R3QydjB5bXkyZGUxVEpIdXJJdUhYRlM5Q0Ftb1laYm4xTjhwSXhZcUtPXzZRUUhyVENLT3BUUmJJdnNUNkd6cDhhc0lGUFN4bFRmTUFlVl9DZUFpMVBMXzh5TjNQZjNjcUo3dkQwWDlOT3Jrcm5aUUpjU2lVRzR0blQ0ZFJlSlcyX1pfbkk1aFNyd0VOQU9vald1X1FmMWFEVkRybU1ZcHl3b2dFdGJ0UWxmNnpWRmcxWTZmMlNhZHR0NnU1QmN3ZXBVVHBKVnkzdlRRaFFtREdTYjlkVGl3X0dzVkhpa1hpMnhTR1JCVVkyTzlWM2UzRlcyZlFlWFkzMUtobGhrdjM0dzdNOVFVaVRhWTh1ekp3WkE?oc=5",
      "data": "2026-11-17",
-     "pontos": 6
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Fábrica de bilionários, WEG vai investir 250 milhões de dólares e gerar 2 mil empregos diretos em nova fábrica no México - NSC Total",
-     "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPZmxycTNPM0dLWVhBZjlxbVBPZVVaWEhLOEZGTmR3b2Rzc05mYjlHTFI1TTB6dDVpOW1EbndZWWQwNmlSMk9OeTQxbFdOQUNUYlZlLTlKLVNCWTNPblZRdmFGN05CNUlpRWlOOWFiRzUwaWxjUHNrSEdYYlV6XzFuakxod2U3NEdnaklPcGdPZWh2V0xscVRiTkotTTlDenMzQklVMmdSM2tDZW50ZlVvMkpVOWQ5UmhrMkJnQ25RdnNWbGdzRjRlNmpHNThGd2RZakRsazdrN1dhcXJ3ejhuY1FEa3VoVTl1VGc4VTl6ZG8zUzRKRDVrWlhURUtaVkpYdHc?oc=5",
-     "data": "2026-11-13",
      "pontos": 6
     },
     {
@@ -74,72 +201,12 @@
      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSzVweHhncWRDeVg2VHZQdzNFWl9Ea0ZHM1M4czlDaWlsb1N0UGJWbmN6bXIyS3JuNzMxc2h0cWpqMllIZjFyNm1RczZzaVNzeUJrTGJNd213VTRWWmI4Zm5HQTd3WTliaENpNm9USHB6MEF4OVY5S3FRYjk4ZWVCY1J1YmFuRzFQUkdwVTlPTEp4ZzZ5X3ZJMktXSFowalNyTEYwSXhwTlBoZw?oc=5",
      "data": "2026-11-04",
      "pontos": 3
-    }
-   ]
-  },
-  {
-   "empresa": "JBS",
-   "segmento": "Alimentos (carnes)",
-   "cidade": "São Paulo",
-   "estado": "SP",
-   "funcionarios": "90255",
-   "busca": "JBS",
-   "score": 36,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "JBS anuncia centenas de vagas de emprego em fábricas da Seara em Santa Catarina, com contratação imediata, oportunidades sem experiência e benefícios como plano de saúde e participação nos resultados - CPG Click Petróleo e Gás",
-     "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQQ3lxYjI0Tmp4ZFhsNlEyZWhxMFVwSGY3eGZqZVAyNEIyb2ZmaFZfQjJCN1A3dnpVY1RJVjJrVWVoOEFTNjRkem8wcngwemhGRzdPbkQ2SjRmekc3dFhNNHBvT2pyMGc1OXAwNFF5UzNhTDBVQkxGU3F6MG9uV1VfNVh0ZWdDOWJoemlDelV0cDU4M0Q5RjRLUml4X1RzRkdrSmRpQmt6LVZnZTRTcUV1NWpIUDRvTmZYbFkwQV94NXlvcTBsalBtMlMxYkJybUx3N094NVFDV0VjdndlcmxqNlZMY2x6LWdJMnlpOEVZbzRXYURhM0xVU3R3?oc=5",
-     "data": "2026-11-13",
-     "pontos": 6
     },
     {
      "fonte": "Notícias",
-     "texto": "JBS abre 70 vagas de emprego sem exigir experiência; contratação é imediata - JTV Online",
-     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9kMExaanlNTEtjRS1CWWIyeHJoblo2TlJGYWRmeGc5N3BTX2NlZFBCc3N1NXJDX3lzS21zaDEwNjJxbjJUYmtlZnI1Z2xKWkhBWmRrVlptR0wtcWxMdmNfcl9jR3ViWFQ2dkhlLW5HRQ?oc=5",
+     "texto": "WEG (WEGE3) investe R$ 44 milhões na Índia e prepara expansão industrial - Guia do Investidor",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQUjRUbGh0U2xGNVpmZEdfS3FsTlRzbU1FMnRNR01XYThQTk1MVVh2emMtaXByWmZBVXFrVmlHaDcxMmRqcXgzOVRJaWtKLW9tTzVHc2pPZDBnaG0xX05CcXU4ZHQyQU8teFd3bFhjNFhxRnlXaU5idUdkNk1GWHFrckF4TzhhcmRWQTZFSUFQV3paZjhkR2k1UDBGSVkzVjQ0cXJzRXJLMVlfaE5wejB3?oc=5",
      "data": "2026-11-04",
-     "pontos": 6
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "JBS abre 410 vagas de emprego em SC com contratação imediata - Economia SC",
-     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOR3NDZzVWZ1RtZ0N1OS0temhNU2w3aEVGanYzOVcwRERyWTZKTGx6NkV6eWdiS1JYZDNlVExGVHR3OGRrQXZCd0RuTzNId2E4cXJ0TUZpS2o0bmUxdVdkWWtELXdNS2dINFN2SC1PRTdfYjdpcUlDTkZjekdQZ2p3RzRUNUJoQ1d4Y2gwd1JLUS1BbnI0NDRjdnZrbw?oc=5",
-     "data": "2026-11-02",
-     "pontos": 6
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Vagas de emprego em Jundiaí: Carrefour, JBS e outras empresas contratam nesta quarta-feira (28) - Tribuna de Jundiaí",
-     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPNUJ4eFNHUDJPV3ZQME1JcEtJeF9PSFZQZEJoRUo4SVRoMTVlN0FQb3AyT3YtVmd4MmNudW9XVlZubFA5YjFOM0phTnYxams1UXRHLVhjd2NxMFJ5bE9TTVZJZG5pVGtYRUVmYktOTHVrMllRMTN5RkVzZjJnMkxJN2cyNjZjc1Q2U3Vr?oc=5",
-     "data": "2026-10-28",
-     "pontos": 6
-    },
-    {
-     "fonte": "Alerta Google",
-     "texto": "Confira as vagas de emprego da Agência do Trabalhador para esta quarta-feira",
-     "link": "https://tasabendo.com.br/emprego/confira-as-vagas-de-emprego-da-agencia-do-trabalhador-para-esta-quarta-feira18-11-2026/",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Alerta Google",
-     "texto": "Confira as vagas disponíveis na Agência do Trabalhador de C. Mourão nesta 5ª feira",
-     "link": "https://www.crn1.com.br/2026/11/confira-as-vagas-disponiveis-na-agencia-do-trabalhador-de-c-mourao-nesta-5a-feira-191126/amp",
-     "data": "2026-11-18",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Flora volta às origens e inicia novo ciclo de expansão sob o guarda-chuva da JBS - Money Report",
-     "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPNEtUZ2FzaWRtS2NIYlBERGQwN3VvSG9UZnpETFpKRWFPTFp5TjBDTUlidEVpbnRsaXNfRVNPZGRJUDFiSXNSXzhTb0h0cUJwb3dHd3FDYlhXUDgtWF9rajdja00xbERyNEFqNVl6a2pNUGhHNG5NNFktclR5NUVUU0J4NEtISno0WUhVZm5iZ0ZyWFFkTU11S1B3WFBpaUtzajVneW53U3ZfTjBoRjFfRTN3S1NXR0dHd2NNaUFn?oc=5",
-     "data": "2026-11-14",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Mais de 30 pessoas se candidataram a vagas para a JBS Friboi em parceria com a Prefeitura neste mês - Prefeitura de Barretos",
-     "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxObURpcVc0aXlpX050X1lCX0l0NVdwRlB0NnRvTEk1RnlFNnRJMkx4anA1M19qTXhZM2ZaaFowWXFLN3hDWFRnX1VKaDdaclA4dGxGZVVETXc4NkcyT3dzc2hpMEY4c1BYX3FHdHZKNVBjbTR4Wmo0djBaUXVnYWV6RmxMR0wwUmNsTXZoM3dCa0VkdE5nM3ppZU9MZzUtd1haTjBDaWRaektDNmUtbWV5LVdtTmRrb3YzeG9tQkJKUFFBSkc1RHZsekFUUS1ib2FfX0F3ZGpyQkhyYTJ5?oc=5",
-     "data": "2026-11-11",
      "pontos": 3
     }
    ]
@@ -151,7 +218,7 @@
    "estado": "SP",
    "funcionarios": "23818",
    "busca": "Suzano",
-   "score": 35,
+   "score": 33,
    "sinais": [
     {
      "fonte": "Notícias",
@@ -169,13 +236,6 @@
     },
     {
      "fonte": "Notícias",
-     "texto": "Financiamento do BNDES direciona R$ 97,9 milhões para pesquisa e desenvolvimento florestal na Suzano - Brasil Inovador",
-     "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNekVsRUgwYlU0Y3FwRWdVdFNMNGpwU2RJRURjc1hNOGE4NlBVQ0ZmM0JnODFsVzlDa2xIUlNSQk9fMjdLRkUtZEVtM3JJZGhtWW5fWllsOHhoYnRuRVRiWlJlNEhLZHVsN0VPcHVQTjBXY3g5Ry1zT3BmWDFjTDN5dTFDQlNRNUF3WnhrZkc1QWwzWHR2SEtDREllN3hEM2VKM1VmbExZckxUSUlLc29zemdwRXlkQ291a1AzeXhQRzE4a3NCN1dqRQ?oc=5",
-     "data": "2026-11-16",
-     "pontos": 5
-    },
-    {
-     "fonte": "Notícias",
      "texto": "Painel S.A.: Suzano consegue financiamento de R$ 98 milhões junto ao BNDES - Folha de S.Paulo",
      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQcTVoc2lOMm9pdlpzdnhJbmRNQ1lWR1VwYzNBNjVsd2pqaWVLMGtNSVpFLVVLbnNkbnlmbm5aM3FSNDAzWFBCUkc3ZTJKT2J0ZllGamJrNFFRQkdYUTg2Zlh4cGtuZUtrWWowTGVVRm1kVVY2RWV3TG5oSW1vSWFRSzVUZDh0NElEZkZKdUdsancxSENEbklVclZIOWJHYk9ZRmNDUmtTMTFfUUwxRjZBZzYzYmRuQUU1enpzM0F3?oc=5",
      "data": "2026-11-16",
@@ -190,23 +250,97 @@
     },
     {
      "fonte": "Notícias",
-     "texto": "Suzano reúne 9 oportunidades de emprego, estágio e aprendizagem em áreas técnicas, administrativas e operacionais - Empregos na Bahia",
-     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5BRFM4U3pvRHpSVGU4YVVYNVdTSEcxTGktOE5MRm9ra3FkT01ZdlpMN3A4eVZnNG9KYzNZenhpb0YxRjEwV19ENjFXVU11MzBHUUVhMG1OeE00WVZQd2thWHZUem0xQTh6cmc?oc=5",
+     "texto": "Supermercado de Suzano inova e abre vagas de emprego por hora com horário flexível - Hoje Diário",
+     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZV95X0tNSmtXS2xYN3ZsbG5DTTduY3gtdGMxdmpmZkNzb0dwSlFqbVZRcmRfdTNBaHNRSmFKNDlrS3RqajNIZjZzMlZfamRNRHkydkw5ZzJnTUhmUDVjRVhrQzlaSEM0NDRlbTU3UEVkNkI5aU9nSXRmMF9tZDZ4NUV4WmoxdVRNWjVzSjYxbEJ1bWcwUkYzVUc2anVhODd3bGZESTBwaU92UC1yZ2lhUWJQaVZLWDU0?oc=5",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Suzano abre 13 vagas de emprego em MS na área florestal, Ribas concentra 9 delas - Capivara News",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMzZZOFBkc09tVllKUWc1VHhMcUhZSEptYjBORldhLUgzMnA1R1BEcXFHc3pFdzB0ejlYV1pabkxDblRRWGZlckJyaEI1Sy1KQTczU25peG85R0FURGN4bS1ZeHJHd1Z0Z1V5Qjh4RG9iRXNCaHlqazdfa0pfNWhhMmNEeUFQcFgwYW5fMTFBUG1LV2JtSXJxQTlTLXBVdUJNT3NYb3BVMA?oc=5",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Supermercado de Suzano inova e abre vagas de emprego por hora com horário flexível",
+     "link": "https://hojediario.com/2026/11/19/supermercado-de-suzano-inova-e-abre-vagas-de-emprego-por-hora-com-horario-flexivel/",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Ciee oferece mais de 70 vagas de estágio e jovem aprendiz no Alto Tietê; veja lista - G1",
+     "link": "https://g1.globo.com/sp/mogi-das-cruzes-suzano/concursos-e-emprego/noticia/2026/11/20/ciee-oferece-mais-de-70-vagas-de-estagio-e-jovem-aprendiz-no-alto-tiete-veja-lista.ghtml",
+     "data": "2026-11-20",
+     "pontos": 3
+    }
+   ]
+  },
+  {
+   "empresa": "CSN - Companhia Siderúrgica Nacional",
+   "segmento": "Siderurgia e mineração",
+   "cidade": "São Paulo",
+   "estado": "SP",
+   "funcionarios": "21594",
+   "busca": "CSN",
+   "score": 33,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "CSN oferece 250 vagas em mutirão de empregos em Volta Redonda - Jornal Folha do Aço",
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPMmg3TW9uMFZCQ1k2NDlpYmNhbHJqeTNVbHVIb2ZaQkNmbHlucGVJX1JBVkRGMjJrdWs1OWotcm1DN2VZMi03Yzg3bHlaUGR1Mkd6d0dManpqZWxKOWNuWEdMVWdBa192dWxtRFZwaEp1ZHRZajBVdmtSdDRCaFZOdnZJY1ZaR09rODBXMXhhSXJwZU5aMmJvMDloRTFHU3Bo?oc=5",
+     "data": "2026-11-10",
+     "pontos": 6
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "CSN oferece em Volta Redonda 250 vagas em mutirão de empregos - Foco Regional",
+     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOWUh0QmVtdVZiWEY3cnVCcHYwQm1EcVk2UDFPTkh3T2Z1WUJUQ3Fla2dRSHEzQ2I1RnVaVVUweUVpZ05oQjFjNGNIYWo4SnNGVExnZzQyYWRhaVUzMXB6VFNWZE9ObzBIamJMa2lXeVB2ZXdvNW0zRFc0aVlVMUVsS01PUlVrRWx3T2d2WTRB?oc=5",
+     "data": "2026-11-10",
+     "pontos": 6
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "10 vagas para pilotar barco no meio de Minas: CSN Mineração contrata operador de embarcação em Congonhas (MG), salário e prazo não divulgados, e pede ensino médio e carteira de marítimo - Naval Porto Estaleiro",
+     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUURmT285X1pFQXd1R1k5YmtleWs4NkhmdjE4allIaENlQ2RtcG5qNVlWZDlQVnRPY3FwQ0JNalh5ckdtQW9JQ3Q1emQtN0JmMmpqc1ZxalcwU2tBeldCYzBXREpDcGtxNmdHR2kweF94bnNWek56TFV4LTVwRkVpVlpqNE5UbVkwTERhME83SExKdG1ZbFE?oc=5",
+     "data": "2026-11-05",
+     "pontos": 6
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Obras da BR-040, Vale e CSN chamam para vagas de emprego no Sine de Lafaiete - Correio da Cidade",
+     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPT0tQMkxEMTR4QVF3UWdBZGhNWHJpNHNoQjZWR3U2cHB0M2R0TDZqYnkwZ1VPSUk4T1RHODY4MGpjSy1DdU9mWE5VSy12RHJoR1Y2MzgzMVhvcEgtUUFNSDZBcnRuOEpxdkJJaVlpUnBlUXpKS3NSWHM3azR4cDJfZTVOSHQ2SlhDUzRRSnFSenZJVUJCWTZKY1AwUkxmY2NGdVJ0d1FCelM4QUJ0TGtoU09XQklraGFNNzlwMjlqcnFGdWVrZDVUbW5R?oc=5",
      "data": "2026-11-19",
      "pontos": 3
     },
     {
      "fonte": "Alerta Google",
-     "texto": "Mais de 40 mil vagas de estágio serão abertas até o início de 2027 - Diário de Suzano",
-     "link": "https://www.diariodesuzano.com.br/nacional/2026/11/18/mais-de-40-mil-vagas-de-estagio-serao-abertas-ate-o-inicio-de-2027.html",
+     "texto": "Obras da BR-040, Vale e CSN chamam para vagas de emprego no Sine de Lafaiete",
+     "link": "https://www.jornalcorreiodacidade.com.br/noticias/51847-obras-da-br040-vale-e-csn-chamam-para-vagas-de-emprego-no-sine-de-lafaiete",
      "data": "2026-11-19",
      "pontos": 3
     },
     {
      "fonte": "Alerta Google",
-     "texto": "Concurso IBGE: reta final de inscrição para 1.322 vagas em SP. Nível fundamental!",
-     "link": "https://centraldeconcursos.com.br/noticia/concurso-ibge-reta-final-de-inscricao-para-1322-vagas-em-sp",
+     "texto": "Oportunidade: Gerdau e Sine Congonhas lançam vagas com e sem experiência nesta quinta-feira",
+     "link": "https://www.jornalcorreiodacidade.com.br/noticias/51846-oportunidade-gerdau-e-sine-congonhas-lancam-vagas-com-e-sem-experiencia-nesta-quintafeira",
      "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "CSN abre vagas de emprego e estágio para 2027 - Entre Rios News",
+     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORGFWRl9jSWhDTEpjdFVCZWpJdjZaTmpqNnJicUhqUjlXOHdQZTdFUkttdENjN1FUa042TTJ4T05rZXlnSGQ2UF9UVF82ZkZSeVlzbTF1SmVvckxkbURydXlaamZkRlk2aG1FY192SVNQd001dGxtWm5tSzk5N1RVMDE5UlpiOVJXaGFpOWRTZXdPNjE0V2c?oc=5",
+     "data": "2026-11-17",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "CSN abre vagas de emprego e estágio para 2027 em diferentes estados do Brasil - CPG Click Petróleo e Gás",
+     "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9WWlQxUml1S2pRbnF4bERMOHdMZm5xTEVrY29VOWI2SWZKLWk4OGpWN2d1U1Rsa3pOVVlVVHVYVWZjYmRzcXdDYkdBYnJMSW1JUkNtWmQtckNGRzJwVTQ0M19xQkFIUDcybUkyWEdXTkdyUFNJVFBiX0ZB?oc=5",
+     "data": "2026-11-11",
      "pontos": 3
     }
    ]
@@ -346,140 +480,6 @@
    ]
   },
   {
-   "empresa": "CSN - Companhia Siderúrgica Nacional",
-   "segmento": "Siderurgia e mineração",
-   "cidade": "São Paulo",
-   "estado": "SP",
-   "funcionarios": "21594",
-   "busca": "CSN",
-   "score": 32,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "CSN oferece 250 vagas em mutirão de empregos em Volta Redonda - Jornal Folha do Aço",
-     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPMmg3TW9uMFZCQ1k2NDlpYmNhbHJqeTNVbHVIb2ZaQkNmbHlucGVJX1JBVkRGMjJrdWs1OWotcm1DN2VZMi03Yzg3bHlaUGR1Mkd6d0dManpqZWxKOWNuWEdMVWdBa192dWxtRFZwaEp1ZHRZajBVdmtSdDRCaFZOdnZJY1ZaR09rODBXMXhhSXJwZU5aMmJvMDloRTFHU3Bo?oc=5",
-     "data": "2026-11-10",
-     "pontos": 6
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "CSN oferece em Volta Redonda 250 vagas em mutirão de empregos - Foco Regional",
-     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOWUh0QmVtdVZiWEY3cnVCcHYwQm1EcVk2UDFPTkh3T2Z1WUJUQ3Fla2dRSHEzQ2I1RnVaVVUweUVpZ05oQjFjNGNIYWo4SnNGVExnZzQyYWRhaVUzMXB6VFNWZE9ObzBIamJMa2lXeVB2ZXdvNW0zRFc0aVlVMUVsS01PUlVrRWx3T2d2WTRB?oc=5",
-     "data": "2026-11-10",
-     "pontos": 6
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "10 vagas para pilotar barco no meio de Minas: CSN Mineração contrata operador de embarcação em Congonhas (MG), salário e prazo não divulgados, e pede ensino médio e carteira de marítimo - Naval Porto Estaleiro",
-     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUURmT285X1pFQXd1R1k5YmtleWs4NkhmdjE4allIaENlQ2RtcG5qNVlWZDlQVnRPY3FwQ0JNalh5ckdtQW9JQ3Q1emQtN0JmMmpqc1ZxalcwU2tBeldCYzBXREpDcGtxNmdHR2kweF94bnNWek56TFV4LTVwRkVpVlpqNE5UbVkwTERhME83SExKdG1ZbFE?oc=5",
-     "data": "2026-11-05",
-     "pontos": 6
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Obras da BR-040, Vale e CSN chamam para vagas de emprego no Sine de Lafaiete - Correio da Cidade",
-     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPT0tQMkxEMTR4QVF3UWdBZGhNWHJpNHNoQjZWR3U2cHB0M2R0TDZqYnkwZ1VPSUk4T1RHODY4MGpjSy1DdU9mWE5VSy12RHJoR1Y2MzgzMVhvcEgtUUFNSDZBcnRuOEpxdkJJaVlpUnBlUXpKS3NSWHM3azR4cDJfZTVOSHQ2SlhDUzRRSnFSenZJVUJCWTZKY1AwUkxmY2NGdVJ0d1FCelM4QUJ0TGtoU09XQklraGFNNzlwMjlqcnFGdWVrZDVUbW5R?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "CSN abre vagas de emprego e estágio para 2027 - Entre Rios News",
-     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORGFWRl9jSWhDTEpjdFVCZWpJdjZaTmpqNnJicUhqUjlXOHdQZTdFUkttdENjN1FUa042TTJ4T05rZXlnSGQ2UF9UVF82ZkZSeVlzbTF1SmVvckxkbURydXlaamZkRlk2aG1FY192SVNQd001dGxtWm5tSzk5N1RVMDE5UlpiOVJXaGFpOWRTZXdPNjE0V2c?oc=5",
-     "data": "2026-11-17",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "CSN abre vagas de emprego e estágio para 2027 em diferentes estados do Brasil - CPG Click Petróleo e Gás",
-     "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9WWlQxUml1S2pRbnF4bERMOHdMZm5xTEVrY29VOWI2SWZKLWk4OGpWN2d1U1Rsa3pOVVlVVHVYVWZjYmRzcXdDYkdBYnJMSW1JUkNtWmQtckNGRzJwVTQ0M19xQkFIUDcybUkyWEdXTkdyUFNJVFBiX0ZB?oc=5",
-     "data": "2026-11-11",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Emprego: Sine Congonhas abre 172 vagas com oportunidades para Vale e CSN nesta terça-feira - Correio da Cidade",
-     "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOS2ItZ1NmNkg5cDBEODA0eEpTeFNMQVRzamJLM016Skw5NXU2Y2NuTlRpaFJjaVYxR2xXaWlVRW9IUUt0N0RCcjUyNzI2cG5uVFJ3bUxnYnVnaUo2S0tZY1VYNlJFTzNuTjFyTnNKVTN3QzVtRnQzYVBQNXY5YWpmNGlBVUhTSl9FdVdhRFAtZEpKWXp6NmdWemJnQ050N2QxV2VtZHhkSTl4QlZuOG5rN0JQZGFVaGZadTJyekM1NlE0V1Fmbzc4bm0wY1VyV0N2VjdvVUtMWWtDVzcz?oc=5",
-     "data": "2026-11-03",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "CSN (CSNA3) tem resultado fraco no 4T25: vale a pena investir? - Nord Investimentos",
-     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9hcm5sZ2xkc09pMlV3R0lqdi1WODRpM2E0S3p2enVDdnJpTUJ4X0pvV29KbDFBRDJJdEdTQnc1aE85Y3UxSHhicjdxaDFVbWR1SjNMdW1XNTZoY21SRVRaLTdDemUzdzZ1cXJReFRYemZhVVkwZW5j0gF8QVVfeXFMT3Z6SlVrTF9veklUM0UtMDJydGF0NnlxYXRpWHpFTGk0Qi1TQjR3ZXZiOF96SkE0b3p6RlNoSEgtajdwRGRrZDNJVlRXdWZ2aTJ5ekhHUDd4MEp1eVNVd0xvUk92eXFQLXlHWnpMTzUyRGZzdjg1UG9BZVgxVA?oc=5",
-     "data": "2026-11-19",
-     "pontos": 2
-    }
-   ]
-  },
-  {
-   "empresa": "Grupo Boticário",
-   "segmento": "Cosméticos",
-   "cidade": "Curitiba",
-   "estado": "PR",
-   "funcionarios": "49068",
-   "busca": "Grupo Boticário",
-   "score": 30,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "Oportunidade na indústria! Grupo Boticário reúne sete vagas de emprego em Camaçari e Salvador - Empregos na Bahia",
-     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA2RDUtenRFQ0tCYUpOQ3ZSOHN4aXpFZHBHWWlwamJLVkxXcHE2S0tvcHo1d1BnQWV4QVE5cDdiS2RBODJmZzVCS2x4VzhQcW1GVGIzeGlOZVU3RkZNaWtVMl8zWUJ0WmQtM0tEQWZKcHF6TEQ3bGc?oc=5",
-     "data": "2026-11-18",
-     "pontos": 6
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo Boticário constrói nova fábrica em Minas Gerais com previsão de 800 empregos e capacidade para ampliar em 50% a produção de cosméticos - Portal 6",
-     "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNanVvNFQtOFVkSTBBQWhKT0NrYXJCZk1aMklPSEVEeG9aVXlwMXBwR3VWdDNJcnhER2xidE9jWGpyT1hRM2hmd3RHN0FBaGZITk1FR0hleUIxZ2VMQjQ2U1pSLTlXR1dZOURsQ2d4WkRqbUZxWG5SUjZZYk4tTWdNeGhSUm9NWktzVm5LT1FIUWI4MVQ4TjFSWGlvQklXYnZEczlNQmRwbHFENTI0N1BPdDhEY0NIX0d0SG5aMnFfRGVkSUZnbHRBaGhRZ3ROczA1SnNGRjN4ZkhQNFZmVl9mRllpb3ZwSjY4N2FwTVJMZ01LVTJacTdHRUZ3RFJVMWd2YVlUdw?oc=5",
-     "data": "2026-10-30",
-     "pontos": 6
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo Boticário suspende por tempo indeterminado a fábrica de R$ 1,8 bilhão em Pouso Alegre, no Sul de Minas, que prometia 800 empregos e 50% mais capacidade, depois de comprar o terreno e fazer a terraplenagem - Correio de Minas",
-     "link": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxOYlpVOEM2QnpkdXozX0UyaTgyc2pjUGZyYjlMZm5EV3dYblRvR2pmSXkySGYyQ19ocFRjM3ZpQkNtR051RmpvYWh4V1R1Sk9pZWJoc2JkN2t3VzdiWmFaVEtnM29LWjl0cURRNnI5WGZLTWpqSlFYSF9EN01hTk9lZ0xycTZ2aWdUazY5NkhaUk5NYzlEWnAxR1VpV1VTaHZVdW5MdVVmeDhobGdrLXFyc0tOR0t4ZXczN2RJSDJiZ05Ea1NBR0lSQm4wc245TElEeGdrMmFvSHR1dG9NemZIWXFBLXpxVGRlbktfU042QXd0QmRwMFFQM211Sm9oajRGTXdYMDZ3WllzUkN2VXFRdVNRNlJDQU1ub1pjRWNNS2ZBM25ITllxaDlqNzJyS3V1NDk3S2RCOUJxQzNSM1ZydFVITkQ0S3QyT1NvVEx0S1QwSWxnYmhTeA?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Alerta Google",
-     "texto": "Home office: 135 vagas para trabalho remoto [17/11] - Estadão",
-     "link": "https://www.estadao.com.br/amp/tecmundo/home-office-135-vagas-para-trabalho-remoto-1811/",
-     "data": "2026-11-18",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo Boticário interrompe obras de nova fábrica no Sul de Minas - RÁDIO ALVORADA",
-     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOVXNZaVh0LXdmU0JVSkpfTEM2d0VlLVNrVWRGTkUwSGlBQUMwZTg1WGIwWWJvUFJ3Z0ZGOTJfZlU3ay1RTzJocTRxLWNzSzhwMXZiY21Cek1kVnl5MGNRM25tMWxYcUVuLWlyOURFQU1YY184NlVzOXhGSUhQLS1ESVAwRENmSzAxTWFyUzMxTDZaSlplUnB3clJpQUZZZmJyUk8tZUduT3RWUThnMjZKTEVZbGlKdUhQN1lieg?oc=5",
-     "data": "2026-11-17",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo Boticário suspende fábrica de R$ 1,8 bilhão em MG que prometia gerar 800 empregos - Lavras24Horas",
-     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxONXNXUjJScjZFR3kycDZaQjVCd0hGZnFrUThucG93MDhWMXFyaGFRblBYYUhtdDVoeUNIQVFXWUJjTy1rUk1jY1ZDRGJqXzZ0ZWlTcjUzRkliYkZuTGhyTTBaeEctaFhLai1LajloVXJET0IzdjcxcHB2T25ZbHhFQ2hMcldqc0xPNVk0X1BDVkRIZ0lERjlVbHhqMHBGLTM2NlphRjFOSEJ0MUliNkhkUG52QjFJRm5BaEFlOGFzTWZ6WU5Q?oc=5",
-     "data": "2026-11-17",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo Boticário abre oportunidade de emprego em Salvador com mais de 20 opções de benefícios - Empregos na Bahia",
-     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1VdzkxMnRDQkl2ZmNteGtYQmJYcURhX05Oa29aYjAyaTlsVVZiNkNjS1dqVUp1Z2NoTkx3NmRCUmMtMFh3OXNQMlJ0amFkWWxKTUhPNTh0SkVyMTkwd3IyV0Q5WQ?oc=5",
-     "data": "2026-11-17",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo Boticário abre vaga para Operador(a) de Produção e oferece mais de 20 benefícios - Empregos na Bahia",
-     "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9fbmRoMjIzYWx0WjNJSzJwMXQ1ODQ4TlY4eFVHMjh2N0VmeXR4bHhrTmdIX0g3dlo1aGw1OWllelBPMVBwSDRjZC1MX1I1WWhGQ1ZyLXB1eUQzWHNLNDZNb0dlNWtHV2twX2U2Sw?oc=5",
-     "data": "2026-11-05",
-     "pontos": 3
-    }
-   ]
-  },
-  {
    "empresa": "Solar Coca-Cola",
    "segmento": "Bebidas",
    "cidade": "Fortaleza",
@@ -503,34 +503,6 @@
      "pontos": 6
     },
     {
-     "fonte": "Alerta Google",
-     "texto": "SOLAR COCA-COLA ABRE VAGAS DE EMPREGO EM FÁBRICA DE SIMÕES FILHO",
-     "link": "https://bahiaeconomica.com.br/empregos-e-concursos/solar-coca-cola-abre-vagas-de-emprego-em-fabrica-de-simoes-filho-veja-cargos-e-como-se-inscrever-211990",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Alerta Google",
-     "texto": "Solar Coca-Cola abre novas vagas na fábrica e reúne oportunidades em diferentes áreas",
-     "link": "https://empregosnabahia.com.br/vagas-emprego-solar-coca-cola-4/",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Alerta Google",
-     "texto": "Coca-Cola abre vagas de emprego na fábrica em Simões Filho - Portal N1N",
-     "link": "https://n1n.com.br/mercado-de-trabalho/119685/coca-cola-abre-vagas-de-emprego-na-fabrica-em-simoes-filho/",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Alerta Google",
-     "texto": "Quer trabalhar na indústria? Solar Coca-Cola abre duas vagas efetivas na área de produção",
-     "link": "https://empregosnabahia.com.br/vagas-emprego-solar-coca-cola-3/",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
      "fonte": "Notícias",
      "texto": "SOLAR COCA-COLA ABRE VAGAS DE EMPREGO EM FÁBRICA DE SIMÕES FILHO; VEJA CARGOS E COMO SE INSCREVER - Bahia Econômica",
      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQcmtDUW8xb0VLSUJteXhXY0JJbXFWZGpBTEFDUUdLajllV2xwNGhxYVk2dU1tMHdOUWtibUFLREwtRDBIRnRUV29vTlhJZnlDSFQ0UmVIRUF3RmhFSV9zSjBRV0dPSll3YkJiVkVldVM0UFFGVVpsZDZKczFXY2hEWG53X3hWRHhaQm4wM2lTcjFrWkJNckdueU5Dc1ZGZ3hieXgyVUZjVklFOWVzRGJIUnVqTWtLNVYxYlRua2M0TjdJLUR6Y3h0NlJwdkZvWi1GV05pTzhmZzUyajRjMkhHZFhQWG41cW40YVE?oc=5",
@@ -543,31 +515,87 @@
      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBkdHVEZWRtMEhzbS1EMUgwV3diVTNPMHUtTXA3SEN5NXFndmpSVlhfSGlNbzREYkk0aDdQb0stVy11Z2x3ZjVIVElfTWg1aDNRNzRORUlxSlNWbTVDblRPZXVTbnJ6X2dqbTJiWE02M1c?oc=5",
      "data": "2026-11-17",
      "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Solar Coca-Cola abre vagas de emprego no Ceará para trabalhar na indústria, com oportunidades para quem tem ensino médio e benefícios como plano de saúde e vale-alimentação - CPG Click Petróleo e Gás",
+     "link": "https://news.google.com/rss/articles/CBMitgJBVV95cUxQcmpnSGIzZUZZMElRTEd5TXF6TXducUdGR0ItSjZTZ3VUZXJOUHh5TXlQZVRsVXNUQVJHMGY4cXNGaS1TQzQ1V2lCVlhnMG5acVdXUFVscGVNRldFQ2NlaGxuaXc1TE5YTWRSdHJKc0tCdmdfOElHTS1uZkhIdUxDRWFXckNTaVk0dXFLOXAwV0NxeTlkY0JkTjEyX01BOEF3ZWNoS2ktZXRvTlNwQnQycG9NRmFSVWx1Z3poc3RpcFMzb3JoS2l4Ni1qVUN0QVFsRFd4YnREWkduXzNTLUpSU2RlMnJXUUJIWnRlU1hSUVpqSnJnMk9IVXdiWVJyeU83clJLNm9IMUlGdzgxaTZ1VGNDUmNjMWJhOW9JdVdTendfMzA0YUZXaWt1ZC1SaUpsLUJwOWVn?oc=5",
+     "data": "2026-11-13",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Amazonas tem 1.095 vagas de emprego no IBGE, Sine, Eneva e Solar Coca-Cola - ncnews.com.br",
+     "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNYTR6LXltQjUzSXEyeXk2dzBiR0Z4c0pDLUtFUlpvdFp5X0M4X0k3ZWw3QXRMQ0ZCeHd5WjA1V0ZpWHQ0Z3gxWXdiLWZXeW85Zy1hVGJNWjctYVFxWDBMbHNkcWl5ZVMwbXIzYTJxNVQtZDNLbzNKdzRxN1ZVX1R2SUhNa3RSdUJhOE1XUnhZb1Vxb00?oc=5",
+     "data": "2026-11-13",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Solar Coca-Cola abre mais de 1,4 mil vagas de emprego em 16 estados - DOL",
+     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPNEZ1RTRTaUVXT1ZIaEprYjY5UDkySTZoSkpJcVlyX1ExYTE5a2lxX2VkYlIxWGo1eUkxbjZfZmItaGNsN2U4NTFoNklQSEtzNVMzMG1NR3ZZWXh5Vmlkb3ZEOVFpUHg2X0tqNjFzWDdIU3BIT25rSUZjVXVrM1pqRjgxVFJSS1ZIV2hNNUlUeWVPclZsQWJnZUsxVDdNbWZZeWxha0kzU1FnUU5udjJ6dS1JeHNnXzJRUGc?oc=5",
+     "data": "2026-10-26",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Solar Coca-Cola abre vagas de emprego em três regiões do Brasil - Valor Econômico",
+     "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUWZLMV9oLWpBOE9aMTZJZWxrdUE5YU16TTY3ODg2YmJRZXBxa3ppYk5mcmMtVlFocWpxU090SXVvQ3ZKcHpaemlQN25Qdy1KZlpEUEJJMGpoVm5fbkJWNXVGZ2hMWkRLR0tFYUVRM3JxQ0VYdnJfQUhjM2NvTXhOcVJwYWhwZ3JaZnc3WlhoSE5kVnhzdmVGSE11OUR5UEk3Nm9CVnpTTy01ZzBpT09fM01qb3I5S3luYkRwbkVyaDNRMXlpVjRId2FKS2RhYkFPWFdMadIB4wFBVV95cUxQbVIteUExQjM3bWtVZlkzdHV3cl8tdk5UR3EzX002N0pHdjZqTThjNmdWck1hWlJ4Yl9xcWpQSWRGRWxkLVZET2F2aEkwcjdMb1JQaFVvM2xWeFR2eEpFdVlBajAtb2l0NUYyYXRuUDBhNENMUVBZWXhyQlowNXA1NFljb2lUUFFMVEZNZEZtZnFselc2eWF5bnpGYnhHVVVnZlQxbWdTMUJwSDd0V1FBa3pKaW1NUk9BcVkyX2tocFdkbl93YW5sVW1manRUMzIyQ1hMbHgya2tfOUptQ003UUxCdw?oc=5",
+     "data": "2026-10-23",
+     "pontos": 3
     }
    ]
   },
   {
-   "empresa": "O Boticário",
+   "empresa": "Grupo Boticário",
    "segmento": "Cosméticos",
-   "cidade": "São José dos Pinhais",
+   "cidade": "Curitiba",
    "estado": "PR",
-   "funcionarios": "21754",
-   "busca": "O Boticário",
-   "score": 28,
+   "funcionarios": "49068",
+   "busca": "Grupo Boticário",
+   "score": 27,
    "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "Oportunidade na indústria! Grupo Boticário reúne sete vagas de emprego em Camaçari e Salvador - Empregos na Bahia",
-     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA2RDUtenRFQ0tCYUpOQ3ZSOHN4aXpFZHBHWWlwamJLVkxXcHE2S0tvcHo1d1BnQWV4QVE5cDdiS2RBODJmZzVCS2x4VzhQcW1GVGIzeGlOZVU3RkZNaWtVMl8zWUJ0WmQtM0tEQWZKcHF6TEQ3bGc?oc=5",
-     "data": "2026-11-18",
-     "pontos": 6
-    },
     {
      "fonte": "Notícias",
      "texto": "Grupo Boticário constrói nova fábrica em Minas Gerais com previsão de 800 empregos e capacidade para ampliar em 50% a produção de cosméticos - Portal 6",
      "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNanVvNFQtOFVkSTBBQWhKT0NrYXJCZk1aMklPSEVEeG9aVXlwMXBwR3VWdDNJcnhER2xidE9jWGpyT1hRM2hmd3RHN0FBaGZITk1FR0hleUIxZ2VMQjQ2U1pSLTlXR1dZOURsQ2d4WkRqbUZxWG5SUjZZYk4tTWdNeGhSUm9NWktzVm5LT1FIUWI4MVQ4TjFSWGlvQklXYnZEczlNQmRwbHFENTI0N1BPdDhEY0NIX0d0SG5aMnFfRGVkSUZnbHRBaGhRZ3ROczA1SnNGRjN4ZkhQNFZmVl9mRllpb3ZwSjY4N2FwTVJMZ01LVTJacTdHRUZ3RFJVMWd2YVlUdw?oc=5",
      "data": "2026-10-30",
      "pontos": 6
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Grupo Boticário suspende projeto de nova fábrica de R$ 1,8 bilhão em Pouso Alegre, no ...",
+     "link": "https://www.itatiaia.com.br/brasil/sudeste/mg/grupo-boticario-suspende-projeto-de-nova-fabrica-de-r-18-bilhao-em-pouso-alegre-no-sul-de-minas/",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Supermercado abre 113 vagas temporárias para profissionais 50+ em Manaus e Boa Vista",
+     "link": "https://marioadolfo.com/supermercado-abre-113-vagas-temporarias-para-profissionais-50-em-manaus-e-boa-vista/",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo Boticário suspende projeto de expansão em Pouso Alegre - boca.com.br",
+     "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOTExSVkVZU25EUzdRNUxNWnpDYkNtUlVUcUdmd3E5TVpLNTNHTVR0LXBtaElKYmxvc1JSVm9lZlpNVXRPckMtTk02elFkOEYxSTc4ek9WR0tqei02V281Znlmd1ZLZ2lwb1NVcHAtTFBmczQtTE5sMlR5eXd4QWFxeEFkb2xDc1VfQzVtY1JpR05nLWc?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo Boticário suspende projeto de nova fábrica de R$ 1,8 bilhão em Pouso Alegre, no Sul de Minas - Rádio Itatiaia",
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPVUpjY1B1RldNVHpNS19CNHZMV24xVjlwS3FBZ3R1UGFWSkl5YXZ2UFhyMDc2OE1GYlpxTFplWkVwWktqb3Q1Tjg0RVJReHg5eHdZYmJvYkFIZ1JXdnZ3dWFTQjRFakx4a0dLalhLWTY5Vm1BakRveXVIUnNGc1I4ZEh1eUVwUTJnaVU0SkJfVEVHNWlKdllvcEU1QlpWdlZaUVNzd2NicVBWWW9pZTdyT1FVOGJTSlQ1ZkNzaEFjbWZkRHVHMlIxamtZUHU3LV91c19Tbm9XbmhQUQ?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo Boticário suspende por tempo indeterminado a fábrica de R$ 1,8 bilhão em Pouso Alegre, no Sul de Minas, que prometia 800 empregos e 50% mais capacidade, depois de comprar o terreno e fazer a terraplenagem - Correio de Minas",
+     "link": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxOYlpVOEM2QnpkdXozX0UyaTgyc2pjUGZyYjlMZm5EV3dYblRvR2pmSXkySGYyQ19ocFRjM3ZpQkNtR051RmpvYWh4V1R1Sk9pZWJoc2JkN2t3VzdiWmFaVEtnM29LWjl0cURRNnI5WGZLTWpqSlFYSF9EN01hTk9lZ0xycTZ2aWdUazY5NkhaUk5NYzlEWnAxR1VpV1VTaHZVdW5MdVVmeDhobGdrLXFyc0tOR0t4ZXczN2RJSDJiZ05Ea1NBR0lSQm4wc245TElEeGdrMmFvSHR1dG9NemZIWXFBLXpxVGRlbktfU042QXd0QmRwMFFQM211Sm9oajRGTXdYMDZ3WllzUkN2VXFRdVNRNlJDQU1ub1pjRWNNS2ZBM25ITllxaDlqNzJyS3V1NDk3S2RCOUJxQzNSM1ZydFVITkQ0S3QyT1NvVEx0S1QwSWxnYmhTeA?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
     },
     {
      "fonte": "Notícias",
@@ -578,16 +606,129 @@
     },
     {
      "fonte": "Notícias",
-     "texto": "Grupo Boticário suspende por tempo indeterminado a fábrica de R$ 1,8 bilhão em Pouso Alegre, no Sul de Minas, que prometia 800 empregos e 50% mais capacidade, depois de comprar o terreno e fazer a terraplenagem - CPG Click Petróleo e Gás",
-     "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPVlprWnlUX19MbmwzZ0ZQaGdsU19wUm5mSHdQeUV4MGpoaDV5NEVrcTNwUlFSazkzTGFSb1hLMGltSWJEVWtPb1ozbmpqRmNPNGQ1dHljWlY4aUNTUS1ydFFIVEpOSTdjZVI0VURaZUlCTTNGaGliM3BHRHZtV2tNZDVsa1h3Rlh1V1ozaUphb2hTWG5IVzJUY0hrVjJwR3ktYnZrb3I4ekNRMHBwNEZYeFNSSjUwOHNwQ01fYnNGRUpnejJmZ3laMmZkMHlKUFJieHlaYS0xSEFVLThYT0U1VnotTk10blRUWURWeklZOWRad01nWlRGbXF4ckFVRGtya1lwZXRSV2lXX2hqelNpOVJ6ZkdUZDVnRHlpZlVjY1ZSVFR5VUduelRoenBibUJ3SjJIeG1HVTY3amQyNlljQlFR?oc=5",
+     "texto": "Grupo Boticário suspende fábrica de R$ 1,8 bilhão em MG que prometia gerar 800 empregos - Lavras24Horas",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxONXNXUjJScjZFR3kycDZaQjVCd0hGZnFrUThucG93MDhWMXFyaGFRblBYYUhtdDVoeUNIQVFXWUJjTy1rUk1jY1ZDRGJqXzZ0ZWlTcjUzRkliYkZuTGhyTTBaeEctaFhLai1LajloVXJET0IzdjcxcHB2T25ZbHhFQ2hMcldqc0xPNVk0X1BDVkRIZ0lERjlVbHhqMHBGLTM2NlphRjFOSEJ0MUliNkhkUG52QjFJRm5BaEFlOGFzTWZ6WU5Q?oc=5",
+     "data": "2026-11-17",
+     "pontos": 3
+    }
+   ]
+  },
+  {
+   "empresa": "Petrobras",
+   "segmento": "Petróleo e gás",
+   "cidade": "Rio de Janeiro",
+   "estado": "RJ",
+   "funcionarios": "59965",
+   "busca": "Petrobras",
+   "score": 26,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "BNDES vende R$ 3,6 bilhões em ações da Petrobras, reduz exposição à estatal para 20% do patrimônio e abre espaço para novos financiamentos após adequação às regras do Banco Central - CPG Click Petróleo e Gás",
+     "link": "https://news.google.com/rss/articles/CBMi5wRBVV95cUxNN0ctYVVLV2NDMnpSZGlNTUtNelRtLXktNlFjTEFKWXoyRUZrelhlc1BUU2YwSV9NbkJUVDJPV0g4NUttTG9qaXZpeTBLUUlYMU01QWJjWTNRVVB1clRjX3Z4QXQxeXQtUjFEZ1VrYnNlVFVpZmFfZzhsZ0NKMnVQV01qcUNNOXltTXh1ZGFvYlpfOWR2ZTRKUkNJa0RPbi10S2c1ZUF5SllQc21VZEhHNDYyRy1MMno5X3NOc1UzSjNiNU1HNDBWV1pYWHdFM0ZLbU90azZNZTg3NXBHZEtpSTNzbUwweHJGbkJYUlVvdnhPdmpEc2Y4UjVfQ0MtaU1YXzRuRUUxeG9WLTRkVGxuX0IyZ3EtWWJiODJmdDU3alUxZ1UxRVNVSDNVcHk2eHhkc1JfaUlFUUpKOXBSdGlLRDlULXg1N2lvSHhaQWZJeDRvYXB6U2lObGsxWWlMRFZ4LV8tMjhSZWVqWERYV0Jna2hXakFEc3ZTaGJBb1o2SXZFSHNlLWdWOVZydmluQ2hyQURBcC1sVUVmZWFSZkZ2UmQ1SHJuSkI4aGwxZmpDendhMktKLVFmYVVnaEl6dUJ1NnZpY1FWcDY2YVJ6XzNrbkxMWWRBNVk0TGxHMFJkMFloTG5aOV91X3FWaEthRE1RV2JwSFJsZ3V2QTBROWcwa1EzaE96Qm55VWpzRW1xRkhlVEVLM0NLYW96ZmwyUWE4UFI3RERYcnAwYk1ocjE5WS1FakRwV09uVVVwMHNfV0IxUW5Ub2VJcWVqNkt4dHJTcnJxMUtFYTdRd2ZXYnlnMnZISGtULU0?oc=5",
+     "data": "2026-11-20",
+     "pontos": 5
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "BNDES registra lucro de R$ 20,3 bilhões até setembro, puxado por venda de ações da Petrobras - O Tempo",
+     "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSUFmeWRfdkdpaEk1R2F0MGVSQjBfcmlZcGpCemUzNl9pejRlUlo0ZjVQWlpsTjFNU0tKQkJSNk02OUp3cklkSkU0Vmw2Z28zcUJUWERnZG1ZaGJzS09UYnpGQ1dNNktCX3RuQ1UzS2ZxendvMER3ODhVV2dsVHJhVzQ5c292MEYyR3hadHc5S2RfMVE0NWJ4M0NBc0R3ckVweHIwN05NbU1GMUhhbUl1LXJIVmQ1SU9HY1FmUFhTNDlzcWRuazJsSTBDbTRJMFo4cHc?oc=5",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Após receber R$ 1,6 bi em dividendos e JCP, BNDES reduz posição na Petrobras (PETR4) - Investidor10",
+     "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQm5JTk51UXI4RS0tTGtqZ0xGbjcyNVlkWllrNUJpZkEwX2RzTDhqZ1BMd2JLaEFVVTlkNDgzWFk1MjdEWmE0aTE5Wm5oSU43S1JSS29RUUZfdDg3RWJQVktBcUdpRWxfWTRtbGJNY3IzTHlFT0lSM1FWZzg2RDh4Y3cxOE9YeDNURWdsd0ZfWTNUSThRMmNYWi1oTWFGN1dVWV9jQmZZZVB3MUlUZXk1dXBOVHJ4WG9OcVBNdW5MVE0zaUdzVFZTadIByAFBVV95cUxPQm5JTk51UXI4RS0tTGtqZ0xGbjcyNVlkWllrNUJpZkEwX2RzTDhqZ1BMd2JLaEFVVTlkNDgzWFk1MjdEWmE0aTE5Wm5oSU43S1JSS29RUUZfdDg3RWJQVktBcUdpRWxfWTRtbGJNY3IzTHlFT0lSM1FWZzg2RDh4Y3cxOE9YeDNURWdsd0ZfWTNUSThRMmNYWi1oTWFGN1dVWV9jQmZZZVB3MUlUZXk1dXBOVHJ4WG9OcVBNdW5MVE0zaUdzVFZTaQ?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "BNDES reduz exposição à Petrobras (PETR4) para 20% do patrimônio líquido do banco - Money Times",
+     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPeS1rV2htTVFxRjZMQkxoUFFxNVZLUUZiUFdQQThPbmYwb1ZVU2cxeHUtMXhMb0tRX1dORjlKMG5YRVVVd1lSd3pGU3loTHUyTGp6Q0FULXlnRGFobzRiSmhUZWZtTTJSNURHVUdFWW1sd1VBaGIzamlJX1IxeXpJWEJhYmRIUzlOajZ2ZlRmQ09lUlBDcTFjcFZyelhBc0luSGVpQW5yU0x5d1o1UGhxYzlpU3Q?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "BNDES corta exposição à Petrobras para 20% do patrimônio e volta ao limite do BC - BPMoney",
+     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxON291Q2Q4N2x0aUZtZXV2OGIybjlMLWpwNTF4MUdWYmxnMkZYWFVUZFFHNWN3cm5fdWFtWlVvWWRKMzh2M0NwVEtCbjdtN0JObzluMXdxcVNuc0hPMWRVRkRaQlpoS3p5TjZGQWpMb0dqcm84STdlekdfY05FbE9aVjBGUXphYjFDSXRyLUVZYw?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "BNDES tem lucro de R$20,3 bi até setembro com venda de ações da Petrobras - MundoBA",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQTlFhNDhkcGdzZ0JjYnlIQlBobExDTjRPR1JSdW1qXzVQVjEwei0xbWlhbnpJdHFsMi1hdGNuUlZlcHVTRml3SVIxSjFtVlZvVWs0ZXlRU0o2b3BEV3FUb0pfSDdQaGlnRG9mODVBaklSRnhDOEk3eWdqS0JYUFR5bTRmOWVINm90OUpYRWVaUzlaanVfVkpNNWxidXY3a3dUS3FPal9Edw?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "BNDES diminui posição em Petrobras (PETR4) após valorização das ações; entenda - Acionista.com.br",
+     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5CYmlmMk5Ka3kyM2FxeVZCMXJqbU1oT2JsVXVEVU4tVDNjbmQ3UVJIcEJmaGFuWmp4R0NhWU1mX0hPT3pxcVhBSHNzUkVTcVRoSHBYUmtGMU1mb2ZXeFVBc21mZGJJMWxFUnR5QVZfUQ?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "BNDES e Petrobras destinam R$ 10 milhões à agricultura familiar na Bahia - BA de Valor",
+     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNaTVMNlNXQjkxTlNSN1ByU2ZfdkRLSGxhVTB0YlpsLV9tYURnSVY4M3JyUTRHWXllMEhTUUQ3MGl3a1dsOXNLdmRkV1JTVnpOcF95Q0VtSUZPN1FuNDZGUnF3Q3cwWWxRMVhINFhFb3V1ckZPaEpnekg3cFVORXU4SmVzQXVsOVlCV3NiN0JfSVVJWjhQT1padDE5b0E5QQ?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    }
+   ]
+  },
+  {
+   "empresa": "O Boticário",
+   "segmento": "Cosméticos",
+   "cidade": "São José dos Pinhais",
+   "estado": "PR",
+   "funcionarios": "21754",
+   "busca": "O Boticário",
+   "score": 26,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo Boticário constrói nova fábrica em Minas Gerais com previsão de 800 empregos e capacidade para ampliar em 50% a produção de cosméticos - Portal 6",
+     "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNanVvNFQtOFVkSTBBQWhKT0NrYXJCZk1aMklPSEVEeG9aVXlwMXBwR3VWdDNJcnhER2xidE9jWGpyT1hRM2hmd3RHN0FBaGZITk1FR0hleUIxZ2VMQjQ2U1pSLTlXR1dZOURsQ2d4WkRqbUZxWG5SUjZZYk4tTWdNeGhSUm9NWktzVm5LT1FIUWI4MVQ4TjFSWGlvQklXYnZEczlNQmRwbHFENTI0N1BPdDhEY0NIX0d0SG5aMnFfRGVkSUZnbHRBaGhRZ3ROczA1SnNGRjN4ZkhQNFZmVl9mRllpb3ZwSjY4N2FwTVJMZ01LVTJacTdHRUZ3RFJVMWd2YVlUdw?oc=5",
+     "data": "2026-10-30",
+     "pontos": 6
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Grupo Boticário suspende projeto de nova fábrica de R$ 1,8 bilhão em Pouso Alegre, no ...",
+     "link": "https://www.itatiaia.com.br/brasil/sudeste/mg/grupo-boticario-suspende-projeto-de-nova-fabrica-de-r-18-bilhao-em-pouso-alegre-no-sul-de-minas/",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo Boticário suspende projeto de nova fábrica de R$ 1,8 bilhão em Pouso Alegre, no Sul de Minas - Rádio Itatiaia",
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPVUpjY1B1RldNVHpNS19CNHZMV24xVjlwS3FBZ3R1UGFWSkl5YXZ2UFhyMDc2OE1GYlpxTFplWkVwWktqb3Q1Tjg0RVJReHg5eHdZYmJvYkFIZ1JXdnZ3dWFTQjRFakx4a0dLalhLWTY5Vm1BakRveXVIUnNGc1I4ZEh1eUVwUTJnaVU0SkJfVEVHNWlKdllvcEU1QlpWdlZaUVNzd2NicVBWWW9pZTdyT1FVOGJTSlQ1ZkNzaEFjbWZkRHVHMlIxamtZUHU3LV91c19Tbm9XbmhQUQ?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo Boticário suspende por tempo indeterminado a fábrica de R$ 1,8 bilhão em Pouso Alegre, no Sul de Minas, que prometia 800 empregos e 50% mais capacidade, depois de comprar o terreno e fazer a terraplenagem - Correio de Minas",
+     "link": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxOYlpVOEM2QnpkdXozX0UyaTgyc2pjUGZyYjlMZm5EV3dYblRvR2pmSXkySGYyQ19ocFRjM3ZpQkNtR051RmpvYWh4V1R1Sk9pZWJoc2JkN2t3VzdiWmFaVEtnM29LWjl0cURRNnI5WGZLTWpqSlFYSF9EN01hTk9lZ0xycTZ2aWdUazY5NkhaUk5NYzlEWnAxR1VpV1VTaHZVdW5MdVVmeDhobGdrLXFyc0tOR0t4ZXczN2RJSDJiZ05Ea1NBR0lSQm4wc245TElEeGdrMmFvSHR1dG9NemZIWXFBLXpxVGRlbktfU042QXd0QmRwMFFQM211Sm9oajRGTXdYMDZ3WllzUkN2VXFRdVNRNlJDQU1ub1pjRWNNS2ZBM25ITllxaDlqNzJyS3V1NDk3S2RCOUJxQzNSM1ZydFVITkQ0S3QyT1NvVEx0S1QwSWxnYmhTeA?oc=5",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Grupo Boticário interrompe obras de nova fábrica no Sul de Minas - RÁDIO ALVORADA",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOVXNZaVh0LXdmU0JVSkpfTEM2d0VlLVNrVWRGTkUwSGlBQUMwZTg1WGIwWWJvUFJ3Z0ZGOTJfZlU3ay1RTzJocTRxLWNzSzhwMXZiY21Cek1kVnl5MGNRM25tMWxYcUVuLWlyOURFQU1YY184NlVzOXhGSUhQLS1ESVAwRENmSzAxTWFyUzMxTDZaSlplUnB3clJpQUZZZmJyUk8tZUduT3RWUThnMjZKTEVZbGlKdUhQN1lieg?oc=5",
      "data": "2026-11-17",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Grupo Boticário abre oportunidade de emprego em Salvador com mais de 20 opções de benefícios - Empregos na Bahia",
-     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1VdzkxMnRDQkl2ZmNteGtYQmJYcURhX05Oa29aYjAyaTlsVVZiNkNjS1dqVUp1Z2NoTkx3NmRCUmMtMFh3OXNQMlJ0amFkWWxKTUhPNTh0SkVyMTkwd3IyV0Q5WQ?oc=5",
-     "data": "2026-11-17",
+     "texto": "Grupo Boticário abre vaga para Operador de Produção em Camaçari; oportunidade também é para PcD - Empregos na Bahia",
+     "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPT284VERPWTR1b0pBYnAtY1JVQlN2UGxKNy1uR01QcVBNbkNELWZHVFVrZXVHd1l3dTV1cXFGcGd5V3BWQmpPVldaS1JyY2d2UHBtd1hmRE56YlY4ZUdHTnNjMUV2YTVSajhvS0owWU8tOEJUR3JZdEFCM0FFWUhuZzdSUzdpdw?oc=5",
+     "data": "2026-11-04",
      "pontos": 3
     },
     {
@@ -603,214 +744,73 @@
      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPUXNTZGVFbElIZVQ3ZUJuejkyME5wNmtyTXE5UHp2YjJ6QmFmbGtrTDYxbE9HekVsbFlqN1gwVGRUVTJ5MmZsRkNXcm5laUUyY2tnVGk1ZjdlaXRYZXBLdGhLcFVGWFhtTnNoRm10S3NsZ2tYU2VRZmgtTHMzWFhsaTNyMWFFaGVCYTNGQjFIb0hNbFlWZWUwVGhjdkhHdHFfS0E?oc=5",
      "data": "2026-11-17",
      "pontos": 2
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Grupo Boticário confirma suspensão de investimento bilionário em Pouso Alegre - Rede Moinho 24",
-     "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPODdGQU8ySzFQVUpmazl5dHN1TzBZaFU5TnpQX0J2RzNJUld3Wk4weUFuQTNpQXZTWEZxSzhMb1FmRnNwR2JnaE9EQnA2ejBpUnhLdDlYMW4xM2dyS3V0dTlqal9Bd2NBX21IU045VUxxM0R5RHlfMVFVYUY5SXVadXVIaHZGZ0ZqRDNicUlEOUp6QW1qc3RGVTMwMHdwMlFwTnfSAacBQVVfeXFMTjQ1SDczSFlQa2ZvRlEtbm9DOEdpaUstNk8zdjMzQ2FBbi1MNzlGNjZ5cHdQQ1VycEozcjJNRDI3RzdHSWViOXFtcFd0YXE1Rnl4ZzUwSXlLTmtpcXBxRUZ2QWg2T01xZkZfQTEyXzFvNmhmZk8yR3c0ei1DUi1Ea0N4MXg1VjdHUnlRUmNfNDh6bElSTzhNLXZkb1RkNUtZLTlKZkpoSG8?oc=5",
-     "data": "2026-11-16",
-     "pontos": 2
     }
    ]
   },
   {
-   "empresa": "Vale",
-   "segmento": "Mineração",
-   "cidade": "Rio de Janeiro",
-   "estado": "RJ",
-   "funcionarios": "72581",
-   "busca": "Vale",
-   "score": 25,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "Ônibus voltam a circular em Jacareí após 3h de paralisação; sindicato cobra participação na licitação - Vale 360 News",
-     "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPZHNnd0NHMlNFbGVPcGxoMEl6c0VTaTNFY2dZN3VwYmVvLTFEeGNVTUxYeE82MDZOY1VKTzBZb2ZnT2sxVjdob1M3Y2ttTjY3Slg1Qy05YlgtQnhvdkJ0NHhnNXQtS2tlOVFNcE5idThDMGVOLW90UzFjQTI5NTZnWUZnSFhwc2FEV0Jkd1hGaXRHb0ZXN3dtd0RaaHh0SzRfY3dfSHVLb1lObVJfUFZuM3FILWhmclZoLWpwWTcycjJjbUtkazNfNVRwekg?oc=5",
-     "data": "2026-11-18",
-     "pontos": 4
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Edital do concurso de professores de SP sai com 301 vagas no Vale e Litoral Norte e salário de até R$ 5.565 - MEON",
-     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQMmgtRDdhVTVTWE5PZnctS1RaWjVjd3pBcXBNVGZEZDBaZGxscFY4YWFSSTh6UU1TUG13dFVzRUxOUUFyRnYxYWVhdl9oOWp2XzczSDRSVVltaWN4ZHh3NVdndHR1YjZFRlhaZURTelQ0bHJwY0ZZQm5WcGJJRnNQNjFxQXpzUXFsMnVTb3RNY2NBb185Ry1vaXVoa18zUlVXTHA0Zm5hdDBXc0U5RlhYMHYzVDJkYUpGWFROSHBwSDhRb1Bn?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "IBGE abre 26 vagas de recenseadores que atuarão no 12º Censo Agropecuário, Florestal e Aquícola no Vale do Aço - Portal Diário do Aço",
-     "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxObXYybE9LUjYzS1F0YXpDN1oydDdnbGhYVHMwc1dpUUJ2NWNvWEgwTDZCa09UbXJzM0FRSWd0TkpVcjF6WS12SktDWmY4eERRTE5IRmJDRWg1STdLNFRNcFVwLUFkOVBDSGc2WTBianFCZGdJc0RLdTQ0MndpaXd5WW5wRHhtZTNoYmE5QzAzUWZldEJIWkt4RTQ0VU44eDZGd0N5WWVJOWJqNVdLb3NlbDdJbEl6di0tUWJST003YVBjdDE0dERwSkp1TVcyRUE2d0hZZFFTNld3azdBQnIyX3l4MlBMZ1pGV0RuMDkwVGRPdw?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Obras da BR-040, Vale e CSN chamam para vagas de emprego no Sine de Lafaiete - Correio da Cidade",
-     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPT0tQMkxEMTR4QVF3UWdBZGhNWHJpNHNoQjZWR3U2cHB0M2R0TDZqYnkwZ1VPSUk4T1RHODY4MGpjSy1DdU9mWE5VSy12RHJoR1Y2MzgzMVhvcEgtUUFNSDZBcnRuOEpxdkJJaVlpUnBlUXpKS3NSWHM3azR4cDJfZTVOSHQ2SlhDUzRRSnFSenZJVUJCWTZKY1AwUkxmY2NGdVJ0d1FCelM4QUJ0TGtoU09XQklraGFNNzlwMjlqcnFGdWVrZDVUbW5R?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "C.Vale fará entrevistas em Maripá para vagas no complexo agroindustrial de Palotina - Folha de Palotina",
-     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTjNqZy13eGNLa1Z4ckE3M2ZyQ2x5TGFtVTZTUldzT0VJZS1ZVE11SjlVRXlXZElBZDBtMWJ2V001R3ZZMnVFZmlDMjY1dVpURS1adC02dDVoV3RNdUV0ckRNN1pWOVE4R2FvUWc5YlNadVVfM0ZVUE4tRHBfWG1hMV9XYmxlb0ZCd3pJaUNPNTd3eTFJWDRaNk9jQjdhUzVDdUx4UlhOaEs3eUVJNmRCRElnNlZDSE1faWtRb014RHVtUQ?oc=5",
-     "data": "2026-11-18",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Vale do Paraíba tem concurso com mais de 100 vagas e salários de até R$ 18,5 mil - Guiacampos.com",
-     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYi15eW5HNTdORlJnTnhrTGFNTUxiUktESTFSajRfOHRZMHByUERkN21IOHRrYklhWXFfb09ySU96VUlRb0ZCWEtaZ2ZhcnhiXzBkWWFreS05TnVlZlpBQzdyWjktekphdV8tSXZKdlNlOFJDYllTWjVfandfVC1ndldkVUNfOWNPUW9MdFBVZHRQaE1vdUtyeE14MnpEeFNwX3ZpaUxmLWxQZw?oc=5",
-     "data": "2026-11-18",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Cetesb abre concurso público com 107 vagas e salários de até R$ 12 mil; Vale do Paraíba tem oportunidade - THMais",
-     "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOWDlvQVNGTXQxUG1ub2xtcTk3VlBWazJrZnl3U0JGcnRhdTJZeWttWVFfNEtwWDNTeTlmMHB4MDFWcm1EcVpZVGFzR2JyYUVSUHRpWlZoQ3Rscmg1VEI1TVBRWHZIdXBHZjF5WThJTjlxWWVpY0RBVWwyVjRibFZZdy1lUUZzTjhWNDUtaHl6OGNyS251aTBNSDVtZDhNamtfZ3dER3ppRWZFR1RSUVhFNkpXcTNXRXJDUlduaC1iNWFEQ0pIRWd2QzJ5eVVqSzZYeWRqaVFBZF9Sdks4eHp1d2NhRjhVc0k?oc=5",
-     "data": "2026-11-18",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "OVALE: PATs de SP oferecem 16,9 mil vagas; veja oportunidades no Vale - sampi.net.br",
-     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOY0k4WkMxeGdSUll5SEtkQnpoMWNIRFBQR0piMEdiazJUVU5GdXhNMzZhU0NjUksxQXgweC03cm85aVlXa0ViTXR3ZVBVZXdpRkt0TW5zZ0xSbmw0aWVBcWlLcDBJay1rSldjb1VreGR6V1JfS1JjTFk1ck9zeDRoQjFrXzZfRnU2YWw3Q2ZZaEJmQWZFQWw3Y1lxTUZPeUczY0wtV0d2NnBDTEV6SnFuQk1RbFVVRHc0SThLXzd0UGQwTk5LSWFj?oc=5",
-     "data": "2026-11-18",
-     "pontos": 3
-    }
-   ]
-  },
-  {
-   "empresa": "Petrobras",
-   "segmento": "Petróleo e gás",
-   "cidade": "Rio de Janeiro",
-   "estado": "RJ",
-   "funcionarios": "59965",
-   "busca": "Petrobras",
-   "score": 25,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "FUP cobra agilidade da Petrobras com fim da escala 6x1 e igualdade para terceirizados - TAGD Advogados",
-     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNOGxXWVozb0ZHV245Z2dHZ2RvMFQ4bnFfYXNabVIzY2dQbUdjRzdrS2lobHZKcnN6aGxhblhtbnJzTFNqZF9TMjNzeko0MEl0VzVqc3E4UnNfZzZaVVYxQXlFclJocFNoZm5DSV9DNnZGQkdpUDBjQ050STJRYTBjYWhwb2x4NVJveFZxb0hZejFPdThHNGM1MVk4eV9sLXd4RjhkNnZuaW5RQlVNTGc?oc=5",
-     "data": "2026-10-20",
-     "pontos": 4
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES reduz exposição à Petrobras para 20% do patrimônio líquido do banco - UOL Economia",
-     "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOZDB1a2IzbVJIMzJQVEZ2V212SVB5VkszVVlHa1U2aHc5RmtYSzNQMHAzSXNaM2tzQlEzYmtVUFp5Y0FHTGxpbUhSRG1qbnJUdFBTd1h1Q3VORDBrc0FfamMxM0lhYjdlRkRxYTFPLWpMZEVUSlhaVXdYTExQRi1ScEJGM2FUeV9fbUhfVVZxbnhiOExhME9PWTVnaVo5ZmxIUnNPWEtJZGR1a0Q0VzV4YjhNYXo2RUkyNVpycVIyODNSNjM3SGwtVm9YelV1U09qQllhdVFDUTE?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES lucra R$ 20,3 bi até setembro, impulsionado por venda de ações da Petrobras - Tribuna do Sertão",
-     "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNUXZPSU5zSnVjZzdBOWZOUEc0ZmlBdFp3TldrN1NiVnVCUjk1WS1nSlA1ajVxRXhGb1dqdEdnV0ZmSDlWbzdaQjNzbC1hYVdUQU0yQW5ZMGxOeVdXMHNmQVhCUkl1QW5FRHdkb0JzSTZ1dWQ3bzMyd2gwb2JJeWRNS1BtUVFyV1BzYUZKR0RYbXJRTThyekFrZWh1TXZzYThVVWhvRUp5RWtBMGR5dXV3VU02amNSQjNaQmRsVmloZENqSmVVSEpRa2pjUDUwcGZZOGhsaw?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES e Petrobras destinam R$ 10 milhões à agricultura familiar na Bahia - BA de Valor",
-     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNaTVMNlNXQjkxTlNSN1ByU2ZfdkRLSGxhVTB0YlpsLV9tYURnSVY4M3JyUTRHWXllMEhTUUQ3MGl3a1dsOXNLdmRkV1JTVnpOcF95Q0VtSUZPN1FuNDZGUnF3Q3cwWWxRMVhINFhFb3V1ckZPaEpnekg3cFVORXU4SmVzQXVsOVlCV3NiN0JfSVVJWjhQT1padDE5b0E5QQ?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES registra lucro de R$ 20,3 bilhões até setembro, impulsionado por vendas de ações da Petrobras e crescimento na concessão de crédito. - Repórter Maceió",
-     "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOUGxRTllNbjRiYVZRSEZHVTFTb2V4NzA3YXR6SndaSUJSVUJ4V3NsejFTR3hCWGZNVFFKWXRaRnVfX21QU05CRmg5cXhXSkJ4M0VPQzVrZ1p2RGdRVnByQUxKOGdES3pUTkZWRnpxSnhQSGg5T2V5MmVBOVd6S0poNEJKa2ZNYWtldURoWHpjelhxcGh6b0drUkE0aVNZZkhmQWhKeVRQUUt2QjZ0SlRoUEpVZVoxWUM1S2c3M1lCX21JbmVuX0c3dTlCZlgwdFlqLURYVUllci1vdXktaDRBYmhQWjc1UHJrNFVlcG9idXFZQUtPMy1pWQ?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "BNDES tem lucro de R$ 20,3 bi até setembro, puxado por venda de ações da Petrobras - Jornal de Brasília",
-     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOOV9VMTNKU2ZHM1JScTBxMG5malRCRXh1SHVTdlRXWWZVdklSYl9ZcF8tdG1yWTZoSnRpb2JSTWxiRU9WUHlqNDR5RmxzMzIwUkRSNmZwMWRJWThwV0lkcDlhN3l0VEtqODBydUJwXzNjZERvUTFxSDYtUVBrcXp2anpMUEZ0a1lQbUYwS0RVNVBzRW9rUmRUcjdxZEU4Nk0zcml3S1BLemFxVmRVa3VLY3ZNLV80VEFSRHBvUFBoWktnRnY4dTRFcHBB?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "SENAI Betim divulga 40 vagas em cursos gratuitos da Petrobras - FIEMG",
-     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPeEVEdnBGc2NRdS00WkhDMy05cUZlWDN5bGJrR1dVY3ZNenFiclJhNjY1Um81bUxxS0NHZ1UtOUVzektYSzVObVFvVl94NjFTak1OQlZockxESmE3ZTBIOEw3UWg3NTZ0b2oxYlRZdnhiSV9sOUQ1OW9Wc1VlZ0tIU3RJUE0ybzlQZHhyVVVfNi1XSnZUa1Rxc19IRV9xeDhBM2E5cA?oc=5",
-     "data": "2026-11-12",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Programa Autonomia e Renda Petrobras tem 80 vagas gratuitas no Senai de Esteio e Porto Alegre - Rádio Guaíba",
-     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOVGhqb3JLeXlnZm9GZFN2V0hWZU83eU1Qa0ZsaFAtT0RuNzdKaDRYbjN1UFNUMFNxai1oeFZlNVJJX1RPTFgwWjBkU3JNWlE3X05MdzhUU2tITXk4OHFKYm9wV3B6V0daandPeGNjbDVrS2VTY2IweEg3aTg3NjU0bjZoa1ktZ0ZaNkR5UkdQd2FCT1V1MGhSTDh1U0dQZ1lmOFJLOWZSQXNhX20wTjQ1MFVTWWZGcGlucXc?oc=5",
-     "data": "2026-11-12",
-     "pontos": 3
-    }
-   ]
-  },
-  {
-   "empresa": "Seara",
-   "segmento": "Alimentos (carnes)",
+   "empresa": "Braskem",
+   "segmento": "Petroquímica",
    "cidade": "São Paulo",
    "estado": "SP",
-   "funcionarios": "23143",
-   "busca": "Seara",
+   "funcionarios": "10670",
+   "busca": "Braskem",
    "score": 25,
    "sinais": [
     {
      "fonte": "Notícias",
-     "texto": "JBS anuncia centenas de vagas de emprego em fábricas da Seara em Santa Catarina, com contratação imediata, oportunidades sem experiência e benefícios como plano de saúde e participação nos resultados - CPG Click Petróleo e Gás",
-     "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQQ3lxYjI0Tmp4ZFhsNlEyZWhxMFVwSGY3eGZqZVAyNEIyb2ZmaFZfQjJCN1A3dnpVY1RJVjJrVWVoOEFTNjRkem8wcngwemhGRzdPbkQ2SjRmekc3dFhNNHBvT2pyMGc1OXAwNFF5UzNhTDBVQkxGU3F6MG9uV1VfNVh0ZWdDOWJoemlDelV0cDU4M0Q5RjRLUml4X1RzRkdrSmRpQmt6LVZnZTRTcUV1NWpIUDRvTmZYbFkwQV94NXlvcTBsalBtMlMxYkJybUx3N094NVFDV0VjdndlcmxqNlZMY2x6LWdJMnlpOEVZbzRXYURhM0xVU3R3?oc=5",
-     "data": "2026-11-13",
-     "pontos": 6
-    },
-    {
-     "fonte": "Alerta Google",
-     "texto": "Confira as vagas de emprego da Agência do Trabalhador para esta quarta-feira",
-     "link": "https://tasabendo.com.br/emprego/confira-as-vagas-de-emprego-da-agencia-do-trabalhador-para-esta-quarta-feira18-11-2026/",
+     "texto": "Investidores da Braskem mantêm conversas para evitar reestruturação judicial Por Reuters - Investing.com Brasil - Finanças, Câmbio e Investimentos",
+     "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNaEhTMm43dTFMRHI0Mzh0RkdVcUZhdmJuVDRGTEtvdFlramJmUW82TTZXNjZvc1J5Y1F3dXNGWnBDV1pPZzZkQXh6UTRmNmswX1lZZlp4bHJkMlFnUnlVWkpMdDh0OTlfR0J5VmwyTEw3RzhvUWx3RVRDcG01Qjh6eVhBS3kzU0F5OVNVWGc3dS04czAyMDIzVi1fZUtlMW5IZWFkZXJPT0FiVkFWMk51aFphU1RKMWNuTzZSNU9tN0hHanZUbWVsQ0h3TUM?oc=5",
      "data": "2026-11-19",
-     "pontos": 3
+     "pontos": 4
     },
     {
-     "fonte": "Alerta Google",
-     "texto": "Confira as vagas disponíveis na Agência do Trabalhador de C. Mourão nesta 5ª feira",
-     "link": "https://www.crn1.com.br/2026/11/confira-as-vagas-disponiveis-na-agencia-do-trabalhador-de-c-mourao-nesta-5a-feira-191126/amp",
-     "data": "2026-11-18",
+     "fonte": "Notícias",
+     "texto": "Braskem amplia prazo de inscrições para estágio com duas vagas em Paulínia - noticiasdepaulinia.com.br",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaTlLbnRpc3FhT0p5dGNNQXIwTVRpVVN3UUpGSGpOeFBHdE5UOTRPQlg5Q0ZRdW5feXJ1a0VZNHY3eF82SlZ1cERuRnpUam1fYnpPeWNDWENfTFlXVjhEc3pXZ0dwcXg0OWRfVVZpOGFZOWFGSTlsZFVzUVRlU1NtSm5RdjI3WDUwd1MzSVhwZ09ZVlA3VWc3c2FMZUYzSFFHT2FjZ0JudjUybXFxM0E?oc=5",
+     "data": "2026-11-02",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "JBS realiza Feirão de Empregos nesta sexta-feira em Seara - BelosF7",
-     "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSEthTTFTRjNNMjlHYk1mNVZBOTJabnUtdWc3MkY1Y09KSHVnNVphT2hpRllLb0h2RjZEOGRsQnh5T3U0cDMzZGxiLTlzN2NNQ1NyTXpVYTF0Z3RzeElEaEl5VWVLc245VkhDWnh0TlQ0UjdiOWd4SlcxOVdUTkhfdlJlVXZ1c3BL?oc=5",
-     "data": "2026-11-06",
+     "texto": "Braskem prorroga inscrições para estágio 2027 com 15 vagas em Camaçari e Salvador - Relata Bahia",
+     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQQm1Ta3VNU0w1c2Q5Tk56eVB4b0RpNUItWlJuVnJjQnc3LTZ2c1oxa3hwbVVzT2lWaTRiTXFkdlVZNTNPYVc2RkNkWGdobFRpQXlzRUxNMng3ZHlnSjI5ZGpuQXFzZjM0NnJndUx1TkQwMkpZSk5fcHFLaVFSaHhmeEdrOWhHRGdfZnpWUA?oc=5",
+     "data": "2026-11-02",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Concórdia e Seara somam 325 vagas de emprego disponíveis pelo Sine - Atual FM",
-     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPRlV3bWFxOEgzaVBWbWFoakxRSkpLMTN0MFZtalF5LUl4aldhOVprZHJDSThPd09nbWtUQk5lOERuZnhuNk4ybTdOdF92WlJuS3k1SUN3dFlseHpWczZpTFVmY0VyWUJ6V1hkSURRWklzZDAyd0syWUFzYzZ1UzY0N1FfZ2NhVGNCcnRTVmtMTEd2dFhI?oc=5",
-     "data": "2026-11-06",
+     "texto": "Braskem prorroga inscrições para programa de estágio 2027 com 15 vagas na Bahia - Blog do Valente",
+     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPUmhzUjgtUXFUaDcwOFhYcUhKa19NSGZYZWlNR203dG1fcHFENFlidVd6ZVZuQTFWVkI4TlRxZy1zUzVDOFY5WDNvYmxsNDExM3Q0SWl0ZExxSnFCVGp2OGpSd1Q2cUlOdVJpT2ZyMndiVmhXbi1xdHFkTlZTY2dwUEhJWUNEdTF6a3c3LU5MeVRteW9ybjh1QVFpbVlOMGZGdVRjaG5fVHRjOXZjc3M5MmZsV25IWWw1WFhVN0gzWmp1SXpva2hxanEtN3I5TEZM?oc=5",
+     "data": "2026-10-31",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Feirão de empregos nesta sexta-feira oferece oportunidades para trabalhar na unidade da Seara em Montenegro - abc+",
-     "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOeVhaRm9lS1R1NHd5Nm1meTRPc3BDdDlkR2UtbUJKeWNqT1VaZUtrby1PSy1veWFPTVdfWWtpVzVqdVlBaU8weUhxTXpSbFNYZVEtZS1GRHJPV3dOaTg0QnRuX0pYaVRHcU5abk9id2RTSU9HUFV4dHlHRy1RcFJpaURoWk9ySHhuc3hNaEZIMFhfbWVRekZwZmUwYVhwNGJXLU56alBRR3BZUzNtcDNyU1lHb1VFREhXZUI3U2Zhb0hGeXpwSFFSX01JenBCNWtoanBxWldZNVU?oc=5",
-     "data": "2026-11-05",
+     "texto": "Braskem abre 32 vagas de estágio no RS com bolsa de R$ 2,8 mil; veja como se inscrever - Vale Notícia",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTWR2bktqb1E3d3VyTVB0NU9ERmxTNkdiYndRSlhydlhtY3NWdVNqZ2xPOVg0QjdjTC1ITnBsZjNOeXBEQ2psZWhMZVBhdFEwTklGQTZpTzBTZThlMk5jaDBQLVk0ZkhueFpEQVd4Vzc3UDZoUm1GYlROXzBSc2h0QzlvOEM0MXRqM3YzR1VEV1RVeG9oTkhUS1E1aU5yUHhIU2M0WC1MUmhtVW93SEU3ZDJiQ19fQkp1VVJaZNIBxAFBVV95cUxQSWJ4UzZYZFVPMkwtUEJQSk1pZUVpZ1Babk9iTkRTWGhJckR0OHJkdWR6cmMyWWVzNjJMMVJLVHJicC1EZFBDWEhPbHJoNUtkZ0ZRMzNMRzhJUXpLbF9zeHlVaTBaQ0t1T1J3OEFySlFxVWtrTGRXcjdxSEV5ckxaaHdtNnVjaU5qS2FZVEJPYjRScTgtQUh2OEdfdE1SV3NsV2FzamoybnBtejhUYnJaMFZEU3ByYmIwMWdoanNPSGxtNWFy?oc=5",
+     "data": "2026-10-30",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "JBS abre 50 vagas de emprego em unidades da Seara na Grande São Paulo - Feed&Food",
-     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPTkMxaDk1YXZCYXlTZUFBN2UtQWx4RjZDMmdKTzBna3VNbGliLVZDTWN0NXQtWkpEZVRVZEozemtrd0dvdFJsQ0lwVWpRaUI2Z3M2SVQtSjliYVJ6SzBqa2hfSG15bk9sRlFPeUg0VWVURFowWmllcGxGdlV1QWJDb242VDRaQzhHcm1MaUl5S25ZWTBXZGF2SDJR?oc=5",
-     "data": "2026-11-03",
+     "texto": "Braskem prorroga inscrições para programa de estágio 2027 com vagas em Salvador e Camaçari - Alô Alô Bahia",
+     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOSmJ2aVBnRmxtNm9vWV9ORUVGSDZMNUZBd2JXYTlIYXpfSXlEV3BEMmRnc3RmdHM4bVNxZVBmUWRzUWlIYXpLc3Z5emx5YlBrTDJaV2hIZlR1NXFhb2pOLXhkZzl6Z3VSTjdDNkgtT19uSk05NHItWXpQWUo4N2FMV1h1eU5YRUtJVk9ZOFgzVXNKRUNTTUtKSjBzckV0VERNUHNBb2Rpd1hRVVNEcVE4ekNKaFI2dUdZVHFoNFhJZDIzeDFYcFR3TkhsQldTNWwz?oc=5",
+     "data": "2026-10-30",
      "pontos": 3
     },
     {
-     "fonte": "Alerta Google",
-     "texto": "Seara realiza licitação para aquisição de oito tratores agrícolas destinados às associações",
-     "link": "https://lanceseara.com.br/noticia/mostra/seara-realiza-licitacao-para-aquisicao-de-oito-tratores-agricolas-destinados-as-associacoes/",
-     "data": "2026-11-19",
-     "pontos": 1
+     "fonte": "Notícias",
+     "texto": "Braskem oferece 12 vagas de estágio em Alagoas com bolsas de até R$ 2,8 mil - Jornal Extra Alagoas",
+     "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOa1oyb3ppMGhoMUNwZEpQWHVzSUNjS0ItYVlCLS1TSWJraGV2c3pCdHpfWG0zU3ZMOEpESXNGMC15MU5Fem40aU5uRzZHRXJHMzY5cWNLbklDeW5nZjFybm9JX1daN1NITGJ4R2xzaG90UkZ5S1VNU1R6Z1FFa2xjWnkxT1JtaTl5ellYU2t3VVJneTlsNEhhV0UxZHNiNkdsN1dxa1doSDB2VE5XLWZ3M3d0Smw1MWpMVFM4X0trWFdQYjM4ZFgzWWlwZ3J0Zw?oc=5",
+     "data": "2026-10-29",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Braskem e EssilorLuxottica abrem vagas de estágio - Valor Econômico",
+     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeS0ySlFWVmpzbjZaSnFpRTBRNkVjeXZpZFh4UUNxNl9nZTk3NnB1ZE9raFRRRDBLdmJkWkQ5Y1NTd292dVM4Y0tGSFFYUVdSNUY2V2JaLWsyVFItYjAydWlRY0JJTnJWS1NDZFpZZzd3YjNsR291SGU4MDAxY3AtZ0lVR1NnOTBjWDBsVjhrMHRjV2hmRzBJdXB0LVltdmR0Q3RUTURGakp2V1c1RHR0MGxNZzB2VldxRHBLY0xhS0Yzd9IB0AFBVV95cUxQRzlublFYVU55cFJlWGhtR3NTOU8xalo1b19WbGh5cDNXQ1JjQ2xoaGl1WEpiblA3VkpLcE55MzZkb3VSS3JIY3pkbEFQVnZqeER2TFltX2VneWNRb2sxdHhHdXN2aTI2NzRRSWJpejFSeDh4eUtWSjR3cW5vY3liNi1US1RIMzhOWVA1aGh1alExdkFwMlZZQVVJX0JxX1E2OVpyRno4M3NNNVZCd2dTR3NFNDRsdEFSNHNMNUhVMTNad3ZXS0FfR0NSNUduOHFL?oc=5",
+     "data": "2026-10-27",
+     "pontos": 3
     }
    ]
   },
@@ -823,6 +823,20 @@
    "busca": "Embraer",
    "score": 24,
    "sinais": [
+    {
+     "fonte": "Alerta Google",
+     "texto": "Eswatini Air mira expansão da frota de jatos Embraer e prepara entrada no transporte de carga",
+     "link": "https://aeroin.net/eswatini-air-mira-expansao-da-frota-de-jatos-embraer-e-prepara-entrada-no-transporte-de-carga/",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Embraer abre vagas de técnico e analista em Gavião Peixoto - Araraquara Agora",
+     "link": "https://araraquaraagora.com/noticia/59221/embraer-abre-vagas-de-tecnico-e-analista-em-gaviao-peixoto",
+     "data": "2026-11-20",
+     "pontos": 3
+    },
     {
      "fonte": "Notícias",
      "texto": "Embraer abre vagas de técnico e analista em Gavião Peixoto - Araraquara Agora",
@@ -864,20 +878,73 @@
      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPcnNmeVlyMjg0S1FxU1NlaldDeFdiTzBRdE41THJycUNyblNnZndrUHJDN241R0hJbElyN1EwTWQyQUpMdGc3T1otR0h0VmZHRlNybEtaeTJiUERLbUY5OFJiQUpxemlWOEtWeGpnT0hWTmE0aERyNUZMVnRXRm91NWFldzhDeGFROTZta3R1WWwzeWRvbDhnMVU1MFVtTS1RX0NrYnN0bTMxdGFOZmVuSDdjdWY?oc=5",
      "data": "2026-11-10",
      "pontos": 3
+    }
+   ]
+  },
+  {
+   "empresa": "Gerdau",
+   "segmento": "Siderurgia",
+   "cidade": "São Paulo",
+   "estado": "SP",
+   "funcionarios": "23378",
+   "busca": "Gerdau",
+   "score": 24,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "Prefeita e Sindicato dos Metalúrgicos discutem empregos na Gerdau em Divinópolis - Portal MPA",
+     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbEt5aU1SV09yNDJad3hILVdrUzBDUGxHUFB0cjBudVlMcnJ3RkVqVjdlWDRKMUNrajhsZ05vWXpUUlRBRm5vci1JSmlNWGl0TEcxMU5PUWpyNDRZYWZoN1NJcmJ6dU05OWpINW9ieUxtVHM3Y0xMc0dKMGF4ZVM4Ml9IVFJKNHV2dG9iT19UdnVYNmNPUlhVZHNxTQ?oc=5",
+     "data": "2026-11-09",
+     "pontos": 4
     },
     {
      "fonte": "Notícias",
-     "texto": "Embraer estrutura expansão na Índia com linhas de montagem de E-Jets e oferta militar do C-390 - Brasil Inovador",
-     "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQUVdhaUZIV0lzNDVlM0dmQUpJS1JJZTctSXc3UEY3WmFGS3NtS2pfRXFHOFFuLS1ac09pSWZkYTlfZ0tuUXBXaG5LbXlRNWhscXlldmoxM0NQTGR1Nm5pU2dUcUZtOE9NLWI0RlhRbG9XYUxzNjZ1X2lIRzlqY3hMbHN6WVF2ZWlmbDJlUllpc2hUUXFEWkVhWFd3WGdnUFNWMmhYQzMzZElueHY3S0RzNjV3YnZoVV9rQ1NpYWtkOVhncDQ?oc=5",
+     "texto": "Prefeitura de Divinópolis se reúne com sindicato para discutir situação da Gerdau e preservar empregos - Portal Gerais",
+     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPOVdENW1VWTlScFdidHZtdzNqT2pFTWU4OXJ4NEs3dWo5Z21GUWxpZ3NseXZUckZxbTd0WEpjTktVN0hmQVNuMFZGRVgtcXFtZ0lXYjI5TDFxOHZIMXQ2cFhhTlZBdnFQcnNDZmwwcDh5WmdyOWh0YmlBcVA5Y3A1SGlEUFpsLXAwYjdUYnZ1SUpwTXpEbDdVbEtJV2NLNWtJbFAxcHRBb0QxNFdZaS11S05ibEd0T3l5RFNKWkFBdXdac0VlTjBv?oc=5",
      "data": "2026-11-09",
+     "pontos": 4
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Obras da BR-040, Vale e CSN chamam para vagas de emprego no Sine de Lafaiete",
+     "link": "https://www.jornalcorreiodacidade.com.br/noticias/51847-obras-da-br040-vale-e-csn-chamam-para-vagas-de-emprego-no-sine-de-lafaiete",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Oportunidade: Gerdau e Sine Congonhas lançam vagas com e sem experiência nesta quinta-feira",
+     "link": "https://www.jornalcorreiodacidade.com.br/noticias/51846-oportunidade-gerdau-e-sine-congonhas-lancam-vagas-com-e-sem-experiencia-nesta-quintafeira",
+     "data": "2026-11-19",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Única cliente de jatos comerciais da Embraer na Índia suspende planos de expansão - AIRWAY",
-     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdVdHcnlFaU5nOW9KdFYtVWgydGg0ZGtnUTN4dVhHbERTVWtlVGpLRG9Nb0RKM1EycmQ0X2ZnNjhVUnM5YjJfaGFWN1lKRlNBQm5VMDdZOVhzdldTMS00aE1aYTZhWnBwTzVMVTJDc0JvSkItdTlEUGVyZjl2NlB1eW9TRUNwWmpVTnJNUEpUZ1R3ZmFtdzBwM1N0VnI5akZsV0RMc0hRU0JISU1G?oc=5",
-     "data": "2026-11-09",
+     "texto": "Gerdau abre 20 vagas para o programa Jovem Aprendiz em Araçariguama (SP) - Gerdau Brasil",
+     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUUl5WUlEdEd0djNwaTI4VHFMOGtxVXA2Tzh5aXZ3STdVZ1dib0ZqMVYzQTF0QmJkbzJzTVhnZ2tzY0c5QUJ0VlM0aFJ2aXJXYmVwVnpBSWt5YzhwY1BQUjc2TTl2N0s4eW80VzNld1BPWjN5ZmFVSG9PY3J1OE9JZEFfdVdFclJZRUxYcVZ3Y3pLUGZHRGYza1NLako2NmlhOG9RbDJkeFgzNGs?oc=5",
+     "data": "2026-11-17",
      "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Após Gerdau fechar fábrica, Divinópolis oferece 280 vagas em feira - TV Sim Brasil",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOM0FrRF95RHg3VmpFTEJtZzMzQzZRN0ZCU1hiQkJDNGlWTUZqSHlUNzJVVlUwNFNPTzhQWGNXdWt4eDd3ZlJTRFkycEQ4ajJvcThrcGNwV2pCVkZvRjUxbGl0LUNyVHVKYjdTTnV1WkFFX0FQREljOFpEaXh6OWJfdDNJWk1JVlNXNldEc2VPQXRaMWhBNWtNdEdaMFJxTHdCeHA4cmdhVDhXUW1OLWViT2h3SWdpWXR0cXB0emVkYVJLMExx?oc=5",
+     "data": "2026-11-11",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Custos mais altos e demissões: o alerta por trás da crise nas fábricas da Gerdau e Cisam no Brasil - ecxonline.com.br",
+     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQQi00SnZUSmV6YS14NmZYMGNIZ3QxYks4RWRyYUxrd1lwaW1DWmZrd3Zpa1ZqQ3AtOVZIWXVfNEoyMTl0SmhqeHNJVElTb1R0ZlQzdXlJemdlNF9iTVU4ckdzR1p6ZUJ6TzZMQzAtSWxraU1sOFJEaktGeThsekpoX2lzX1N3eE9MbDVyNHFZYVhDUU5MN1NFaFQ4WTBqZVFZT09qYWxGbURxdWdvRzhmQ1l5NmszcGp0V01vNTdyTDg?oc=5",
+     "data": "2026-11-06",
+     "pontos": 2
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Irmão de Cleitinho culpa governo Lula por fechamento da Gerdau e demissões em Minas - Brasil no Centro",
+     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOUTIwcmotdFJUX01VYzdZVER0ejhaQ1hOdktXcHVNUDY3UGo3WFl2YkRzdVg5NXdrQ1NFSzVuZnZtQ3U3dHNMcnBMMEFVNHpZdi16VFVzMkY4WGJlM2lQYmFZWUJLTHJqUjlheFUxWVh3a3BScGVSU184SldTN3ZFNldxNG4tcGNPOVhKS2hHU3ByaWg4TzJRMU04VW9fWDdmVDRRX1NaS25tQ0FuNGhhRUZ5UEM?oc=5",
+     "data": "2026-11-04",
+     "pontos": 2
     }
    ]
   },
@@ -898,6 +965,13 @@
      "pontos": 3
     },
     {
+     "fonte": "Alerta Google",
+     "texto": "Raízen tem 13 vagas abertas em Araraquara e Ibaté; veja quais",
+     "link": "https://araraquaraagora.com/noticia/59222/vagas-raizen-araraquara-ibate-2026",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
      "fonte": "Notícias",
      "texto": "Raízen reúne mais de 40 vagas em Piracicaba; moradores de Rio das Pedras podem concorrer - Portal da Cidade - Rio das Pedras / SP",
      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNZEEybU5wMWZCNFFIU2w3bjdXWHJzWnpUald4cDRoN2ptV3IwUmRNT3NHVUtDX280YmZNSjdQSzlsZGxPd3AycnBULU9aZDJmb2R0aEZlb21ja2ZSSi10dmhaWWtZZy1vbVZQU0RRdm5aaHFtSVJUVDRhSUFMajhkNkdrcV90SEpGNk1nVndCRjhiTUJDaDVuek5Fbk5tTDF5dGJMWmlZQmhfQlUteEpONUdtRlBOTkxURDVGUks3a0NLNjBpdUx0SU91WGptZUM1QjJKa3Y0dTYySV9Eb2VUUEhB?oc=5",
@@ -909,13 +983,6 @@
      "texto": "Raízen reúne mais de 40 vagas de emprego abertas em Piracicaba; confira oportunidades - PIRANOT",
      "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxONGlqcVlEdFZTTTFVY2RyOFRGQ01pTXBCYWZZamw3MzN2ZjRzRGJhTTlJa2FiVDhtRFhvN3VtaVdreVIxOE1WYVhFeUZLdE5BYWR2MG1QMGV5WlNtb1RQcnNSczV2ZzVmb0FCeV9sNVg3c2tzcTc4c1ZUdTRHMjBHbnl5VlVJUHo4YWhDZFJmU2pPZTd6dzlMUV9rcjNZdldnbUhPNnVrNVlKRTNqMnFJSkZWeUgzLXQxamtjQW4yUnVoTndKNFo1MnNSdGZiOWFPaXJlcWJpMFFuNWp4MWVfbzc3S2RrOVNpQ2tldnJWQmZRTERBYi1raF80MA?oc=5",
      "data": "2026-11-17",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Raízen abre vaga de trabalho remoto para Assistente Administrativo; veja como participar - Empregos na Bahia",
-     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOTlyNFJRMk5jdjI4X09rT2ZFNm9icWc1U2ZtMkh6QmdqVTJCMkFINEZUY250dE9XNkRyS2t0VGR2bUk3MlJUNkhkdnItLUdTMHRWbkRMVmxyazVMdzdzNXB3dXVzanNEbXBDR3M3NnVDTXNRVTJxRzZJcjZuN3NEcUlFYw?oc=5",
-     "data": "2026-11-16",
      "pontos": 3
     },
     {
@@ -944,73 +1011,6 @@
      "texto": "Raízen oferta mais de 340 vagas em novo processo seletivo para Jovem Aprendiz - MEON",
      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxObFRvN0JXX1hfVjhlV2wxTDdsUlU0SUVYaVYzMXNuSW5qal9welNRMWN3QTZmY3pTWUVKLTdndHlLd2tWNXBxZ0FpRUtZQURfcTZYQjQtUEx5emQyUVZxZFdPWi1kMnI1emNPa0w4OVFFOEV3TWVqclBaT1JEUFVZQnJNd3dzcXFkWU95b3RLZW1DN3B3YVhkQUxoMXBhRVB0VGJ3NXZiNjRLLVBUSktsdGQwdEYzOUpP?oc=5",
      "data": "2026-11-04",
-     "pontos": 3
-    }
-   ]
-  },
-  {
-   "empresa": "Braskem",
-   "segmento": "Petroquímica",
-   "cidade": "São Paulo",
-   "estado": "SP",
-   "funcionarios": "10670",
-   "busca": "Braskem",
-   "score": 24,
-   "sinais": [
-    {
-     "fonte": "Alerta Google",
-     "texto": "Binance planeja expansão para cinco mercados asiáticos em 2027 - Vero Notícias",
-     "link": "https://veronoticias.com/economia/binance-planeja-expansao-para-cinco-mercados-asiaticos-em-2027/",
-     "data": "2026-11-18",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Braskem amplia prazo de inscrições para estágio com duas vagas em Paulínia - noticiasdepaulinia.com.br",
-     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaTlLbnRpc3FhT0p5dGNNQXIwTVRpVVN3UUpGSGpOeFBHdE5UOTRPQlg5Q0ZRdW5feXJ1a0VZNHY3eF82SlZ1cERuRnpUam1fYnpPeWNDWENfTFlXVjhEc3pXZ0dwcXg0OWRfVVZpOGFZOWFGSTlsZFVzUVRlU1NtSm5RdjI3WDUwd1MzSVhwZ09ZVlA3VWc3c2FMZUYzSFFHT2FjZ0JudjUybXFxM0E?oc=5",
-     "data": "2026-11-02",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Braskem prorroga inscrições para programa de estágio 2027 com 15 vagas na Bahia - Blog do Valente",
-     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPUmhzUjgtUXFUaDcwOFhYcUhKa19NSGZYZWlNR203dG1fcHFENFlidVd6ZVZuQTFWVkI4TlRxZy1zUzVDOFY5WDNvYmxsNDExM3Q0SWl0ZExxSnFCVGp2OGpSd1Q2cUlOdVJpT2ZyMndiVmhXbi1xdHFkTlZTY2dwUEhJWUNEdTF6a3c3LU5MeVRteW9ybjh1QVFpbVlOMGZGdVRjaG5fVHRjOXZjc3M5MmZsV25IWWw1WFhVN0gzWmp1SXpva2hxanEtN3I5TEZM?oc=5",
-     "data": "2026-10-31",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Braskem abre 32 vagas de estágio no RS com bolsa de R$ 2,8 mil; veja como se inscrever - Vale Notícia",
-     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTWR2bktqb1E3d3VyTVB0NU9ERmxTNkdiYndRSlhydlhtY3NWdVNqZ2xPOVg0QjdjTC1ITnBsZjNOeXBEQ2psZWhMZVBhdFEwTklGQTZpTzBTZThlMk5jaDBQLVk0ZkhueFpEQVd4Vzc3UDZoUm1GYlROXzBSc2h0QzlvOEM0MXRqM3YzR1VEV1RVeG9oTkhUS1E1aU5yUHhIU2M0WC1MUmhtVW93SEU3ZDJiQ19fQkp1VVJaZNIBxAFBVV95cUxQSWJ4UzZYZFVPMkwtUEJQSk1pZUVpZ1Babk9iTkRTWGhJckR0OHJkdWR6cmMyWWVzNjJMMVJLVHJicC1EZFBDWEhPbHJoNUtkZ0ZRMzNMRzhJUXpLbF9zeHlVaTBaQ0t1T1J3OEFySlFxVWtrTGRXcjdxSEV5ckxaaHdtNnVjaU5qS2FZVEJPYjRScTgtQUh2OEdfdE1SV3NsV2FzamoybnBtejhUYnJaMFZEU3ByYmIwMWdoanNPSGxtNWFy?oc=5",
-     "data": "2026-10-30",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Braskem prorroga inscrições para programa de estágio 2027 com vagas em Salvador e Camaçari - Alô Alô Bahia",
-     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOSmJ2aVBnRmxtNm9vWV9ORUVGSDZMNUZBd2JXYTlIYXpfSXlEV3BEMmRnc3RmdHM4bVNxZVBmUWRzUWlIYXpLc3Z5emx5YlBrTDJaV2hIZlR1NXFhb2pOLXhkZzl6Z3VSTjdDNkgtT19uSk05NHItWXpQWUo4N2FMV1h1eU5YRUtJVk9ZOFgzVXNKRUNTTUtKSjBzckV0VERNUHNBb2Rpd1hRVVNEcVE4ekNKaFI2dUdZVHFoNFhJZDIzeDFYcFR3TkhsQldTNWwz?oc=5",
-     "data": "2026-10-30",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Braskem oferece 12 vagas de estágio em Alagoas com bolsas de até R$ 2,8 mil - Jornal Extra Alagoas",
-     "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOa1oyb3ppMGhoMUNwZEpQWHVzSUNjS0ItYVlCLS1TSWJraGV2c3pCdHpfWG0zU3ZMOEpESXNGMC15MU5Fem40aU5uRzZHRXJHMzY5cWNLbklDeW5nZjFybm9JX1daN1NITGJ4R2xzaG90UkZ5S1VNU1R6Z1FFa2xjWnkxT1JtaTl5ellYU2t3VVJneTlsNEhhV0UxZHNiNkdsN1dxa1doSDB2VE5XLWZ3M3d0Smw1MWpMVFM4X0trWFdQYjM4ZFgzWWlwZ3J0Zw?oc=5",
-     "data": "2026-10-29",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Braskem e EssilorLuxottica abrem vagas de estágio - Valor Econômico",
-     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeS0ySlFWVmpzbjZaSnFpRTBRNkVjeXZpZFh4UUNxNl9nZTk3NnB1ZE9raFRRRDBLdmJkWkQ5Y1NTd292dVM4Y0tGSFFYUVdSNUY2V2JaLWsyVFItYjAydWlRY0JJTnJWS1NDZFpZZzd3YjNsR291SGU4MDAxY3AtZ0lVR1NnOTBjWDBsVjhrMHRjV2hmRzBJdXB0LVltdmR0Q3RUTURGakp2V1c1RHR0MGxNZzB2VldxRHBLY0xhS0Yzd9IB0AFBVV95cUxQRzlublFYVU55cFJlWGhtR3NTOU8xalo1b19WbGh5cDNXQ1JjQ2xoaGl1WEpiblA3VkpLcE55MzZkb3VSS3JIY3pkbEFQVnZqeER2TFltX2VneWNRb2sxdHhHdXN2aTI2NzRRSWJpejFSeDh4eUtWSjR3cW5vY3liNi1US1RIMzhOWVA1aGh1alExdkFwMlZZQVVJX0JxX1E2OVpyRno4M3NNNVZCd2dTR3NFNDRsdEFSNHNMNUhVMTNad3ZXS0FfR0NSNUduOHFL?oc=5",
-     "data": "2026-10-27",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Braskem oferece 15 vagas de estágio na Bahia com bolsas de até R$ 2.800 - Alô Alô Bahia",
-     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNT2ZwTXNBejdJVjNpWGhzeWdhS2VFYjVrZUF3SzYtT2pIZ25hSk5oaVVmNnZaa05pTHhyLUpjVXRqbmJPdWJwbk9OOVI0Snh3Yk5uR2RDdTlfaVNwRlY2akF6cFhzUzh6OHBoSDJRTDgyVDluMllIcXZub1hIVWk0QmxKWm4tSEJLMTZwYmxuUXdCV1BEbXhnZS1mVHlUTUowTHRCWFhsMHVhYVBUQnh5eTBDdmgtY1gzNFBXUWRueXlLUQ?oc=5",
-     "data": "2026-10-26",
      "pontos": 3
     }
    ]
@@ -1135,84 +1135,17 @@
     },
     {
      "fonte": "Notícias",
+     "texto": "Usiminas abre 300 vagas para jovem aprendiz - Carta de Notícias",
+     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPQ2dRTzhxLVJuaU9VUGJzQ01zVTgzd2hlZGJEUnFuV2Vma1o5cnN2Njl3UThHeUw5WExWVVdQck04d0Z3b3BGdFN6QkdZOUpLem5SYm85alJhYndSWkZ6Ml9ybFMzQVZHQ0N6LW5xWWp4Y3pUWjFDUXZVRGtKbTFnUzFCUHpzc0NFVEJDc3FrSUY1Z0lE?oc=5",
+     "data": "2026-10-27",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
      "texto": "Usiminas abre mais de 300 vagas para o Programa Jovem Aprendiz 2027 - radioeducadoramg.com.br",
      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOTE9pblU3UXVHR3pQR29XamVBakFYNmp6U2ROMEYwVkJiTDBYWkpKTmZyMGZCNG1oR1JGMnMzb3pRODdxRzZ0eG1RVzdid19RTnhwZ0hBMmJXQ3M1VGJHXzFQT2NjZ3Nic19MWm5sdzJtUVVwM2lYS3hteGVBOTdtYlNWbzZORUxKYzNVd1RwdTJCYW9la2xweXdkM3h5Vk8yb0E?oc=5",
      "data": "2026-10-27",
      "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Usiminas abre mais de 300 vagas para Jovem Aprendiz 2027 em Minas Gerais e São Paulo - Plox",
-     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1sanBHNFVCaGdzbTRndlZleGtpQ1RfcXo2amYtQ0N0c3BXc0RxWFpEX0h0b1pWY3V0VW5ZRVVSWTBxTnNDWXMtNko4aFZaZl82N180dTNjRUVNRWNRRHFvR2lkWGVqR18yRUlfcWhwRGNaR2g5aGRDSnhmWldlQQ?oc=5",
-     "data": "2026-10-27",
-     "pontos": 3
-    }
-   ]
-  },
-  {
-   "empresa": "Gerdau",
-   "segmento": "Siderurgia",
-   "cidade": "São Paulo",
-   "estado": "SP",
-   "funcionarios": "23378",
-   "busca": "Gerdau",
-   "score": 23,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "Prefeita e Sindicato dos Metalúrgicos discutem empregos na Gerdau em Divinópolis - Portal MPA",
-     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbEt5aU1SV09yNDJad3hILVdrUzBDUGxHUFB0cjBudVlMcnJ3RkVqVjdlWDRKMUNrajhsZ05vWXpUUlRBRm5vci1JSmlNWGl0TEcxMU5PUWpyNDRZYWZoN1NJcmJ6dU05OWpINW9ieUxtVHM3Y0xMc0dKMGF4ZVM4Ml9IVFJKNHV2dG9iT19UdnVYNmNPUlhVZHNxTQ?oc=5",
-     "data": "2026-11-09",
-     "pontos": 4
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Prefeitura de Divinópolis se reúne com sindicato para discutir situação da Gerdau e preservar empregos - Portal Gerais",
-     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPOVdENW1VWTlScFdidHZtdzNqT2pFTWU4OXJ4NEs3dWo5Z21GUWxpZ3NseXZUckZxbTd0WEpjTktVN0hmQVNuMFZGRVgtcXFtZ0lXYjI5TDFxOHZIMXQ2cFhhTlZBdnFQcnNDZmwwcDh5WmdyOWh0YmlBcVA5Y3A1SGlEUFpsLXAwYjdUYnZ1SUpwTXpEbDdVbEtJV2NLNWtJbFAxcHRBb0QxNFdZaS11S05ibEd0T3l5RFNKWkFBdXdac0VlTjBv?oc=5",
-     "data": "2026-11-09",
-     "pontos": 4
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Oportunidade: Gerdau e Sine Congonhas lançam vagas com e sem experiência nesta quinta-feira - Correio da Cidade",
-     "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOYnAwMWg4ZU16VUNINHI3R1lHTnJwTkFUZzZ2RzlZTHBNd25Bdm9lNVdwSEM3eFZ3Z1hzb09JMGxnRXNUWUZhcktQWThfZERXTlpqVUc5UzBzeFZfWEU1TzBQb3JjN1IyeUZPc0Q4dm9yUmg0N1hzMC1sSWFsSjdfclZEVkhkWkhzR0UyLWluYzJxYkRtSkVKb3JSMW5fZ3ZHdGFsQU1RUWxSSFBLalBuQjY4X0JBZWFsby14MHBqY0JEcU1xRGZxMFBRTDRnNkRtWG9DZFZpRjRQQW13bnc?oc=5",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Gerdau abre 20 vagas para o programa Jovem Aprendiz em Araçariguama (SP) - Gerdau Brasil",
-     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUUl5WUlEdEd0djNwaTI4VHFMOGtxVXA2Tzh5aXZ3STdVZ1dib0ZqMVYzQTF0QmJkbzJzTVhnZ2tzY0c5QUJ0VlM0aFJ2aXJXYmVwVnpBSWt5YzhwY1BQUjc2TTl2N0s4eW80VzNld1BPWjN5ZmFVSG9PY3J1OE9JZEFfdVdFclJZRUxYcVZ3Y3pLUGZHRGYza1NLako2NmlhOG9RbDJkeFgzNGs?oc=5",
-     "data": "2026-11-17",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Após Gerdau fechar fábrica, Divinópolis oferece 280 vagas em feira - TV Sim Brasil",
-     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOM0FrRF95RHg3VmpFTEJtZzMzQzZRN0ZCU1hiQkJDNGlWTUZqSHlUNzJVVlUwNFNPTzhQWGNXdWt4eDd3ZlJTRFkycEQ4ajJvcThrcGNwV2pCVkZvRjUxbGl0LUNyVHVKYjdTTnV1WkFFX0FQREljOFpEaXh6OWJfdDNJWk1JVlNXNldEc2VPQXRaMWhBNWtNdEdaMFJxTHdCeHA4cmdhVDhXUW1OLWViT2h3SWdpWXR0cXB0emVkYVJLMExx?oc=5",
-     "data": "2026-11-11",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Custos mais altos e demissões: o alerta por trás da crise nas fábricas da Gerdau e Cisam no Brasil - ecxonline.com.br",
-     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQQi00SnZUSmV6YS14NmZYMGNIZ3QxYks4RWRyYUxrd1lwaW1DWmZrd3Zpa1ZqQ3AtOVZIWXVfNEoyMTl0SmhqeHNJVElTb1R0ZlQzdXlJemdlNF9iTVU4ckdzR1p6ZUJ6TzZMQzAtSWxraU1sOFJEaktGeThsekpoX2lzX1N3eE9MbDVyNHFZYVhDUU5MN1NFaFQ4WTBqZVFZT09qYWxGbURxdWdvRzhmQ1l5NmszcGp0V01vNTdyTDg?oc=5",
-     "data": "2026-11-06",
-     "pontos": 2
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Irmão de Cleitinho, Gleidson Azevedo culpa Lula por demissões na Gerdau em Divinópolis - Mais Minas",
-     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNa2lrT0g4aHBlNnRmQlJFQV9vdGZHVm9PTzdwLS1XYk1OU3ZIeVpGSFhUbHpZbjIyX21uNFQ0c2xzRWhiSGFqWWNkU244NzM4UVlFXzJQcUVBaXFBTTdjMDhyMV9tdG96RzlGOWtJemVWS0dkQURaYUFSR3NyWnl0dlJVSldCcmlyNmRKMU9LSDhCZXZySjA2Z09XQnpIRFBZMm5MNUpoanZLQUQ3eFdRTjBhTUZDNnJXRFJoVQ?oc=5",
-     "data": "2026-11-04",
-     "pontos": 2
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Gleidson, irmão de Cleitinho, acusa Lula após demissões da Gerdau em Minas - Metrópoles",
-     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQdjR5VVNTX0N2WDNRUU5jQ2VsYm1nUDFCdDNXdzduejhfWDJiRU1hUWh0b2stQlFGZTBRYW9mUU9lZWUzR09qeEdRdTB1VEhDTVJEcV9ZQ005eC1lNERhdzhUVF8zX1Jmcl84X0Y2Yi04bXBLWnBKX2I0bnFjS3dWLTVhZkR5T0pneU9oZ3lpenR6NElyb1hKMFhxTFJGUGFhSUdQZ2RpYk10WXphTUsxOTN3?oc=5",
-     "data": "2026-11-03",
-     "pontos": 2
     }
    ]
   },
@@ -1223,15 +1156,8 @@
    "estado": "SP",
    "funcionarios": "80420",
    "busca": "Ambev",
-   "score": 21,
+   "score": 20,
    "sinais": [
-    {
-     "fonte": "Alerta Google",
-     "texto": "Solar Coca-Cola abre novas vagas na fábrica e reúne oportunidades em diferentes áreas",
-     "link": "https://empregosnabahia.com.br/vagas-emprego-solar-coca-cola-4/",
-     "data": "2026-11-19",
-     "pontos": 3
-    },
     {
      "fonte": "Notícias",
      "texto": "Com Original, Ambev aposta na expansão nacional em bares - Meio e Mensagem",
@@ -1280,51 +1206,58 @@
      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPSmNKQmp5TDZSX1hwXzlvc1owVTg4LUxkZUV3ZXFFQ2hBalUyT0tlNUJDYXZSMGpReHd3ZlgyOEZveFlieHE3RnBOYTBuQ1Y1ME8tWV93ZjV3YnJXZ1NTZHhVNkNUWHFFR2x3SkZoOHBueERGSmVlWXc1QnZaU2dmcEk3OGFqcG1pTmk2bnFKRWV3dw?oc=5",
      "data": "2026-11-13",
      "pontos": 2
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Jean Jereissati da Ambev apresenta cronograma de investimentos e projeções de mercado - Brasil Inovador",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOeUhFLVlwRG5KYVBBVXk2X2dzdmRtekRyRzZWTjdLNk53RjNlNWw0ODNDR0FQNXNIZTVXbkxlMjNXSWx0SGdKQ083ZG1ENXJQS194N19QRXFrbTdWVS1zLVg0ZVFYU0lPNUZiNTJjcmkwR25hN2dZQ1ljQ0pSV3ZZSEM4ajBDVTA2ZDJnSmpRRXVWSklnUGQzTW5ERUFZN0l5MXE0VHpnS19uMXJqR1VFVU9xamEwYjA?oc=5",
+     "data": "2026-11-08",
+     "pontos": 2
     }
    ]
   },
   {
-   "empresa": "Votorantim Cimentos",
-   "segmento": "Cimento e materiais de construção",
-   "cidade": "Barueri",
+   "empresa": "Seara",
+   "segmento": "Alimentos (carnes)",
+   "cidade": "São Paulo",
    "estado": "SP",
-   "funcionarios": "10466",
-   "busca": "Votorantim Cimentos",
+   "funcionarios": "23143",
+   "busca": "Seara",
    "score": 18,
    "sinais": [
     {
      "fonte": "Notícias",
-     "texto": "Empresa multinacional, Votorantim Cimentos contrata Operador(a) de Produção em Camaçari; veja os requisitos - Empregos na Bahia",
-     "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBvcVJCVXdTbjVFOUI3ZjRzTmJua2hsSWl6NWdjTS1NdnppMjBUQjRBSVJIYzN3c0t3TXFnOVQ4b0Z1RnI5QU1jSXh6Mjh5Mk51UDRkWFJkQ1lyRGZoRWNONWxQYmFOVDNXbEFaRXdOektIQQ?oc=5",
-     "data": "2026-11-18",
+     "texto": "JBS anuncia centenas de vagas de emprego em fábricas da Seara em Santa Catarina, com contratação imediata, oportunidades sem experiência e benefícios como plano de saúde e participação nos resultados - CPG Click Petróleo e Gás",
+     "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQQ3lxYjI0Tmp4ZFhsNlEyZWhxMFVwSGY3eGZqZVAyNEIyb2ZmaFZfQjJCN1A3dnpVY1RJVjJrVWVoOEFTNjRkem8wcngwemhGRzdPbkQ2SjRmekc3dFhNNHBvT2pyMGc1OXAwNFF5UzNhTDBVQkxGU3F6MG9uV1VfNVh0ZWdDOWJoemlDelV0cDU4M0Q5RjRLUml4X1RzRkdrSmRpQmt6LVZnZTRTcUV1NWpIUDRvTmZYbFkwQV94NXlvcTBsalBtMlMxYkJybUx3N094NVFDV0VjdndlcmxqNlZMY2x6LWdJMnlpOEVZbzRXYURhM0xVU3R3?oc=5",
+     "data": "2026-11-13",
      "pontos": 6
     },
     {
      "fonte": "Notícias",
-     "texto": "Votorantim Cimentos abre 11 vagas em Itajaí e reserva postos para mulheres e PcD - Economia SC",
-     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOVmUyVF9EYUwwaXJTTmNGb0dyUW9vYXZaNlN6aW4xZV84bEI0aTloTnRBalFvOHdQMkpKYW0tZVNUa251Sy1sT01vOTdnMTRTWE8tMlFSX2VZMko1R1lLclM5YTYwOEZhRGpZdlF4TXlQWlNUQjAyMHZyWXQyVUxkdTZRV2xhN21faXkzVTJ3amhxRTM0TTZZQjJORk1NaDdueTJxZEJKcE1fUThZMURuWTJKVnRLdw?oc=5",
-     "data": "2026-11-17",
+     "texto": "JBS realiza Feirão de Empregos nesta sexta-feira em Seara - BelosF7",
+     "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSEthTTFTRjNNMjlHYk1mNVZBOTJabnUtdWc3MkY1Y09KSHVnNVphT2hpRllLb0h2RjZEOGRsQnh5T3U0cDMzZGxiLTlzN2NNQ1NyTXpVYTF0Z3RzeElEaEl5VWVLc245VkhDWnh0TlQ0UjdiOWd4SlcxOVdUTkhfdlJlVXZ1c3BL?oc=5",
+     "data": "2026-11-06",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Votorantim Cimentos reúne 117 anúncios de vagas em fábricas e concreteiras, de ajudante com ensino fundamental a supervisor de manutenção, com prazos vencendo em novembro - CPG Click Petróleo e Gás",
-     "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB3N09oQ3JxZzRDMHU2cW96ZVJuejhGRFJzTFhQOVYySjZvYkhyWDFJOUZHeEk0X2pHU3pnek1XUjZ5VFAzRy1ueEZuQmVsa1pQVTBvdDlwRzMzTG9kMEhwTHhOaXJVay0zaVdWQWF5TkNBRnczR3hMOF9n?oc=5",
-     "data": "2026-11-10",
+     "texto": "Concórdia e Seara somam 325 vagas de emprego disponíveis pelo Sine - Atual FM",
+     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPRlV3bWFxOEgzaVBWbWFoakxRSkpLMTN0MFZtalF5LUl4aldhOVprZHJDSThPd09nbWtUQk5lOERuZnhuNk4ybTdOdF92WlJuS3k1SUN3dFlseHpWczZpTFVmY0VyWUJ6V1hkSURRWklzZDAyd0syWUFzYzZ1UzY0N1FfZ2NhVGNCcnRTVmtMTEd2dFhI?oc=5",
+     "data": "2026-11-06",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Votorantim Cimentos abre vagas em Edealina (GO) para Programa de Estágio de Último Ano 2027 - Tribuna do Planalto",
-     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPblh3T2VDNjIzanJ4NElPbUFUeFdVeW1NckxjR3ZOWjdEQ0lleF9UOGlkSk1vQUhjVm9jQ3dNNDBjV0kySDFxUEIwdDhZei1PNTl2ZzlNeWNPaEhJWDlZR0dRSjQweUdYclRrLWZIU2hTLXVqWW5BQUR6MzNDTVhOb3hVZExlZHl3Tno1STJuS283MjFkRHJncTRwWDBmWGc2VF96Sm8zaFgwZXZZTjZXa1NidW9NQUtGYkZlSzdvQUs?oc=5",
-     "data": "2026-10-21",
+     "texto": "Feirão de empregos nesta sexta-feira oferece oportunidades para trabalhar na unidade da Seara em Montenegro - abc+",
+     "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOeVhaRm9lS1R1NHd5Nm1meTRPc3BDdDlkR2UtbUJKeWNqT1VaZUtrby1PSy1veWFPTVdfWWtpVzVqdVlBaU8weUhxTXpSbFNYZVEtZS1GRHJPV3dOaTg0QnRuX0pYaVRHcU5abk9id2RTSU9HUFV4dHlHRy1RcFJpaURoWk9ySHhuc3hNaEZIMFhfbWVRekZwZmUwYVhwNGJXLU56alBRR3BZUzNtcDNyU1lHb1VFREhXZUI3U2Zhb0hGeXpwSFFSX01JenBCNWtoanBxWldZNVU?oc=5",
+     "data": "2026-11-05",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Votorantim Cimentos abre vagas de estágio com bolsa de R$ 3,5 mil na RMC; veja como se inscrever - Banda B",
-     "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPVklBb2tGMGVHRVZRaTdpaGxaTERFN2FiVTk4anN1WU44c09ONndSdHYzYU9ZUTVZa2JzSDByczBTUVd4dy16QnVVWnIxX2Vrb3dLczAxYWhvX1hxQmNKNk1TSDVFeUpDa0hBVjlWcjFicEs5cUtPX25EemRHRXMyclpYczlpYTVmd0dXckF6cFQtNlB2MnI1S0ZNVGdLazUyazVQM3g5dUk2TmtOVWp1cjRfU1ZOX3hjTFJhRThPc1pMUHB5WU1YWk91cEo5RE10QXdEa1VaVzZ3T1RjNkI3ekZNX19UV0FV0gHuAUFVX3lxTE9vUXpXeFZ1WkZRWmtqeUZHcW5qMno3LWdLVTU4bmxyUmdoLUlDTnNyMUpjWUNmbUpKZXdGRzVnSU5NQ3NvZXZJWW84S0lyX3N6RU1PUEJtZWNsWHRZQTVXbkdrN1lPS1lQcFBQWEtPRUNDd2RaMEU3Y05iOHN4Q3hpY2doOTRQOVF2bGZ3blFwbS15LUpHTktCNjhoNWZyZ3ROaHF6c0ZINGxwZmV0Y2UwNWt6eG1pcnY1UzZzTThObFNCMTFJVHZLaHk5SUdXRFlrY2RkbWtCZ1ZnWjZTQ1d4VFFoNFdlcko5ekJ2VXc?oc=5",
-     "data": "2026-10-21",
+     "texto": "JBS abre 50 vagas de emprego em unidades da Seara na Grande São Paulo - Feed&Food",
+     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPTkMxaDk1YXZCYXlTZUFBN2UtQWx4RjZDMmdKTzBna3VNbGliLVZDTWN0NXQtWkpEZVRVZEozemtrd0dvdFJsQ0lwVWpRaUI2Z3M2SVQtSjliYVJ6SzBqa2hfSG15bk9sRlFPeUg0VWVURFowWmllcGxGdlV1QWJDb242VDRaQzhHcm1MaUl5S25ZWTBXZGF2SDJR?oc=5",
+     "data": "2026-11-03",
      "pontos": 3
     }
    ]
@@ -1339,10 +1272,24 @@
    "score": 16,
    "sinais": [
     {
-     "fonte": "Notícias",
-     "texto": "MBRF renegocia financiamento de US$ 535 milhões e já reúne compromissos de US$ 410 milhões - ADVFN",
-     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPbFVKVTYtRXFnZ1Q1R1ZRMVBCYVd0bmhWelpSUjk1YS1jRGp3WEZ6X3VUQ2FmZ3dJU1hVSlp2eGxvbWRXYzRaLUgwRngzdGpBdlU5b0pnTlJsNnNIQ1pUSE4xdFZ4bVZHb3lvZzJGck93Y3ZiS0NkRUVWY2NKb1Q4WHVqN0YtZktoNnhIZFMtYnN2OC1nV3Jac1ZLQjc4R2xmLWRma1M4VmdEckRicUFsc0lSY2ZHTmJBZ0lFX3VOUWJBUQ?oc=5",
-     "data": "2026-11-19",
+     "fonte": "Alerta Google",
+     "texto": "MBRF (MBRF3) fecha renegociação de financiamento PPE de até US$ 535 milhões",
+     "link": "https://bpmoney.com.br/negocios/empresas-na-bolsa/mbrf-mbrf3-renegociacao-financiamento-ppe-535-milhoes/",
+     "data": "2026-11-20",
+     "pontos": 2
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "JBS conclui joint venture em Omã com investimento de US$ 150 milhões - CNN Brasil",
+     "link": "https://www.cnnbrasil.com.br/agro/jbs-conclui-joint-venture-em-oma-com-investimento-de-us-150-milhoes/",
+     "data": "2026-11-20",
+     "pontos": 2
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "MBRF (MBRF3) renegocia financiamento de R$ 3,1 bilhões com bancos - Guia do Investidor",
+     "link": "https://guiadoinvestidor.com.br/mercado/mbrf-mbrf3-renegocia-financiamento-de-r-31-bilhoes-com-bancos/",
+     "data": "2026-11-20",
      "pontos": 2
     },
     {
@@ -1361,6 +1308,13 @@
     },
     {
      "fonte": "Notícias",
+     "texto": "MBRF renegocia financiamento de US$ 535 milhões e já reúne compromissos de US$ 410 milhões - ADVFN",
+     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPbFVKVTYtRXFnZ1Q1R1ZRMVBCYVd0bmhWelpSUjk1YS1jRGp3WEZ6X3VUQ2FmZ3dJU1hVSlp2eGxvbWRXYzRaLUgwRngzdGpBdlU5b0pnTlJsNnNIQ1pUSE4xdFZ4bVZHb3lvZzJGck93Y3ZiS0NkRUVWY2NKb1Q4WHVqN0YtZktoNnhIZFMtYnN2OC1nV3Jac1ZLQjc4R2xmLWRma1M4VmdEckRicUFsc0lSY2ZHTmJBZ0lFX3VOUWJBUQ?oc=5",
+     "data": "2026-11-19",
+     "pontos": 2
+    },
+    {
+     "fonte": "Notícias",
      "texto": "MBRF (MBRF3) anuncia renegociação do financiamento PPE no valor de R$ 3,135 bi - InfoMoney",
      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNbUxIU3NlYUgzaXB5QWQ1M3RPOW9TMDFRTWRZZ0N0UXpubGdPNEY1TWNIcEhPZEhuQVoyTG14OGlyRDF6SVRzek81Wi1yR2NXTXlHWE4ybFE0dTZzUUYzaXJ6NDFiMkhsa3JKNm5HSHA4VERRdU11aFdxclgwMFdlQVVOSkd1VVNpQ1lJVFpNU3NkWURPaXVWeUFfa1J5Sm5vU1k3T21CQkdDQWdXS04yT0ZlUdIBuAFBVV95cUxOOVoyRVpWOVF5YUItYTZhSmZkR1ZMM0xla3J6YzJIQl82aXB1M3FVamJ4VXdORlBQQ2R2Y1JNOEVPcWh1bUc3WVp1VTdfanJkcGxPaTJmMGdRZVBxRkdadzZJY1FONWY3WUZ5THNyTHJkTC1RalRia0RRQkNqUUM3cXF3YTBKanlaR3BtTWt2eGlteFNyNHh5TE1uTHVrQjVPY1pXYk5fRmxBQmxjU2R4MExRaTdyMWha?oc=5",
      "data": "2026-11-19",
@@ -1372,27 +1326,112 @@
      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOd3VzV292eHhnZFA4T19TRzA2UWM2ZjExUmNBY0xaM2hhT3VIUF9xRmVyY0FyNl9zVTNvbnJyYUlaWVpPUmhFcDJJN1ZfMEZhVlVfbG94WWFsVEs1WGRSWlUtbkk0NHY4SG5WdVJKRnI3TWFlaHo5LXVZcllXMXpwcmxBaUdtWVZuZ2djS2Y1bzZBMGhSczhlTXI1c2pNaTJUdmN3WA?oc=5",
      "data": "2026-11-19",
      "pontos": 2
+    }
+   ]
+  },
+  {
+   "empresa": "C.Vale - Cooperativa Agroindustrial",
+   "segmento": "Agroindústria",
+   "cidade": "Palotina",
+   "estado": "PR",
+   "funcionarios": "6376",
+   "busca": "C.Vale",
+   "score": 16,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "C.Vale fará entrevistas em Maripá para vagas no complexo agroindustrial de Palotina - Folha de Palotina",
+     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTjNqZy13eGNLa1Z4ckE3M2ZyQ2x5TGFtVTZTUldzT0VJZS1ZVE11SjlVRXlXZElBZDBtMWJ2V001R3ZZMnVFZmlDMjY1dVpURS1adC02dDVoV3RNdUV0ckRNN1pWOVE4R2FvUWc5YlNadVVfM0ZVUE4tRHBfWG1hMV9XYmxlb0ZCd3pJaUNPNTd3eTFJWDRaNk9jQjdhUzVDdUx4UlhOaEs3eUVJNmRCRElnNlZDSE1faWtRb014RHVtUQ?oc=5",
+     "data": "2026-11-18",
+     "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Copel investirá R$ 21,1 bi; Rede D’Or vende ativos e MBRF renegocia dívida - BM&C",
-     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPLTN5YlFiZ3JSbzJFbjc3RmNaaHV3cGk5MVJKYUV6aXR4TDhoWWZvRllGR3NpdDZuN2l3V0FXNENIdWRrTzl4MGM0V0lVaG9ZUVRILUJyRW5pSllVRUE0bFFrMzBlcFAwcHl1eERPc1JEMDM2UVNKYWxIcVZpa0pOMTR1MUlSemh6b1A1V1hOUzYtN1ZNM2Fncm1qc09SM1pGekZ6MTl6QVBFSS1WNVkzc1pGR1lVMUk?oc=5",
+     "texto": "Agência do Trabalhador de Nova Santa Rosa recebe entrevistas da C.Vale para vagas de auxiliar de produção nesta quinta-feira (19) - Oeste Notícias",
+     "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxOQlA5VzlMX0t6NDBPbV83d19lSEVJTXRpUGRsOHA5Nk5OZTB1QTJyVWNZZXI0LUZnRmZPU29vUEtPeDRFWVdVUk8zVmtiZzV0cGlLUnNKTUJFTzJ5WG1tc2VIS1ZvR25CakEzY19pSFYzNzY2UjkzMEFTWEMyVlRBX3hncldlWDNkWnVwdVF2bTZEdm5Ob0pnbVVIYnRvZVdvaHBPNnhoZTRSSWNRRXJrbWZfM1Z4enowQXZ2dlZKcWo0a1I4ZURPLVdrakdndWpBSHlla25mV0NaTm43UHpDZTdLSUdJckwyY2xxQUJnZWhENnR2ZHlZaWxrV3JEdw?oc=5",
+     "data": "2026-11-17",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Supermercado C.Vale abre vagas em Maripá com entrevistas nesta quarta-feira (18) - Portal Maripá ®",
+     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRjVvdzhpM01BSVA2Z3Bva3BrLXlQQWFOV1NGZ0xOYy1ib0Y2SmRuZzN3djYyNmR1UzhqMUc4ZmVWU2lKa3ItVENRenpLeUNaN3lSRlhTR1djdlJZQ1dad0FaN1ZQSVdyZ3B6eEZfZXRjNUd2WjNZTV9RbS1lbHFfOHBDZEw0Q3ljbU9Cbzk4X0dQTDhZQXpYYXRhaURvUEVkckppMGJnU0tTR0JRWmNjSUlBbXJENTJxMkdMT1hDbWNHZw?oc=5",
+     "data": "2026-11-17",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Supermercado C.Vale abre vagas de emprego em Maripá com entrevistas nesta quarta (18) - A Gazeta Web",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQRThKamNZYTZIR2FyVEwxbVJfZnMwTGpJOVFyMUc4OWN1eUFrMEVBSENsR3dkX3RQTWhiQUZpSUw1WUNSVnZHZGpZcUVabXp6Z1JLdkdEYl90VmRPVVVaS3BPX3hZVU16eG9mbndKcEtfcTBLc3lUcXd2dVBOT01udFZwVXZwNl9iQXNLOVBNTlhjNVRmRktybl9wZlBzR2p2YUxnZjZHeFBuUHRKVjJqdTM2ZDJxNGdocEtBUw?oc=5",
+     "data": "2026-11-17",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "C.Vale realiza entrevistas para vagas de emprego em Maripá nesta quarta-feira - Folha de Palotina",
+     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOYlhYMkx2XzdVa0MzM0lfc2d5dkhpb01FUm92UGhLX29ET3RJYm8taUlMd3ZBNTJjRTNRVVk3MUFaQXJaVDVUS0F3X2h5c1ZmNFBWM0xYdjY4SEpkLXRNZjZhclhPMTAydVJqOGtDbUxwSU5WaDVvZ3RUUzZ3YWpPaTJNdEJNa0lxa0piSmFMTmVzTWJwSUR4bWdTektOanVXTTJGbG53THVQb1lsUlBmb2tkSDVvTU1VWEE?oc=5",
+     "data": "2026-11-03",
+     "pontos": 3
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "C. Vale informa a cotação Agrícola desta quionta-feira 19/11/2026 - Portal Palotina",
+     "link": "https://portalpalotina.com.br/noticias/agricultura-e-pecuaria/c-vale-informa-a-cotacao-agricola-desta-quina-feira-19-11-2026/",
+     "data": "2026-11-20",
+     "pontos": 1
+    }
+   ]
+  },
+  {
+   "empresa": "Natura",
+   "segmento": "Cosméticos",
+   "cidade": "São Paulo",
+   "estado": "SP",
+   "funcionarios": "49263",
+   "busca": "Natura",
+   "score": 15,
+   "sinais": [
+    {
+     "fonte": "Alerta Google",
+     "texto": "Último mutirão de empregos do ano amplia oferta para 770 vagas em 40 empresas",
+     "link": "https://pjf.mg.gov.br/noticias/view.php?modo=link2&idnoticia2=90027",
      "data": "2026-11-19",
+     "pontos": 6
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Natura abre vagas de emprego em São Paulo com salários anunciados de até R$ 2.500, benefícios e oportunidades para quem tem ensino médio - CPG Click Petróleo e Gás",
+     "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOQ0lQM3lXdzBnRE9lc2c1bkN1NmIzZTNtanBDdm0yakhBX0JZRWRYekRjYmg0b0sycmNHZXNiUGNoV2toNDlJU3NILVZwX1J5akExQlRYb09BQjE1Uzl2VENLUTlNcDNPSnZvWDZ0QXc3WTJYemNNcmFpUWE2QlBIcEQ2djVPTHRaOWVPeDN5NDdoN18zSXZJSHJlcHFlY0J5SU1oRlVtSzJQMGZvZ0JVenEyaUxfdTRaQ3dpTHh3MlZKc0dHaFVhSzZtSHJ4MVd0ci1nMVJyWUFLQUdVam0wa1AwTTN0QkNJS0pyMUg0bWtpTmJBWHNYamVTeDRnUW5nMzZRaQ?oc=5",
+     "data": "2026-11-13",
+     "pontos": 3
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Lucro da Natura (NATU3) volta ao azul com R$ 49 milhões no 3T26, mas vendas no Brasil caem 9% - melhorinvestimento.net",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5rZjlOMFdFRk9sbXN2QTJVMXR3MUN5U1hWeTIxTXpmcm9QSXg2QUhPYk85cENKOXRQM1FxUGJOdHV6cUV6X3IwVUFDUnhpVGVONkRRZzBzSHRMSTBlNDlXX1d6OEI4dWJNc3JobC1sMDR2NEYy?oc=5",
+     "data": "2026-11-14",
      "pontos": 2
     },
     {
      "fonte": "Notícias",
-     "texto": "MBRF anuncia renegociação do financiamento PPE - Finance News",
-     "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPUkdnVE9RRTk2WjZMM0ZWWERPZUtzR19WeFZOaERjV3QyVFpXajhWZkF4bWlXM2QxTFJIb3F6NWM0RWRxZC1sSDhGY0xyRUZJOHdVS0k2UURmdEQwaUNSNDRFMWpRYnVoSVZMVDAxUVh4QUoyRUhRODl0OGJKbnhLM0pLcG01bmRpamc?oc=5",
-     "data": "2026-11-19",
+     "texto": "'Brasil não quebra com Lula, mas fica condenado a um crescimento medíocre', diz ex-banqueiro conselheiro da Natura - BBC",
+     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9IMFZTNU5rN2hfbnpHTFc1c25uWkNqM0RIQ1ZYV29kQmVXZGVXNnlsNDlhUTFBclZiNGswdFZVMTFCeFg2X1JoRDNCZzdvTC1KUmNlNG9STUFUakFjWTdfZG4zUdIBaEFVX3lxTFBlcnc4RVNaaTVOUlhmX0doY1VCZDRwTEoxaFZvajNzTDFEM2k1Nm9SVUw1dHNPWWNkLWRMZVhVZFl6MTI1cXRDT1JzUWRtMWZfZGlQLU9oVF9NcTBUZ1VKcDh4OWFkZEFj?oc=5",
+     "data": "2026-10-29",
      "pontos": 2
     },
     {
      "fonte": "Alerta Google",
-     "texto": "MBRF renegocia financiamento de US$ 535 milhões e já reúne compromissos de US$ 410 milhões",
-     "link": "https://br.advfn.com/jornal/2026/11/mbrf-renegocia-financiamento-de-us-535-milhoes-e-ja-reune-compromissos-de-us-410-milhoes",
+     "texto": "Tauste abre sua maior loja em São Paulo e recusa o atacarejo - Business Moment",
+     "link": "https://businessmoment.com.br/tauste-supermercado-maior-loja-sao-paulo-santana/",
      "data": "2026-11-19",
-     "pontos": 2
+     "pontos": 1
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Brasil tem 5,3 milhões de mulheres nanoempreendedoras - Poder360",
+     "link": "https://www.poder360.com.br/poder-empreendedor/brasil-tem-53-milhoes-de-mulheres-nanoempreendedoras/",
+     "data": "2026-11-19",
+     "pontos": 1
     }
    ]
   },
@@ -1403,19 +1442,19 @@
    "estado": "SP",
    "funcionarios": "6332",
    "busca": "Dexco",
-   "score": 16,
+   "score": 15,
    "sinais": [
     {
      "fonte": "Alerta Google",
-     "texto": "Empresas oferecem vagas em Niterói para diferentes níveis de escolaridade",
-     "link": "https://cidadedeniteroi.com/empregos/empresas-oferecem-vagas-em-niteroi-para-diferentes-niveis-de-escolaridade/",
-     "data": "2026-11-19",
+     "texto": "Dexco abre 60 vagas em Jundiaí e realiza processo seletivo presencial no dia 26",
+     "link": "https://tribunadejundiai.com.br/economia/empregos/processo-seletivo-dexco-jundiai-60-vagas/",
+     "data": "2026-11-20",
      "pontos": 3
     },
     {
-     "fonte": "Alerta Google",
-     "texto": "Dos 80 anos da Deca à expansão do D3: em 2027, Dexco mira em novas experiências proprietárias",
-     "link": "https://elle.com.br/elle-decoration/dexco-novas-experiencias",
+     "fonte": "Notícias",
+     "texto": "Dexco abre 60 vagas em Jundiaí e realiza processo seletivo presencial no dia 26 - Tribuna de Jundiaí",
+     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORVVydW1vaHMwS0hkQnhmd3FYVUVVV3ZEczU0ZU0wVnp5S1N4cjU2NWtrZVBUTC1nTzN6eFdkQXdaSDFrdTNWWmdIc25QSWZMaXpPcFZiQUY4LTM3aWNCZUsyQkVfRVhxbTE3T2tJWTQ2SDhMY2xrU0Vka2l3Y0JOVDRWcGxSR2EycTN3V05aRGdIeXp5SWc?oc=5",
      "data": "2026-11-19",
      "pontos": 3
     },
@@ -1442,62 +1481,41 @@
     },
     {
      "fonte": "Alerta Google",
-     "texto": "Dexco planeja investir R$ 50 milhões em 2027 para consolidar seu ecossistema corporativo ...",
-     "link": "https://brasilinovador.com.br/dexco-direciona-r-50-milhoes-para-plataformas-proprietarias-e-encerra-patrocinio-a-casacor-a-partir-de-2027/",
-     "data": "2026-11-19",
-     "pontos": 1
-    },
-    {
-     "fonte": "Alerta Google",
-     "texto": "Dexco investe em experiências proprietárias e celebra os 80 anos da Deca em 2027",
-     "link": "https://www.estadao.com.br/economia/negocios/dexco-investe-em-experiencias-proprietarias-e-celebra-os-80-anos-da-deca-em-2027/",
-     "data": "2026-11-18",
+     "texto": "Fitch afirma rating AAA(bra) da Dexco (DXCO3) com perspectiva estável - Visno Invest",
+     "link": "https://visnoinvest.com.br/news/16643/fitch-afirma-rating-aaa-bra-da-dexco-dxco3-com-perspectiva-estavel",
+     "data": "2026-11-20",
      "pontos": 1
     }
    ]
   },
   {
-   "empresa": "C.Vale - Cooperativa Agroindustrial",
-   "segmento": "Agroindústria",
-   "cidade": "Palotina",
-   "estado": "PR",
-   "funcionarios": "6376",
-   "busca": "C.Vale",
-   "score": 15,
+   "empresa": "Votorantim Cimentos",
+   "segmento": "Cimento e materiais de construção",
+   "cidade": "Barueri",
+   "estado": "SP",
+   "funcionarios": "10466",
+   "busca": "Votorantim Cimentos",
+   "score": 12,
    "sinais": [
     {
      "fonte": "Notícias",
-     "texto": "C.Vale fará entrevistas em Maripá para vagas no complexo agroindustrial de Palotina - Folha de Palotina",
-     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTjNqZy13eGNLa1Z4ckE3M2ZyQ2x5TGFtVTZTUldzT0VJZS1ZVE11SjlVRXlXZElBZDBtMWJ2V001R3ZZMnVFZmlDMjY1dVpURS1adC02dDVoV3RNdUV0ckRNN1pWOVE4R2FvUWc5YlNadVVfM0ZVUE4tRHBfWG1hMV9XYmxlb0ZCd3pJaUNPNTd3eTFJWDRaNk9jQjdhUzVDdUx4UlhOaEs3eUVJNmRCRElnNlZDSE1faWtRb014RHVtUQ?oc=5",
+     "texto": "Empresa multinacional, Votorantim Cimentos contrata Operador(a) de Produção em Camaçari; veja os requisitos - Empregos na Bahia",
+     "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBvcVJCVXdTbjVFOUI3ZjRzTmJua2hsSWl6NWdjTS1NdnppMjBUQjRBSVJIYzN3c0t3TXFnOVQ4b0Z1RnI5QU1jSXh6Mjh5Mk51UDRkWFJkQ1lyRGZoRWNONWxQYmFOVDNXbEFaRXdOektIQQ?oc=5",
      "data": "2026-11-18",
-     "pontos": 3
+     "pontos": 6
     },
     {
      "fonte": "Notícias",
-     "texto": "Agência do Trabalhador de Nova Santa Rosa recebe entrevistas da C.Vale para vagas de auxiliar de produção nesta quinta-feira (19) - radiocristalina.com.br",
-     "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOb0NTS3RSNEJzMnV5M1JxYlp6M0tEUTJwZ05JWFlBYTJSYXJjbXZjMkg4Z0poMjZHWG5PYXdreC1QQjEtR2lCS21OZ0Q0ZnpSNU91ZVc3M0wza0dwQ3RGOFFKeXhpUFZ0N2NlQkFvRzE3TThfU3ZCTTY1bkhPSmd0MTZkWUo3TGRLZmhhUjNyZlZEYzlzdmJNT3lsQktPTjJDVTA3aG5kbGR1bmhiZ0FBTXpjMTdQNTZQYkNlSG9SZGFyUWZpN3ZycW5fRVdyOWNXbGtlQTNtLXVhY2hmOUVmQzFkMExRRm04WjVwek9R?oc=5",
+     "texto": "Votorantim Cimentos abre 11 vagas em Itajaí e reserva postos para mulheres e PcD - Economia SC",
+     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOVmUyVF9EYUwwaXJTTmNGb0dyUW9vYXZaNlN6aW4xZV84bEI0aTloTnRBalFvOHdQMkpKYW0tZVNUa251Sy1sT01vOTdnMTRTWE8tMlFSX2VZMko1R1lLclM5YTYwOEZhRGpZdlF4TXlQWlNUQjAyMHZyWXQyVUxkdTZRV2xhN21faXkzVTJ3amhxRTM0TTZZQjJORk1NaDdueTJxZEJKcE1fUThZMURuWTJKVnRLdw?oc=5",
      "data": "2026-11-17",
      "pontos": 3
     },
     {
      "fonte": "Notícias",
-     "texto": "Supermercado C.Vale abre vagas em Maripá com entrevistas nesta quarta-feira (18) - Portal Maripá ®",
-     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRjVvdzhpM01BSVA2Z3Bva3BrLXlQQWFOV1NGZ0xOYy1ib0Y2SmRuZzN3djYyNmR1UzhqMUc4ZmVWU2lKa3ItVENRenpLeUNaN3lSRlhTR1djdlJZQ1dad0FaN1ZQSVdyZ3B6eEZfZXRjNUd2WjNZTV9RbS1lbHFfOHBDZEw0Q3ljbU9Cbzk4X0dQTDhZQXpYYXRhaURvUEVkckppMGJnU0tTR0JRWmNjSUlBbXJENTJxMkdMT1hDbWNHZw?oc=5",
-     "data": "2026-11-17",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Supermercado C.Vale abre vagas de emprego em Maripá com entrevistas nesta quarta (18) - A Gazeta Web",
-     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQRThKamNZYTZIR2FyVEwxbVJfZnMwTGpJOVFyMUc4OWN1eUFrMEVBSENsR3dkX3RQTWhiQUZpSUw1WUNSVnZHZGpZcUVabXp6Z1JLdkdEYl90VmRPVVVaS3BPX3hZVU16eG9mbndKcEtfcTBLc3lUcXd2dVBOT01udFZwVXZwNl9iQXNLOVBNTlhjNVRmRktybl9wZlBzR2p2YUxnZjZHeFBuUHRKVjJqdTM2ZDJxNGdocEtBUw?oc=5",
-     "data": "2026-11-17",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "C.Vale realiza entrevistas para vagas de emprego em Maripá nesta quarta-feira - Folha de Palotina",
-     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOYlhYMkx2XzdVa0MzM0lfc2d5dkhpb01FUm92UGhLX29ET3RJYm8taUlMd3ZBNTJjRTNRVVk3MUFaQXJaVDVUS0F3X2h5c1ZmNFBWM0xYdjY4SEpkLXRNZjZhclhPMTAydVJqOGtDbUxwSU5WaDVvZ3RUUzZ3YWpPaTJNdEJNa0lxa0piSmFMTmVzTWJwSUR4bWdTektOanVXTTJGbG53THVQb1lsUlBmb2tkSDVvTU1VWEE?oc=5",
-     "data": "2026-11-03",
+     "texto": "Votorantim Cimentos reúne 117 anúncios de vagas em fábricas e concreteiras, de ajudante com ensino fundamental a supervisor de manutenção, com prazos vencendo em novembro - CPG Click Petróleo e Gás",
+     "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB3N09oQ3JxZzRDMHU2cW96ZVJuejhGRFJzTFhQOVYySjZvYkhyWDFJOUZHeEk0X2pHU3pnek1XUjZ5VFAzRy1ueEZuQmVsa1pQVTBvdDlwRzMzTG9kMEhwTHhOaXJVay0zaVdWQWF5TkNBRnczR3hMOF9n?oc=5",
+     "data": "2026-11-10",
      "pontos": 3
     }
    ]
@@ -1531,38 +1549,6 @@
      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPRGhHLTYyQ085SFJQUDJHWWh1T1k1ajgwekNkR2d4M2ZZSjgwd1FTSjd2WnB6SHM3SXlQaFgtSDNIN1Q3OXV2YlhyZDNpcXZuMEVuOEVEQmpNNXhnc0RBdGpST29xTzB6bC1iUHRxcENXRnlNQWMwbC04N1QxZXZ1ZFJEVG9ldnBlTUVsMHVaTGpZdEJrYXVwdGRwbEVnQXM?oc=5",
      "data": "2026-10-22",
      "pontos": 3
-    }
-   ]
-  },
-  {
-   "empresa": "Natura",
-   "segmento": "Cosméticos",
-   "cidade": "São Paulo",
-   "estado": "SP",
-   "funcionarios": "49263",
-   "busca": "Natura",
-   "score": 7,
-   "sinais": [
-    {
-     "fonte": "Notícias",
-     "texto": "Natura abre vagas de emprego em São Paulo com salários anunciados de até R$ 2.500, benefícios e oportunidades para quem tem ensino médio - CPG Click Petróleo e Gás",
-     "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOQ0lQM3lXdzBnRE9lc2c1bkN1NmIzZTNtanBDdm0yakhBX0JZRWRYekRjYmg0b0sycmNHZXNiUGNoV2toNDlJU3NILVZwX1J5akExQlRYb09BQjE1Uzl2VENLUTlNcDNPSnZvWDZ0QXc3WTJYemNNcmFpUWE2QlBIcEQ2djVPTHRaOWVPeDN5NDdoN18zSXZJSHJlcHFlY0J5SU1oRlVtSzJQMGZvZ0JVenEyaUxfdTRaQ3dpTHh3MlZKc0dHaFVhSzZtSHJ4MVd0ci1nMVJyWUFLQUdVam0wa1AwTTN0QkNJS0pyMUg0bWtpTmJBWHNYamVTeDRnUW5nMzZRaQ?oc=5",
-     "data": "2026-11-13",
-     "pontos": 3
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "Lucro da Natura (NATU3) volta ao azul com R$ 49 milhões no 3T26, mas vendas no Brasil caem 9% - melhorinvestimento.net",
-     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5rZjlOMFdFRk9sbXN2QTJVMXR3MUN5U1hWeTIxTXpmcm9QSXg2QUhPYk85cENKOXRQM1FxUGJOdHV6cUV6X3IwVUFDUnhpVGVONkRRZzBzSHRMSTBlNDlXX1d6OEI4dWJNc3JobC1sMDR2NEYy?oc=5",
-     "data": "2026-11-14",
-     "pontos": 2
-    },
-    {
-     "fonte": "Notícias",
-     "texto": "'Brasil não quebra com Lula, mas fica condenado a um crescimento medíocre', diz ex-banqueiro conselheiro da Natura - BBC",
-     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9IMFZTNU5rN2hfbnpHTFc1c25uWkNqM0RIQ1ZYV29kQmVXZGVXNnlsNDlhUTFBclZiNGswdFZVMTFCeFg2X1JoRDNCZzdvTC1KUmNlNG9STUFUakFjWTdfZG4zUdIBaEFVX3lxTFBlcnc4RVNaaTVOUlhmX0doY1VCZDRwTEoxaFZvajNzTDFEM2k1Nm9SVUw1dHNPWWNkLWRMZVhVZFl6MTI1cXRDT1JzUWRtMWZfZGlQLU9oVF9NcTBUZ1VKcDh4OWFkZEFj?oc=5",
-     "data": "2026-10-29",
-     "pontos": 2
     }
    ]
   },
@@ -1624,6 +1610,38 @@
    ]
   },
   {
+   "empresa": "Cyrela",
+   "segmento": "Construção civil",
+   "cidade": "São Paulo",
+   "estado": "SP",
+   "funcionarios": "6075",
+   "busca": "Cyrela",
+   "score": 6,
+   "sinais": [
+    {
+     "fonte": "Notícias",
+     "texto": "Lucro da Cyrela (CYRE3) cai 21% no 3T26, a R$ 481 milhões, mesmo com receita 12% maior - melhorinvestimento.net",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1MeFJtblVNUm1RdU02N0tQNm5RdURYSm5iQzZOeXN2NHQ2bU1pdnRfaU1KbUk3NGdBX2NPcGJpR2VzUEptMEtWSDctclY1azdXTnhSYTdQRUwyU0tGdEd1VXk2b3lBeFVFOVY3ekZuRmx0S1E0?oc=5",
+     "data": "2026-11-14",
+     "pontos": 2
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Cyrela (CYRE3) cancela 32 milhões de ações; o que muda para quem investe? - Suno - Investimentos Inteligentes",
+     "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9Ma29HOFFGQlcxelJ2LW5Hckdxam16X3ZRSVp3S0FrbkVneHV4ZHNDdXV2LVdobldBb040Z1FkQmRjYlNjaGxLYW5fb2dYa0xWVFlkcXdiaWZoeno5SU9QV3NUTndLamJVMTN6NWdIZVo3T1HSAXhBVV95cUxNQ2w1X3E4OEJ3ZFFBM2dVT0hpMGFMbGdqZlotajJKYTZXcGo1cUQ2Vy1kTFAtdktOenEySW5zT2x4VkZlRVl4UXFTVEFvYXFNQTcwWXJtNF9wUXZoWFU4eXpRNXU4OW8zYjI0eHNwQm9vMFltV2pPbDY?oc=5",
+     "data": "2026-11-13",
+     "pontos": 2
+    },
+    {
+     "fonte": "Notícias",
+     "texto": "Cyrela perde estimativas de receita no 3º tri, mas recompra de ações cresce - Investing.com Brasil - Finanças, Câmbio e Investimentos",
+     "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQWdzUTR5aUIzc0FVN1BCanRaekVYaWV2U0gwcUo4U1pibkFwTXc2aDFtRXZRYUFjYUJkbW1EUG81SXEzY0liYjVQdUh3bTFHbHdDX1JRcHRzMDRxSkNMOFBDZWwtZjVNSUVIQUxKaXFyMGZ3YjRsdFJ5bzZvSmhYS1BBWnpQNlVHU0dkc0dyeTE5UTc2WDJkYndoMlpXb2ZuR19GeldLRVVpSnVIcGdTMkNJNEhaOUgxNmcyckJUazc0cC0xRG9uZQ?oc=5",
+     "data": "2026-11-13",
+     "pontos": 2
+    }
+   ]
+  },
+  {
    "empresa": "Eldorado Brasil Celulose",
    "segmento": "Papel e celulose",
    "cidade": "Três Lagoas",
@@ -1655,12 +1673,12 @@
    "estado": "CE",
    "funcionarios": "11619",
    "busca": "3 Corações",
-   "score": 4,
+   "score": 5,
    "sinais": [
     {
      "fonte": "Notícias",
-     "texto": "Grupo chinês investirá R$ 110 milhões em 3 Corações - Cidade Conecta",
-     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNT0IwWmRRR3BOZzJHNjJDcFAzVVJWS0JGTElDZ2MweVdYMjlMOV9qcGhka0tPQ2NEbzdGaDBHcFA4YVZuRkIydllhYUYxRldlRkJmMzc3bURvVEFsM3E2M3RGZm1VdURENjZTb1JhM3VnaFZnMndXSHRtUi1IMDdpb05zemRrWm5vY2k3b3QxM3I4MHY3dVE?oc=5",
+     "texto": "Grupo chinês investirá R$ 110 milhões em 3 Corações - Muzambinho.com",
+     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOT3VBa3ZXU1hJU1lBTnlLR3padmNyQzlveWZZSDZsUE14QnBPUVFiVnpzMlFLX1ZVYmJIeUtTOVN6cWhWR1d2dFhJQ1hnZVpVVk1MRWdyQUMwVEpWd1I3WkxjZ1JWRUNwODhyWUJ1Q19YUWpkeEk3cDlVQ3FyUld2TE1oQWM0eF9wRjZfR01XR0xtdw?oc=5",
      "data": "2026-11-06",
      "pontos": 2
     },
@@ -1670,6 +1688,38 @@
      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNcHVtTDZRUV9PaTczNi1MX2E3S2RMdThPVHJJVkZsalN1aW54ZEtHZTAwYW1udGtNR0pIVHE5YnFqMWZqUlVMcW1ReXpzYWFQaXprcFdFWmNtS0hPMENUY0lYSEg3bG1EODFaTS1nRGVzX1kxMUVnbjNBYW9yb0NuTXhQcGFoNFE?oc=5",
      "data": "2026-11-06",
      "pontos": 2
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "PIB The New College usa desafio real da 3 Corações para selecionar alunos em Florianópolis",
+     "link": "https://informefloripa.com/pib-the-new-college-usa-desafio-real-da-3-coracoes-para-selecionar-alunos-em-florianopolis/",
+     "data": "2026-11-20",
+     "pontos": 1
+    }
+   ]
+  },
+  {
+   "empresa": "Toyota do Brasil",
+   "segmento": "Automotivo",
+   "cidade": "Sorocaba",
+   "estado": "SP",
+   "funcionarios": "8681",
+   "busca": "Toyota do Brasil",
+   "score": 4,
+   "sinais": [
+    {
+     "fonte": "Alerta Google",
+     "texto": "Governo de SP fortalece indústria automotiva com expansão da Toyota em Sorocaba",
+     "link": "https://grupoportaldenoticias.com.br/governo-de-sp-fortalece-industria-automotiva-com-expansao-da-toyota-em-sorocaba/",
+     "data": "2026-11-19",
+     "pontos": 3
+    },
+    {
+     "fonte": "Alerta Google",
+     "texto": "Toyota inaugura oficialmente fábrica em Sorocaba e anuncia modelo Deck - Jornal de Itu",
+     "link": "https://www.jornaldeitu.com.br/toyota-inaugura-oficialmente-fabrica-em-sorocaba-e-anuncia",
+     "data": "2026-11-20",
+     "pontos": 1
     }
    ]
   },
@@ -1692,19 +1742,19 @@
    ]
   },
   {
-   "empresa": "ArcelorMittal Brasil",
-   "segmento": "Siderurgia",
-   "cidade": "Belo Horizonte",
-   "estado": "MG",
-   "funcionarios": "14299",
-   "busca": "ArcelorMittal Brasil",
+   "empresa": "Hypera",
+   "segmento": "Farmacêutico",
+   "cidade": "São Paulo",
+   "estado": "SP",
+   "funcionarios": "6279",
+   "busca": "Hypera",
    "score": 1,
    "sinais": [
     {
      "fonte": "Alerta Google",
-     "texto": "Educação precisa de novas respostas para os desafios do futuro, defende Fundação ArcelorMittal",
-     "link": "https://observatorio3setor.org.br/educacao-precisa-de-novas-respostas-para-os-desafios-do-futuro-defende-fundacao-arcelormittal/",
-     "data": "2026-11-19",
+     "texto": "Hypera (HYPE3) vira favorita do Morgan Stanley no setor farmacêutico com avanço dos GLP-1",
+     "link": "https://guiadoinvestidor.com.br/mercado/hypera-hype3-vira-favorita-do-morgan-stanley-no-setor-farmaceutico-com-avanco-dos-glp-1/",
+     "data": "2026-11-20",
      "pontos": 1
     }
    ]
@@ -1726,6 +1776,16 @@
    "estado": "SP",
    "funcionarios": "12678",
    "busca": "Minerva Foods",
+   "score": 0,
+   "sinais": []
+  },
+  {
+   "empresa": "ArcelorMittal Brasil",
+   "segmento": "Siderurgia",
+   "cidade": "Belo Horizonte",
+   "estado": "MG",
+   "funcionarios": "14299",
+   "busca": "ArcelorMittal Brasil",
    "score": 0,
    "sinais": []
   },
@@ -1756,16 +1816,6 @@
    "estado": "RJ",
    "funcionarios": "10023",
    "busca": "Sotreq",
-   "score": 0,
-   "sinais": []
-  },
-  {
-   "empresa": "Toyota do Brasil",
-   "segmento": "Automotivo",
-   "cidade": "Sorocaba",
-   "estado": "SP",
-   "funcionarios": "8681",
-   "busca": "Toyota do Brasil",
    "score": 0,
    "sinais": []
   },
@@ -1840,32 +1890,12 @@
    "sinais": []
   },
   {
-   "empresa": "Cyrela",
-   "segmento": "Construção civil",
-   "cidade": "São Paulo",
-   "estado": "SP",
-   "funcionarios": "6075",
-   "busca": "Cyrela",
-   "score": 0,
-   "sinais": []
-  },
-  {
    "empresa": "União Química Farmacêutica Nacional",
    "segmento": "Farmacêutico",
    "cidade": "São Paulo",
    "estado": "SP",
    "funcionarios": "7661",
    "busca": "União Química Farmacêutica Nacional",
-   "score": 0,
-   "sinais": []
-  },
-  {
-   "empresa": "Hypera",
-   "segmento": "Farmacêutico",
-   "cidade": "São Paulo",
-   "estado": "SP",
-   "funcionarios": "6279",
-   "busca": "Hypera",
    "score": 0,
    "sinais": []
   },
